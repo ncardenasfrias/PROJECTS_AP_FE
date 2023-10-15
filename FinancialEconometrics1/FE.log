@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  15 OCT 2023 20:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  15 OCT 2023 21:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex"
-(/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex
+**/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex
+(/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -751,8 +751,8 @@ File: ot1qpl.fd 2009/09/25 v1.2 font definition file for OT1/qpl
 LaTeX Warning: Unused global option(s):
     [12pts].
 
-(./AP1.aux)
-\openout1 = `AP1.aux'.
+(./FE.aux)
+\openout1 = `FE.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
 LaTeX Font Info:    ... okay on input line 83.
@@ -856,26 +856,20 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./AP1.bbl [2]) [3] (./AP1.aux) ) 
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 19157 strings out of 478268
- 319482 string characters out of 5846347
- 667027 words of memory out of 5000000
- 37006 multiletter control sequences out of 15000+600000
- 510843 words of font info for 66 fonts, out of 8000000 for 9000
+ 19113 strings out of 478268
+ 318852 string characters out of 5846347
+ 657925 words of memory out of 5000000
+ 36975 multiletter control sequences out of 15000+600000
+ 494498 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,117p,1255b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on AP1.pdf (3 pages, 248086 bytes).
+ 84i,7n,117p,1270b,387s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb>
+Output written on FE.pdf (1 page, 110263 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 109 compressed objects within 2 object streams
- 18 named destinations out of 1000 (max. 500000)
+ 67 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

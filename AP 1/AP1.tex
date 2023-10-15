@@ -82,11 +82,101 @@
 
 \begin{document}
 
-        \title{\scshape{Asset Pricing - Empirical Application 1\\ Arbitrage Pricing Theory decompositionof of the risk premium}}
+        \title{\scshape{Asset Pricing - Empirical Application 1\\Factorial Model and Risk Premium Decomposition - APT }}%Arbitrage Pricing Theory: Decomposition of the Risk Premium}}
         \author{Luis Miguel Fonseca \\ Stéphane Eloundou Mvondo\\ Natalia Cárdenas Frías }
         \date{\today}
         \maketitle 
 
-ici on écris 
+
+% an example of a factorial model including exogenous and endogenous factors based on the APT approach proposed by Ross; refer also to Fama and French factors
+
+%In this application we apply Ross 1976 Arbitrage Theory Pricing (ATP) to decompose the risk premium of a stock index, the DAX40, using the multibeta relationship. 
+%This is meant to better understand the returns of the assets by identifying the market price of risk and the factors that contribute to it. 
+
+
+
+\section{Data and Framework}
+
+Our goal is to better comprehend how the market price systemic, non-diversiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
+We base our analysis in a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
+Unlike the CAPM model that considers an risk premium, the factorial model considers that investors holding risk in their portfolios\footnote{We assume taht said protafolios are sufficiently large so that any source of idiosyncratic risk can be diversified so that only aggregate risk is remunerated.} by holding a stock $j$, are compensated with $k$ different risk premia associated to $k$ common factors.% which impact the returns of every stock, potentially in different manners. 
+
+That is, the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
+    \begin{equation} \label{eq:factorialmodel}
+        R_j = \E[R_j] + \underbrace{\sum_{k=1}^K \beta_{j,k} f_k}_{\mathclap{\text{Systemic risk}}} + \overbrace{u_j}^{\mathclap{\text{Idiosyncratic risk}}}
+    \end{equation}
+Where $\E[R_j]$ is the expected return of asset $j$. 
+The sources of risk are two-fold. 
+The investor faces a centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completelly diversiable with a portfolio "large enough" ($N$ big) because they are independent from each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$\footnote{Required assumption to perform the estimations that will follow.}.
+She also faces $k$ different sources of aggregate risk, modelled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
+By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
+
+
+
+    \subsection{DAX 40}
+We consider the 
+
+
+\section{Estimation of the Factors}
+
+We need to choose what factors we are going to consider generate risk premia that affects the return for the investor. In this secion we examine the role of different types of factors (i) exogeneous, (ii) endogeneous and we examine more closely the three-factor model proposed by \cite{famaCommonRiskFactors1993} in (iii).
+
+
+
+    \subsection{Exogeneous Factors}
+These are risk factors that are supposed to be orthogonal to the portfolio itself. 
+In particular it is interesting to consider the role of 
+
+
+
+    \subsection{Endogeneous Factors}
+
+
+
+
+
+    \subsection{French-Fame Factors}
+
+\cite{famaCommonRiskFactors1993} can be seen as an extension of the CAPM model. 
+The authors show that the variation of the returns of an asset can be explained not only by the exposure to market risk as in the CAPM represented by the difference of the market return and the risk-free rate $[R_M-R_f]$, but also by a size and value premium in the following model.
+    
+    \begin{equation}
+        R_j = \alpha_j + R_f + \beta_{m,j}[R_M-R_f] +\beta_{S} SMB + \beta_{V}HML +\varepsilon_j
+    \end{equation}
+
+The size premium refers to the observation that stocks with small market capitalizations tend to outperform stocks with larger ones and it is captured by the factor SMB, \emph{small minus big}.
+It is computed as the difference in average returns of the $30\%$ stocks with the smallest market capitalization and the average returns of the $30\%$ stocks associated to the firms with the largest market capitalization. 
+The value premium refers to the outperformance of "value stocks" i.e. those that have high book-to-market (B/M) and it is represented by the difference in average return of the $50\%$ of stocks with highest $B/M$ ratio (value stocks) and the $50\%$ with lowest $B/M$ ratio (growth stocks). 
+
+\begin{comment}
+    
+    The Fama/French factors are constructed using the 6 value-weight portfolios formed on size and book-to-market. (See the description of the 6 size/book-to-market portfolios.)
+    
+    SMB (Small Minus Big) is the average return on the three small portfolios minus the average return on the three big portfolios,
+    
+    
+    SMB = 1/3 (Small Value + Small Neutral + Small Growth) - 1/3 (Big Value + Big Neutral + Big Growth).	 
+    
+    HML (High Minus Low) is the average return on the two value portfolios minus the average return on the two growth portfolios,
+    
+    
+    HML = 1/2 (Small Value + Big Value) - 1/2 (Small Growth + Big Growth).	 
+    
+    Rm-Rf, the excess return on the market, value-weight return of all CRSP firms incorporated in the US and listed on the NYSE, AMEX, or NASDAQ that have a CRSP share code of 10 or 11 at the beginning of month t, good shares and price data at the beginning of t, and good return data for t minus the one-month Treasury bill rate (from Ibbotson Associates).
+    
+    See Fama and French, 1993, "Common Risk Factors in the Returns on Stocks and Bonds," Journal of Financial Economics, for a complete description of the factor returns.
+\end{comment}
+    
+    
+    \href{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}{See K. French Data Library}
+
+
+\section{Estimation of the exposure}
+
+
+\section{Estimation of the market price of risk(s)}
+
+\addcontentsline{toc}{section}{References}
+\bibliography{Finance.bib}
 
 \end{document}
