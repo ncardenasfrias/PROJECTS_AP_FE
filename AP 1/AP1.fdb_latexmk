@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex AP1"] 1697396207 "AP1.aux" "AP1.bbl" "AP1" 1697396210
+["bibtex AP1"] 1699376172 "AP1.aux" "AP1.bbl" "AP1" 1699376175
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1697396209 4968 6bb96d5e189bf1f0ea0bfe20d7367379 "pdflatex"
-  "Finance.bib" 1697362993 190408 276bf5cfa7edba080e0e5c06e016bc1c ""
+  "AP1.aux" 1699376174 5117 2cd24d4689861fee515ced43e9e181b6 "pdflatex"
+  "Finance.bib" 1698053006 223979 0bc40759c303957b04908fef84df73a4 ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1697396208 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1697396210
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1697396204 8477 4f19fdd3f85224a9668abd4e9404d9cf ""
+["pdflatex"] 1699376172 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1699376175
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1699376168 9506 32ef2c8ad404beb1146a015b786881df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -169,9 +169,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1697396209 4968 6bb96d5e189bf1f0ea0bfe20d7367379 "pdflatex"
-  "AP1.bbl" 1697396208 907 f9290fc3cb04cc67f3e09b667435c300 "bibtex AP1"
-  "AP1.tex" 1697396204 8477 4f19fdd3f85224a9668abd4e9404d9cf ""
+  "AP1.aux" 1699376174 5117 2cd24d4689861fee515ced43e9e181b6 "pdflatex"
+  "AP1.bbl" 1699376172 907 f9290fc3cb04cc67f3e09b667435c300 "bibtex AP1"
+  "AP1.tex" 1699376168 9506 32ef2c8ad404beb1146a015b786881df ""
   (generated)
   "AP1.aux"
   "AP1.log"

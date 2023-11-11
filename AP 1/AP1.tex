@@ -1,4 +1,4 @@
-\documentclass[hidelinks,12pts]{article}
+\documentclass[hidelinks,11pts]{article}
 \usepackage[export]{adjustbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -97,9 +97,9 @@
 
 \section{Data and Framework}
 
-Our goal is to better comprehend how the market price systemic, non-diversiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
+Our goal is to better comprehend how the market price systemic, non-diversifiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
 We base our analysis in a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
-Unlike the CAPM model that considers an risk premium, the factorial model considers that investors holding risk in their portfolios\footnote{We assume taht said protafolios are sufficiently large so that any source of idiosyncratic risk can be diversified so that only aggregate risk is remunerated.} by holding a stock $j$, are compensated with $k$ different risk premia associated to $k$ common factors.% which impact the returns of every stock, potentially in different manners. 
+Unlike the CAPM model that considers a risk premium, the factorial model considers that investors holding risk in their portfolios\footnote{We assume that said portfolios are sufficiently large so that any source of idiosyncratic risk can be diversified so that only aggregate risk is remunerated.} by holding a stock $j$, are compensated with $k$ different risk premia associated to $k$ common factors.% which impact the returns of every stock, potentially in different manners. 
 
 That is, the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
     \begin{equation} \label{eq:factorialmodel}
@@ -107,25 +107,28 @@ That is, the return $R_j$ of the $j$-th component of her portfolio can be descri
     \end{equation}
 Where $\E[R_j]$ is the expected return of asset $j$. 
 The sources of risk are two-fold. 
-The investor faces a centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completelly diversiable with a portfolio "large enough" ($N$ big) because they are independent from each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$\footnote{Required assumption to perform the estimations that will follow.}.
-She also faces $k$ different sources of aggregate risk, modelled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
+The investor faces centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completely diversiable with a portfolio "large enough" ($N$ big) because they are independent of each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$ which is a required assumption to perform the estimations that will follow.
+She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
 By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
 
 
 
-    \subsection{DAX 40}
-We consider the 
+    \subsection{German Stock Market}
+We decided to consider the German stock market for this analysis because it is a major liquid stock market in Europe. It is also the biggest economy in the Europe, with mayor 
+
+
+
 
 
 \section{Estimation of the Factors}
 
-We need to choose what factors we are going to consider generate risk premia that affects the return for the investor. In this secion we examine the role of different types of factors (i) exogeneous, (ii) endogeneous and we examine more closely the three-factor model proposed by \cite{famaCommonRiskFactors1993} in (iii).
+We need to choose what factors we are going to consider to generate risk premia that affect the return for the investor. In this section we examine the role of different types of factors (i) exogenous, (ii) endogeneous and we examine more closely the three-factor model proposed by \cite{famaCommonRiskFactors1993} in (iii).
 
 
 
     \subsection{Exogeneous Factors}
 These are risk factors that are supposed to be orthogonal to the portfolio itself. 
-In particular it is interesting to consider the role of 
+In particular, it is interesting to consider the role of 
 
 
 
@@ -175,6 +178,13 @@ The value premium refers to the outperformance of "value stocks" i.e. those that
 
 
 \section{Estimation of the market price of risk(s)}
+
+
+\textcolor{blue}{Consider a series of returns for different stock prices of at least 30 over a given period of time and frequency. The goal is to estimate  rk premium by choosing a relevant so-called  risk-free asset obtained as the return of treasury bond with relevant maturity}
+
+\textcolor{blue}{Develop econometric analysis which provides the multi-beta relationship 1. Identify the series for the risk factors (endo and exo) and justify choices $+$ including 2 factors proposed by French and Fama 2. Estimate beta coeds or different stocks with relevant linear regression 3. Estimate market price of different sources of risk retained in analysis with appropriate linear reg}
+
+\textcolor{blue}{Comment the results from a financial point of view: are the estimated exposures of the different stocks to the different factors in line with expectations}
 
 \addcontentsline{toc}{section}{References}
 \bibliography{Finance.bib}
