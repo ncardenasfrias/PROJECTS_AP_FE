@@ -14,15 +14,19 @@ import os
 
 os.chdir('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1')
 
-tickers = ['DTE.DE']
-data = yf.download(tickers, start='2013-01-01',
-                end='2023-11-01')
+#Time frame of the study
+start = datetime.datetime(2000, 1, 1)
+end = datetime.datetime(2023, 11, 1)
+
+#tickers 
+tickers = ['DTE.DE', 'AIR.DE', 'DHL.DE', 'SIE.DE', 'DB1.DE', '1COV.DE', 'EOAN.DE', 'ADS.DE', 'DTG.DE', 'DBK.DE', 'HEI.DE', 'RWE.DE', 'BAS.DE', 'CON.DE', 'MTX.DE', 'ALV.DE', 'SHL.DE', 'BEI.DE', 'SY1.DE', 'FRE.DE', 'BAYN.DE', 'VOW3.DE', 'MRK.DE', 'BMW.DE', 'HNR1.DE', 'IFX.DE', 'P911.DE', 'VNA.DE', 'ZAL.DE', 'ENR.DE']
+
+data = yf.download(tickers, start=start,
+                end=end)
 adjclose=data['Adj Close']
 
 
 pd.core.common.is_list_like = pd.api.types.is_list_like
-start = datetime.datetime(2014, 9, 17)
-end = datetime.datetime(2023, 10, 31)
 
 SP500 = web.DataReader(['sp500'], 'fred', start, end)
 SP500 = SP500.asfreq('W-FRI', method='pad')
