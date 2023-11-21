@@ -22,6 +22,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{indentfirst}
+\usepackage{listings}
 \usepackage{lscape}
 \usepackage{mathtools}
 \usepackage{mdframed}
@@ -79,6 +80,36 @@
    \or \ddagger\ddagger \else\@ctrerr\fi}}
     \makeatother
 
+%code snippets 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
 
 \begin{document}
 
@@ -93,13 +124,62 @@
 %In this application we apply Ross 1976 Arbitrage Theory Pricing (ATP) to decompose the risk premium of a stock index, the DAX40, using the multibeta relationship. 
 %This is meant to better understand the returns of the assets by identifying the market price of risk and the factors that contribute to it. 
 
+\section*{Introduction}
+
+Focusing on recent data from the German equity market, we want to better comprehend how the market prices systemic, non-diversifiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
+We base our analysis in a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
+Unlike the CAPM model which considers a unique risk premium in the market, the Ross model gives a more detailed description of the pricing of aggregate risk by decomposing the contributions of different sources of risk. 
+Here, a risky portfolio of $j$ stocks\footnote{Let $j \in \{1,...,J\}$ with $J$ sufficiently large so that all idiosyncratic risk can be fully diversified. We better explain the difference between idiosyncratic and aggregate in the context of the Ross model in Section \ref{sec:model}} is compensated with  $k$ risk premia associated with the $k$ \emph{common factors} that the portfolio is exposed to.
+
+\begin{comment}
+\emph{factors} of aggregate risk is compensated by $k$ 
+of the risk premium by identifying the compensation of $k$ different 
 
 
+Unlike the CAPM model that considers a unique risk premium, the factorial model considers that investors holding risk in their portfolios\footnote{We assume that said portfolios are sufficiently large so that any source of idiosyncratic risk can be diversified so that only aggregate risk is remunerated.} by holding a stock $j$, are compensated with $k$ different risk premia associated to $k$ common factors.% which impact the returns of every stock, potentially in different manners. 
+
+\end{comment}
+
+
+
+
+
+\section{Data and Framework} 
+
+    \subsection{German stock market data} \label{sec:model}
+
+
+
+    \subsection{Factorial model and multibeta relationship}
+
+In the name of completeness, this section summarizes the lecture on the \cite{rossArbitrageTheoryCapital1976} model and the multibeta relationship. 
+
+
+
+\section{Empirical strategy and implementation}
+
+    \subsection{Identify the risk factors}
+
+        \subsubsection{Exogeneous factors}
+
+        \subsubsection{Endogeneous factors}
+        \subsubsection{French-Fama factors}
+
+
+    \subsection{Estimate the $\beta_k$ coefficients from the factorial model}
+
+    \subsection{Estimate the $\lambda_k$ parameters from the multibeta relationship}
+    
+    \subsection{Test the validity of the multibeta relationship}
+
+
+\section*{Conslusion}
+
+
+\newpage
+\newpage 
 \section{Data and Framework}
 
-Our goal is to better comprehend how the market price systemic, non-diversifiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
-We base our analysis in a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
-Unlike the CAPM model that considers a risk premium, the factorial model considers that investors holding risk in their portfolios\footnote{We assume that said portfolios are sufficiently large so that any source of idiosyncratic risk can be diversified so that only aggregate risk is remunerated.} by holding a stock $j$, are compensated with $k$ different risk premia associated to $k$ common factors.% which impact the returns of every stock, potentially in different manners. 
 
 That is, the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
     \begin{equation} \label{eq:factorialmodel}
@@ -120,25 +200,25 @@ We decided to consider the German stock market for this analysis because it is a
 
 
 
-\section{Estimation of the Factors}
+    \subsection{Estimation of the Factors}
 
 We need to choose what factors we are going to consider to generate risk premia that affect the return for the investor. In this section we examine the role of different types of factors (i) exogenous, (ii) endogeneous and we examine more closely the three-factor model proposed by \cite{famaCommonRiskFactors1993} in (iii).
 
 
 
-    \subsection{Exogeneous Factors}
+        \subsection{Exogeneous Factors}
 These are risk factors that are supposed to be orthogonal to the portfolio itself. 
 In particular, it is interesting to consider the role of 
 
 
 
-    \subsection{Endogeneous Factors}
+        \subsection{Endogeneous Factors}
 
 
 
 
 
-    \subsection{French-Fame Factors}
+        \subsection{French-Fama Factors}
 
 \cite{famaCommonRiskFactors1993} can be seen as an extension of the CAPM model. 
 The authors show that the variation of the returns of an asset can be explained not only by the exposure to market risk as in the CAPM represented by the difference of the market return and the risk-free rate $[R_M-R_f]$, but also by a size and value premium in the following model.
@@ -148,8 +228,8 @@ The authors show that the variation of the returns of an asset can be explained 
     \end{equation}
 
 The size premium refers to the observation that stocks with small market capitalizations tend to outperform stocks with larger ones and it is captured by the factor SMB, \emph{small minus big}.
-It is computed as the difference in average returns of the $30\%$ stocks with the smallest market capitalization and the average returns of the $30\%$ stocks associated to the firms with the largest market capitalization. 
-The value premium refers to the outperformance of "value stocks" i.e. those that have high book-to-market (B/M) and it is represented by the difference in average return of the $50\%$ of stocks with highest $B/M$ ratio (value stocks) and the $50\%$ with lowest $B/M$ ratio (growth stocks). 
+It is computed as the difference in average returns of the $30\%$ stocks with the smallest market capitalization and the average returns of the $30\%$ stocks associated with the firms with the largest market capitalization. 
+The value premium refers to the outperformance of "value stocks" i.e. those that have high book-to-market (B/M) and it is represented by the difference in an average return of the $50\%$ of stocks with the highest $B/M$ ratio (value stocks) and the $50\%$ with lowest $B/M$ ratio (growth stocks). 
 
 \begin{comment}
     
