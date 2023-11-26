@@ -33,19 +33,19 @@ company_names_lower = [
     'kering', 'l-oreal', 'lvmh', 'michelin', 'orange', 'renault', 'sanofi', 'thales', 
     'totalenergies', 'vinci', 'compagnie-de-saint-gobain', 'ubisoft', 'tf1', 'danone', 
     'dassault-aviation', 'air-france-klm', 'accor', 'bic', 'hermes-international', 
-    'jcdecaux', 'nexans', 'sodexo', 'biomerieux', "CAC40"]
+    'jcdecaux', 'nexans', 'sodexo', 'biomerieux', "CAC40", "EuroUSD"]
 
 tickers = [
     'AI.PA', 'AIR.PA', 'EN.PA', 'CAP.PA', 'CA.PA', 'CO.PA', 'VIV.PA', 'KER.PA', 'OR.PA', 'MC.PA',
     'ML.PA', 'ORA.PA', 'RNO.PA', 'SAN.PA', 'HO.PA', 'TTE.PA', 'DG.PA', 'SGO.PA', 'UBI.PA', 'TFI.PA',
-    'BN.PA', 'AM.PA', 'AF.PA', 'AC.PA', 'BB.PA', 'RMS.PA', 'DEC.PA', 'NEX.PA', 'SW.PA', 'BIM.PA', "^FCHI"]
+    'BN.PA', 'AM.PA', 'AF.PA', 'AC.PA', 'BB.PA', 'RMS.PA', 'DEC.PA', 'NEX.PA', 'SW.PA', 'BIM.PA', "^FCHI", 'EURUSD=X']
 
 
 
 #%% Scrap firm level data for French and Fama factors 
 # List of companies' URLs
-mktcap_urls = ['https://companiesmarketcap.com/'+ x+'/marketcap/' for x in company_names_lower[:-1]]
-pricebook_urls = ['https://companiesmarketcap.com/'+ x+'/pb-ratio/' for x in company_names_lower[:-1]]
+mktcap_urls = ['https://companiesmarketcap.com/'+ x+'/marketcap/' for x in company_names_lower[:-2]]
+pricebook_urls = ['https://companiesmarketcap.com/'+ x+'/pb-ratio/' for x in company_names_lower[:-2]]
 
 
 # Scrapping functions
@@ -88,14 +88,14 @@ def scrape_price_book(url, company_name):
 
 # Scraping market cap data
 dfmktcap = pd.DataFrame()
-for url, company in zip(mktcap_urls, company_names_lower[:-1]):
+for url, company in zip(mktcap_urls, company_names_lower[:-2]):
     data = scrape_market_cap(url, company)
     if data is not None:
         dfmktcap = pd.concat([dfmktcap, data])
         
 #Scap price book 
 dfpricebook = pd.DataFrame()
-for url, company in zip(pricebook_urls, company_names_lower[:-1]):
+for url, company in zip(pricebook_urls, company_names_lower[:-2]):
     data = scrape_price_book(url, company)
     if data is not None:
         dfpricebook = pd.concat([dfpricebook, data])
@@ -177,12 +177,12 @@ prices_monthly = pd.melt(adjclose, value_vars=company_names_lower, ignore_index=
 prices_yearly = pd.melt(adjclose_y, value_vars=company_names_lower, ignore_index=False)
 
 
-del data, missing, adjclose, adjclose_y
+del data, adjclose, adjclose_y, missing
 
 
 #%% Endogeneous factor: long term inflation expectation from external file 
 
-#upload the Agence France Trésor data
+#upload the Agence France Tresor data
 pi_endo= pd.read_excel('2023_11_01_rend_tit_ref_oatei.xls', skiprows=[0,1,2,3,4], usecols=[0,3])
 pi_endo.columns = ['Date', "Breakeven"]
 
@@ -218,26 +218,5 @@ frenchfama_year.rename(columns={"Unnamed: 0":'Date'}, inplace=True)
 del df 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#%% Macro data - Eurostat 
-
-pd.core.common.is_list_like = pd.api.types.is_list_like
-
-SP500 = web.DataReader(['sp500'], 'fred', start, end)
-SP500 = SP500.asfreq('W-FRI', method='pad')
-print(SP500)
+#%% Macro data 
+#APIs didn't work as planned

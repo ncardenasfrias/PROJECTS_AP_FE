@@ -150,13 +150,16 @@ Unlike the CAPM model that considers a unique risk premium, the factorial model 
 We decided to build a case study of the French market because it is a liquid and matured market, central in Europe. 
 In the case of this analysis, we had trouble getting the data needed to perform it for other countries\footnote{Initially we thought about using data from the German market but we couldn't for instance find data for their inflation-linked bond yield that we use as an endogenous factor in Section \ref{sec:endofact}} and the fact that France has more publicly available data helped us choose it as our market of study. 
 
-We built a portfolio with 30 French stocks that we got from Yahoo Finance. Table \ref{tab:companies} shows the companies that we used to create this portfolio, they are all publicly traded companies in France since the early 2000's in Euronext Paris. 
-Since in the following, we try to implement a version of the  \cite{famaCrossSectionExpectedStock1992} factor analysis, we restrain ourselves from choosing financial companies as the authors do due to their high leverage. 
+We built a portfolio with 30 French stocks that we got from Yahoo Finance. 
+For simplicity, the synthetic portfolio is composed of one stock of each company and its composition does not change during the period studied.
+Table \ref{tab:companies} shows the companies that we used to create this portfolio, they are all publicly traded companies in France since the early 2000's in Euronext Paris.
+Importantly, we tried to have a certain diversity in the sectors represented to be able to capture some diversification to risk even if the portfolio is too small and we do not reweight it. 
+However, because we try to implement a version of the \cite{famaCrossSectionExpectedStock1992} factor analysis, we restrain ourselves from choosing financial companies as the authors do due to their high leverage. 
 Other than these two conditions, the choice of the companies was mainly restricted to data availability on public 'long' series on firm-level data, notably on market capitalization and book-to-market ratio to be able to incorporate the \cite{famaCrossSectionExpectedStock1992} factors to our analysis. 
 
 \textcolor{red}{describe frequency of data }
 
-Since we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis at the
+Because we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis at the
 
 
 \begin{table}[h]
@@ -197,7 +200,7 @@ Vinci & DG.PA & Construction \\
 Vivendi & VIV.PA & Entertainment \\
 \hline
 \end{tabular}
-\caption{Synthetic portfolio: List of Companies, Tickers, and Industries}
+\caption{Synthetic portfolio: Companies, Tickers, and Industries}
 \label{tab:companies}
 \end{table}
 
@@ -205,12 +208,23 @@ Vivendi & VIV.PA & Entertainment \\
 
 \subsubsection{Data description and sources}
 %We decided to take the components of the DAX 40 
-The other series that we use are the following: 
+The other series that we use are the following and its sources, how they are used in the context of the analysis is described in subsequent sections.
+
 \begin{itemize}
     \item As a proxy for the free rate of the market we consider two measures: 
     \begin{itemize}
-        \item The yield of short-term OAT, i.e. French treasuries taken from \hyperlink{https://www.banque-france.fr/fr/statistiques/taux-indicatifs-des-bons-du-tresor-et-oat-03-oct-2023-03-oct-2023}{Banque de France's website}. As for most developed, stable countries, short-term sovereign bonds are taken as the risk-free asset as Governments are supposed to be more solvent than other agents in the economy, after all they decide their income and could seize resources via taxes to meet their obligations.        
+        \item The yield of short-term OAT, i.e. French treasuries taken from \hyperlink{https://www.banque-france.fr/fr/statistiques/taux-indicatifs-des-bons-du-tresor-et-oat-03-oct-2023-03-oct-2023}{Banque de France's website}. As for most developed, stable countries, short-term sovereign bonds are taken as the risk-free asset as Governments are supposed to be more solvent than other agents in the economy, after all, they decide their income and could seize resources via taxes to meet their obligations.        
         \item The spot yield curve spot rate, for 3-month maturity of all government bonds rated triple A in the Euro Area, retrieved from the \hyperlink{https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M?chart_props=W3sibm9kZUlkIjoiMTg5NTYzMSIsInByb3BlcnRpZXMiOlt7ImNvbG9ySGV4IjoiIiwiY29sb3JUeXBlIjoiIiwiY2hhcnRUeXBlIjoibGluZWNoYXJ0IiwibGluZVN0eWxlIjoiU29saWQiLCJsaW5lV2lkdGgiOiIxLjUiLCJheGlzUG9zaXRpb24iOiJsZWZ0Iiwib2JzZXJ2YXRpb25WYWx1ZSI6ZmFsc2UsImRhdGVzIjpbXSwiaXNUZGF0YSI6ZmFsc2UsIm1vZGlmaWVkVW5pdFR5cGUiOiIiLCJ5ZWFyIjoib25lIiwic3RhcnREYXRlIjoiMjAyMi0xMS0yMyIsImVuZERhdGUiOiIyMDIzLTExLTIzIiwic2V0RGF0ZSI6ZmFsc2UsInNob3dUYWJsZURhdGEiOnRydWUsImNoYW5nZU1vZGUiOmZhbHNlLCJzaG93TWVudVN0eWxlQ2hhcnQiOmZhbHNlLCJkaXNwbGF5TW9iaWxlQ2hhcnQiOnRydWUsInNjcmVlblNpemUiOiJtYXgiLCJzY3JlZW5XaWR0aCI6MTQ0MCwic2hvd1RkYXRhIjpmYWxzZSwidHJhbnNmb3JtZWRGcmVxdWVuY3kiOiJub25lIiwidHJhbnNmb3JtZWRVbml0Ijoibm9uZSIsImZyZXF1ZW5jeSI6Im5vbmUiLCJ1bml0Ijoibm9uZSIsIm1vZGlmaWVkIjoiZmFsc2UiLCJzZXJpZXNLZXkiOiJkYWlseSAtIGJ1c2luZXNzd2VlayIsInNob3d0YWJsZVN0YXRlQmVmb3JlTWF4U2NyZWVuIjpmYWxzZSwiaXNkYXRhY29tcGFyaXNvbiI6ZmFsc2UsInNlcmllc0ZyZXF1ZW5jeSI6ImRhaWx5IC0gYnVzaW5lc3N3ZWVrIiwiaW50aWFsU2VyaWVzRnJlcXVlbmN5IjoiZGFpbHkgLSBidXNpbmVzc3dlZWsiLCJtZXRhZGF0YURlY2ltYWwiOiI2IiwiaXNUYWJsZVNvcnRlZCI6ZmFsc2UsImlzWWVhcmx5VGRhdGEiOmZhbHNlLCJyZXNwb25zZURhdGFFbmREYXRlIjoiIiwiaXNpbml0aWFsQ2hhcnREYXRhIjp0cnVlLCJpc0RhdGVzRnJvbURhdGVQaWNrZXIiOmZhbHNlLCJkYXRlUGlja2VyRW5kRGF0ZSI6IiIsImlzRGF0ZVBpY2tlckVuZERhdGUiOmZhbHNlLCJzZXJpZXNrZXlTZXQiOiIiLCJkYXRhc2V0SWQiOiIxMjUiLCJpc0NhbGxiYWNrIjpmYWxzZSwiaXNTbGlkZXJUZGF0YSI6ZmFsc2UsImlzU2xpZGVyRGF0YSI6ZmFsc2UsImlzSW5pdGlhbENoYXJ0RGF0YUZyb21HcmFwaCI6ZmFsc2UsImNoYXJ0U2VyaWVzS2V5IjoiWUMuQi5VMi5FVVIuNEYuR19OX0EuU1ZfQ19ZTS5TUl8zTSIsInR5cGVPZiI6ImRvd25Mb2FkIn1dfV0\%3D}{ECB webpage}. On top of the fact that this is a measure for short-term sovereign bonds, we consider this to be a relevant proxy for the French market due to the strong integration within the European capital market. If an investor decides that the French market becomes risky, she can easily move her investments to another European capital market that looks safer. 
+    \end{itemize}
+    \item To get the market rate, we use the return of the main index of the country, the CAC40 also taken from Yahoo Finance as for the components of our synthetic portfolio. In hindsight, we are not sure of the pertinence of comparing our portfolio to this index. While the composition of our portfolio is not the same as the CAC40\footnote{Not all the stocks we chose are necessarily part of the CAC40 at every period studied, and the CAC40 is a weighted index that evolves over time.}, due to the data availability issues we've been mentioning, we see that our choices are heavily biased towards 'big name' companies that are those belonging to the index.
+    \item We got the series of the exchange rate between the Euro and the US dollar from Yahoo Finance. 
+    \item The GDP series is taken from the \hyperlink{https://data.ecb.europa.eu/data/datasets/MNA/MNA.Q.Y.FR.W2.S1.S1.B.B1GQ._Z._Z._Z.XDC.LR.N?chart_props=W3sibm9kZUlkIjoiNjEzMzI0IiwicHJvcGVydGllcyI6W3siY29sb3JIZXgiOiIiLCJjb2xvclR5cGUiOiIiLCJjaGFydFR5cGUiOiJsaW5lY2hhcnQiLCJsaW5lU3R5bGUiOiJTb2xpZCIsImxpbmVXaWR0aCI6IjEuNSIsImF4aXNQb3NpdGlvbiI6ImxlZnQiLCJvYnNlcnZhdGlvblZhbHVlIjpmYWxzZSwiZGF0ZXMiOlsiMjAwMC0wMy0wNFQyMzowMDowMC4wMDBaIiwiMjAyMy0wOS0yOVQyMjowMDowMC4wMDBaIl0sImlzVGRhdGEiOmZhbHNlLCJtb2RpZmllZFVuaXRUeXBlIjoiIiwieWVhciI6ImRhdGV3aXNlIiwic3RhcnREYXRlIjoiMjAwMC0wMy0wNSIsImVuZERhdGUiOiIyMDIzLTA5LTMwIiwic2V0RGF0ZSI6dHJ1ZSwic2hvd1RhYmxlRGF0YSI6ZmFsc2UsImNoYW5nZU1vZGUiOmZhbHNlLCJzaG93TWVudVN0eWxlQ2hhcnQiOmZhbHNlLCJkaXNwbGF5TW9iaWxlQ2hhcnQiOnRydWUsInNjcmVlblNpemUiOiJtYXgiLCJzY3JlZW5XaWR0aCI6MTQ0MCwic2hvd1RkYXRhIjpmYWxzZSwidHJhbnNmb3JtZWRGcmVxdWVuY3kiOiJub25lIiwidHJhbnNmb3JtZWRVbml0Ijoibm9uZSIsImZyZXF1ZW5jeSI6Im5vbmUiLCJ1bml0Ijoibm9uZSIsIm1vZGlmaWVkIjoiZmFsc2UiLCJzZXJpZXNLZXkiOiJxdWFydGVybHkiLCJzaG93dGFibGVTdGF0ZUJlZm9yZU1heFNjcmVlbiI6ZmFsc2UsImlzZGF0YWNvbXBhcmlzb24iOmZhbHNlLCJzZXJpZXNGcmVxdWVuY3kiOiJxdWFydGVybHkiLCJpbnRpYWxTZXJpZXNGcmVxdWVuY3kiOiJxdWFydGVybHkiLCJtZXRhZGF0YURlY2ltYWwiOiIyIiwiaXNUYWJsZVNvcnRlZCI6ZmFsc2UsImlzWWVhcmx5VGRhdGEiOmZhbHNlLCJyZXNwb25zZURhdGFFbmREYXRlIjoiMjAyMy0wOS0zMCIsImlzaW5pdGlhbENoYXJ0RGF0YSI6dHJ1ZSwiaXNEYXRlc0Zyb21EYXRlUGlja2VyIjp0cnVlLCJkYXRlUGlja2VyRW5kRGF0ZSI6IjIwMjMtMDktMzAiLCJpc0RhdGVQaWNrZXJFbmREYXRlIjp0cnVlLCJzZXJpZXNrZXlTZXQiOiIiLCJkYXRhc2V0SWQiOiIyNDkiLCJpc0NhbGxiYWNrIjpmYWxzZSwiaXNTbGlkZXJUZGF0YSI6dHJ1ZSwiaXNTbGlkZXJEYXRhIjp0cnVlLCJpc0luaXRpYWxDaGFydERhdGFGcm9tR3JhcGgiOnRydWUsImNoYXJ0U2VyaWVzS2V5IjoiTU5BLlEuWS5GUi5XMi5TMS5TMS5CLkIxR1EuX1ouX1ouX1ouWERDLkxSLk4iLCJ0eXBlT2YiOiIifV19XQ\%3D\%3D}{ECB webpage}. It is available at a quarterly frequency and is available at market prices. 
+    \item The harmonized headline inflation rate is taken from the \hyperlink{https://www.insee.fr/fr/statistiques/serie/010576187}{INSEE webpage}. 
+    \item For the market inflation expectation in a 10-year horizon, we use the break-even inflation rate published by \hyperlink{https://www.aft.gouv.fr/en/oateuroi-key-figures\#serie}{Agence France Trésor} online.
+    \item For the implementation of the two additional \cite{famaCrossSectionExpectedStock1992} factors, we took different routes
+    \begin{itemize}
+        \item We found the estimation of the factors published by K. French in his \href{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}{online Data Library} that are constantly updated. Their estimations start in the 1990s and are made for different markets using the comprehensive CRSP dataset that is not freely available. He has an estimation for the European market that we downloaded to use but it is not clear which stocks are used to replicate their portfolio.
+        \item To try to build these estimations ourselves for our portfolio meaning that a minima we need data on the market capitalization of each company during the time frame studied and its \emph{book}. This information is hardly available without having access to platforms like Bloomberg or CRSP. The best information that we could find comes from \href{https://companiesmarketcap.com/}{this} website that publishes the market capitalization and the price-to-book (the inverse of the book-to-market ratio) annual series for several stocks. The data is however cannot be directly downloaded from the site so we scrap it to get the series (see Code Appendix \ref{sec:datacode}). Our biggest fear with this source is that it is not clear at all where the information comes from even if they mention several quality \href{https://companiesmarketcap.com/stockmarket-api/}{data providers} as their partners. Since it is the only source that resembles what is needed for this part we used it but we are not confident on it. 
     \end{itemize}
 \end{itemize}
 
@@ -218,6 +232,16 @@ The other series that we use are the following:
     \subsection{Factorial model and multibeta relationship}
 
 In the name of completeness, this section summarizes the lecture on the \cite{rossArbitrageTheoryCapital1976} model and the multibeta relationship as they are the theoretical foundation of the empirical application.
+
+Let the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
+    \begin{equation} \label{eq:factorialmodel}
+        R_j = \E[R_j] + \underbrace{\sum_{k=1}^K \beta_{j,k} f_k}_{\mathclap{\text{Systemic risk}}} + \overbrace{u_j}^{\mathclap{\text{Idiosyncratic risk}}}
+    \end{equation}
+Where $\E[R_j]$ is the expected return of asset $j$. 
+The sources of risk are two-fold. 
+The investor faces centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completely diversiable with a portfolio "large enough" ($N$ big) because they are independent of each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$ which is a required assumption to perform the estimations that will follow.
+She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
+By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
 
 
 
@@ -240,21 +264,35 @@ In the name of completeness, this section summarizes the lecture on the \cite{ro
 
 \section*{Conslusion}
 
+\newpage
+\begin{appendices}
+    \section{Code - Data gathering and cleaning} \label{sec:datacode}
+    
+    \lstinputlisting[language=Python]{Data.py}
+    
+    
+\end{appendices}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \newpage 
 \section{Data and Framework}
 
 
-That is, the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
-    \begin{equation} \label{eq:factorialmodel}
-        R_j = \E[R_j] + \underbrace{\sum_{k=1}^K \beta_{j,k} f_k}_{\mathclap{\text{Systemic risk}}} + \overbrace{u_j}^{\mathclap{\text{Idiosyncratic risk}}}
-    \end{equation}
-Where $\E[R_j]$ is the expected return of asset $j$. 
-The sources of risk are two-fold. 
-The investor faces centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completely diversiable with a portfolio "large enough" ($N$ big) because they are independent of each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$ which is a required assumption to perform the estimations that will follow.
-She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
-By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
+
 
 
 
@@ -316,7 +354,7 @@ The value premium refers to the outperformance of "value stocks" i.e. those that
 \end{comment}
     
     
-    \href{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}{See K. French Data Library}
+
 
 
 \section{Estimation of the exposure}
