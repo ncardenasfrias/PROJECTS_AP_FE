@@ -52,7 +52,7 @@
 \hypersetup{
     colorlinks=true, 
     urlcolor= Violet, 
-    linkcolor=Black, 
+    linkcolor=Violet, 
     citecolor=Blue, 
     filecolor = Blue
     } 
@@ -148,14 +148,15 @@ Unlike the CAPM model that considers a unique risk premium, the factorial model 
 
     \subsection{French stock market data} \label{sec:model}
 We decided to build a case study of the French market because it is a liquid and matured market, central in Europe. 
-In the case of this analysis, we had trouble getting the data needed to perform it for other countries\footnote{Initially we thought about using data from the German market but we couldn't for instance find data for their inflation-linked bond yield that we use as an endogenous factor in Section \ref{sec:endofact}.} and the fact that France has more publicly available data helped us choose it as our market of study. 
+In the case of this analysis, we had trouble getting the data needed to perform it for other countries\footnote{Initially we thought about using data from the German market but we couldn't for instance find data for their inflation-linked bond yield that we use as an endogenous factor in Section \ref{sec:endofact}} and the fact that France has more publicly available data helped us choose it as our market of study. 
 
 We built a portfolio with 30 French stocks that we got from Yahoo Finance. Table \ref{tab:companies} shows the companies that we used to create this portfolio, they are all publicly traded companies in France since the early 2000's in Euronext Paris. 
 Since in the following, we try to implement a version of the  \cite{famaCrossSectionExpectedStock1992} factor analysis, we restrain ourselves from choosing financial companies as the authors do due to their high leverage. 
 Other than these two conditions, the choice of the companies was mainly restricted to data availability on public 'long' series on firm-level data, notably on market capitalization and book-to-market ratio to be able to incorporate the \cite{famaCrossSectionExpectedStock1992} factors to our analysis. 
 
+\textcolor{red}{describe frequency of data }
 
-
+Since we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis at the
 
 
 \begin{table}[h]
@@ -177,7 +178,7 @@ Casino & CO.PA & Retail \\
 Dassault Aviation & AM.PA & Aerospace \\
 Danone & BN.PA & Food and Beverage \\
 Hermes International & RMS.PA & Fashion and Luxury \\
-JCDecaux & DEC.P & Advertising \\
+JCDecaux & DEC.PA & Advertising \\
 Kering & KER.PA & Fashion and Luxury \\
 L'Oreal & OR.PA & Cosmetics \\
 LVMH & MC.PA & Fashion and Luxury \\
@@ -200,8 +201,18 @@ Vivendi & VIV.PA & Entertainment \\
 \label{tab:companies}
 \end{table}
 
-%We decided to take the components of the DAX 40 
 
+
+\subsubsection{Data description and sources}
+%We decided to take the components of the DAX 40 
+The other series that we use are the following: 
+\begin{itemize}
+    \item As a proxy for the free rate of the market we consider two measures: 
+    \begin{itemize}
+        \item The yield of short-term OAT, i.e. French treasuries taken from \hyperlink{https://www.banque-france.fr/fr/statistiques/taux-indicatifs-des-bons-du-tresor-et-oat-03-oct-2023-03-oct-2023}{Banque de France's website}. As for most developed, stable countries, short-term sovereign bonds are taken as the risk-free asset as Governments are supposed to be more solvent than other agents in the economy, after all they decide their income and could seize resources via taxes to meet their obligations.        
+        \item The spot yield curve spot rate, for 3-month maturity of all government bonds rated triple A in the Euro Area, retrieved from the \hyperlink{https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M?chart_props=W3sibm9kZUlkIjoiMTg5NTYzMSIsInByb3BlcnRpZXMiOlt7ImNvbG9ySGV4IjoiIiwiY29sb3JUeXBlIjoiIiwiY2hhcnRUeXBlIjoibGluZWNoYXJ0IiwibGluZVN0eWxlIjoiU29saWQiLCJsaW5lV2lkdGgiOiIxLjUiLCJheGlzUG9zaXRpb24iOiJsZWZ0Iiwib2JzZXJ2YXRpb25WYWx1ZSI6ZmFsc2UsImRhdGVzIjpbXSwiaXNUZGF0YSI6ZmFsc2UsIm1vZGlmaWVkVW5pdFR5cGUiOiIiLCJ5ZWFyIjoib25lIiwic3RhcnREYXRlIjoiMjAyMi0xMS0yMyIsImVuZERhdGUiOiIyMDIzLTExLTIzIiwic2V0RGF0ZSI6ZmFsc2UsInNob3dUYWJsZURhdGEiOnRydWUsImNoYW5nZU1vZGUiOmZhbHNlLCJzaG93TWVudVN0eWxlQ2hhcnQiOmZhbHNlLCJkaXNwbGF5TW9iaWxlQ2hhcnQiOnRydWUsInNjcmVlblNpemUiOiJtYXgiLCJzY3JlZW5XaWR0aCI6MTQ0MCwic2hvd1RkYXRhIjpmYWxzZSwidHJhbnNmb3JtZWRGcmVxdWVuY3kiOiJub25lIiwidHJhbnNmb3JtZWRVbml0Ijoibm9uZSIsImZyZXF1ZW5jeSI6Im5vbmUiLCJ1bml0Ijoibm9uZSIsIm1vZGlmaWVkIjoiZmFsc2UiLCJzZXJpZXNLZXkiOiJkYWlseSAtIGJ1c2luZXNzd2VlayIsInNob3d0YWJsZVN0YXRlQmVmb3JlTWF4U2NyZWVuIjpmYWxzZSwiaXNkYXRhY29tcGFyaXNvbiI6ZmFsc2UsInNlcmllc0ZyZXF1ZW5jeSI6ImRhaWx5IC0gYnVzaW5lc3N3ZWVrIiwiaW50aWFsU2VyaWVzRnJlcXVlbmN5IjoiZGFpbHkgLSBidXNpbmVzc3dlZWsiLCJtZXRhZGF0YURlY2ltYWwiOiI2IiwiaXNUYWJsZVNvcnRlZCI6ZmFsc2UsImlzWWVhcmx5VGRhdGEiOmZhbHNlLCJyZXNwb25zZURhdGFFbmREYXRlIjoiIiwiaXNpbml0aWFsQ2hhcnREYXRhIjp0cnVlLCJpc0RhdGVzRnJvbURhdGVQaWNrZXIiOmZhbHNlLCJkYXRlUGlja2VyRW5kRGF0ZSI6IiIsImlzRGF0ZVBpY2tlckVuZERhdGUiOmZhbHNlLCJzZXJpZXNrZXlTZXQiOiIiLCJkYXRhc2V0SWQiOiIxMjUiLCJpc0NhbGxiYWNrIjpmYWxzZSwiaXNTbGlkZXJUZGF0YSI6ZmFsc2UsImlzU2xpZGVyRGF0YSI6ZmFsc2UsImlzSW5pdGlhbENoYXJ0RGF0YUZyb21HcmFwaCI6ZmFsc2UsImNoYXJ0U2VyaWVzS2V5IjoiWUMuQi5VMi5FVVIuNEYuR19OX0EuU1ZfQ19ZTS5TUl8zTSIsInR5cGVPZiI6ImRvd25Mb2FkIn1dfV0\%3D}{ECB webpage}. On top of the fact that this is a measure for short-term sovereign bonds, we consider this to be a relevant proxy for the French market due to the strong integration within the European capital market. If an investor decides that the French market becomes risky, she can easily move her investments to another European capital market that looks safer. 
+    \end{itemize}
+\end{itemize}
 
 
     \subsection{Factorial model and multibeta relationship}

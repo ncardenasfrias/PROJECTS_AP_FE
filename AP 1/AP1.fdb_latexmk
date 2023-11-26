@@ -1,15 +1,16 @@
 # Fdb version 3
-["bibtex AP1"] 1700971260 "AP1.aux" "AP1.bbl" "AP1" 1700971262
+["bibtex AP1"] 1701019988 "AP1.aux" "AP1.bbl" "AP1" 1701019992
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1700971262 12207 9dafddce61e5fd0a82f4b6b18b6bf6f3 "pdflatex"
+  "AP1.aux" 1701019991 12746 c97fb108fb4433479ed0e1686952d416 "pdflatex"
   "Finance.bib" 1700713559 227198 0dc13248f885676fbc6254f402efa03c ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1700971260 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1700971262
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1700971256 14889 1d0a3ab709ebde9cd29529ba37889a7c ""
+["pdflatex"] 1701019988 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701019992
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701019984 18002 8881e523d70fa3c9b46daa835f5470f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -33,6 +34,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplr-sc.tfm" 1529098226 13192 ef30a224d9cbe9e81665e7ef289a28d9 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplr.tfm" 1529098226 11860 c3b4aba4cfa63b7a6c3688dc5ab4931d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplri.tfm" 1529098226 11624 8f76752ab07fdd50d423cfaf124d5ba9 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qplr.tfm" 1529098226 1628 0cde3c8a66f74ab8447166240fdd50f8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
@@ -154,6 +156,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty" 1324344192 22913 a27d7908fc6f0385466454a966a316eb ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ot1qpl.fd" 1254269485 1660 e9b22d666df8ddf20235e469d85dea27 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/tgpagella.sty" 1254269485 2230 fc853fd117e6b73f5d6716214d3abb3c ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd" 1254269485 1162 2c49e2817a9551ff0c50d454b41d1128 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/titlesec/titlesec.sty" 1625518490 48833 3b7b4cfab1a3d15596bfd3772a77ab65 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/tools/array.sty" 1636758526 12694 6c23725d50ab9d1e2d3ce482c58ffcf3 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty" 1622581934 10214 00ce62e730d0cfe22b35e8f1c84949c7 ""
@@ -176,9 +179,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1700971262 12207 9dafddce61e5fd0a82f4b6b18b6bf6f3 "pdflatex"
-  "AP1.bbl" 1700971260 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
-  "AP1.tex" 1700971256 14889 1d0a3ab709ebde9cd29529ba37889a7c ""
+  "AP1.aux" 1701019991 12746 c97fb108fb4433479ed0e1686952d416 "pdflatex"
+  "AP1.bbl" 1701019988 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
+  "AP1.tex" 1701019984 18002 8881e523d70fa3c9b46daa835f5470f4 ""
   (generated)
   "AP1.aux"
   "AP1.log"
