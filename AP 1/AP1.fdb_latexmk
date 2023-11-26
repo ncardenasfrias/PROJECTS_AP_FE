@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex AP1"] 1700713561 "AP1.aux" "AP1.bbl" "AP1" 1700713568
+["bibtex AP1"] 1700971260 "AP1.aux" "AP1.bbl" "AP1" 1700971262
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1700713566 11584 ecf356885a0a5d7f492c6f2975426838 "pdflatex"
+  "AP1.aux" 1700971262 12207 9dafddce61e5fd0a82f4b6b18b6bf6f3 "pdflatex"
   "Finance.bib" 1700713559 227198 0dc13248f885676fbc6254f402efa03c ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1700713562 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1700713568
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1700713559 12120 11e378da3659c339bf20e410a821ae3a ""
+["pdflatex"] 1700971260 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1700971262
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1700971256 14889 1d0a3ab709ebde9cd29529ba37889a7c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -176,9 +176,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1700713566 11584 ecf356885a0a5d7f492c6f2975426838 "pdflatex"
-  "AP1.bbl" 1700713562 907 f9290fc3cb04cc67f3e09b667435c300 "bibtex AP1"
-  "AP1.tex" 1700713559 12120 11e378da3659c339bf20e410a821ae3a ""
+  "AP1.aux" 1700971262 12207 9dafddce61e5fd0a82f4b6b18b6bf6f3 "pdflatex"
+  "AP1.bbl" 1700971260 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
+  "AP1.tex" 1700971256 14889 1d0a3ab709ebde9cd29529ba37889a7c ""
   (generated)
   "AP1.aux"
   "AP1.log"

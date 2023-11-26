@@ -11,6 +11,7 @@ import yfinance as yf
 import datetime
 import pandas as pd
 import os 
+from eurostatapiclient import EurostatAPIClient
 
 os.chdir('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1')
 

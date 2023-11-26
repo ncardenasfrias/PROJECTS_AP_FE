@@ -126,8 +126,8 @@
 
 \section*{Introduction}
 
-Focusing on recent data from the German equity market, we want to better comprehend how the market prices systemic, non-diversifiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
-We base our analysis in a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
+Focusing on recent data from the French equity market, we want to better comprehend how the market prices systemic, non-diversifiable risk embedded in the risk premium of stocks, i.e. any expected compensation beyond the risk-free return.
+We base our analysis on a linear decomposition of said premium on different \emph{factors} of risk in the spirit of the Arbitrage Pricing Theory (APT) pioneered by \cite{rossArbitrageTheoryCapital1976}. 
 Unlike the CAPM model which considers a unique risk premium in the market, the Ross model gives a more detailed description of the pricing of aggregate risk by decomposing the contributions of different sources of risk. 
 Here, a risky portfolio of $j$ stocks\footnote{Let $j \in \{1,...,J\}$ with $J$ sufficiently large so that all idiosyncratic risk can be fully diversified. We better explain the difference between idiosyncratic and aggregate in the context of the Ross model in Section \ref{sec:model}} is compensated with  $k$ risk premia associated with the $k$ \emph{common factors} that the portfolio is exposed to.
 
@@ -146,7 +146,61 @@ Unlike the CAPM model that considers a unique risk premium, the factorial model 
 
 \section{Data and Framework} 
 
-    \subsection{German stock market data} \label{sec:model}
+    \subsection{French stock market data} \label{sec:model}
+We decided to build a case study of the French market because it is a liquid and matured market, central in Europe. 
+In the case of this analysis, we had trouble getting the data needed to perform it for other countries\footnote{Initially we thought about using data from the German market but we couldn't for instance find data for their inflation-linked bond yield that we use as an endogenous factor in Section \ref{sec:endofact}.} and the fact that France has more publicly available data helped us choose it as our market of study. 
+
+We built a portfolio with 30 French stocks that we got from Yahoo Finance. Table \ref{tab:companies} shows the companies that we used to create this portfolio, they are all publicly traded companies in France since the early 2000's in Euronext Paris. 
+Since in the following, we try to implement a version of the  \cite{famaCrossSectionExpectedStock1992} factor analysis, we restrain ourselves from choosing financial companies as the authors do due to their high leverage. 
+Other than these two conditions, the choice of the companies was mainly restricted to data availability on public 'long' series on firm-level data, notably on market capitalization and book-to-market ratio to be able to incorporate the \cite{famaCrossSectionExpectedStock1992} factors to our analysis. 
+
+
+
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Company Name} & \textbf{Ticker} & \textbf{Industry} \\
+    \hline
+Accor & AC.PA & Hospitality \\
+Air Liquide & AI.PA & Industrial Gases \\
+Air France-KLM & AF.PA & Airlines \\
+Airbus & AIR.PA & Aerospace \\
+Biomerieux & BIM.PA & Biotechnology \\
+BIC & BB.PA & Consumer Goods \\
+Bouygues & EN.PA & Construction \\
+Capgemini & CAP.PA & Information Technology \\
+Carrefour & CA.PA & Retail \\
+Casino & CO.PA & Retail \\
+Dassault Aviation & AM.PA & Aerospace \\
+Danone & BN.PA & Food and Beverage \\
+Hermes International & RMS.PA & Fashion and Luxury \\
+JCDecaux & DEC.P & Advertising \\
+Kering & KER.PA & Fashion and Luxury \\
+L'Oreal & OR.PA & Cosmetics \\
+LVMH & MC.PA & Fashion and Luxury \\
+Michelin & ML.PA & Automotive \\
+Nexans & NEX.PA & Electrical Equipment \\
+Orange & ORA.PA & Telecommunications \\
+Renault & RNO.PA & Automotive \\
+Saint-Gobain & SGO.PA & Manufacturing \\
+Sanofi & SAN.PA & Pharmaceuticals \\
+Sodexo & SW.PA & Food Services \\
+TF1 & TFI.PA & Broadcasting \\
+Thales & HO.PA & Aerospace and Defense \\
+TotalEnergies & TTE.PA & Energy \\
+Ubisoft & UBI.PA & Video Games \\
+Vinci & DG.PA & Construction \\
+Vivendi & VIV.PA & Entertainment \\
+\hline
+\end{tabular}
+\caption{Synthetic portfolio: List of Companies, Tickers, and Industries}
+\label{tab:companies}
+\end{table}
+
+%We decided to take the components of the DAX 40 
 
 
 
@@ -162,7 +216,7 @@ In the name of completeness, this section summarizes the lecture on the \cite{ro
 
         \subsubsection{Exogeneous factors}
 
-        \subsubsection{Endogeneous factors}
+        \subsubsection{Endogeneous factors} \label{sec:endofact}
         \subsubsection{French-Fama factors}
 
 
