@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex AP1"] 1701034446 "AP1.aux" "AP1.bbl" "AP1" 1701038780
+["bibtex AP1"] 1701044113 "AP1.aux" "AP1.bbl" "AP1" 1701044307
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1701038779 13692 b6ba516f62e00257d3c22b44a585493e "pdflatex"
+  "AP1.aux" 1701044306 14327 468519194fb22a9fae160d7f838c6828 "pdflatex"
   "Finance.bib" 1700713559 227198 0dc13248f885676fbc6254f402efa03c ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1701038775 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701038780
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701038775 23243 409cca2b521ddf8edc132bc6c5bba56c ""
+["pdflatex"] 1701044304 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701044307
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701044216 23349 2b5fe1bd67bd1a82d2309fd1492e2921 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
@@ -148,6 +148,8 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg" 1585170648 1830 e31effa752c61538383451ae21332364 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty" 1585170648 80964 64e57373f36316e4a09b517cbf1aba2e ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty" 1585170648 204271 bae5b2d457283e99567249c1990510be ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang2.sty" 1585170648 93649 5c560d0867c5758cf33716b703b23a26 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang3.sty" 1585170648 90075 280a31c119f13eac0a3dfaff2137635b ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty" 1585170648 77022 ee25ce086f4a79d8cf73bac6f94c02a5 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/ltablex/ltablex.sty" 1407968373 6021 43ef4b327cd0a38df15482bafd67d6df ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty" 1644270001 59398 061078e853e620354ba0437103cbd0fe ""
@@ -187,10 +189,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1701038779 13692 b6ba516f62e00257d3c22b44a585493e "pdflatex"
-  "AP1.bbl" 1701034446 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
-  "AP1.tex" 1701038775 23243 409cca2b521ddf8edc132bc6c5bba56c ""
-  "Data.py" 1701036604 10716 eab7435f8ebb97e961c770631f4c9504 ""
+  "AP1.aux" 1701044306 14327 468519194fb22a9fae160d7f838c6828 "pdflatex"
+  "AP1.bbl" 1701044113 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
+  "AP1.tex" 1701044216 23349 2b5fe1bd67bd1a82d2309fd1492e2921 ""
+  "Analysis.R" 1701044302 461 00dd79f8d61157a02d318745ff3fcac9 ""
+  "Data.py" 1701043334 12678 1c43e5200f4a4a492cb93fc31fd2da32 ""
   (generated)
   "AP1.aux"
   "AP1.log"
