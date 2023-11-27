@@ -1,4 +1,4 @@
-\documentclass[hidelinks,11pts]{article}
+\documentclass[hidelinks,10pts]{article}
 \usepackage[export]{adjustbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -144,7 +144,7 @@ Unlike the CAPM model that considers a unique risk premium, the factorial model 
 
 
 
-\section{Data and Framework} 
+\section{Data} 
 
     \subsection{French stock market data} \label{sec:model}
 We decided to build a case study of the French market because it is a liquid and matured market, central in Europe. 
@@ -159,7 +159,7 @@ Other than these two conditions, the choice of the companies was mainly restrict
 
 \textcolor{red}{describe frequency of data }
 
-Because we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis at the
+Because we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis with monthly data for our selection of
 
 
 \begin{table}[h]
@@ -206,7 +206,7 @@ Vivendi & VIV.PA & Entertainment \\
 
 
 
-\subsubsection{Data description and sources}
+\subsection{Data description and sources}
 %We decided to take the components of the DAX 40 
 The other series that we use are the following and its sources, how they are used in the context of the analysis is described in subsequent sections. %Due to data availability issues and time constraints, w
 
@@ -229,9 +229,14 @@ The other series that we use are the following and its sources, how they are use
 \end{itemize}
 
 
-    \subsection{Factorial model and multibeta relationship}
 
-For the sake of completeness, this section summarizes the lecture on the \cite{rossArbitrageTheoryCapital1976} model and the multibeta relationship as they are the theoretical foundation of the empirical application.
+
+\section{Empirical strategy and implementation}
+
+
+%For the sake of completeness, this section summarizes the lecture on the \cite{rossArbitrageTheoryCapital1976} model and the multibeta relationship as they are the theoretical foundation of the empirical application.
+We implement a minimal approach to \cite{rossArbitrageTheoryCapital1976}, namely using fewer factors than in \cite{chenEconomicForcesStock1986}. 
+We include both exogeneous and endogenous macroeconomic risk factors as well as an approximation to implement \cite{famaCommonRiskFactors1993} three-factor model which used stock specific data. 
 
 Let the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
     \begin{equation} \label{eq:factorialmodel}
@@ -244,12 +249,17 @@ She also faces $k$ different sources of aggregate risk, modeled by the linear co
 By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
 
 
-
-\section{Empirical strategy and implementation}
-
     \subsection{Identify the risk factors}
 
         \subsubsection{Exogeneous factors}
+    
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/macroseries_raw.jpeg}
+            \caption{ML algorithms and discrimination}
+            \label{fig:rawmacro}
+            %\caption*{\footnotesize{\emph{Notes}: }}
+        \end{figure}
 
         \subsubsection{Endogeneous factors} \label{sec:endofact}
         \subsubsection{French-Fama factors}

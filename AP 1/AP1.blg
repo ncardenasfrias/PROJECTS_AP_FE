@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: AP1.aux
 The style file: plainnat.bst
 Database file #1: Finance.bib
-You've used 3 entries,
+You've used 4 entries,
             2773 wiz_defined-function locations,
-            622 strings with 5462 characters,
-and the built_in function-call counts, 1394 in all, are:
-= -- 141
-> -- 52
+            632 strings with 5686 characters,
+and the built_in function-call counts, 1913 in all, are:
+= -- 190
+> -- 82
 < -- 3
-+ -- 18
-- -- 15
-* -- 115
-:= -- 220
-add.period$ -- 15
-call.type$ -- 3
-change.case$ -- 14
-chr.to.int$ -- 3
-cite$ -- 6
-duplicate$ -- 60
-empty$ -- 118
-format.name$ -- 22
-if$ -- 287
++ -- 28
+- -- 24
+* -- 164
+:= -- 300
+add.period$ -- 19
+call.type$ -- 4
+change.case$ -- 20
+chr.to.int$ -- 4
+cite$ -- 8
+duplicate$ -- 81
+empty$ -- 159
+format.name$ -- 32
+if$ -- 394
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 3
-newline$ -- 29
-num.names$ -- 12
-pop$ -- 17
+missing$ -- 4
+newline$ -- 35
+num.names$ -- 16
+pop$ -- 26
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 16
 quote$ -- 0
-skip$ -- 44
+skip$ -- 59
 stack$ -- 0
-substring$ -- 72
-swap$ -- 5
+substring$ -- 99
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 33
+type$ -- 44
 warning$ -- 0
-while$ -- 15
+while$ -- 20
 width$ -- 0
-write$ -- 58
+write$ -- 73

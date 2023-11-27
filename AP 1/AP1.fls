@@ -1267,6 +1267,11 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qplr.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplr.tfm
+INPUT ./Images/macroseries_raw.jpeg
+INPUT ./Images/macroseries_raw.jpeg
+INPUT Images/macroseries_raw.jpeg
+INPUT ./Images/macroseries_raw.jpeg
+INPUT ./Images/macroseries_raw.jpeg
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
