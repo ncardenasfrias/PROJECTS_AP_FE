@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex AP1"] 1701088584 "AP1.aux" "AP1.bbl" "AP1" 1701088588
+["bibtex AP1"] 1701088584 "AP1.aux" "AP1.bbl" "AP1" 1701090311
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1701088587 14327 efb4f0e216bc18a2db6f9e107421d05d "pdflatex"
+  "AP1.aux" 1701090310 14327 efb4f0e216bc18a2db6f9e107421d05d "pdflatex"
   "Finance.bib" 1700713559 227198 0dc13248f885676fbc6254f402efa03c ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1701088585 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701088588
+["pdflatex"] 1701090307 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701090311
   "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701088523 23461 84dd65181f2b6b790eb361e944d6bfe9 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
@@ -189,10 +189,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1701088587 14327 efb4f0e216bc18a2db6f9e107421d05d "pdflatex"
+  "AP1.aux" 1701090310 14327 efb4f0e216bc18a2db6f9e107421d05d "pdflatex"
   "AP1.bbl" 1701088585 1220 30b28422f0318cc1ee1ad425803d5b75 "bibtex AP1"
   "AP1.tex" 1701088523 23461 84dd65181f2b6b790eb361e944d6bfe9 ""
-  "Analysis.R" 1701044302 461 00dd79f8d61157a02d318745ff3fcac9 ""
+  "Analysis.R" 1701090216 1039 353f99ac2908de259ee672b5cdef1e5b ""
   "Data.py" 1701088463 12835 27cfb193d9556577b185932247ac4291 ""
   (generated)
   "AP1.aux"
