@@ -300,6 +300,9 @@ del oat
 monthly = pd.concat([cac_xrate_month, frenchfama_month, oat_month, pi_month, pib_monthly, piendo_month, rkfreeAAA_monthly], axis=1)
 monthly= monthly.resample('M').last() #some tables encoded end of month, others on the 1st
 
+monthly.to_csv('Monthly_series.csv')
+
+
 #firm specific data 
 firms_month['Date'] = firms_month['Date'] + pd.offsets.MonthEnd(0) #all other df have eomonth date
 firms_month = firms_month.set_index(['Date'])
@@ -309,6 +312,7 @@ prices_monthly.columns = ['Company', 'value']
 prices_monthly.set_index('Company', append=True)
 
 monthly_stock = pd.merge(prices_monthly.reset_index(), firms_month.reset_index(), on =["Date", "Company"], how='outer').set_index(["Date", "Company"])
+monthly_stock.to_csv("Firm_monthly.csv")
 
 #merge the two
 merged_monthly = pd.merge(monthly, monthly_stock, left_index=True, right_index=True, how='right')
@@ -321,6 +325,8 @@ merged_monthly.to_csv("DATA_month.csv")
 #=== YEARLY
 yearly = pd.concat([cac_xrate_year, frenchfama_year, oat_year, pi_year, pib_year, piendo_year, rkfreeAAA_year], axis=1)
 yearly = yearly.resample('Y').last()
+
+yearly.to_csv('Yearly_series.csv')
 
 # ============================================================================= 
 # #firm specific
@@ -335,11 +341,13 @@ yearly = yearly.resample('Y').last()
 # yearly_stock = pd.merge(prices_yearly.reset_index(), firms_year.reset_index(), on =["Date", "Company"], how='outer').set_index(["Date", "Company"])
 # =============================================================================
 
-yearly_stock = monthly_stock.groupby('Company').resample('Y').mean()
+#yearly_stock = monthly_stock.groupby('Company').resample('Y').mean()
 
 monthly_data_reset = monthly_stock.reset_index()
 yearly_stock = monthly_data_reset.groupby('Company').resample('Y', on='Date').mean()
 yearly_stock = yearly_stock.set_index(["Date", "Company"])
+
+yearly_stock.to_csv("Firm_yearly.csv")
 
 
 #merge the two 
