@@ -231,7 +231,7 @@ The other series that we use are the following and its sources, how they are use
     \item For the implementation of the two additional \cite{famaCrossSectionExpectedStock1992} factors, we took different routes
     \begin{itemize}
         \item We found the estimation of the factors published by K. French in his \href{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}{online Data Library} that are constantly updated. Their estimations start in the 1990s and are made for different markets using the comprehensive CRSP dataset that is not freely available. He has an estimation for the European market that we downloaded to use but it is not clear which stocks are used to replicate their portfolio.
-        \item To try to build these estimations ourselves for our portfolio meaning that a minima we need data on the market capitalization of each company during the time frame studied and its \emph{book}. This information is hardly available without having access to platforms like Bloomberg or CRSP. The best information that we could find comes from \href{https://companiesmarketcap.com/}{this} website that publishes the market capitalization and the price-to-book (the inverse of the book-to-market ratio) annual series for several stocks. The data is however cannot be directly downloaded from the site so we scrap it to get the series (see Code Appendix \ref{sec:datacode}). Our biggest fear with this source is that it is not clear at all where the information comes from even if they mention several quality \href{https://companiesmarketcap.com/stockmarket-api/}{data providers} as their partners. Since it is the only source that resembles what is needed for this part we used it but we are not confident on it. 
+        \item To try to build these estimations ourselves for our portfolio meaning that a minima we need data on the market capitalization of each company during the time frame studied and its \emph{book}. This information is hardly available without having access to platforms like Bloomberg or CRSP. The best information that we could find comes from \href{https://companiesmarketcap.com/}{this} website that publishes the market capitalization and the price-to-book (the inverse of the book-to-market ratio) annual series for several stocks. The data is however cannot be directly downloaded from the site so we scrap it to get the series (see Code Appendix \ref{sec:datacode}). Our biggest fear with this source is that it is not clear at all where the information comes from even if they mention several quality \href{https://companiesmarketcap.com/stockmarket-api/}{data providers} as their partners. Since it is the only source that resembles what is needed for this part we used it but we are not confident about it. 
     \end{itemize}
 \end{itemize}
 
@@ -265,12 +265,13 @@ Finally, section \ref{sec:lambdas} uses the series of $(\hat{\beta}_{j,k})_{j,k}
 
 
     \subsection{Identify the risk factors} \label{sec:identiffactors}
-We decided to explore the role of the following sources of risk. 
+We decided to explore the role of the following sources of risk for a first model inspired by \cite{rossArbitrageTheoryCapital1976} and \cite{chenEconomicForcesStock1986}.
 \begin{itemize}
     \item The activity risk, measured by changes in GDP
     \item Inflation risk, measured both by the HICP of France for the short term and by the market inflation expectation in a 10-y horizon. 
     \item Devaluation risk measured by the exchange rate between the Euro and the US dollar.
 \end{itemize}
+We then consider the factors of a complementary factor model, \cite{famaCrossSectionExpectedStock1992} which are not directly linked to risks.
 
         \subsubsection{Exogeneous factors}
 These are risk factors that do not depend directly on the financial markets or more precisely that are not deduced from a linear combination of the returns of financial assets.  
@@ -279,7 +280,7 @@ Importantly, the measure of these risks is not directly measured by changes or b
 In particular, all \emph{predictable} movements, say in inflation, have already been incorporated by the market. 
 This means that the factors of risk are actually the \emph{surprises} in the movements of these variables. 
 
-To extract this unpredictable part of these variables we need to use the residuals of some time series model of the (stationary) variables\footnote{Evidently, we need that the series used are stationary before conducting any TS analysis. We tested for stationarity of our series using the ADP test and then differentiate the series that were non-stationary (see Appendix \ref{sec:extra}). We didn't apply the ADF test to the series in logs afterward as the R function \emph{auto.arima} automatically differentiates the series $d$ times until they are stationnary.}, in our case ARIMA$(p,d,q)$ models.
+To extract this unpredictable part of these variables we need to use the residuals of some time series model of the (stationary) variables\footnote{Evidently, we need that the series used are stationary before conducting any TS analysis. We tested for stationarity of our series using the ADP test and then differentiate the series that were non-stationary (see Appendix \ref{sec:extra}). We didn't apply the ADF test to the series in logs afterward as the R function \emph{auto.arima} automatically differentiates the series $d$ times until they are stationary.}, in our case ARIMA$(p,d,q)$ models.
 We used the function \emph{auto.arima} from the R \emph{forecasts} package that set de parameters optimally by minimizing the BIC between different specifications. 
 We ended up with: 
 \begin{itemize}
@@ -293,10 +294,50 @@ We then stored the residuals of each one of these models and merge it in the dat
 
         \subsubsection{Endogeneous factors} \label{sec:endofact}
 These factors are linear combinations of the returns of financial assets. 
-We used the 
+We used the \emph{Breakeven Inflation} at a 10-year horizon which is simply the yield difference between 10-y OATi 0.10\% (\emph{Obligatiosn Assimilables du Trésor}) indexed by the HICP and non-indexed 10-y OAT. 
+This gap is assimilated to how markets price the possibility of having future inflation\footnote{Note that the Breakeven inflation is the inflation rate that would equalize the return of these two sovereign bonds (due to AOA).}. 
+Once again we need to extract the unforecastable movements in this indicator to have an adequate measure of risk. 
+We follow the same methodology as with the exogenous factors and retrieve the residuals of an ARIMA(2,1,2) model.
 
 
         \subsubsection{French-Fama factors}
+
+\cite{famaCommonRiskFactors1993} can also be seen as an extension of the CAPM model but their factors, while significant specially in the US market, are hardly interpretable as risk factors.
+The authors show that the variation of the returns of an asset can be explained not only by the exposure to market risk as in the CAPM represented by the difference of the market return and the risk-free rate $[R_M-R_f]$, but also by a size and value premium in the following model.
+    
+    \begin{equation}
+        R_j = \alpha_j + R_f + \beta_{m,j}[R_M-R_f] +\beta_{S} SMB + \beta_{V}HML +\varepsilon_j
+    \end{equation}
+
+The size premium refers to the observation that stocks with small market capitalizations tend to outperform stocks with larger ones and it is captured by the factor SMB, \emph{small minus big}.
+It is computed as the difference in average returns of the $30\%$ stocks with the smallest market capitalization and the average returns of the $30\%$ stocks associated with the firms with the largest market capitalization. 
+The value premium refers to the outperformance of "value stocks" i.e. those that have high book-to-market (B/M) and it is represented by the difference in an average return of the $50\%$ of stocks with the highest $B/M$ ratio (value stocks) and the $50\%$ with lowest $B/M$ ratio (growth stocks). 
+
+As we previously mentioned, K. French made public his estimation of the factors for the European model using a more complex approach with "6 value-weight portfolios formed on size and book-to-market". 
+SMB (Small Minus Big) is the average return on the three small portfolios minus the average return on the three big portfolios, and HML (High Minus Low) is the average return on the two value portfolios minus the average return on the two growth portfolios. 
+
+
+
+
+
+\begin{comment}
+    
+    The Fama/French factors are constructed using the 6 value-weight portfolios formed on size and book-to-market. (See the description of the 6 size/book-to-market portfolios.)
+    
+    SMB (Small Minus Big) is the average return on the three small portfolios minus the average return on the three big portfolios,
+    
+    
+    SMB = 1/3 (Small Value + Small Neutral + Small Growth) - 1/3 (Big Value + Big Neutral + Big Growth).	 
+    
+    HML (High Minus Low) is the average return on the two value portfolios minus the average return on the two growth portfolios,
+    
+    
+    HML = 1/2 (Small Value + Big Value) - 1/2 (Small Growth + Big Growth).	 
+    
+    Rm-Rf, the excess return on the market, value-weight return of all CRSP firms incorporated in the US and listed on the NYSE, AMEX, or NASDAQ that have a CRSP share code of 10 or 11 at the beginning of month t, good shares and price data at the beginning of t, and good return data for t minus the one-month Treasury bill rate (from Ibbotson Associates).
+    
+    See Fama and French, 1993, "Common Risk Factors in the Returns on Stocks and Bonds," Journal of Financial Economics, for a complete description of the factor returns.
+\end{comment}
 
 
     \subsection{Estimate the sentitivities of the factorial model} \label{sec:betas}
@@ -306,10 +347,19 @@ We used the
     \subsection{Estimate the remuneration of risk from the multibeta relationship} \label{sec:lambdas}
 %he $\lambda_k$ parameters
 
+Under AOA, assuming that the factorial model (Eq. \ref{eq:factorialmodel}) is an accurate depiction of how equity is price, implies that the expected returns are constrained by a multibeta relationship of the following form $\exists \rho, \exists \lambda_1, ..., \lambda_k$: 
+    \begin{equation}
+        \E[R_j] = \rho + \sum^K_k=1 \lambda_k \beta_{j,k}
+    \end{equation}
+where each $\lambda_k$ is the parameter representing the market price of risk (the risk premium) that the market retributes for being exposed to a given risk factor $f_k$ with a sensitivity $\beta_{j,k}$%risk premium associated to the
+
+
 
 
     \subsection{Test the validity of the multibeta relationship}
 
+
+    \subsection{Application of the French-Fama model}
 
 \section*{Conslusion}
 
@@ -331,10 +381,13 @@ We used the
         \end{figure}
 
     \newpage
+
     \section{Code - Data gathering and cleaning} \label{sec:datacode}
     
     \lstinputlisting[language=Python]{Data.py}
     \newpage
+
+
     \section{Code - Analysis} \label{sec:codeanalysis}
     
     \lstinputlisting[language=R]{Analysis.R}
@@ -356,33 +409,7 @@ We used the
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\newpage 
-\section{Data and Framework}
 
-
-
-
-
-
-
-
-
-
-
-
-    \subsection{Estimation of the Factors}
-
-We need to choose what factors we are going to consider to generate risk premia that affect the return for the investor. In this section we examine the role of different types of factors (i) exogenous, (ii) endogeneous and we examine more closely the three-factor model proposed by \cite{famaCommonRiskFactors1993} in (iii).
-
-
-
-        \subsection{Exogeneous Factors}
-These are risk factors that are supposed to be orthogonal to the portfolio itself. 
-In particular, it is interesting to consider the role of 
-
-
-
-        \subsection{Endogeneous Factors}
 
 
 
@@ -390,35 +417,7 @@ In particular, it is interesting to consider the role of
 
         \subsection{French-Fama Factors}
 
-\cite{famaCommonRiskFactors1993} can be seen as an extension of the CAPM model. 
-The authors show that the variation of the returns of an asset can be explained not only by the exposure to market risk as in the CAPM represented by the difference of the market return and the risk-free rate $[R_M-R_f]$, but also by a size and value premium in the following model.
-    
-    \begin{equation}
-        R_j = \alpha_j + R_f + \beta_{m,j}[R_M-R_f] +\beta_{S} SMB + \beta_{V}HML +\varepsilon_j
-    \end{equation}
 
-The size premium refers to the observation that stocks with small market capitalizations tend to outperform stocks with larger ones and it is captured by the factor SMB, \emph{small minus big}.
-It is computed as the difference in average returns of the $30\%$ stocks with the smallest market capitalization and the average returns of the $30\%$ stocks associated with the firms with the largest market capitalization. 
-The value premium refers to the outperformance of "value stocks" i.e. those that have high book-to-market (B/M) and it is represented by the difference in an average return of the $50\%$ of stocks with the highest $B/M$ ratio (value stocks) and the $50\%$ with lowest $B/M$ ratio (growth stocks). 
-
-\begin{comment}
-    
-    The Fama/French factors are constructed using the 6 value-weight portfolios formed on size and book-to-market. (See the description of the 6 size/book-to-market portfolios.)
-    
-    SMB (Small Minus Big) is the average return on the three small portfolios minus the average return on the three big portfolios,
-    
-    
-    SMB = 1/3 (Small Value + Small Neutral + Small Growth) - 1/3 (Big Value + Big Neutral + Big Growth).	 
-    
-    HML (High Minus Low) is the average return on the two value portfolios minus the average return on the two growth portfolios,
-    
-    
-    HML = 1/2 (Small Value + Big Value) - 1/2 (Small Growth + Big Growth).	 
-    
-    Rm-Rf, the excess return on the market, value-weight return of all CRSP firms incorporated in the US and listed on the NYSE, AMEX, or NASDAQ that have a CRSP share code of 10 or 11 at the beginning of month t, good shares and price data at the beginning of t, and good return data for t minus the one-month Treasury bill rate (from Ibbotson Associates).
-    
-    See Fama and French, 1993, "Common Risk Factors in the Returns on Stocks and Bonds," Journal of Financial Economics, for a complete description of the factor returns.
-\end{comment}
     
     
 
