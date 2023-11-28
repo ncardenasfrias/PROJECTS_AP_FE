@@ -157,9 +157,16 @@ Importantly, we tried to have a certain diversity in the sectors represented to 
 However, because we try to implement a version of the \cite{famaCrossSectionExpectedStock1992} factor analysis, we restrain ourselves from choosing financial companies as the authors do due to their high leverage. 
 Other than these two conditions, the choice of the companies was mainly restricted to data availability on public 'long' series on firm-level data, notably on market capitalization and book-to-market ratio to be able to incorporate the \cite{famaCrossSectionExpectedStock1992} factors to our analysis. 
 
-\textcolor{red}{describe frequency of data }
+%\textcolor{red}{describe frequency of data }
 
-Because we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis with monthly data for our selection of
+Because we are interested in the underlying determinants of the risk premia, and due to data availability issues, we decided to have a broad analysis with monthly data for our selection of stocks for the period 2005-2022. 
+Monthly data is for instance used by \cite{chenEconomicForcesStock1986}.
+While this is not a very long period, it encompasses important moments in the financial markets in particular the Great Financial Crisis, the subsequent European Debt Crisis, and the Covid years. 
+Also importantly, during most of this period (following the GFC), monetary policy fixed interest rates were extremely low driving down the return of sovereign debt for countries like France and Germany\footnote{They were negative for certain maturities in real terms for a part of the time frame analyzed, pretty much since the European Debt Crisis until the inflation surge after Covid.} that could have been assimilated to the risk-free rate. 
+This means that for an investor to get any returns, it had to hold risky assets. 
+Moreover, the period following the GFC and up to 2021 was also characterized by extremely low inflation in the Euro Zone. 
+This is interesting because the APT usually incorporates inflation risk as market risk, yet inflation was nowhere to be found for more than a decade. 
+Seeing how the market incorporated this monetary reality is by itself an intriguing question.
 
 
 \begin{table}[h]
@@ -217,7 +224,7 @@ The other series that we use are the following and its sources, how they are use
         \item The spot yield curve spot rate, for 3-month maturity of all government bonds rated triple A in the Euro Area, retrieved from the \hyperlink{https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M?chart_props=W3sibm9kZUlkIjoiMTg5NTYzMSIsInByb3BlcnRpZXMiOlt7ImNvbG9ySGV4IjoiIiwiY29sb3JUeXBlIjoiIiwiY2hhcnRUeXBlIjoibGluZWNoYXJ0IiwibGluZVN0eWxlIjoiU29saWQiLCJsaW5lV2lkdGgiOiIxLjUiLCJheGlzUG9zaXRpb24iOiJsZWZ0Iiwib2JzZXJ2YXRpb25WYWx1ZSI6ZmFsc2UsImRhdGVzIjpbXSwiaXNUZGF0YSI6ZmFsc2UsIm1vZGlmaWVkVW5pdFR5cGUiOiIiLCJ5ZWFyIjoib25lIiwic3RhcnREYXRlIjoiMjAyMi0xMS0yMyIsImVuZERhdGUiOiIyMDIzLTExLTIzIiwic2V0RGF0ZSI6ZmFsc2UsInNob3dUYWJsZURhdGEiOnRydWUsImNoYW5nZU1vZGUiOmZhbHNlLCJzaG93TWVudVN0eWxlQ2hhcnQiOmZhbHNlLCJkaXNwbGF5TW9iaWxlQ2hhcnQiOnRydWUsInNjcmVlblNpemUiOiJtYXgiLCJzY3JlZW5XaWR0aCI6MTQ0MCwic2hvd1RkYXRhIjpmYWxzZSwidHJhbnNmb3JtZWRGcmVxdWVuY3kiOiJub25lIiwidHJhbnNmb3JtZWRVbml0Ijoibm9uZSIsImZyZXF1ZW5jeSI6Im5vbmUiLCJ1bml0Ijoibm9uZSIsIm1vZGlmaWVkIjoiZmFsc2UiLCJzZXJpZXNLZXkiOiJkYWlseSAtIGJ1c2luZXNzd2VlayIsInNob3d0YWJsZVN0YXRlQmVmb3JlTWF4U2NyZWVuIjpmYWxzZSwiaXNkYXRhY29tcGFyaXNvbiI6ZmFsc2UsInNlcmllc0ZyZXF1ZW5jeSI6ImRhaWx5IC0gYnVzaW5lc3N3ZWVrIiwiaW50aWFsU2VyaWVzRnJlcXVlbmN5IjoiZGFpbHkgLSBidXNpbmVzc3dlZWsiLCJtZXRhZGF0YURlY2ltYWwiOiI2IiwiaXNUYWJsZVNvcnRlZCI6ZmFsc2UsImlzWWVhcmx5VGRhdGEiOmZhbHNlLCJyZXNwb25zZURhdGFFbmREYXRlIjoiIiwiaXNpbml0aWFsQ2hhcnREYXRhIjp0cnVlLCJpc0RhdGVzRnJvbURhdGVQaWNrZXIiOmZhbHNlLCJkYXRlUGlja2VyRW5kRGF0ZSI6IiIsImlzRGF0ZVBpY2tlckVuZERhdGUiOmZhbHNlLCJzZXJpZXNrZXlTZXQiOiIiLCJkYXRhc2V0SWQiOiIxMjUiLCJpc0NhbGxiYWNrIjpmYWxzZSwiaXNTbGlkZXJUZGF0YSI6ZmFsc2UsImlzU2xpZGVyRGF0YSI6ZmFsc2UsImlzSW5pdGlhbENoYXJ0RGF0YUZyb21HcmFwaCI6ZmFsc2UsImNoYXJ0U2VyaWVzS2V5IjoiWUMuQi5VMi5FVVIuNEYuR19OX0EuU1ZfQ19ZTS5TUl8zTSIsInR5cGVPZiI6ImRvd25Mb2FkIn1dfV0\%3D}{ECB webpage}. On top of the fact that this is a measure for short-term sovereign bonds, we consider this to be a relevant proxy for the French market due to the strong integration within the European capital market. If an investor decides that the French market becomes risky, she can easily move her investments to another European capital market that looks safer. 
     \end{itemize}
     \item To get the market rate, we use the return of the main index of the country, the CAC40 also taken from Yahoo Finance as for the components of our synthetic portfolio. In hindsight, we are not sure of the pertinence of comparing our portfolio to this index. While the composition of our portfolio is not the same as the CAC40\footnote{Not all the stocks we chose are necessarily part of the CAC40 at every period studied, and the CAC40 is a weighted index that evolves over time.}, due to the data availability issues we've been mentioning, we see that our choices are heavily biased towards 'big name' companies that are those belonging to the index.
-    \item We got the series of the exchange rate between the Euro and the US dollar from Yahoo Finance. It is read as the amount of USD needed to get an euro. 
+    \item We got the series of the exchange rate between the Euro and the US dollar from Yahoo Finance. It is read as the amount of USD needed to get one euro. 
     \item The GDP series is taken from the \hyperlink{https://data.ecb.europa.eu/data/datasets/MNA/MNA.Q.Y.FR.W2.S1.S1.B.B1GQ._Z._Z._Z.XDC.LR.N?chart_props=W3sibm9kZUlkIjoiNjEzMzI0IiwicHJvcGVydGllcyI6W3siY29sb3JIZXgiOiIiLCJjb2xvclR5cGUiOiIiLCJjaGFydFR5cGUiOiJsaW5lY2hhcnQiLCJsaW5lU3R5bGUiOiJTb2xpZCIsImxpbmVXaWR0aCI6IjEuNSIsImF4aXNQb3NpdGlvbiI6ImxlZnQiLCJvYnNlcnZhdGlvblZhbHVlIjpmYWxzZSwiZGF0ZXMiOlsiMjAwMC0wMy0wNFQyMzowMDowMC4wMDBaIiwiMjAyMy0wOS0yOVQyMjowMDowMC4wMDBaIl0sImlzVGRhdGEiOmZhbHNlLCJtb2RpZmllZFVuaXRUeXBlIjoiIiwieWVhciI6ImRhdGV3aXNlIiwic3RhcnREYXRlIjoiMjAwMC0wMy0wNSIsImVuZERhdGUiOiIyMDIzLTA5LTMwIiwic2V0RGF0ZSI6dHJ1ZSwic2hvd1RhYmxlRGF0YSI6ZmFsc2UsImNoYW5nZU1vZGUiOmZhbHNlLCJzaG93TWVudVN0eWxlQ2hhcnQiOmZhbHNlLCJkaXNwbGF5TW9iaWxlQ2hhcnQiOnRydWUsInNjcmVlblNpemUiOiJtYXgiLCJzY3JlZW5XaWR0aCI6MTQ0MCwic2hvd1RkYXRhIjpmYWxzZSwidHJhbnNmb3JtZWRGcmVxdWVuY3kiOiJub25lIiwidHJhbnNmb3JtZWRVbml0Ijoibm9uZSIsImZyZXF1ZW5jeSI6Im5vbmUiLCJ1bml0Ijoibm9uZSIsIm1vZGlmaWVkIjoiZmFsc2UiLCJzZXJpZXNLZXkiOiJxdWFydGVybHkiLCJzaG93dGFibGVTdGF0ZUJlZm9yZU1heFNjcmVlbiI6ZmFsc2UsImlzZGF0YWNvbXBhcmlzb24iOmZhbHNlLCJzZXJpZXNGcmVxdWVuY3kiOiJxdWFydGVybHkiLCJpbnRpYWxTZXJpZXNGcmVxdWVuY3kiOiJxdWFydGVybHkiLCJtZXRhZGF0YURlY2ltYWwiOiIyIiwiaXNUYWJsZVNvcnRlZCI6ZmFsc2UsImlzWWVhcmx5VGRhdGEiOmZhbHNlLCJyZXNwb25zZURhdGFFbmREYXRlIjoiMjAyMy0wOS0zMCIsImlzaW5pdGlhbENoYXJ0RGF0YSI6dHJ1ZSwiaXNEYXRlc0Zyb21EYXRlUGlja2VyIjp0cnVlLCJkYXRlUGlja2VyRW5kRGF0ZSI6IjIwMjMtMDktMzAiLCJpc0RhdGVQaWNrZXJFbmREYXRlIjp0cnVlLCJzZXJpZXNrZXlTZXQiOiIiLCJkYXRhc2V0SWQiOiIyNDkiLCJpc0NhbGxiYWNrIjpmYWxzZSwiaXNTbGlkZXJUZGF0YSI6dHJ1ZSwiaXNTbGlkZXJEYXRhIjp0cnVlLCJpc0luaXRpYWxDaGFydERhdGFGcm9tR3JhcGgiOnRydWUsImNoYXJ0U2VyaWVzS2V5IjoiTU5BLlEuWS5GUi5XMi5TMS5TMS5CLkIxR1EuX1ouX1ouX1ouWERDLkxSLk4iLCJ0eXBlT2YiOiIifV19XQ\%3D\%3D}{ECB webpage}. It is available at a quarterly frequency and is available at market prices. 
     \item The harmonized headline inflation rate is taken from the \hyperlink{https://www.insee.fr/fr/statistiques/serie/010576187}{INSEE webpage}. 
     \item For the market inflation expectation in a 10-year horizon, we use the break-even inflation rate published by \hyperlink{https://www.aft.gouv.fr/en/oateuroi-key-figures\#serie}{Agence France Trésor} online. Sadly, data is only available from 2013.
@@ -236,39 +243,71 @@ The other series that we use are the following and its sources, how they are use
 
 %For the sake of completeness, this section summarizes the lecture on the \cite{rossArbitrageTheoryCapital1976} model and the multibeta relationship as they are the theoretical foundation of the empirical application.
 We implement a minimal approach to \cite{rossArbitrageTheoryCapital1976}, namely using fewer factors than in \cite{chenEconomicForcesStock1986}. 
-We include both exogeneous and endogenous macroeconomic risk factors as well as an approximation to implement \cite{famaCommonRiskFactors1993} three-factor model which used stock specific data. 
+We include both exogenous and endogenous macroeconomic risk factors as well as an approximation to implement \cite{famaCommonRiskFactors1993} three-factor model which used stock-specific data. 
 
 Let the return $R_j$ of the $j$-th component of her portfolio can be described by the following expression $\forall j\in \{1,...,N\}$: 
     \begin{equation} \label{eq:factorialmodel}
         R_j = \E[R_j] + \underbrace{\sum_{k=1}^K \beta_{j,k} f_k}_{\mathclap{\text{Systemic risk}}} + \overbrace{u_j}^{\mathclap{\text{Idiosyncratic risk}}}
     \end{equation}
-Where $\E[R_j]$ is the expected return of asset $j$. 
-The sources of risk are two-fold. 
-The investor faces centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completely diversiable with a portfolio "large enough" ($N$ big) because they are independent of each other $u_j \ind u_{j'} \forall j\neq j' $, and uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$ which is a required assumption to perform the estimations that will follow.
-She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
-By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
+Where $\E[R_j]$ is the expected return of asset $j$ and $R_j$ its return without dividend i.e. the first difference of the stock price. 
+This is the so-called \emph{factorial model} that includes two sources of risk:
+\begin{enumerate}
+    \item[i.] The investor faces centered idiosyncratic risks $u_j$, $\E[u_j]=0$ that are assumed to be completely diversiable with a portfolio "large enough" ($N$ big) because they are independent of each other $u_j \ind u_{j'} \forall j\neq j' $.
+    \item[ii.] She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
+    By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
+\end{enumerate}
+In order to implement a regression analysis and estimation as the one that follows in this section, we shall also assume that the idiosyncratic risks are uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$.
+
+This section is organized as follows. 
+Section \ref{sec:identiffactors} identifies the aggregate market risks $(f_k)_k$ that we are going to consider as the ones priced by the market. 
+Section \ref{sec:betas} runs a first regression analysis to identify the sensitivity of each return to each factor of risk, i.e. to identify the $(\beta_{j,k})_{j,k}$ from the factorial model(Eq. \ref{eq:factorialmodel}). It also implements an approximation to a parallel model that decomposes the return of stocks: the \cite{famaCrossSectionExpectedStock1992} that also will lead us to estimate the sensitivity of the return of each return to a series of factors. 
+Finally, section \ref{sec:lambdas} uses the series of $(\hat{\beta}_{j,k})_{j,k}$ estimated before to implement an estimation of the \emph{multibeta relationship} which is the regression that will allow us to get how much the market is remunerating the exposition to a market factor risk.
 
 
-    \subsection{Identify the risk factors}
+    \subsection{Identify the risk factors} \label{sec:identiffactors}
+We decided to explore the role of the following sources of risk. 
+\begin{itemize}
+    \item The activity risk, measured by changes in GDP
+    \item Inflation risk, measured both by the HICP of France for the short term and by the market inflation expectation in a 10-y horizon. 
+    \item Devaluation risk measured by the exchange rate between the Euro and the US dollar.
+\end{itemize}
 
         \subsubsection{Exogeneous factors}
-    
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=0.9\textwidth]{Images/macroseries_raw.jpeg}
-            \caption{ML algorithms and discrimination}
-            \label{fig:rawmacro}
-            %\caption*{\footnotesize{\emph{Notes}: }}
-        \end{figure}
+These are risk factors that do not depend directly on the financial markets or more precisely that are not deduced from a linear combination of the returns of financial assets.  
+In our case, it is mainly the activity risk, the short-term interest rate (measured by the HICP), and the devaluation risk. 
+Importantly, the measure of these risks is not directly measured by changes or by the level of the underlying variables as markets are informational efficient [Fama, 1970], and they have already priced in all relevant information conveyed by prices. 
+In particular, all \emph{predictable} movements, say in inflation, have already been incorporated by the market. 
+This means that the factors of risk are actually the \emph{surprises} in the movements of these variables. 
+
+To extract this unpredictable part of these variables we need to use the residuals of some time series model of the (stationary) variables\footnote{Evidently, we need that the series used are stationary before conducting any TS analysis. We tested for stationarity of our series using the ADP test and then differentiate the series that were non-stationary (see Appendix \ref{sec:extra}). We didn't apply the ADF test to the series in logs afterward as the R function \emph{auto.arima} automatically differentiates the series $d$ times until they are stationnary.}, in our case ARIMA$(p,d,q)$ models.
+We used the function \emph{auto.arima} from the R \emph{forecasts} package that set de parameters optimally by minimizing the BIC between different specifications. 
+We ended up with: 
+\begin{itemize}
+    \item[-] ARIMA(0,1,0) (i.e. a random walk\footnote{We do find this result 'weird' but didn't find any mistake in the code}) for the series of log GDP. 
+    \item[-] ARIMA(0,1,1) for the exchange rate series. 
+    \item[-] ARIMA(2,1,2) for the HICP series. 
+\end{itemize}
+
+We then stored the residuals of each one of these models and merge it in the data frame with the stock return 
+
 
         \subsubsection{Endogeneous factors} \label{sec:endofact}
+These factors are linear combinations of the returns of financial assets. 
+We used the 
+
+
         \subsubsection{French-Fama factors}
 
 
-    \subsection{Estimate the $\beta_k$ coefficients from the factorial model}
+    \subsection{Estimate the sentitivities of the factorial model} \label{sec:betas}
+%$\beta_k$ coefficients from the factorial model
 
-    \subsection{Estimate the $\lambda_k$ parameters from the multibeta relationship}
-    
+
+    \subsection{Estimate the remuneration of risk from the multibeta relationship} \label{sec:lambdas}
+%he $\lambda_k$ parameters
+
+
+
     \subsection{Test the validity of the multibeta relationship}
 
 
@@ -276,10 +315,26 @@ By definition, these risks cannot be diversified because they affect the returns
 
 \newpage
 \begin{appendices}
+    \section{Additional tables and figures } \label{sec:extra}
+\subsection*{Macroeconomic factors}
+
+\input{Tables/trend_macro.tex}
+\input{Tables/drift_macro.tex}
+\input{Tables/drift_none.tex}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/macroseries_raw_diff.jpeg}
+            \caption{Factors: Series in level and in deltas}
+            \label{fig:rawmacro}
+            %\caption*{\footnotesize{\emph{Notes}: }}
+        \end{figure}
+
+    \newpage
     \section{Code - Data gathering and cleaning} \label{sec:datacode}
     
     \lstinputlisting[language=Python]{Data.py}
-    
+    \newpage
     \section{Code - Analysis} \label{sec:codeanalysis}
     
     \lstinputlisting[language=R]{Analysis.R}
@@ -309,8 +364,7 @@ By definition, these risks cannot be diversified because they affect the returns
 
 
 
-    \subsection{German Stock Market}
-We decided to consider the German stock market for this analysis because it is a major liquid stock market in Europe. It is also the biggest economy in the Europe, with mayor 
+
 
 
 

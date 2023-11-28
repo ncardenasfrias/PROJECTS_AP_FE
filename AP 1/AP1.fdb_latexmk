@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex AP1"] 1701109724 "AP1.aux" "AP1.bbl" "AP1" 1701109735
+["bibtex AP1"] 1701202648 "AP1.aux" "AP1.bbl" "AP1" 1701202657
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1701109734 13872 80ad4a2cfd0295991fbb8830d47bd33d "pdflatex"
+  "AP1.aux" 1701202656 15303 a6e7adc409616ece59c4889117f93791 "pdflatex"
   "Finance.bib" 1701109514 68495 34eeeddb814fb20da5f86a47714ef5d0 ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1701109730 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701109735
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701109729 24055 a00482397f97c0ebe03bbd0cf856d646 ""
+["pdflatex"] 1701202649 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701202657
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701202640 29046 e20fac729e2a40be47328a3dae4c4f9e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
@@ -41,7 +41,6 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/ts1-qplr.tfm" 1529098226 1628 0cde3c8a66f74ab8447166240fdd50f8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -189,12 +188,15 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1701109734 13872 80ad4a2cfd0295991fbb8830d47bd33d "pdflatex"
-  "AP1.bbl" 1701109725 1514 479eb2f7abdf4314b10b662f1e184e50 "bibtex AP1"
-  "AP1.tex" 1701109729 24055 a00482397f97c0ebe03bbd0cf856d646 ""
+  "AP1.aux" 1701202656 15303 a6e7adc409616ece59c4889117f93791 "pdflatex"
+  "AP1.bbl" 1701202649 1514 479eb2f7abdf4314b10b662f1e184e50 "bibtex AP1"
+  "AP1.tex" 1701202640 29046 e20fac729e2a40be47328a3dae4c4f9e ""
   "Analysis.R" 1701090216 1039 353f99ac2908de259ee672b5cdef1e5b ""
-  "Data.py" 1701088463 12835 27cfb193d9556577b185932247ac4291 ""
-  "Images/macroseries_raw.jpeg" 1701108016 672447 cea5ad044c6b14f87ac2e41d5950cf91 ""
+  "Data.py" 1701185080 13267 be9ef5939405653c3ec0afe587d4f360 ""
+  "Images/macroseries_raw_diff.jpeg" 1701198285 290668 842983ee9a5e118d295646a8d61ecaf3 ""
+  "Tables/drift_macro.tex" 1701196565 806 dbc759f150ab6c901e8e1ec59ce218ff ""
+  "Tables/drift_none.tex" 1701196412 710 2129bcc11cc4f375e368ccc75d7837e1 ""
+  "Tables/trend_macro.tex" 1701196011 807 7130388a89d4cc433bff4afa2c6ecd10 ""
   (generated)
   "AP1.aux"
   "AP1.log"

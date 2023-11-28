@@ -184,7 +184,19 @@ prices_monthly = pd.melt(adjclose, value_vars=company_names_lower[0:-2], ignore_
 prices_yearly = pd.melt(adjclose_y, value_vars=company_names_lower[0:-2], ignore_index=False)
 
 
-del data, adjclose, adjclose_y, start, end
+del data, adjclose, adjclose_y
+
+#I'm not getting right values for xrate when dowloading in bulk
+data = yf.download(['EURUSD=X', '^FCHI'], start=start, end=end)
+adjclose=data['Adj Close']
+adjclose = adjclose.set_axis(['EuroUSD','CAC40'], axis=1)
+#adjclose = pd.DataFrame(adjclose, columns=['Date', 'EuroUSD'])
+
+cac_xrate_month = adjclose.resample('1M').mean(numeric_only=True)
+cac_xrate_year = adjclose.resample('1Y').mean(numeric_only=True)
+
+del data, adjclose, start, end
+
 
 #%% Endogeneous factor: long term inflation expectation from external file 
 
@@ -345,7 +357,7 @@ yearly.to_csv('Yearly_series.csv')
 
 monthly_data_reset = monthly_stock.reset_index()
 yearly_stock = monthly_data_reset.groupby('Company').resample('Y', on='Date').mean()
-yearly_stock = yearly_stock.set_index(["Date", "Company"])
+#yearly_stock = yearly_stock.set_index(["Date", "Company"])
 
 yearly_stock.to_csv("Firm_yearly.csv")
 
