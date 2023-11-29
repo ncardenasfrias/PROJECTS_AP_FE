@@ -1303,6 +1303,10 @@ INPUT ./Tables/betas_exo_ff.tex
 INPUT Tables/betas_exo_ff.tex
 INPUT ./Tables/betas_exo_ff.tex
 INPUT Tables/betas_exo_ff.tex
+INPUT ./Tables/betas_myff.tex
+INPUT Tables/betas_myff.tex
+INPUT ./Tables/betas_myff.tex
+INPUT Tables/betas_myff.tex
 INPUT ./Tables/trend_macro.tex
 INPUT Tables/trend_macro.tex
 INPUT ./Tables/trend_macro.tex

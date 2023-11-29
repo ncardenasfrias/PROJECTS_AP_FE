@@ -257,9 +257,11 @@ Firm_yearly =merge(Firm_yearly, DiffMC, by = "Date")
 
 Data_year = read_csv("DATA_yearly.csv")
 Firm_yearly =merge(Firm_yearly, Data_year, by = "Date")
+Firm_yearly$Date = as.Date(Firm_yearly$Date)
 
-Firm_yearly <- Firm_yearly[order(Firm_yearly$Company, Firm_yearly$Date), ]
-Firm_yearly$Return <- with(Firm_yearly, ave(value, Company, FUN = function(x) c(NA, diff(x))))
+Firm_yearly <- Firm_yearly[order(Firm_yearly$Company.x, Firm_yearly$Date), ]
+Firm_yearly$Return <- with(Firm_yearly, ave(value.x, Company.x, FUN = function(x) c(NA, diff(x))))
+
 Firm_yearly$DCAC40 = c(NA, diff(Firm_yearly$CAC40))
 Firm_yearly$Doat = c(NA, diff(Firm_yearly$oat))
 Firm_yearly$mkt_free = Firm_yearly$DCAC40 - Firm_yearly$Doat
@@ -284,9 +286,47 @@ stargazer(regs_beta_myFF,
 #######################
 
 
+#Extarct the beta coefficients of reg with exo and FF factors 
+# Initialize an empty dataframe to store coefficients and model names
+coefficients_df <- data.frame(Model = character(), Intercept = numeric(),
+                              res_pib = numeric(), res_xr = numeric(),
+                              res_infl = numeric(), HML = numeric(),
+                              SMB = numeric(), Mkt.RF = numeric(),
+                              stringsAsFactors = FALSE)
+
+# Iterate through subsets of data and fit models
+for (i in seq_along(dta_bystock)) {
+  subset <- dta_bystock[[i]]
+  model <- fit_lm_exoff(subset)
+  coefficients <- c(model$coefficients[1], model$coefficients[-1])
+  row <- data.frame(Model = paste0("Model_", i),
+                    Intercept = coefficients[1],
+                    res_pib = coefficients[2],
+                    res_xr = coefficients[3],
+                    res_infl = coefficients[4],
+                    HML = coefficients[5],
+                    SMB = coefficients[6],
+                    Mkt.RF = coefficients[7])
+  coefficients_df <- rbind(coefficients_df, row)
+}
+
+coefficients_df
+coefficients_df$Company = names(regs_beta_exoff) #added column with company name 
 
 
 
+#Get the historical mean return of every stock
+
+historical_mean_returns <- finalmonthly %>%
+  group_by(Company) %>%
+  summarise(mean_return = mean(Return, na.rm = TRUE))
+
+# View the resulting dataframe with mean returns by company
+print(historical_mean_returns)
+
+
+#merge two data sets 
+multibeta = merge(coefficients_df, historical_mean_returns, by="Company")
 
 
 
