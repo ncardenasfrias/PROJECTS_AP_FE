@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex AP1"] 1701230057 "AP1.aux" "AP1.bbl" "AP1" 1701230323
+["bibtex AP1"] 1701233996 "AP1.aux" "AP1.bbl" "AP1" 1701234035
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "AP1.aux" 1701230322 14825 97642947fc17f7d8049f68580b0a3321 "pdflatex"
+  "AP1.aux" 1701234034 14160 6d24e1066179a91297e724a889847b0b "pdflatex"
   "Finance.bib" 1701109514 68495 34eeeddb814fb20da5f86a47714ef5d0 ""
   (generated)
   "AP1.bbl"
   "AP1.blg"
-["pdflatex"] 1701230314 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701230323
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701228737 32181 393eb0bc5fe8589a631228cb4c3b3385 ""
+["pdflatex"] 1701234017 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" "AP1.pdf" "AP1" 1701234035
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1/AP1.tex" 1701234009 33010 950e66846219db07a3134f4659c0e758 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
@@ -192,13 +192,15 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "AP1.aux" 1701230322 14825 97642947fc17f7d8049f68580b0a3321 "pdflatex"
-  "AP1.bbl" 1701230058 1514 479eb2f7abdf4314b10b662f1e184e50 "bibtex AP1"
-  "AP1.tex" 1701228737 32181 393eb0bc5fe8589a631228cb4c3b3385 ""
-  "Analysis.R" 1701090216 1039 353f99ac2908de259ee672b5cdef1e5b ""
+  "AP1.aux" 1701234034 14160 6d24e1066179a91297e724a889847b0b "pdflatex"
+  "AP1.bbl" 1701233996 1514 479eb2f7abdf4314b10b662f1e184e50 "bibtex AP1"
+  "AP1.tex" 1701234009 33010 950e66846219db07a3134f4659c0e758 ""
+  "Analysis.R" 1701233539 11588 317c1a013c4c754759bc09c5ea3a73be ""
   "Data.py" 1701185080 13267 be9ef5939405653c3ec0afe587d4f360 ""
   "Images/macroseries_raw_diff.jpeg" 1701198285 290668 842983ee9a5e118d295646a8d61ecaf3 ""
   "Tables/betas_exo.tex" 1701230313 5502 eb538da92c0dd3881002ea636427d19c ""
+  "Tables/betas_exo_endo.tex" 1701230051 6194 140ad798570a09dfed9d3685781e2704 ""
+  "Tables/betas_exo_ff.tex" 1701230663 8219 ae5ffe9a377cef2a3ccd8df032040878 ""
   "Tables/drift_macro.tex" 1701196565 806 dbc759f150ab6c901e8e1ec59ce218ff ""
   "Tables/drift_none.tex" 1701196412 710 2129bcc11cc4f375e368ccc75d7837e1 ""
   "Tables/trend_macro.tex" 1701196011 807 7130388a89d4cc433bff4afa2c6ecd10 ""

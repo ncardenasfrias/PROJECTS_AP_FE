@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  29 NOV 2023 04:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  29 NOV 2023 06:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -793,6 +793,12 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `AP1.aux'.
 
@@ -915,50 +921,55 @@ Overfull \hbox (839.48181pt too wide) in paragraph at lines 11--42
 
 [8
 
-]) [9
+]) (./Tables/betas_exo_endo.tex
+Overfull \hbox (1530.51112pt too wide) in paragraph at lines 7--41
+ [][] 
+ []
 
-] (./Tables/trend_macro.tex) (./Tables/drift_macro.tex) (./Tables/drift_none.tex)
-<Images/macroseries_raw_diff.jpeg, id=155, 1403.2425pt x 835.12pt>
+) (./Tables/betas_exo_ff.tex
+Overfull \hbox (1741.51912pt too wide) in paragraph at lines 7--47
+ [][] 
+ []
+
+) [9
+
+] [10] [11] (./Tables/trend_macro.tex) (./Tables/drift_macro.tex) (./Tables/drift_none.tex)
+<Images/macroseries_raw_diff.jpeg, id=165, 1403.2425pt x 835.12pt>
 File: Images/macroseries_raw_diff.jpeg Graphic file (type jpg)
 <use Images/macroseries_raw_diff.jpeg>
-Package pdftex.def Info: Images/macroseries_raw_diff.jpeg  used on input line 434.
+Package pdftex.def Info: Images/macroseries_raw_diff.jpeg  used on input line 447.
 (pdftex.def)             Requested size: 435.78593pt x 259.34326pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+[12] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 444.
- (./Data.py [11 <./Images/macroseries_raw_diff.jpeg>] [12] [13]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 457.
+ (./Data.py [13 <./Images/macroseries_raw_diff.jpeg>] [14] [15]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 134.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [14] [15] [16] [17] [18]) [19] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+) [16] [17] [18] [19] [20]) [21] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2020/03/24 1.8d listings language file
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2020/03/24 1.8d listings language file
-) (./Analysis.R) [20]
-pdfTeX warning (ext4): destination with the same identifier (name{subsection.2.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.475         \subsection{French-Fama Factors}
-                                               (./AP1.bbl) [21] (./AP1.aux)
+) (./Analysis.R [22] [23] [24] [25] [26] [27]) [28] (./AP1.bbl) [29] (./AP1.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22463 strings out of 478268
- 367512 string characters out of 5846347
- 1296364 words of memory out of 5000000
- 39786 multiletter control sequences out of 15000+600000
+ 22838 strings out of 478268
+ 372951 string characters out of 5846347
+ 1452445 words of memory out of 5000000
+ 39889 multiletter control sequences out of 15000+600000
  517519 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,117p,2252b,2337s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,117p,2252b,2872s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist, replaced by a fixed one
 
@@ -1002,10 +1013,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on AP1.pdf (21 pages, 606081 bytes).
+Output written on AP1.pdf (29 pages, 641525 bytes).
 PDF statistics:
- 883 PDF objects out of 1000 (max. 8388607)
- 809 compressed objects within 9 object streams
- 480 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1221 PDF objects out of 1440 (max. 8388607)
+ 1136 compressed objects within 12 object streams
+ 746 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

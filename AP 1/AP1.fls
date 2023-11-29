@@ -1295,6 +1295,14 @@ INPUT ./Tables/betas_exo.tex
 INPUT Tables/betas_exo.tex
 INPUT ./Tables/betas_exo.tex
 INPUT Tables/betas_exo.tex
+INPUT ./Tables/betas_exo_endo.tex
+INPUT Tables/betas_exo_endo.tex
+INPUT ./Tables/betas_exo_endo.tex
+INPUT Tables/betas_exo_endo.tex
+INPUT ./Tables/betas_exo_ff.tex
+INPUT Tables/betas_exo_ff.tex
+INPUT ./Tables/betas_exo_ff.tex
+INPUT Tables/betas_exo_ff.tex
 INPUT ./Tables/trend_macro.tex
 INPUT Tables/trend_macro.tex
 INPUT ./Tables/trend_macro.tex

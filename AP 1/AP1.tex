@@ -361,13 +361,26 @@ We will therefore estimate the following:
 \begin{equation*}
     R_{j,t} \sim  \alpha + \beta_{j,GDP} \widehat{\varepsilon}_{logGDP,t} + \beta_{j,infl} \widehat{\varepsilon}_{infl,t} + \beta_{j,XR} \widehat{\varepsilon}_{XR,t} + \beta_{j,inflLT} \widehat{\varepsilon}_{inflLT,t}
 \end{equation*}
+To do so, we split the dataset by stock and perform linear regressions for each subgroup. 
 
 \paragraph*{Exogeneous factors only}
-We performed a first version 
+We performed a first version  of this estimation using only the exogenous factors which allows us to have an analysis of the 2005-2022 period. 
+Results are shown in the following table. 
 
 \input{Tables/betas_exo.tex}
 
+\paragraph*{Exogeneous and endogeneous factors}
+ We add another specification to include the endogeneous market expectation of long-term inflation.
+ Sadly due to the short series on the Breakeven inflation, this analysis is conducted only on the period 2013-2022, still at a monthly frequence. 
 
+\input{Tables/betas_exo_endo.tex}
+
+
+
+\paragraph*{Exogeneous and French and Fama factors}
+The last specification includes the French and Fama factors given by K. French data library. As in the baseline it refers to monthly data on the 2005-2022 period. 
+
+\input{Tables/betas_exo_ff.tex}
 
 
 \subsubsection{French and Fama model}
@@ -439,13 +452,13 @@ where each $\lambda_k$ is the parameter representing the market price of risk (t
 
     \newpage
 
-    \section{Code - Data gathering and cleaning} \label{sec:datacode}
+    \section{Code - Data gathering and cleaning in Python} \label{sec:datacode}
     
     \lstinputlisting[language=Python]{Data.py}
     \newpage
 
 
-    \section{Code - Analysis} \label{sec:codeanalysis}
+    \section{Code - Analysis in R} \label{sec:codeanalysis}
     
     \lstinputlisting[language=R]{Analysis.R}
     
@@ -469,17 +482,11 @@ where each $\lambda_k$ is the parameter representing the market price of risk (t
 
 
 
-
-
-
-        \subsection{French-Fama Factors}
-
-
     
     
 
 
-
+\begin{comment}
 \section{Estimation of the exposure}
 
 
@@ -491,6 +498,9 @@ where each $\lambda_k$ is the parameter representing the market price of risk (t
 \textcolor{blue}{Develop econometric analysis which provides the multi-beta relationship 1. Identify the series for the risk factors (endo and exo) and justify choices $+$ including 2 factors proposed by French and Fama 2. Estimate beta coeds or different stocks with relevant linear regression 3. Estimate market price of different sources of risk retained in analysis with appropriate linear reg}
 
 \textcolor{blue}{Comment the results from a financial point of view: are the estimated exposures of the different stocks to the different factors in line with expectations}
+
+\end{comment}
+
 
 \addcontentsline{toc}{section}{References}
 \bibliography{Finance.bib}
