@@ -366,12 +366,18 @@ stargazer(model_multibeta, out='Tables/LM_multibeta.tex')
 library(nlme)
 
 #get the var-cov matrix of the initial regression to use as weights
-resid = residuals(model_multibeta)
+residuals_list =list()
+for (i in seq_along(regs_beta)) {
+  residuals <- residuals(regs_beta[[i]])
+  residuals_list[[i]] <- residuals
+}
 
-# Calculate variance-covariance matrix of combined residuals
-var_cov_matrix <- cov(resid)
-inv_var_cov = solve(var_cov_matrix)
+combined_residuals <- do.call(rbind, residuals_list)
+
+var_cov_matrix_pooled <- cov(combined_residuals)
+
+inv_var_cov = solve(var_cov_matrix_pooled)
 corr_struct = corMatrix(inv_var_cov)
 
-model_multibeta2 = gls(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta, weights=inv_var_cov)
+model_multibeta2 = gls(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta, weights=corr_struct)
 

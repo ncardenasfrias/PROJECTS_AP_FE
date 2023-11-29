@@ -345,7 +345,7 @@ SMB (Small Minus Big) is the average return on the three small portfolios minus 
     See Fama and French, 1993, "Common Risk Factors in the Returns on Stocks and Bonds," Journal of Financial Economics, for a complete description of the factor returns.
 \end{comment}
 
-
+\newpage
     \subsection{Estimate the sentitivities of the factorial model} \label{sec:betas}
 %$\beta_k$ coefficients from the factorial model
 
@@ -368,23 +368,20 @@ To do so, we split the dataset by stock and performed linear regressions for eac
 
 \paragraph*{Exogeneous factors only}
 We performed a first version of this estimation using only the exogenous factors which allows us to have an analysis of the 2005-2022 period. 
-Results are shown in the following table and graph. I am really sorry for the size of the table, I didn't manage to split the \LaTeX table but it can be seen in html file in this link \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/betas_exo.jpeg}{HERE.}. 
+Results are shown in the following table and graph. The regression table is printed in the annnex but it is really hard to read because of the minuscule font size, I didn't manage to split the \LaTeX table. It can however also be seen in html file in this link \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/betas_exo.jpeg}{HERE.} (For all this section, regression tables are in the annex but I recommend you to check the links). 
 We shall note that most coefficients are non-significative for every stock.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/exovar_only.png}
-    \caption{Betas: exogenous factors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
-\end{figure}
+
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width= 21cm, angle =90]{Images/betas_exo.jpeg}
+    \includegraphics[width=0.8\textwidth]{Images/exovar_only.png}
     \caption{Betas: exogenous factors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
+    %\label{fig:rawmacro}
+    \caption*{\footnotesize{\emph{Notes}: Point estimate of the beta coefficients and its 95\% confidence intervals. Note that confidence intervals close in the graph to zero might actually be significant due to the scale of the x-axis}}
 \end{figure}
+
+
+
 %\input{Tables/betas_exo.tex}
 
 %\input{Tables/test.tex}
@@ -394,42 +391,32 @@ We shall note that most coefficients are non-significative for every stock.
  Sadly due to the short series on the Breakeven inflation, this analysis is conducted only on the period 2013-2022, still at a monthly frequency. The table can be seen \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_exo_end.jpeg}{HERE}.
 
 %\input{Tables/betas_exo_endo.tex}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/exoendo.png}
-    \caption{Betas: exogenous and endogenous factors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
-\end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_end.jpeg}
+    \includegraphics[width=0.8\textwidth]{Images/exoendo.png}
     \caption{Betas: exogenous and endogenous factors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
+    %\label{fig:rawmacro}
+    \caption*{\footnotesize{\emph{Notes}: Point estimate of the beta coefficients and its 95\% confidence intervals. Note that confidence intervals close in the graph to zero might actually be significant due to the scale of the x-axis}}%\caption*{\footnotesize{\emph{Notes}: }}
 \end{figure}
+
+
+
 
 
 
 \paragraph*{Exogeneous and French and Fama factors}
 The last specification includes the French and Fama factors given by K. French data library. As in the baseline, it refers to monthly data on the 2005-2022 period. This will be the specification we will move forward with because it allows us to integrate both Ross and French-Fama models in a longer period and we have more significant results. The table can be found \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_exo_ff.jpeg}{HERE}. 
-Note that in these regressions, the coefficient on inflation risk is rarely significant which is consistent with the period studied being a time of structurally low inflation but for the last two years: French companied were not exposed to rising prices risk in general. 
-\begin{figure}[h]
+Note that in these regressions, the coefficient on inflation risk is rarely significant which is consistent with the period studied being a time of structurally low inflation but for the last two years: French companies were not exposed to rising price risk in general. 
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{Images/exoff.png}
+    \includegraphics[width=0.8\textwidth]{Images/exoff.png}
     \caption{Betas: exogenous and French and Fama factors}
-    \label{fig:rawmacro}
+    %\label{fig:rawmacro}
+    \caption*{\footnotesize{\emph{Notes}: Point estimate of the beta coefficients and its 95\% confidence intervals. Note that confidence intervals close in the graph to zero might actually be significant due to the scale of the x-axis}}
     %\caption*{\footnotesize{\emph{Notes}: }}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_ff.jpeg}
-    \caption{Betas: exogenous and French and Famamfactors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
-\end{figure}
 
 %\input{Tables/betas_exo_ff.tex}
 
@@ -441,24 +428,24 @@ Once again, due to data availability issues, we had to restrain our sample to st
 %\input{Tables/betas_myff.tex}
 
 The results (see the regression table \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_myff.jpeg}{HERE}) are not very significant but we think it is likely due to our data quality. We show the results for this but we will ignore this representation of the French and Fama model moving forward.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/myff.png}
-    \caption{Betas: exogenous and French and Fama factors}
-    \label{fig:rawmacro}
-    %\caption*{\footnotesize{\emph{Notes}: }}
-\end{figure}
-
 \begin{figure}[h!]
     \centering
-    \includegraphics[width= 21cm, angle =90]{Images/beta_myff.jpeg}
-    \caption{Betas: exogenous and French and Famamfactors}
-    \label{fig:rawmacro}
+    \includegraphics[width=0.8\textwidth]{Images/myff.png}
+    \caption{Betas: exogenous and French and Fama factors}
+    %\label{fig:rawmacro}
+    \caption*{\footnotesize{\emph{Notes}: Point estimate of the beta coefficients and its 95\% confidence intervals. Note that confidence intervals close in the graph to zero might actually be significant due to the scale of the x-axis}}
     %\caption*{\footnotesize{\emph{Notes}: }}
 \end{figure}
 
 
 
+
+
+
+
+
+
+\newpage
     \subsection{Estimate the remuneration of risk from the multibeta relationship} \label{sec:lambdas}
 %he $\lambda_k$ parameters
 
@@ -471,13 +458,23 @@ where each $\lambda_k$ is the parameter representing the market price of risk (t
 To estimate the lambda coefficients we need to have a new dependent variable: the historical mean return of every stock in order to get a cross-sectional analysis. 
 To do this last part of the analysis we store the sensitivities $\hat{\beta}_{j,k}$ and the intercepts $\hat{\rho}_j$ derived in the previous section and regress them over this historical mean $\E[\hat{R}_j] - \hat{\rho} = \overline{R_{j,t}} - \hat{\rho}_j$. 
 
-We decided to only keep the model with the exogenous factors and the French and Fama factors in monthly frequency and run: 
+We decided to only keep the model with the exogenous factors and the French and Fama factors in monthly frequency and run the following cross-sectional regression: 
 \begin{equation}
     \overline{R_{j,t}} - \hat{\rho}_j \sim \hat{\beta}_{pib, j}+ \hat{\beta}_{xr, j} + \hat{\beta}_{infl, j} + \hat{\beta}_{HLM,j}+ \hat{\beta}_{SMB, j}+\hat{\beta}_{Mkt.RF, j}
    % beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF
 \end{equation}
+The coefficients on the $(\hat{beta})_k$ will actually going to be the market payments to the investor for holding each risk in her portfolio: they are the risk-premia terms. 
 
+We first used a simple regression model to assess these coefficients. 
+The following table summarizes it. 
+\input{Tables/LM_multibeta.tex}
+We seem to have positive payments to bear output and inflation risk as well from the SMB factor. The contribution is negative for the devaluation risk and for the HML factor. 
 
+However, since the explanatory variables in this regression are themselves estimated from other models, a correction for potential errors needs to be done in particular to correct the standard errors. 
+
+The methodology recommended is to use a GLM model which will weight the variables by the inverse of the variance-covariance matrix of the residuals of the first estimation. 
+
+We tried to implement this in our code (see the end of Appendix C) but didn't manage to properly get the weights. 
 
 
 
@@ -520,20 +517,58 @@ We decided to only keep the model with the exogenous factors and the French and 
     \section{Additional tables and figures } \label{sec:extra}
 \subsection*{Macroeconomic factors}
 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/macroseries_raw_diff.jpeg}
+    \caption{Factors: Series in level and in deltas}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+
 \input{Tables/trend_macro.tex}
 \input{Tables/drift_macro.tex}
 \input{Tables/drift_none.tex}
 
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width=0.9\textwidth]{Images/macroseries_raw_diff.jpeg}
-            \caption{Factors: Series in level and in deltas}
-            \label{fig:rawmacro}
-            %\caption*{\footnotesize{\emph{Notes}: }}
-        \end{figure}
-
     \newpage
+    
+\subsection*{Regression tables - factorial model}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/betas_exo.jpeg}
+    \caption{Betas: exogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_end.jpeg}
+    \caption{Betas: exogenous and endogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_ff.jpeg}
+    \caption{Betas: exogenous and French and Famamfactors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_myff.jpeg}
+    \caption{Betas: exogenous and French and Famamfactors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
 
+
+
+\newpage
+\newpage
     \section{Code - Data gathering and cleaning in Python} \label{sec:datacode}
     
     \lstinputlisting[language=Python]{Data.py}
