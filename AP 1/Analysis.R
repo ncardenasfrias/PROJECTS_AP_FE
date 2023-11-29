@@ -191,6 +191,10 @@ stargazer(regs_beta,
           title = "Estimate the beta coefficients for each exogeneous factor",
           column.labels = names(regs_beta),
           out="Tables/betas_exo.tex")
+stargazer(regs_beta, 
+          title = "Estimate the beta coefficients for each exogeneous factor",
+          column.labels = names(regs_beta),
+          type = "html", out = "betas_exo.html")
 
 library(dotwhisker)
 
@@ -205,6 +209,10 @@ stargazer(regs_beta_endo,
           title = "Estimate the beta coefficients for exogeneous and endogeneous factors (2013-2022)",
           column.labels = names(regs_beta),
           out="Tables/betas_exo_endo.tex")
+stargazer(regs_beta_endo, 
+          title = "Estimate the beta coefficients for each exogeneous and endogeneous factor ",
+          column.labels = names(regs_beta),
+          type = "html", out = "betas_exo_endo.html")
 dwplot(regs_beta_endo)
 
 
@@ -219,6 +227,11 @@ stargazer(regs_beta_exoff,
           title = "Estimate the beta coefficients for each exogeneous factor and French and Fama factors",
           column.labels = names(regs_beta),
           out="Tables/betas_exo_ff.tex")
+stargazer(regs_beta_exoff, 
+          title = "Estimate the beta coefficients for each exogeneous and French and Fama factor",
+          column.labels = names(regs_beta),
+          type = "html", out = "betas_exo_ff.html")
+
 dwplot(regs_beta_exoff)
 
 #### FF model with annual data and our estimation for this sample 
@@ -286,6 +299,10 @@ stargazer(regs_beta_myFF,
           title = "Estimate the beta coefficients for computed French and Fama factors (2010-2022)",
           column.labels = names(regs_beta_myFF),
           out="Tables/betas_myff.tex")
+stargazer(regs_beta_myFF, 
+          title = "Estimate the beta coefficients for French and Fama factors",
+          column.labels = names(regs_beta),
+          type = "html", out = "betas_ff.html")
 dwplot(regs_beta_myFF)
 
 
@@ -345,35 +362,16 @@ summary(model_multibeta)
 stargazer(model_multibeta, out='Tables/LM_multibeta.tex')
 
 
-## Use GLS to correct the regression 
+##### Use GLS to correct the regression 
 library(nlme)
 
 #get the var-cov matrix of the initial regression to use as weights
-residuals_list <- list()
-
-# Loop through each model to extract residuals
-for (i in seq_along(regs_beta_exoff)) {
-  # Get residuals for each model
-  residuals <- residuals(regs_beta[[i]])
-  
-  # Store residuals in the list
-  residuals_list[[i]] <- residuals
-}
-
-# Combine residuals into a single matrix
-combined_residuals <- do.call(rbind, residuals_list)
+resid = residuals(model_multibeta)
 
 # Calculate variance-covariance matrix of combined residuals
-var_cov_matrix_pooled <- cov(combined_residuals)
+var_cov_matrix <- cov(resid)
+inv_var_cov = solve(var_cov_matrix)
+corr_struct = corMatrix(inv_var_cov)
 
-install.packages("MASS")
-library(MASS)
-inv_var_cov = solve(var_cov_matrix_pooled)
+model_multibeta2 = gls(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta, weights=inv_var_cov)
 
-model_multibeta2 = gls(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta, weights=varComb())
-
-
-
-#################################################
-#Test the validity of the multi-beta relationship
-#################################################

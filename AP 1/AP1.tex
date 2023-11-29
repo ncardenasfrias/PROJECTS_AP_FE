@@ -368,7 +368,8 @@ To do so, we split the dataset by stock and performed linear regressions for eac
 
 \paragraph*{Exogeneous factors only}
 We performed a first version of this estimation using only the exogenous factors which allows us to have an analysis of the 2005-2022 period. 
-Results are shown in the following table and graph. I am really sorry for the size of the table, I didn't manage to split the latex table. 
+Results are shown in the following table and graph. I am really sorry for the size of the table, I didn't manage to split the \LaTeX table but it can be seen in html file in this link \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/betas_exo.jpeg}{HERE.}. 
+We shall note that most coefficients are non-significative for every stock.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Images/exovar_only.png}
@@ -390,14 +391,45 @@ Results are shown in the following table and graph. I am really sorry for the si
 
 \paragraph*{Exogeneous and endogeneous factors}
  We add another specification to include the endogenous market expectation of long-term inflation.
- Sadly due to the short series on the Breakeven inflation, this analysis is conducted only on the period 2013-2022, still at a monthly frequency. 
+ Sadly due to the short series on the Breakeven inflation, this analysis is conducted only on the period 2013-2022, still at a monthly frequency. The table can be seen \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_exo_end.jpeg}{HERE}.
 
 %\input{Tables/betas_exo_endo.tex}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/exoendo.png}
+    \caption{Betas: exogenous and endogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_end.jpeg}
+    \caption{Betas: exogenous and endogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
 
 
 
 \paragraph*{Exogeneous and French and Fama factors}
-The last specification includes the French and Fama factors given by K. French data library. As in the baseline it refers to monthly data on the 2005-2022 period. 
+The last specification includes the French and Fama factors given by K. French data library. As in the baseline, it refers to monthly data on the 2005-2022 period. This will be the specification we will move forward with because it allows us to integrate both Ross and French-Fama models in a longer period and we have more significant results. The table can be found \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_exo_ff.jpeg}{HERE}. 
+Note that in these regressions, the coefficient on inflation risk is rarely significant which is consistent with the period studied being a time of structurally low inflation but for the last two years: French companied were not exposed to rising prices risk in general. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/exoff.png}
+    \caption{Betas: exogenous and French and Fama factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_exo_ff.jpeg}
+    \caption{Betas: exogenous and French and Famamfactors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
 
 %\input{Tables/betas_exo_ff.tex}
 
@@ -408,7 +440,22 @@ Once again, due to data availability issues, we had to restrain our sample to st
 
 %\input{Tables/betas_myff.tex}
 
-The results are not very significant but we think it is likely due to our data quality. We show the results for this but we will ignore this representation of the French and Fama model moving forward.
+The results (see the regression table \href{https://github.com/ncardenasfrias/PROJECTS_AP_FE/blob/341de630b010607974fcee5ceffaa89440942c5b/AP%201/Images/beta_myff.jpeg}{HERE}) are not very significant but we think it is likely due to our data quality. We show the results for this but we will ignore this representation of the French and Fama model moving forward.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/myff.png}
+    \caption{Betas: exogenous and French and Fama factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/beta_myff.jpeg}
+    \caption{Betas: exogenous and French and Famamfactors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
 
 
 
