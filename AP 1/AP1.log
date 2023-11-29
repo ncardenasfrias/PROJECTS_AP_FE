@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  29 NOV 2023 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  29 NOV 2023 22:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -957,31 +957,31 @@ Package pdftex.def Info: Images/myff.png  used on input line 433.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9 <./Images/exoff.png>] (./Tables/LM_multibeta.tex [10 <./Images/myff.png>]) [11]
-<Images/macroseries_raw_diff.jpeg, id=179, 1403.2425pt x 835.12pt>
+<Images/macroseries_raw_diff.jpeg, id=182, 1403.2425pt x 835.12pt>
 File: Images/macroseries_raw_diff.jpeg Graphic file (type jpg)
 <use Images/macroseries_raw_diff.jpeg>
 Package pdftex.def Info: Images/macroseries_raw_diff.jpeg  used on input line 523.
 (pdftex.def)             Requested size: 387.36938pt x 230.53159pt.
  (./Tables/trend_macro.tex) (./Tables/drift_macro.tex) (./Tables/drift_none.tex) [12 <./Images/macroseries_raw_diff.jpeg>]
-<Images/betas_exo.jpeg, id=189, 2483.2775pt x 507.8975pt>
+<Images/betas_exo.jpeg, id=192, 2483.2775pt x 507.8975pt>
 File: Images/betas_exo.jpeg Graphic file (type jpg)
 <use Images/betas_exo.jpeg>
 Package pdftex.def Info: Images/betas_exo.jpeg  used on input line 538.
 (pdftex.def)             Requested size: 597.50787pt x 122.20013pt.
  [13 <./Images/betas_exo.jpeg>]
-<Images/beta_exo_end.jpeg, id=196, 2635.8475pt x 564.1075pt>
+<Images/beta_exo_end.jpeg, id=199, 2635.8475pt x 564.1075pt>
 File: Images/beta_exo_end.jpeg Graphic file (type jpg)
 <use Images/beta_exo_end.jpeg>
 Package pdftex.def Info: Images/beta_exo_end.jpeg  used on input line 546.
 (pdftex.def)             Requested size: 597.50787pt x 127.87415pt.
  [14 <./Images/beta_exo_end.jpeg>]
-<Images/beta_exo_ff.jpeg, id=202, 2661.945pt x 660.4675pt>
+<Images/beta_exo_ff.jpeg, id=205, 2661.945pt x 660.4675pt>
 File: Images/beta_exo_ff.jpeg Graphic file (type jpg)
 <use Images/beta_exo_ff.jpeg>
 Package pdftex.def Info: Images/beta_exo_ff.jpeg  used on input line 554.
 (pdftex.def)             Requested size: 597.50787pt x 148.24605pt.
  [15 <./Images/beta_exo_ff.jpeg>]
-<Images/beta_myff.jpeg, id=208, 2708.1175pt x 521.95pt>
+<Images/beta_myff.jpeg, id=211, 2708.1175pt x 521.95pt>
 File: Images/beta_myff.jpeg Graphic file (type jpg)
 <use Images/beta_myff.jpeg>
 Package pdftex.def Info: Images/beta_myff.jpeg  used on input line 562.
@@ -1006,10 +1006,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23004 strings out of 478268
- 375789 string characters out of 5846347
- 1453049 words of memory out of 5000000
- 39958 multiletter control sequences out of 15000+600000
+ 23008 strings out of 478268
+ 375974 string characters out of 5846347
+ 1453098 words of memory out of 5000000
+ 39961 multiletter control sequences out of 15000+600000
  517519 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,117p,2252b,2870s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1056,10 +1056,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on AP1.pdf (35 pages, 2767635 bytes).
+Output written on AP1.pdf (35 pages, 2768566 bytes).
 PDF statistics:
- 1366 PDF objects out of 1440 (max. 8388607)
- 1262 compressed objects within 13 object streams
- 840 named destinations out of 1000 (max. 500000)
+ 1370 PDF objects out of 1440 (max. 8388607)
+ 1266 compressed objects within 13 object streams
+ 841 named destinations out of 1000 (max. 500000)
  174 words of extra memory for PDF output out of 10000 (max. 10000000)
 
