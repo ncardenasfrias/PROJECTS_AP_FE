@@ -23,6 +23,7 @@
 \usepackage{hyperref}
 \usepackage{indentfirst}
 \usepackage{listings}
+\usepackage{longtable}
 \usepackage{lscape}
 \usepackage{mathtools}
 \usepackage{mdframed}
@@ -30,6 +31,7 @@
 \usepackage{multicol}
 \usepackage[sort]{natbib}
 \usepackage{parskip}
+%\usepackage{pdflascape}
 \usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{rotating}
@@ -366,29 +368,45 @@ To do so, we split the dataset by stock and performed linear regressions for eac
 
 \paragraph*{Exogeneous factors only}
 We performed a first version of this estimation using only the exogenous factors which allows us to have an analysis of the 2005-2022 period. 
-Results are shown in the following table. 
+Results are shown in the following table and graph. I am really sorry for the size of the table, I didn't manage to split the latex table. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/exovar_only.png}
+    \caption{Betas: exogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
 
-\input{Tables/betas_exo.tex}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 21cm, angle =90]{Images/betas_exo.jpeg}
+    \caption{Betas: exogenous factors}
+    \label{fig:rawmacro}
+    %\caption*{\footnotesize{\emph{Notes}: }}
+\end{figure}
+%\input{Tables/betas_exo.tex}
+
+%\input{Tables/test.tex}
 
 \paragraph*{Exogeneous and endogeneous factors}
  We add another specification to include the endogenous market expectation of long-term inflation.
  Sadly due to the short series on the Breakeven inflation, this analysis is conducted only on the period 2013-2022, still at a monthly frequency. 
 
-\input{Tables/betas_exo_endo.tex}
+%\input{Tables/betas_exo_endo.tex}
 
 
 
 \paragraph*{Exogeneous and French and Fama factors}
 The last specification includes the French and Fama factors given by K. French data library. As in the baseline it refers to monthly data on the 2005-2022 period. 
 
-\input{Tables/betas_exo_ff.tex}
+%\input{Tables/betas_exo_ff.tex}
 
 
 \subsubsection{French and Fama model}
 We also wanted to try to estimate the three French and Fama with the data we collected. We used the approach mentioned in Section \ref{sec:FFfact} and compared the mean return of value stocks and non-value stocks as well as of growth vs non-growth stocks. 
 Once again, due to data availability issues, we had to restrain our sample to study only the 2010-2022 period at a yearly frequency. 
 
-\input{Tables/betas_myff.tex}
+%\input{Tables/betas_myff.tex}
 
 The results are not very significant but we think it is likely due to our data quality. We show the results for this but we will ignore this representation of the French and Fama model moving forward.
 
@@ -403,18 +421,25 @@ Under AOA, assuming that the factorial model (Eq. \ref{eq:factorialmodel}) is an
     \end{equation}
 where each $\lambda_k$ is the parameter representing the market price of risk (the risk premium) that the market retributes for being exposed to a given risk factor $f_k$ with a sensitivity $\beta_{j,k}$%risk premium associated to the
 
-To estimate the lambda coefficients we need to have a new dependent variable: the historical k=mean return of every stock in order to get a cross-sectional analysis. 
-To do this last part of the analysis we kept the 
+To estimate the lambda coefficients we need to have a new dependent variable: the historical mean return of every stock in order to get a cross-sectional analysis. 
+To do this last part of the analysis we store the sensitivities $\hat{\beta}_{j,k}$ and the intercepts $\hat{\rho}_j$ derived in the previous section and regress them over this historical mean $\E[\hat{R}_j] - \hat{\rho} = \overline{R_{j,t}} - \hat{\rho}_j$. 
+
+We decided to only keep the model with the exogenous factors and the French and Fama factors in monthly frequency and run: 
+\begin{equation}
+    \overline{R_{j,t}} - \hat{\rho}_j \sim \hat{\beta}_{pib, j}+ \hat{\beta}_{xr, j} + \hat{\beta}_{infl, j} + \hat{\beta}_{HLM,j}+ \hat{\beta}_{SMB, j}+\hat{\beta}_{Mkt.RF, j}
+   % beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF
+\end{equation}
 
 
 
 
-    \subsection{Test the validity of the multibeta relationship}
+
+    %\subsection{Test the validity of the multibeta relationship}
 
 
     %\subsection{Application of the French-Fama model}
 
-\section*{Conclusion}
+%\section*{Conclusion}
 
 
 

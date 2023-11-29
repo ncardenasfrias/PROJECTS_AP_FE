@@ -1,7 +1,7 @@
 #%% AP 1 
 #%% ncardenasfrias
 
-pacman::p_load(data.table, urca, tidyverse, gplots, xts, stargazer, forecast, plm, ggplot2, tidyr)
+pacman::p_load(data.table, urca, dotwisker, tidyverse, gplots, xts, stargazer, forecast, plm, ggplot2, tidyr)
 library(dplyr)
 setwd('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/AP 1')
 
@@ -176,9 +176,11 @@ filtered_data_firm$Return <- with(filtered_data_firm, ave(value, Company, FUN = 
 finalmonthly =merge(filtered_data_firm, filtered_data, by = "Date")
 finalmonthly =merge(finalmonthly, residuals_df, by = "Date")
 
-
+#split df by company to get a regression per stock 
 dta_bystock = split(finalmonthly, finalmonthly$Company)
 
+
+#Exogeneous factors only
 fit_lm <- function(data) {
   lm(Return ~ res_pib + res_xr + res_infl, data = data)
 }
@@ -190,6 +192,9 @@ stargazer(regs_beta,
           column.labels = names(regs_beta),
           out="Tables/betas_exo.tex")
 
+library(dotwhisker)
+
+dwplot(regs_beta)
 
 #Include endofactor -> start in 2013 
 fit_lm_endo <- function(data) {
@@ -200,6 +205,8 @@ stargazer(regs_beta_endo,
           title = "Estimate the beta coefficients for exogeneous and endogeneous factors (2013-2022)",
           column.labels = names(regs_beta),
           out="Tables/betas_exo_endo.tex")
+dwplot(regs_beta_endo)
+
 
 #Include FF factors
 fit_lm_exoff <- function(data) {
@@ -212,7 +219,7 @@ stargazer(regs_beta_exoff,
           title = "Estimate the beta coefficients for each exogeneous factor and French and Fama factors",
           column.labels = names(regs_beta),
           out="Tables/betas_exo_ff.tex")
-
+dwplot(regs_beta_exoff)
 
 #### FF model with annual data and our estimation for this sample 
 Firm_yearly <- read_csv("Firm_yearly.csv")
@@ -279,6 +286,11 @@ stargazer(regs_beta_myFF,
           title = "Estimate the beta coefficients for computed French and Fama factors (2010-2022)",
           column.labels = names(regs_beta_myFF),
           out="Tables/betas_myff.tex")
+dwplot(regs_beta_myFF)
+
+
+
+
 
 
 #######################
@@ -286,12 +298,12 @@ stargazer(regs_beta_myFF,
 #######################
 
 
-#Extarct the beta coefficients of reg with exo and FF factors 
+#Extract the beta coefficients of reg with exo and FF factors 
 # Initialize an empty dataframe to store coefficients and model names
 coefficients_df <- data.frame(Model = character(), Intercept = numeric(),
-                              res_pib = numeric(), res_xr = numeric(),
-                              res_infl = numeric(), HML = numeric(),
-                              SMB = numeric(), Mkt.RF = numeric(),
+                              beta_pib = numeric(), beta_xr = numeric(),
+                              beta_infl = numeric(), beta_HML = numeric(),
+                              beta_SMB = numeric(), beta_Mkt.RF = numeric(),
                               stringsAsFactors = FALSE)
 
 # Iterate through subsets of data and fit models
@@ -301,12 +313,12 @@ for (i in seq_along(dta_bystock)) {
   coefficients <- c(model$coefficients[1], model$coefficients[-1])
   row <- data.frame(Model = paste0("Model_", i),
                     Intercept = coefficients[1],
-                    res_pib = coefficients[2],
-                    res_xr = coefficients[3],
-                    res_infl = coefficients[4],
-                    HML = coefficients[5],
-                    SMB = coefficients[6],
-                    Mkt.RF = coefficients[7])
+                    beta_pib = coefficients[2],
+                    beta_xt = coefficients[3],
+                    beta_infl = coefficients[4],
+                    beta_HML = coefficients[5],
+                    beta_SMB = coefficients[6],
+                    beta_Mkt.RF = coefficients[7])
   coefficients_df <- rbind(coefficients_df, row)
 }
 
@@ -321,17 +333,44 @@ historical_mean_returns <- finalmonthly %>%
   group_by(Company) %>%
   summarise(mean_return = mean(Return, na.rm = TRUE))
 
-# View the resulting dataframe with mean returns by company
-print(historical_mean_returns)
-
-
 #merge two data sets 
 multibeta = merge(coefficients_df, historical_mean_returns, by="Company")
 
+## Get return - intercept 
+multibeta$mean_intercept = multibeta$mean_return - multibeta$Intercept
+
+## Run std linear model 
+model_multibeta = lm(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta)
+summary(model_multibeta)
+stargazer(model_multibeta, out='Tables/LM_multibeta.tex')
 
 
+## Use GLS to correct the regression 
+library(nlme)
 
+#get the var-cov matrix of the initial regression to use as weights
+residuals_list <- list()
 
+# Loop through each model to extract residuals
+for (i in seq_along(regs_beta_exoff)) {
+  # Get residuals for each model
+  residuals <- residuals(regs_beta[[i]])
+  
+  # Store residuals in the list
+  residuals_list[[i]] <- residuals
+}
+
+# Combine residuals into a single matrix
+combined_residuals <- do.call(rbind, residuals_list)
+
+# Calculate variance-covariance matrix of combined residuals
+var_cov_matrix_pooled <- cov(combined_residuals)
+
+install.packages("MASS")
+library(MASS)
+inv_var_cov = solve(var_cov_matrix_pooled)
+
+model_multibeta2 = gls(mean_intercept ~ beta_pib+beta_xt+beta_infl+beta_HML+beta_SMB+beta_Mkt.RF, data= multibeta, weights=varComb())
 
 
 
