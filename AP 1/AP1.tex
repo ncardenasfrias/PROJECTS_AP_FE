@@ -32,6 +32,7 @@
 \usepackage{parskip}
 \usepackage{setspace}
 \usepackage{subcaption}
+\usepackage{rotating}
 \usepackage{titlesec}
 \usepackage{tgpagella}
 \usepackage{varwidth}
@@ -256,7 +257,8 @@ This is the so-called \emph{factorial model} that includes two sources of risk:
     \item[ii.] She also faces $k$ different sources of aggregate risk, modeled by the linear combination of $f_k$ centered \emph{shocks} that influence all $R_j$ with a sensitivity $\beta_{jk}$. 
     By definition, these risks cannot be diversified because they affect the returns of all asset and thus has to be compensated which is the focal point of our study. 
 \end{enumerate}
-In order to implement a regression analysis and estimation as the one that follows in this section, we shall also assume that the idiosyncratic risks are uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$.
+In order to implement a regression analysis and estimation as the one that follows in this section, we shall also assume that the idiosyncratic risks are uncorrelated with aggregate risk $corr(u_j, f_k) = 0, \forall j, k$. 
+
 
 This section is organized as follows. 
 Section \ref{sec:identiffactors} identifies the aggregate market risks $(f_k)_k$ that we are going to consider as the ones priced by the market. 
@@ -284,12 +286,13 @@ To extract this unpredictable part of these variables we need to use the residua
 We used the function \emph{auto.arima} from the R \emph{forecasts} package that set de parameters optimally by minimizing the BIC between different specifications. 
 We ended up with: 
 \begin{itemize}
-    \item[-] ARIMA(0,1,0) (i.e. a random walk\footnote{We do find this result 'weird' but didn't find any mistake in the code}) for the series of log GDP. 
+    \item[-] ARIMA(0,1,0) (i.e. a random walk\footnote{We do find this result 'weird' but didn't find any mistake in the code and it does square with the factors being centered.}) for the series of log GDP. 
     \item[-] ARIMA(0,1,1) for the exchange rate series. 
     \item[-] ARIMA(2,1,2) for the HICP series. 
 \end{itemize}
 
-We then stored the residuals of each one of these models and merge it in the data frame with the stock return 
+We then stored the residuals of each one of these models and merge it in the data frame with the stock return. We shall note that by construction the factor (i.e. the residuals) are by construction centered around zero. 
+They are actually the innovations of the initial series for the macroeconomic variables.  
 
 
         \subsubsection{Endogeneous factors} \label{sec:endofact}
@@ -344,12 +347,30 @@ SMB (Small Minus Big) is the average return on the three small portfolios minus 
     \subsection{Estimate the sentitivities of the factorial model} \label{sec:betas}
 %$\beta_k$ coefficients from the factorial model
 
-\subsection{Ross model}
-Given that we assumed that the idiosyncratic risks $u_j$
+    \subsubsection{Ross model}
+Given that we assumed that the idiosyncratic risks $u_j$ are uncorrelated with the aggregate factor risks $f_k$ we can estimate the factorial model in Eq. \ref{eq:factorialmodel} with linear regression models\footnote{The residuals will be uncorrelated with the explanatory variables}. 
+We will also pose that $f_k \ind f_{k'} \;\forall k, k'$ in order to have a good identification of the parameters with linear regression estimators $\forall k_0, \; \beta_{j,k0} = \frac{cov(R_j, f_{k0})}{Var(f_{k0})} \equiv \hat{\beta}$. 
+
+
+For this first estimation, we need to include a time dimension on the baseline factorial model $\forall j, \forall t$: 
+\begin{equation}
+    R_{j, t+1} = \E_t[R_{j,t+1}] + \sum^K_{k=1} \beta_{j,k} f_{k,t+1} + u_{j, t+1}
+\end{equation}
+
+We will therefore estimate the following: 
+\begin{equation*}
+    R_{j,t} \sim  \alpha + \beta_{j,GDP} \widehat{\varepsilon}_{logGDP,t} + \beta_{j,infl} \widehat{\varepsilon}_{infl,t} + \beta_{j,XR} \widehat{\varepsilon}_{XR,t} + \beta_{j,inflLT} \widehat{\varepsilon}_{inflLT,t}
+\end{equation*}
+
+\paragraph*{Exogeneous factors only}
+We performed a first version 
+
+\input{Tables/betas_exo.tex}
 
 
 
-\section{French and Fama model}
+
+\subsubsection{French and Fama model}
 
 
 
@@ -358,7 +379,7 @@ Given that we assumed that the idiosyncratic risks $u_j$
 
 Under AOA, assuming that the factorial model (Eq. \ref{eq:factorialmodel}) is an accurate depiction of how equity is price, implies that the expected returns are constrained by a multibeta relationship of the following form $\exists \rho, \exists \lambda_1, ..., \lambda_k$: 
     \begin{equation}
-        \E[R_j] = \rho + \sum^K_k=1 \lambda_k \beta_{j,k}
+        \E[R_j] = \rho + \sum^K_{k=1} \lambda_k \beta_{j,k}
     \end{equation}
 where each $\lambda_k$ is the parameter representing the market price of risk (the risk premium) that the market retributes for being exposed to a given risk factor $f_k$ with a sensitivity $\beta_{j,k}$%risk premium associated to the
 
@@ -368,9 +389,36 @@ where each $\lambda_k$ is the parameter representing the market price of risk (t
     \subsection{Test the validity of the multibeta relationship}
 
 
-    \subsection{Application of the French-Fama model}
+    %\subsection{Application of the French-Fama model}
 
-\section*{Conslusion}
+\section*{Conclusion}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \begin{appendices}
