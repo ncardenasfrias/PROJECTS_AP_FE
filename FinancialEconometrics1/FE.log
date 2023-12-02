@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  15 OCT 2023 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  2 DEC 2023 15:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -854,22 +854,26 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+) (./FE.toc)
+\tf@toc=\write3
+\openout3 = `FE.toc'.
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./FE.aux) ) 
+ [1
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 19113 strings out of 478268
- 318852 string characters out of 5846347
- 657925 words of memory out of 5000000
- 36975 multiletter control sequences out of 15000+600000
- 494498 words of font info for 53 fonts, out of 8000000 for 9000
+ 19141 strings out of 478268
+ 319163 string characters out of 5846347
+ 660334 words of memory out of 5000000
+ 36997 multiletter control sequences out of 15000+600000
+ 498975 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,7n,117p,1270b,387s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,7n,117p,1270b,388s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on FE.pdf (1 page, 110263 bytes).
+Output written on FE.pdf (2 pages, 113812 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
