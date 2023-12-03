@@ -4,6 +4,11 @@
             "language": "latex",
             "scheme": "file",
             "pattern": "AP 1/AP1.tex"
+        },
+        {
+            "language": "latex",
+            "scheme": "file",
+            "pattern": "FinancialEconometrics1/FE.tex"
         }
     ]
 }

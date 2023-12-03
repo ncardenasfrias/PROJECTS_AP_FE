@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  2 DEC 2023 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  3 DEC 2023 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -860,20 +860,40 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./FE.aux) ) 
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<IMAGES/decomposition_i.png, id=33, 3613.5pt x 2409.0pt>
+File: IMAGES/decomposition_i.png Graphic file (type png)
+<use IMAGES/decomposition_i.png>
+Package pdftex.def Info: IMAGES/decomposition_i.png  used on input line 112.
+(pdftex.def)             Requested size: 242.10493pt x 161.36908pt.
+<IMAGES/decomposition_ii.png, id=35, 3613.5pt x 2409.0pt>
+File: IMAGES/decomposition_ii.png Graphic file (type png)
+<use IMAGES/decomposition_ii.png>
+Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 118.
+(pdftex.def)             Requested size: 242.10493pt x 161.36908pt.
+ [2 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>]
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 129.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+) (./TABLES/adf_trend.tex
+Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
+ [][] 
+ []
+
+) [3] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 19141 strings out of 478268
- 319163 string characters out of 5846347
- 660334 words of memory out of 5000000
- 36997 multiletter control sequences out of 15000+600000
- 498975 words of font info for 62 fonts, out of 8000000 for 9000
+ 19212 strings out of 478268
+ 320500 string characters out of 5846347
+ 662498 words of memory out of 5000000
+ 37051 multiletter control sequences out of 15000+600000
+ 505181 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,7n,117p,1270b,388s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb>
-Output written on FE.pdf (2 pages, 113812 bytes).
+ 84i,9n,117p,1270b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on FE.pdf (3 pages, 2037009 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
+ 16 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 

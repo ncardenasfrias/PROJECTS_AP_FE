@@ -94,11 +94,46 @@
 \section*{Introduction} \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 \textcolor{blue}{something, probably describe how all applications make sense one after the other and what is the research question we could have made ourselves when doing the applications, try to give a coherent look to the whole thing.}
 
+This document compiles all our applications of the Financial Econometrics course. 
+Each section represents a specific application, but we tried to make them coherent across them around a broad question: 
+
 
 
 
 
 \section{Series Dynamics}\label{sec:dynamics}
+
+\textcolor{gray}{\emph{Note:} Depending on each exercise along these applications we might use different series. In this first section, we performed the stationarity and component analysis of all of them to be able to use them rapidly without having to worry about seasonality or the presence of UR. Therefore, this section encompasses more than the 3 series that were asked in the exercise.}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/decomposition_i.png}
+        \caption*{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/decomposition_ii.png}
+        \caption*{}
+    \end{subfigure}
+    \hfill 
+    \caption{Time series decomposition}
+    \label{fig:decomposition}
+\end{figure}
+
+\paragraph*{ADF - Test jointly for deterministic and stochastic trend}
+1st regression
+\begin{itemize}
+    \item  Inflation expectation, $t_\gamma = -4.650 < -3.420$ we can reject HO ie we can't say that the series has an UR 
+    \subitem need to test $\beta_0 $ and $\beta_1$ with standard models 
+    \item Fed fund rate, $t_\gamma = -1.709$
+\end{itemize}
+
+\input{TABLES/adf_trend.tex}
+%\input{TABLES/prov_adf_trend.tex}
+
 
 
 
@@ -128,5 +163,8 @@
     \subsection{STR model}\label{sec:str}
 
 
+
+\section{Difference-in-Difference}
+https://www.tidy-finance.org/r/difference-in-differences.html
     
 \end{document}

@@ -1,11 +1,12 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {}Introduction}{2}{Doc-Start}%
 \contentsline {section}{\numberline {1}Series Dynamics}{2}{section.1}%
-\contentsline {section}{\numberline {2}Canonical VAR model application}{2}{section.2}%
-\contentsline {section}{\numberline {3}Cointegration theory}{2}{section.3}%
-\contentsline {section}{\numberline {4}Impulse Response Analysis}{2}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Canonical IRF}{2}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Structural IRF}{2}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Introduce non-linearities}{2}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Markov-switching model}{2}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}STR model}{2}{subsection.5.2}%
+\contentsline {section}{\numberline {2}Canonical VAR model application}{3}{section.2}%
+\contentsline {section}{\numberline {3}Cointegration theory}{3}{section.3}%
+\contentsline {section}{\numberline {4}Impulse Response Analysis}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Canonical IRF}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Structural IRF}{3}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Introduce non-linearities}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Markov-switching model}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}STR model}{3}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Difference-in-Difference}{3}{section.6}%
