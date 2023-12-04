@@ -61,6 +61,7 @@ dec6 = autoplot(dec_u) + labs(title = "Unemployment rate")
 decomposition=list(dec_infl, dec_rate, dec_debt, dec_defl, dec_u, dec_spl)
 names(decomposition) = names(allts)
 
+
 #Plot the decomposed series in 2 groups, save the figures
 decomp_i = grid.arrange(dec1, dec2, dec3, ncol=3)
 ggsave("IMAGES/decomposition_i.png", plot = decomp_i, width =12, height=8)
@@ -68,6 +69,7 @@ ggsave("IMAGES/decomposition_i.png", plot = decomp_i, width =12, height=8)
 decomp_ii = grid.arrange(dec4, dec5, dec6, ncol=3)
 ggsave("IMAGES/decomposition_ii.png", plot = decomp_ii, width = 12, height = 8)
 
+rm(dec1, dec2, dec3, dec4, dec5, dec6, decomp_i, decomp_ii) # I don't need the graphs anymore
 
 
 #####
@@ -152,18 +154,22 @@ decdu = autoplot(dec_du) + labs(title = expression(paste(Delta, " Unemployment")
 
 decomp_iii_deltas = grid.arrange(decdesp, decddebt, decdu, ncol=3)
 ggsave("IMAGES/decomposition_iii_deltas.png", plot = decomp_iii_deltas, width = 12, height = 8)
+rm(decdesp, decddebt, decdu, decomp_iii_deltas) #. clear the graphs
 
+#Add these new series to our lists of TS (decomposition and allts)
 decomposition = c(decomposition, list(dec_dsp, dec_ddebt, dec_du))
 names(decomposition) = c(names(allts),list("d_sp500", "d_corp_debt", "d_unempl"))
-                        
+allts = c(allts, ts_deltas)
+
 #list all I(0) series ie mixes levels and deltas                                                           
 i0_series = list(allts$infl_e, allts$rate, ts_deltas$d_splong, ts_deltas$d_corpdebt,allts$deflator, ts_deltas$d_unempl)
 names(i0_series) = c('infl_e', 'rate', 'd_sp500', 'd_corp_debt', "deflator", 'd_unempl')
 
 
+
 #####
 #1.3. Seasonal variations
-# Use the seasonal estimation coming from decompose() done earlier, all the decompositions are stored in decomposition list
+# Use the seasonal estimation coming from decompose() done earlier, all the decompositions are stored in decomposition list (deltas and levels)
 #fill table with values of the estimations rounded 3 decimal places 
 seasonal_table <- data.frame(matrix(ncol = 13, nrow = length(decomposition)))
 colnames(seasonal_table) <- c("Series", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
@@ -175,13 +181,25 @@ for (i in 1:length(decomposition)) {
   row_values <- c(series_name, seasonal_coef_rounded)
   seasonal_table[i, ] <- row_values
 }
-rownames(seasonal_table) = seasonal_table$Series
+rownames(seasonal_table) = seasonal_table$Series #series as index, remove the Series column 
 seasonal_table$Series = NULL
 #stargazer(seasonal_table, out='TABLES/seasons.tex', summary=FALSE, label="tab:seasons", title="Estimation of the seasonality of each series")
 #need to manually add a resize box on the latex code
 
 
-## Get list of deseasoned series of the i(0) series
+
+## Get list of deseasonalized series of the I(0) series using STL 
+deseasonalized_ts = list()
+for (ts in allts) {
+  decomposed_ts = stl(ts, s.window = "periodic") #'periodic' for additive seasonality
+  deseason = ts - decomposed_ts$time.series[,'seasonal']
+  deseasonalized_ts[[length(deseasonalized_ts)+1]] = deseason
+}
+names(deseasonalized_ts) = names(allts)
+rm(decomposed_ts)
+
+#Another way to deseasonalize the series with initial decomposition, here I am doing it only on I(0) series
+#CAREFULL, by deseasoning now some I(0) series might become I(1)
 de_seasonalized_series <- list()
 i0_no_seson_decomp = list()
 for (ts in i0_series) {
@@ -194,22 +212,49 @@ for (ts in i0_series) {
 names(de_seasonalized_series) = names(i0_series)
 names(i0_decomp) = names(i0_series)
 
-t = i0_series$rate - decompose(i0_series$rate)$seasonal
-auto.arima(t)
 
 #####
-#1.3. Cyclical component
+#1.3 Fit a
 
-#They are the residuals! 
+
+
+
+#####
+#1.4. Cyclical component
+
+#Check that cyclical component ie the residuals are wn ie no parameter is significant 
+
+
+
 auto.arima(decomposition$infl_e$random) #ARIMA(3,0,1) 
 auto.arima(decomposition$rate$random) #ARIMA(2,0,0)(2,0,0)
-auto.arima(de_seasonalized_series$rate)
 auto.arima(decomposition$d_sp500$random) #ARIMA(3,0,1) 
 auto.arima(decomposition$d_corp_debt$random) #ARIMA(3,0,1) 
 auto.arima(decomposition$deflator$random) #ARIMA(3,0,1) 
 auto.arima(decomposition$d_unempl$random) #ARIMA(3,0,1) 
 
 
+test_decomposed = slt(i0_series$rate, s.window='periodic')
+
+
+### ACF plots of the I(0) series
+acf_plots = list()
+pacf_plots = list()
+# Loop through each time series to generate its ACF plot
+for (i in 1:length(i0_series)) {
+  acf_plots[[i]] = ggAcf(i0_series[[i]], lag.max=20, main =names(i0_series)[i])
+  pacf_plots[[i]] = ggPacf(i0_series[[i]], lag.max=20, main =names(i0_series)[i])
+}
+acf = grid.arrange(grobs = acf_plots, ncol = 2) 
+pacf = grid.arrange(grobs = pacf_plots, ncol=2)
+
+
+Acf(deseasonalized_ts$rate, lag.max = 100, type = c("correlation", "covariance", "partial"), plot = TRUE, na.action = na.contiguous, demean = TRUE)
+Acf(diff(allts$rate), lag.max = 12, type="correlation", plot=TRUE)
+
+Pacf(x, lag.max = 40, plot = TRUE, na.action = na.contiguous, demean = TRUE)
+
+# Arrange the ACF plots in a grid
 
 
 ###########################
