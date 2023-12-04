@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1701642928 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1701642939
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1701642914 4898 7e15b16f2c46146cfd6a5f14a27b32ee ""
+["pdflatex"] 1701664992 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1701665010
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1701664121 5437 fe01bef407036a7f7fc0e457b6dba1f5 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -161,12 +161,16 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "FE.aux" 1701642939 6507 e9a663a3cf08fa978cb8731fe02544ee "pdflatex"
-  "FE.tex" 1701642914 4898 7e15b16f2c46146cfd6a5f14a27b32ee ""
-  "FE.toc" 1701642939 895 b4091a359b73f87f65d36807a2bf3bf1 "pdflatex"
+  "FE.aux" 1701665010 8667 e02752b18ffe47b0ed5c82b8cdfdbff8 "pdflatex"
+  "FE.tex" 1701664121 5437 fe01bef407036a7f7fc0e457b6dba1f5 ""
+  "FE.toc" 1701665010 1142 5fa3fb46c1ef5ce6d33ba599bd1270c0 "pdflatex"
   "IMAGES/decomposition_i.png" 1701641905 893011 c3cc607b515993a991c296cf7beeefb5 ""
   "IMAGES/decomposition_ii.png" 1701641912 903784 a313abb2e8b72bc660278f7fe6b962b9 ""
+  "IMAGES/decomposition_iii_deltas.png" 1701663932 1029182 5fcae340dab1aa838387de0de62c2c68 ""
+  "TABLES/adf_drift.tex" 1701643090 752 ad39e7de9e498ef204d691f95fc263bc ""
+  "TABLES/adf_none.tex" 1701643086 650 56ba0b7422f3626ce41e47ddf68923ad ""
   "TABLES/adf_trend.tex" 1701642905 872 191d524d348394341cf0518bc6a41913 ""
+  "TABLES/seasons.tex" 1701664991 1545 1eedd8565cc15c1c7c3b7196fc7c947e ""
   (generated)
   "FE.aux"
   "FE.log"

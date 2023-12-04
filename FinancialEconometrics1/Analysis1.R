@@ -17,6 +17,12 @@ as.data.table(df)
 names(df)[1] = 'Date'
 names(df)[8] = 'splong'
 
+#Apply log to variables for which it makes sense
+df$sp500 = log(df$sp500) #get the stock market return 
+df$splong = log(df$splong)
+df$corp_debt = log(df$corp_debt) #return corporate debt (see index definition)
+
+
 #convert into TS 
 allts = list()
 numeric_cols = df[, sapply(df, is.numeric)&names(df)!= 'Date'] #identifies the right columns
@@ -52,6 +58,9 @@ dec5 = autoplot(dec_defl) + labs(title = "GDP deflator")
 dec_u = decompose(allts$unempl)
 dec6 = autoplot(dec_u) + labs(title = "Unemployment rate")
 
+decomposition=list(dec_infl, dec_rate, dec_debt, dec_defl, dec_u, dec_spl)
+names(decomposition) = names(allts)
+
 #Plot the decomposed series in 2 groups, save the figures
 decomp_i = grid.arrange(dec1, dec2, dec3, ncol=3)
 ggsave("IMAGES/decomposition_i.png", plot = decomp_i, width =12, height=8)
@@ -68,77 +77,138 @@ ggsave("IMAGES/decomposition_ii.png", plot = decomp_ii, width = 12, height = 8)
 #tinfl_e = ur.df(allts$infl_e, type='trend',selectlags=c('BIC')) 
 #t = summary(tinfl_e)
 
-##ChatGPT 1
+# Perform ur.df tests WITH TREND AND DRIFT for each variable and store the summaries
 results_adf_trend <- list()
-
-# Perform ur.df tests for each variable and store the summaries
 for (var_name in names(allts)) {
   result <- ur.df(allts[[var_name]], type = "trend", selectlags = "BIC")
   results_adf_trend[[var_name]] <- summary(result)
 }
 
-
-##try to get stargazer table
-regression_tables <- lapply(names(results_adf_trend), function(var_name) {
-  summary_obj <- results_adf_trend[[var_name]]
-  # Extract necessary information (modify this part based on what you need)
-  coef <- summary_obj@testreg$coefficients
-  Fstat <- summary_obj@testreg$fstatistic
-  combined_info <- cbind(Series = rep(var_name, nrow(coef)), coef, Fstat)  # Adjust as needed
-  return(combined_info)
-})
-
-combined_table <- do.call(rbind, regression_tables)
-
-combined_table <- as.data.frame(combined_table)
-
-combined_table$Estimate = round(as.numeric(combined_table$Estimate),2)
-combined_table$`Std. Error` = round(as.numeric(combined_table$`Std. Error`), 2)
-combined_table$`t value`= round(as.numeric(combined_table$`t value`),2)
-combined_table$`Pr(>|t|)` = round(as.numeric(combined_table$`Pr(>|t|)`),2)
-combined_table$Fstat = round(as.numeric(combined_table$Fstat),2)
-
-
-
-
-# Export the table using stargazer
-stargazer(combined_table, type = 'html', out = 'test2.html', summary = FALSE)
+trend_test =cbind(t(results_adf_trend$infl_e@teststat),t(results_adf_trend$rate@teststat), 
+                  t(results_adf_trend$splong@teststat),t(results_adf_trend$corp_debt@teststat),
+                  t(results_adf_trend$deflator@teststat), t(results_adf_trend$unempl@teststat),
+                  results_adf_trend$infl_e@cval)
+colnames(trend_test) = c(names(results_adf_trend), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(trend_test, out='TABLES/adf_trend.tex', title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend")
   
+# Perform ur.df tests WITH DRIFT ONLY for each variable and store the summaries
+results_adf_drift <- list()
+for (var_name in names(allts)) {
+  result <- ur.df(allts[[var_name]], type = "drift", selectlags = "BIC")
+  results_adf_drift[[var_name]] <- summary(result)
+}
+
+drift_test =cbind(t(results_adf_drift$infl_e@teststat),t(results_adf_drift$rate@teststat), 
+                  t(results_adf_drift$splong@teststat),t(results_adf_drift$corp_debt@teststat),
+                  t(results_adf_drift$deflator@teststat), t(results_adf_drift$unempl@teststat),
+                  results_adf_drift$infl_e@cval)
+colnames(drift_test) = c(names(results_adf_drift), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(drift_test, out='TABLES/adf_drift.tex', title = "ADF test - 2nd regression with drift and stochastic trend")
   
+# Perform ur.df tests WITH NONE for each variable and store the summaries
+results_adf_none <- list()
+for (var_name in names(allts)) {
+  result <- ur.df(allts[[var_name]], type = "none", selectlags = "BIC")
+  results_adf_none[[var_name]] <- summary(result)
+}
 
-# Use stargazer with the combined information
-stargazer::stargazer(
-  regression_tables,
-  type = "text",  # Change to "latex" for LaTeX output
-  title = "Unit Root Test Results",
-  align = TRUE
-)
-
-
-
-
-
-
-
+none_test =cbind(t(results_adf_none$infl_e@teststat),t(results_adf_none$rate@teststat), 
+                  t(results_adf_none$splong@teststat),t(results_adf_none$corp_debt@teststat),
+                  t(results_adf_none$deflator@teststat), t(results_adf_none$unempl@teststat),
+                 results_adf_none$infl_e@cval)
+colnames(none_test) = c(names(results_adf_drift), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(none_test, out='TABLES/adf_none.tex', title = "ADF test - 3rd regression regression with only stochastic trend")
 
 
+#### SUMMARY 
+library(bootUR)
+order_integration(allts$infl_e, method = "adf")$order_int # I(0)
+order_integration(allts$rate, method = "adf")$order_int # I(0)
+order_integration(allts$corp_debt, method = "adf")$order_int # I(1)
+order_integration(allts$deflator, method = "adf")$order_int # I(0)
+order_integration(allts$unempl, method = "adf")$order_int # I(1)
+order_integration(allts$splong, method = "adf")$order_int # I(1)
 
 
 
+####!!!!!! NEED TO COMPLETE THIS NEATLY 
 
 
+## Get the deltas of the series integrated order one
+ts_deltas = list(diff(allts$corp_debt), diff(allts$splong), diff(allts$unempl))
+names(ts_deltas) = c('d_corpdebt', "d_splong", "d_unempl")
 
+order_integration(ts_deltas$d_corpdebt, method='adf')$order_int # I(0)
+order_integration(ts_deltas$d_splong, method='adf')$order_int # I(0)
+order_integration(ts_deltas$d_unempl, method='adf')$order_int # I(0)
+#we can work with these 3 variables in deltas 
 
+dec_dsp = decompose(ts_deltas$d_splong)
+decdesp = autoplot(dec_dsp) + labs(title = expression(paste(Delta, " SP500")))
+dec_ddebt = decompose(ts_deltas$d_corpdebt)
+decddebt = autoplot(dec_ddebt) + labs(title = expression(paste(Delta, " Corporate debt")))
+dec_du = decompose(ts_deltas$d_unempl)
+decdu = autoplot(dec_du) + labs(title = expression(paste(Delta, " Unemployment")))
 
+decomp_iii_deltas = grid.arrange(decdesp, decddebt, decdu, ncol=3)
+ggsave("IMAGES/decomposition_iii_deltas.png", plot = decomp_iii_deltas, width = 12, height = 8)
 
-
+decomposition = c(decomposition, list(dec_dsp, dec_ddebt, dec_du))
+names(decomposition) = c(names(allts),list("d_sp500", "d_corp_debt", "d_unempl"))
+                        
+#list all I(0) series ie mixes levels and deltas                                                           
+i0_series = list(allts$infl_e, allts$rate, ts_deltas$d_splong, ts_deltas$d_corpdebt,allts$deflator, ts_deltas$d_unempl)
+names(i0_series) = c('infl_e', 'rate', 'd_sp500', 'd_corp_debt', "deflator", 'd_unempl')
 
 
 #####
 #1.3. Seasonal variations
+# Use the seasonal estimation coming from decompose() done earlier, all the decompositions are stored in decomposition list
+#fill table with values of the estimations rounded 3 decimal places 
+seasonal_table <- data.frame(matrix(ncol = 13, nrow = length(decomposition)))
+colnames(seasonal_table) <- c("Series", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+                              "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
+for (i in 1:length(decomposition)) {
+  series_name <- names(decomposition)[i]  # Assuming series names are "Series1", "Series2", etc.
+  seasonal_coef <- decomposition[[i]]$seasonal
+  seasonal_coef_rounded <- round(seasonal_coef, 3)
+  row_values <- c(series_name, seasonal_coef_rounded)
+  seasonal_table[i, ] <- row_values
+}
+rownames(seasonal_table) = seasonal_table$Series
+seasonal_table$Series = NULL
+#stargazer(seasonal_table, out='TABLES/seasons.tex', summary=FALSE, label="tab:seasons", title="Estimation of the seasonality of each series")
+#need to manually add a resize box on the latex code
 
 
-### 1.3. Cyclical component
+## Get list of deseasoned series of the i(0) series
+de_seasonalized_series <- list()
+i0_no_seson_decomp = list()
+for (ts in i0_series) {
+  decomposed = decompose(ts) #need to repeat this because we're in another list :/
+  seasonal_component = decomposed$seasonal
+  de_seasonalized_ts = ts - seasonal_component #additive seasonality for all series (decomposition$serie$type), just remove those components
+  de_seasonalized_series[[length(de_seasonalized_series) + 1]] <- de_seasonalized_ts
+  i0_no_seson_decomp[[length(i0_decomp)+1]] =decomposed
+}
+names(de_seasonalized_series) = names(i0_series)
+names(i0_decomp) = names(i0_series)
+
+t = i0_series$rate - decompose(i0_series$rate)$seasonal
+auto.arima(t)
+
+#####
+#1.3. Cyclical component
+
+#They are the residuals! 
+auto.arima(decomposition$infl_e$random) #ARIMA(3,0,1) 
+auto.arima(decomposition$rate$random) #ARIMA(2,0,0)(2,0,0)
+auto.arima(de_seasonalized_series$rate)
+auto.arima(decomposition$d_sp500$random) #ARIMA(3,0,1) 
+auto.arima(decomposition$d_corp_debt$random) #ARIMA(3,0,1) 
+auto.arima(decomposition$deflator$random) #ARIMA(3,0,1) 
+auto.arima(decomposition$d_unempl$random) #ARIMA(3,0,1) 
+
 
 
 
@@ -163,6 +233,9 @@ stargazer::stargazer(
 
 #####
 #3.1. Cointegration rank/Johansen test 
+cointegration_test <- ca.jo(i0_no_seson_de$infl_e, type = "trace", ecdet = "none", K = 2)
+summary(cointegration_test)
+
 
 
 ##### 

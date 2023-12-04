@@ -107,13 +107,13 @@ Each section represents a specific application, but we tried to make them cohere
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_i.png}
         \caption*{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_ii.png}
         \caption*{}
@@ -123,7 +123,10 @@ Each section represents a specific application, but we tried to make them cohere
     \label{fig:decomposition}
 \end{figure}
 
-\paragraph*{ADF - Test jointly for deterministic and stochastic trend}
+    \subsection{Unit root and trends}
+
+\paragraph*{ADF - Test jointly for deterministic and stochastic trend (with drift)}
+
 1st regression
 \begin{itemize}
     \item  Inflation expectation, $t_\gamma = -4.650 < -3.420$ we can reject HO ie we can't say that the series has an UR 
@@ -133,6 +136,28 @@ Each section represents a specific application, but we tried to make them cohere
 
 \input{TABLES/adf_trend.tex}
 %\input{TABLES/prov_adf_trend.tex}
+
+
+\paragraph*{ADF - Test jointly for stochastic trend and drift}
+\input{TABLES/adf_drift.tex}
+
+\paragraph*{ADF - Test for stochastic trend only}
+\input{TABLES/adf_none.tex}
+
+DECOMPOSITION SERIES IN DELTAS 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{IMAGES/decomposition_iii_deltas.png}
+    \caption{Decomposition of the series in deltas}
+\end{figure}
+
+    \subsection{Seasoanlity}
+
+
+
+    \subsection{Cyclical component}
+\input{TABLES/seasons.tex}
 
 
 
