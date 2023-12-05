@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  6 DEC 2023 00:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  6 DEC 2023 00:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -885,21 +885,25 @@ Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
  [][] 
  []
 
-) (./TABLES/adf_tstats_trend.tex) (./TABLES/adf_drift.tex
+) (./TABLES/adf_tstats_trend.tex) [4] (./TABLES/adf_drift.tex
 Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--16
  [][] 
  []
 
-) (./TABLES/adf_tstats_drift.tex) (./TABLES/adf_none.tex [4]) (./TABLES/adf_tstats_none.tex)
+) (./TABLES/adf_tstats_drift.tex) (./TABLES/adf_none.tex) (./TABLES/adf_tstats_none.tex)
 <IMAGES/decomposition_iii_deltas.png, id=83, 3613.5pt x 2409.0pt>
 File: IMAGES/decomposition_iii_deltas.png Graphic file (type png)
 <use IMAGES/decomposition_iii_deltas.png>
-Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 186.
+Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 212.
 (pdftex.def)             Requested size: 363.15741pt x 242.09038pt.
- (./TABLES/varorder_level.tex [5 <./IMAGES/decomposition_iii_deltas.png>]) (./TABLES/estim_var_level.tex) [6] [7] (./FE.aux) ) 
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./TABLES/varorder_level.tex [5]) (./TABLES/estim_var_level.tex) [6 <./IMAGES/decomposition_iii_deltas.png>] [7] [8] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 19291 strings out of 478268
- 322074 string characters out of 5846347
+ 19294 strings out of 478268
+ 322104 string characters out of 5846347
  678993 words of memory out of 5000000
  37084 multiletter control sequences out of 15000+600000
  518048 words of font info for 74 fonts, out of 8000000 for 9000
@@ -909,10 +913,10 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (7 pages, 3219519 bytes).
+Output written on FE.pdf (8 pages, 3221644 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  152 words of extra memory for PDF output out of 10000 (max. 10000000)
 

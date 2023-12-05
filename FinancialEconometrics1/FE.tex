@@ -130,11 +130,11 @@ Each section represents a specific application, but we tried to make them cohere
 
 \subsubsection{ADF - Test jointly for deterministic and stochastic trend (with drift)}
 
-We first run the following specification to the ADF model to \emph{jointly} investigate the presence of a stochastic and a determinist trend for each series $(X_t)_t$: 
+We first run the following specification to the ADF test to \emph{jointly} investigate the presence of a stochastic and a determinist trend for each series $(X_t)_t$: 
     \begin{equation}
         \Delta X_t = \alpha + \beta tt + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
-As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit exists and the series is non-stationary and that inference is non-standard (use special critical values). 
+As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary and that inference is non-standard (uses special critical values for unilateral test). 
 We use R's built-in function \emph{ur.df} with \emph{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
         \item[-] tau3 refers to the t-statistic associated to $\gamma =0$ 
@@ -169,12 +169,38 @@ $t_\gamma = -1.709$
 %\input{TABLES/prov_adf_trend.tex}
 \input{TABLES/adf_tstats_trend.tex}
 
+
+
+
 \subsubsection{ADF - Test jointly for stochastic trend and drift}
+The second specification of the test models $\forall (X_t)_t$: 
+    \begin{equation}
+        \Delta X_t = \alpha  + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
+    \end{equation}
+ The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root. 
+We use now \emph{type='trend'} in the \emph{ur.df} function to get this estimation. 
+The output to the test is similar to the previous specification but now the test statistics reported refer to: 
+    \begin{itemize}
+        \item[-] tau2 refers to the t-statistic associated to $\gamma =0$ 
+        \item[-] phi1 refers to the F-statistic associated to $\alpha = \gamma =0$ 
+    \end{itemize}
+
 \input{TABLES/adf_drift.tex}
 
 \input{TABLES/adf_tstats_drift.tex}
 
+
+
+
+
 \subsubsection{ADF - Test for stochastic trend only}
+The last specification of the test keeps only the stochastic trend, $\forall (X_t)_t$: 
+    \begin{equation}
+        \Delta X_t = \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
+    \end{equation}
+The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root and we use \emph{type='none'}.
+The output of the test is similar to the previous ones but now there is only one test statistic reported referring to the null (tau1).
+
 \input{TABLES/adf_none.tex}
 
 \input{TABLES/adf_tstats_none.tex}

@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1701819518 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1701819531
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1701819503 7796 4e7205585033ea0be24cf31481ce6589 ""
+["pdflatex"] 1701820266 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1701820279
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1701820250 8975 a7fc23d59956cb0ddff2215f8c00a450 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -170,9 +170,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "FE.aux" 1701819531 12864 62637dd95335bf4e5fa88d418d36e654 "pdflatex"
-  "FE.tex" 1701819503 7796 4e7205585033ea0be24cf31481ce6589 ""
-  "FE.toc" 1701819531 1830 2e2f2ebe8765e8460f10ee93e6d01fa1 "pdflatex"
+  "FE.aux" 1701820279 12864 cd4047245e74ecdb78f871a87c10f1a5 "pdflatex"
+  "FE.tex" 1701820250 8975 a7fc23d59956cb0ddff2215f8c00a450 ""
+  "FE.toc" 1701820279 1830 f279a07113455ba87d466d559e784ed3 "pdflatex"
   "IMAGES/decomposition_i.png" 1701808539 921850 6a1d866bb7c575b71690c82d520bdd4d ""
   "IMAGES/decomposition_ii.png" 1701808544 852207 4d284bdd649cd75d8e23e443ded1bddd ""
   "IMAGES/decomposition_iii_deltas.png" 1701663932 1029182 5fcae340dab1aa838387de0de62c2c68 ""
