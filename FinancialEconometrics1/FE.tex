@@ -128,20 +128,39 @@ Each section represents a specific application, but we tried to make them cohere
 
     \subsection{Unit root and trends}
 
-\paragraph*{ADF - Test jointly for deterministic and stochastic trend (with drift)}
+\subsubsection{ADF - Test jointly for deterministic and stochastic trend (with drift)}
 
 We first run the following specification to the ADF model to \emph{jointly} investigate the presence of a stochastic and a determinist trend for each series $(X_t)_t$: 
     \begin{equation}
         \Delta X_t = \alpha + \beta tt + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
-As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit exists and the series is non-stationary. 
-We use R's built in function \emph{ur.df} with \emph{type='trend'} to get this estimation. 
+As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit exists and the series is non-stationary and that inference is non-standard (use special critical values). 
+We use R's built-in function \emph{ur.df} with \emph{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
+    \begin{itemize}
+        \item[-] tau3 refers to the t-statistic associated to $\gamma =0$ 
+        \item[-] phi2 refers to the F-statistic associated to $\alpha = \beta = \gamma =0$
+        \item[-] phi3 is also an F-statistic, now associated to $\beta =\gamma = 0$  
+    \end{itemize}
 
 Let us examine each series' results: 
-\begin{itemize}
-    \item  Inflation expectation,% $t_\gamma = -4.490 < -3.43$ \footnote{Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated to $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we prefer to refer to the higher critical values but it does not change the analysis done.} we can reject HO ie we can't say that the series has a UR. To be sure of this conclusion we compare the t-statistics associated to $\alpha$ and $\beta$ to the standard $-1.96$ threshold 
-    \item Fed fund rate, $t_\gamma = -1.709$
-\end{itemize}
+\paragraph{Inflation expectation} 
+We find $t_\gamma = -4.490 < -3.43$ \footnote{Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated to $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we prefer to refer to the higher critical values but it does not change the analysis done.} we can reject H0 ie we can't say that the series has a UR. We then compare the t-statistics associated to $\alpha$ and $\beta$ to the standard interest threshold (the values below Table \ref{tab:tstat_trend} are conditional on having an UR). While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
+    
+
+\paragraph{GDP deflator}
+
+
+\paragraph{Unemployment}Since $t_\gamma > -3.43$, we fail to reject H0. We then test the significance of $\beta$ with respect to the non-standard threshold $2.79$ (bilateral test). 
+Since we fail to reject its nullity we need to use the second specification of the ADF test on this series. 
+
+
+\paragraph{Unemployment rate}
+
+
+
+\paragraph{Fed fund rate}  
+$t_\gamma = -1.709$
+
 
 
 
@@ -150,11 +169,15 @@ Let us examine each series' results:
 %\input{TABLES/prov_adf_trend.tex}
 \input{TABLES/adf_tstats_trend.tex}
 
-\paragraph*{ADF - Test jointly for stochastic trend and drift}
+\subsubsection{ADF - Test jointly for stochastic trend and drift}
 \input{TABLES/adf_drift.tex}
 
-\paragraph*{ADF - Test for stochastic trend only}
+\input{TABLES/adf_tstats_drift.tex}
+
+\subsubsection{ADF - Test for stochastic trend only}
 \input{TABLES/adf_none.tex}
+
+\input{TABLES/adf_tstats_none.tex}
 
 DECOMPOSITION SERIES IN DELTAS 
 

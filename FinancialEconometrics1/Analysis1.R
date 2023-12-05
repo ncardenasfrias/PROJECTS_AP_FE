@@ -214,7 +214,7 @@ names(i0_decomp) = names(i0_series)
 
 
 #####
-#1.3 Fit a
+#1.3 Fit aRMA O
 
 
 

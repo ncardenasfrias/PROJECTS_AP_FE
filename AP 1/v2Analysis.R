@@ -36,7 +36,7 @@ allts[['Date']] = NULL # R was making regressions on the date column :/
 desired_order = c('infl_e', 'deflator', 'unempl', 'rate', 'splong', 'corp_debt')
 allts = allts[desired_order]
 names = c('Inflation expectation', 'PIB deflator', 'Unemployment rate', 'Fed rate', 'SP500', 'Corporate debt rate')
-rm(desired_order)
+rm(df, desired_order)
 
 
 #Remove outliers 
@@ -54,7 +54,8 @@ tsclean(allts$corp_debt, iterate = 2, lambda =NULL)
 ###########################
 
 #####
-#1.1. Series decomposition using the stl function
+#1.1. SERIES DECOMPOSITION
+#using the stl function
 
 decompositions = list() #store the decompositions 
 dec_graphs= list() #store the decomposition graphs 
@@ -71,6 +72,7 @@ for (ts in 1:length(allts)) {
 names(deseasonalized_ts) = names(allts) #name the series in deseasonalized_ts
 names(decompositions) = names(allts) #name the series in decompositions
 
+rm(graph, decomp, deseason)
 
 #Generate and export plots with the decomposition graphs 
 decom_i = grid.arrange(dec_graphs[[1]],dec_graphs[[2]], dec_graphs[[3]], ncol=3)
@@ -79,12 +81,12 @@ ggsave('IMAGES/decomposition_i.png', plot=decom_i, width = 12, height = 8)
 decom_ii = grid.arrange(dec_graphs[[4]],dec_graphs[[5]], dec_graphs[[6]], ncol=3)
 ggsave('IMAGES/decomposition_ii.png', plot=decom_ii, width = 12, height = 8)
 
-rm(decom_i, decom_ii, decomp, dec_graphs, df, graph, deseason, numeric_cols, col) #clean around
+rm(decom_i, decom_ii, dec_graphs, numeric_cols, col) #clean around
 
 
 
 #####
-#1.2 WORK ON DESEASONALIZED SERIES 
+#1.2 DESEASONALIZED SERIES 
 #they are all stored in deseasonalized_ts
 
 #Estimate the seasonal coefficients 
@@ -105,8 +107,8 @@ seasonal_table$Series = NULL
 #need to manually add a resize box on the latex code
 
 
-
-#Get integration order
+#####
+#1.3. ADF - GET INTEGRATION ORDER
 ## Need to properly write the ADF test, but these commands summarize what I need for now, ie the order of integration
 order_integration(deseasonalized_ts$infl_e, method = "adf")$order_int # I(0)
 order_integration(deseasonalized_ts$deflator, method = "adf")$order_int # I(0)
@@ -114,6 +116,117 @@ order_integration(deseasonalized_ts$unempl, method = "adf")$order_int # I(1)
 order_integration(deseasonalized_ts$rate, method = "adf")$order_int # I(1)
 order_integration(deseasonalized_ts$splong, method = "adf")$order_int # I(1)
 order_integration(deseasonalized_ts$corp_debt, method = "adf")$order_int # I(1)
+
+### ADF: 1st regression with stochastic trend and drift on deseasonalized series
+results_adf_trend <- list()
+for (var_name in names(deseasonalized_ts)) {
+  result <- ur.df(deseasonalized_ts[[var_name]], type = "trend", selectlags = "BIC")
+  results_adf_trend[[var_name]] <- summary(result)
+}
+#export summary adf
+trend_test =cbind(t(results_adf_trend$infl_e@teststat),t(results_adf_trend$deflator@teststat), 
+                  t(results_adf_trend$unempl@teststat),t(results_adf_trend$rate@teststat),
+                  t(results_adf_trend$splong@teststat), t(results_adf_trend$corp_debt@teststat),
+                  results_adf_trend$infl_e@cval)
+colnames(trend_test) = c(names(results_adf_trend), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(trend_test, type='text')
+stargazer(trend_test, out='TABLES/adf_trend.tex', label= 'tab:adftrend_hyp',title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend") 
+          
+
+#export all t-values on coefficients, harder because output format
+#create empty df with columns = rhs variable in ADF
+t_values_table = data.frame(matrix(nrow = 0, ncol = length(c('Intercept', 'z.lag.1', 'tt', 'z.diff.lag')))) 
+colnames(t_values_table) = c('alpha', 'gamma', 'beta', 'rho')
+#iterate over the summaries and extract the t stats for each series
+for (i in names(results_adf_trend)){
+  j = results_adf_trend[[i]]@testreg$coefficients[,'t value']
+  tab = as.data.frame(j)
+  row = c(tab$j[1], tab$j[2], tab$j[3], tab$j[4])
+  t_values_table[nrow(t_values_table) + 1,] <- row
+}
+row.names(t_values_table) = names(results_adf_trend) # call the rows as the series
+t_values_table = t(t_values_table) #transpose the table, looks better
+stargazer(t_values_table,type='text') #all ok
+stargazer(t_values_table,out="TABLES/adf_tstats_trend.tex", title="ADF test - 1st regression t statistics", 
+          notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 3.09 ; gamma= -3.43 ; beta = 2.79',
+          label='tab:tstat_trend') 
+
+
+
+### ADF 2nd regression: drift and stochastic trend 
+results_adf_drift <- list()
+for (var_name in names(deseasonalized_ts)) {
+  result <- ur.df(deseasonalized_ts[[var_name]], type = "drif", selectlags = "BIC")
+  results_adf_drift[[var_name]] <- summary(result)
+}
+#export summary adf
+drift_test =cbind(t(results_adf_drift$infl_e@teststat),t(results_adf_drift$deflator@teststat), 
+                  t(results_adf_drift$unempl@teststat),t(results_adf_drift$rate@teststat),
+                  t(results_adf_drift$splong@teststat), t(results_adf_drift$corp_debt@teststat),
+                  results_adf_drift$infl_e@cval)
+colnames(drift_test) = c(names(results_adf_drift), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(drift_test, type='text')
+stargazer(drift_test, out='TABLES/adf_drift.tex', label= 'tab:adfdrift_hyp',title = "ADF test - 2nd regression with drift and stochastic trend") 
+
+
+#export all t-values on coefficients, harder because output format
+#create empty df with columns = rhs variable in ADF
+t_values_table2 = data.frame(matrix(nrow = 0, ncol = length(c('Intercept', 'z.lag.1', 'z.diff.lag')))) 
+colnames(t_values_table2) = c('alpha', 'gamma', 'rho')
+#iterate over the summaries and extract the t stats for each series
+for (i in names(results_adf_drift)){
+  j = results_adf_drift[[i]]@testreg$coefficients[,'t value']
+  tab = as.data.frame(j)
+  row = c(tab$j[1], tab$j[2], tab$j[3])
+  t_values_table2[nrow(t_values_table2) + 1,] <- row
+}
+row.names(t_values_table2) = names(results_adf_drift) # call the rows as the series
+t_values_table2 = t(t_values_table2) #transpose the table, looks better
+stargazer(t_values_table2,type='text') #all ok
+stargazer(t_values_table2,out="TABLES/adf_tstats_drift.tex", title="ADF test - 2nd regression t statistics", 
+          notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 2.53 ; gamma= -2.88',
+          label='tab:tstat_drift') 
+
+
+
+### ADF 3rd regression: stochastic trend only
+results_adf_none <- list()
+for (var_name in names(deseasonalized_ts)) {
+  result <- ur.df(deseasonalized_ts[[var_name]], type = "none", selectlags = "BIC")
+  results_adf_none[[var_name]] <- summary(result)
+}
+#export summary adf
+none_test =cbind(t(results_adf_none$infl_e@teststat),t(results_adf_none$deflator@teststat), 
+                  t(results_adf_none$unempl@teststat),t(results_adf_none$rate@teststat),
+                  t(results_adf_none$splong@teststat), t(results_adf_none$corp_debt@teststat),
+                 results_adf_none$infl_e@cval)
+colnames(none_test) = c(names(results_adf_none), "CV 1pct", "CV 5pct", "CV 10pct")
+stargazer(none_test, type='text')
+stargazer(none_test, out='TABLES/adf_none.tex', label= 'tab:adfnone_hyp',title = "ADF test - 3rd regression with stochastic trend") 
+
+
+#export all t-values on coefficients, harder because output format
+#create empty df with columns = rhs variable in ADF
+t_values_table3 = data.frame(matrix(nrow = 0, ncol = length(c('z.lag.1', 'z.diff.lag')))) 
+colnames(t_values_table3) = c('gamma', 'rho')
+#iterate over the summaries and extract the t stats for each series
+for (i in names(results_adf_none)){
+  j = results_adf_none[[i]]@testreg$coefficients[,'t value']
+  tab = as.data.frame(j)
+  row = c(tab$j[1], tab$j[2], tab$j[3])
+  t_values_table3[nrow(t_values_table3) + 1,] <- row
+}
+row.names(t_values_table3) = names(results_adf_none) # call the rows as the series
+t_values_table3 = t(t_values_table3) #transpose the table, looks better
+stargazer(t_values_table3,type='text') #all ok
+stargazer(t_values_table3,out="TABLES/adf_tstats_none.tex", title="ADF test - 3rd regression t statistics", 
+          notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: gamma= -1.95',
+          label='tab:tstat_none') 
+
+
+
+
+
 
 #I made a list with the deseasonalized, I(0) series 
 i0_deseason_series= list(deseasonalized_ts$infl_e, diff(deseasonalized_ts$deflator), 
@@ -240,11 +353,7 @@ levels_var = data.frame(
 #levels_var$timestamp <- time(deseasonalized_ts$deflator) 
 names_level = c('deflator', 'unempl', 'splong')
 
-deltas_var = data.frame(
-  d_deflator = deseasonalized_ts$d_deflator,
-  d_unempl = deseasonalized_ts$d_unempl,
-  d_splong = deseasonalized_ts$d_splong)
-names_deltas = list('d_deflator', 'd_unempl', 'd_splong')
+
 
 
 #####
@@ -254,9 +363,9 @@ names_deltas = list('d_deflator', 'd_unempl', 'd_splong')
 lag_order = VARselect(levels_var)
 res = lag_order$criteria
 print(res)
+
 crit_level = as.data.frame(res)
 rownames(crit_level) = c("AIC(n)", "HQ(n)", "SC(n)", "FPE(n)")
-
 latex_varorder_lev= xtable(crit_level, caption = "Canonical VAR in levels - Identify order")
 print(latex_varorder_lev, caption.placement = "top", include.rownames = TRUE, file = "TABLES/varorder_level.tex")
 
@@ -277,11 +386,27 @@ sum_varlevel = summary(var_level)$varresult
 
 ### TEST COINTEGRATION using Johansen/Rank test
 
-johansen_test = ca.jo(levels_var, type='eigen', ecdet='trend', K=8)
+johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=8)
 johansensum = summary(johansen_test)
-
+  # r is rank of matrix == number of cointegration relationship.
+  #no cointegration
 johansen_table = xtable(johansensum)
 print(latex_table, file=file_path)
+
+
+##v2 => COINTEGRATION for 1 expression
+levels_2 = data.frame(
+  rate = deseasonalized_ts$rate, 
+  sp500 = deseasonalized_ts$splong,
+  corp_debt= deseasonalized_ts$corp_debt
+)
+
+lag2 = VARselect(levels_2)$selection
+
+summary(ca.jo(levels_2, type='trace', ecdet='trend', K=8))
+
+
+
 
 
 #####
