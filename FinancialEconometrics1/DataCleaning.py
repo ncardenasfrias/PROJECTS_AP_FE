@@ -46,7 +46,7 @@ deflator.columns = ['deflator']
 unempl = pd.DataFrame(fred.get_series('UNRATENSA')) #monthly, NSA, %
 unempl.columns=['unempl']
 
-#fred.search("UNRATENSA").T #this function gives of the info on every series
+fred.search("BAMLCC0A0CMTRIV").T #this function gives of the info on every series
 
 
 ### Resample into monthly data 

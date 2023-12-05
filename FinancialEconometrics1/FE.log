@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  5 DEC 2023 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  5 DEC 2023 23:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -755,9 +755,6 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `' multiply defined.
 
-
-LaTeX Warning: Label `' multiply defined.
-
 )
 \openout1 = `FE.aux'.
 
@@ -882,55 +879,53 @@ Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 118.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 132.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
-File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-) (./TABLES/adf_trend.tex
-Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
- [][] 
- []
-
-) (./TABLES/adf_drift.tex
-Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--16
- [][] 
- []
-
-) (./TABLES/adf_none.tex)
-<IMAGES/decomposition_iii_deltas.png, id=42, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_iii_deltas.png Graphic file (type png)
-<use IMAGES/decomposition_iii_deltas.png>
-Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 151.
-(pdftex.def)             Requested size: 363.15741pt x 242.09038pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 (./TABLES/seasons.tex
 Overfull \hbox (75.72025pt too wide) in paragraph at lines 7--20
  [][] 
  []
 
-[2]) (./TABLES/varorder_level.tex) (./TABLES/estim_var_level.tex)
-Overfull \vbox (281.92273pt too high) has occurred while \output is active []
+)
+LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 142.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ts1qpl.fd
+File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
+) (./TABLES/adf_trend.tex
+Overfull \hbox (3.6457pt too wide) in paragraph at lines 7--17
+ [][] 
+ []
 
- [3 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] [4 <./IMAGES/decomposition_iii_deltas.png>] [5] (./FE.aux)
+) (./TABLES/adf_tstats_trend.tex) (./TABLES/adf_drift.tex
+Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--16
+ [][] 
+ []
+
+) [2] (./TABLES/adf_none.tex)
+<IMAGES/decomposition_iii_deltas.png, id=57, 3613.5pt x 2409.0pt>
+File: IMAGES/decomposition_iii_deltas.png Graphic file (type png)
+<use IMAGES/decomposition_iii_deltas.png>
+Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 163.
+(pdftex.def)             Requested size: 363.15741pt x 242.09038pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./TABLES/varorder_level.tex [3 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] [4]) (./TABLES/estim_var_level.tex) [5 <./IMAGES/decomposition_iii_deltas.png>] [6] [7] (./FE.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19271 strings out of 478268
- 321629 string characters out of 5846347
- 684648 words of memory out of 5000000
- 37079 multiletter control sequences out of 15000+600000
- 509608 words of font info for 72 fonts, out of 8000000 for 9000
+ 19283 strings out of 478268
+ 321854 string characters out of 5846347
+ 678824 words of memory out of 5000000
+ 37084 multiletter control sequences out of 15000+600000
+ 512549 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,117p,1270b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (5 pages, 3171314 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on FE.pdf (7 pages, 3198634 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 165 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
  128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
