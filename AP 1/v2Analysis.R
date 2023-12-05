@@ -22,7 +22,6 @@ df$sp500 = log(df$sp500) #get the stock market return
 df$splong = log(df$splong)
 df$corp_debt = log(df$corp_debt) #return corporate debt (see index definition)
 
-
 #convert into TS 
 allts = list()
 numeric_cols = df[, sapply(df, is.numeric)&names(df)!= 'Date'] #identifies the right columns
@@ -236,15 +235,16 @@ nsdiffs(cyclical_comp$corp_debt,test="seas") #no more seasonality
 #Let us focus on deflator, unempl, and splong only to avoid having a VAR too big 
 levels_var = data.frame(
   deflator = deseasonalized_ts$deflator,
-  unepl = deseasonalized_ts$unempl,
+  unempl = deseasonalized_ts$unempl,
   splong = deseasonalized_ts$splong)
 #levels_var$timestamp <- time(deseasonalized_ts$deflator) 
+names_level = c('deflator', 'unempl', 'splong')
 
 deltas_var = data.frame(
   d_deflator = deseasonalized_ts$d_deflator,
-  d_unepl = deseasonalized_ts$d_unempl,
+  d_unempl = deseasonalized_ts$d_unempl,
   d_splong = deseasonalized_ts$d_splong)
-
+names_deltas = list('d_deflator', 'd_unempl', 'd_splong')
 
 
 #####
@@ -253,6 +253,7 @@ deltas_var = data.frame(
 ###Select the order of the VAR using VARselect
 lag_order = VARselect(levels_var)
 res = lag_order$criteria
+print(res)
 crit_level = as.data.frame(res)
 rownames(crit_level) = c("AIC(n)", "HQ(n)", "SC(n)", "FPE(n)")
 
@@ -263,12 +264,24 @@ order_selec_level = lag_order$selection # let's go with 8 from AIC, HQ, FPE
 print(order_selec_level)
 
 ###VAR model estimation
-var_level = VAR(levels_var, p = 5)
-sum_varlevel = summary(var_level)
+var_level = VAR(levels_var, p = 8)
+sum_varlevel = summary(var_level)$varresult
 
-#export
-table_var_level = xtable(table_var_level$varresult)
-print(latex_table, file = "TABLES/estim_var_level.tex", caption ="Level VAR - Estimation", floating = FALSE)
+
+#export comment line with only y in latex output to make it fit the page
+# stargazer(var_level[['varresult']], type='latex', column.labels = names_level,         
+#           out="TABLES/estim_var_level.tex", title="Level VAR - Estimation", 
+#           label='tab:est_var_level', no.space=TRUE, model.numbers=F, font.size='small',
+#           keep.stat=c("adj.rsq","ser","f"))
+
+
+### TEST COINTEGRATION using Johansen/Rank test
+
+johansen_test = ca.jo(levels_var, type='eigen', ecdet='trend', K=8)
+johansensum = summary(johansen_test)
+
+johansen_table = xtable(johansensum)
+print(latex_table, file=file_path)
 
 
 #####
