@@ -1,0 +1,19 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Tue, Dec 05, 2023 - 11:17:27
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Canonical VAR in levels - Identify order} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{10} \\ 
+\hline \\[-1.8ex] 
+\multicolumn{1}{c}{AIC(n)} & -10.013 & -10.564 & -10.594 & -10.727 & -10.876 & -10.874 & -10.931 & -11.014 & -10.999 & -10.980 \\ 
+\multicolumn{1}{c}{HQ(n)} & -9.964 & -10.479 & -10.472 & -10.568 & -10.680 & -10.643 & -10.663 & -10.710 & -10.658 & -10.602 \\ 
+\multicolumn{1}{c}{SC(n)} & -9.890 & -10.349 & -10.287 & -10.327 & -10.384 & -10.290 & -10.255 & -10.246 & -10.139 & -10.027 \\ 
+\multicolumn{1}{c}{FPE(n)} & 0.00004 & 0.00003 & 0.00003 & 0.00002 & 0.00002 & 0.00002 & 0.00002 & 0.00002 & 0.00002 & 0.00002 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 

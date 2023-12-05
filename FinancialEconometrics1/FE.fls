@@ -1279,6 +1279,10 @@ INPUT ./TABLES/seasons.tex
 INPUT TABLES/seasons.tex
 INPUT ./TABLES/seasons.tex
 INPUT TABLES/seasons.tex
+INPUT ./TABLES/varorder_level.tex
+INPUT TABLES/varorder_level.tex
+INPUT ./TABLES/varorder_level.tex
+INPUT TABLES/varorder_level.tex
 INPUT FE.aux
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc
