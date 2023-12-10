@@ -22,6 +22,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{indentfirst}
+\usepackage{listings}
 \usepackage{lscape}
 \usepackage{mathtools}
 \usepackage{mdframed}
@@ -79,6 +80,34 @@
    \or \ddagger\ddagger \else\@ctrerr\fi}}
     \makeatother
 
+%code snippets 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
 
 \begin{document}
 
@@ -105,6 +134,25 @@ Each section represents a specific application, but we tried to make them cohere
 
 \textcolor{gray}{\emph{Note:} Depending on each exercise along these applications we might use different series. In this first section, we performed the stationarity and component analysis of all of them to be able to use them rapidly without having to worry about seasonality or the presence of UR. Therefore, this section encompasses more than the 3 series that were asked in the exercise.}
 
+
+In this work, we focus on the US market.
+We use the following series extracted for the most part from FRED with its Python API : 
+
+\paragraph{Inflation Expectation}
+
+\paragraph{GDP deflator}
+
+\paragraph{Unemployment rate}
+
+\paragraph{FED func rate}
+
+\paragraph{S\&P 500 price}
+
+\paragraph{Corporate Debt }
+
+
+
+
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}
@@ -123,10 +171,24 @@ Each section represents a specific application, but we tried to make them cohere
     \label{fig:decomposition}
 \end{figure}
 
+
+
+
+
+
+
     \subsection{Seasonality}
 \input{TABLES/seasons.tex}
 
     \subsection{Unit root and trends}
+
+As for any time series analysis, the first analysis to perform is regarding the presence of unit roots in the series that would make them non-stationary. 
+To do so, we perform the Augmented Dickey-Fuller tests that evaluate the presence of a stochastic trend (a unit root), a deterministic trend, and an intercept or drift. 
+Importantly, this test requires to estimate three equations/specifications because it requires to investigate the joint presence of both types of trends and drift, for them discar elements one by one. 
+The inference with this test is non-standard and requires to use corrected critical values to assess significance with the t-statistics. 
+
+
+
 
 \subsubsection{ADF - Test jointly for deterministic and stochastic trend (with drift)}
 
@@ -134,40 +196,56 @@ We first run the following specification to the ADF test to \emph{jointly} inves
     \begin{equation}
         \Delta X_t = \alpha + \beta tt + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
-As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary and that inference is non-standard (uses special critical values for unilateral test). 
+As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary.
 We use R's built-in function \emph{ur.df} with \emph{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
         \item[-] tau3 refers to the t-statistic associated to $\gamma =0$ 
         \item[-] phi2 refers to the F-statistic associated to $\alpha = \beta = \gamma =0$
         \item[-] phi3 is also an F-statistic, now associated to $\beta =\gamma = 0$  
     \end{itemize}
+Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated to $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we prefer to refer to the higher critical values but it does not change the analysis done.
 
-Let us examine each series' results: 
-\paragraph{Inflation expectation} 
-We find $t_\gamma = -4.490 < -3.43$ \footnote{Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated to $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we prefer to refer to the higher critical values but it does not change the analysis done.} we can reject H0 ie we can't say that the series has a UR. We then compare the t-statistics associated to $\alpha$ and $\beta$ to the standard interest threshold (the values below Table \ref{tab:tstat_trend} are conditional on having an UR). While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
-    
-
-\paragraph{GDP deflator}
-
-
-\paragraph{Unemployment}Since $t_\gamma > -3.43$, we fail to reject H0. We then test the significance of $\beta$ with respect to the non-standard threshold $2.79$ (bilateral test). 
-Since we fail to reject its nullity we need to use the second specification of the ADF test on this series. 
-
-
-\paragraph{Unemployment rate}
-
-
-
-\paragraph{Fed fund rate}  
-$t_\gamma = -1.709$
-
-
-
-
+Let us examine each series' results, summarized in the following tables: 
 
 \input{TABLES/adf_trend.tex}
 %\input{TABLES/prov_adf_trend.tex}
 \input{TABLES/adf_tstats_trend.tex}
+
+
+\paragraph{Inflation expectation} 
+We find $t_\gamma = -4.490 < -3.43$  we can reject H0 ie we can't say that the series has a UR. 
+We then compare the t-statistics associated to $\alpha$ and $\beta$ to the standard interest threshold (the values below Table \ref{tab:tstat_trend} are conditional on having an UR). 
+Since $|t_\alpha|> 1.96$ and $|t_\beta| > 1.96$, we fail to reject the absence of a drift and of a determinsitic trend.
+%While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
+    
+
+\paragraph{GDP deflator}
+With $t_\gamma = -5.166 < -3.43$, as before we can reject H0 and say that the series seems to be stationary in levels. 
+Since $|t_\alpha| = 2.584 > 1.96$, we reject the nullity of the drift. 
+Finally, since $|t_\beta| = 1.154 < 1.96$ we cannot reject the absence of a deterministic trend.  
+
+
+\paragraph{Unemployment rate}
+Since $t_\gamma = -3.346 > -3.43$, we fail to reject H0. We then test the significance of $\beta$ with respect to the non-standard threshold $2.79$ (bilateral test).
+Since, $|t_\beta| = 0.488 < 2.79$, the ADF methodology leads us to use the second specification for this series. 
+
+
+\paragraph{Fed fund rate}  
+$t_\gamma = -1.672 > -3.43$, we are in the same situation as we the previous series where we cannot reject the existence of a UR. 
+Because $|t_\beta| = 0.127 < 2.79$ we also need to continue testing this series with the other specifications as we don't reject the existence of a deterministic trend. 
+
+
+\paragraph{SP500}
+Without much surprise for price series, $t_\gamma = -1.949 > -3.43$ and we cannot reject the existence of a UR. 
+Given that $|t_\beta| = 1.696 < 2.79$ we do not reject the existence of a deterministic trend and we continue testing.
+
+
+\paragraph{Corporate debt}
+Finally, this series has $t_\gamma = -1.759 > -3.43$, and $|t_\beta| = 1.696 < 2.79$. 
+We cannot reject the presence of UR and a deterministic trend and we need to continue to test this series too with the second specification of the ADF test. 
+
+
+
 
 
 
@@ -177,19 +255,42 @@ The second specification of the test models $\forall (X_t)_t$:
     \begin{equation}
         \Delta X_t = \alpha  + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
- The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root. 
+The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root. 
 We use now \emph{type='trend'} in the \emph{ur.df} function to get this estimation. 
-The output to the test is similar to the previous specification but now the test statistics reported refer to: 
+The output to the test is similar to the previous specification and the same remarks on the critical values apply here. 
+Now the test statistics reported refer to: 
     \begin{itemize}
         \item[-] tau2 refers to the t-statistic associated to $\gamma =0$ 
         \item[-] phi1 refers to the F-statistic associated to $\alpha = \gamma =0$ 
     \end{itemize}
 
 \input{TABLES/adf_drift.tex}
-
 \input{TABLES/adf_tstats_drift.tex}
 
 
+\paragraph{Unemployment rate}
+With $t_\gamma = -1.013> -2.88$ we cannot reject H0. 
+We thus test the t-statistic associated with $\alpha$ to its non standard critical value $2.53$ (bilateral test). 
+Since $|t_\alpha| = 3.153 > 2.53$, we reject the nullity of the drift term. 
+Fianlly, as an extra check, we chek the F-statistic associated to $H0: \gamma= \alpha = 0$, i.e. the test \emph{phi1} in the default R test. 
+Given that $F_{phi1} = 5.57 > 4.61$, we reject the null and conclude that the \emph{series is I(0)} at $5\%$. 
+However, the null is not rejected at the one percent level, and by looking at the series it does not look very stationary. Also R's built in function order_integration concludes that the series is actually non-stationay which made us doubt our results. We decided to continue the test just in case and compare $t_\gamma$ to the standard $-1.64$ threshold: since our statistic is larger, we conclude once again that the series is stationary.
+
+
+\paragraph{Fed fund rate}
+Given that $t_\gamma = -2.419 >-2.88$, we cannot reject the null hypothesis. 
+Similarly as before, we check the significance of the drift term: here it is not significantly different from zero as $|t_\alpha| = 1.513 <1.96$.
+We then check the F-stistic of the joint test \emph{phi1}: $F_{phi1} = 3.032 < 4.61$ and we cannot reject leading us to use the third specification of the test.  %to the conclusion that the series is \emph{non-stationary without drift}.
+
+\paragraph{SP500}
+Since $t_\gamma = -1.013> -2.87$, we cannot reject H0.
+We then check $|t_\alpha| = 1.270 <1.96$, leading to the conclusion that the constant is not significantly different from zero. 
+By checking $F_{phi1} = 4.431 <4.61$ we fall in the same case as before where we need to continue testing the series. 
+
+\paragraph{Corporate debt}
+For the last series we find $t_\gamma = -2.542 > -2.87$,leading to a non-rejection of the null hypothesis. 
+Once again we check the other two dtstistics: $|t_\alpha| = 2.934 > 1.96$ driving the hypothesis taht the series has a constant term. 
+Finally, since $F_{phi1} = 14.876 > 4.61$ we reject the joint nullity of $\gamma$ and $\alpha$ (pretty much in line with $\alpha$'s t-statistic.) 
 
 
 
@@ -254,4 +355,22 @@ DECOMPOSITION SERIES IN DELTAS
 \section{Difference-in-Difference}
 https://www.tidy-finance.org/r/difference-in-differences.html
     
+
+
+
+\newpage
+\begin{appendices}
+    
+    \section{Code - Data Cleaning} \label{sec:dta_clean}
+        %\lstinputlisting[language=python]{DataCleaning.py}
+        \lstinputlisting[language=Python]{DataCleaning.py}
+
+\end{appendices}
+
+
+
+
+
+
+
 \end{document}

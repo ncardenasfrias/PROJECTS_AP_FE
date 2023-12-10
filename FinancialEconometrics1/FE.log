@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  6 DEC 2023 00:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  10 DEC 2023 10:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -429,44 +429,66 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks31
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count327
+\lst@gtempboxa=\box60
+\lst@token=\toks32
+\lst@length=\count328
+\lst@currlwidth=\dimen259
+\lst@column=\count329
+\lst@pos=\count330
+\lst@lostspace=\dimen260
+\lst@width=\dimen261
+\lst@newlines=\count331
+\lst@lineno=\count332
+\lst@maxwidth=\dimen262
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count333
+\lst@skipnumbers=\count334
+\lst@framebox=\box61
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count327
-\calc@Bcount=\count328
-\calc@Adimen=\dimen259
-\calc@Bdimen=\dimen260
+\calc@Acount=\count335
+\calc@Bcount=\count336
+\calc@Adimen=\dimen263
+\calc@Bdimen=\dimen264
 \calc@Askip=\skip60
 \calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count329
+\calc@Ccount=\count337
 \calc@Cskip=\skip62
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count330
-\l_MT_multwidth_dim=\dimen261
+\g_MT_multlinerow_int=\count338
+\l_MT_multwidth_dim=\dimen265
 \origjot=\skip63
-\l_MT_shortvdotswithinadjustabove_dim=\dimen262
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen263
-\l_MT_above_intertext_sep=\dimen264
-\l_MT_below_intertext_sep=\dimen265
-\l_MT_above_shortintertext_sep=\dimen266
-\l_MT_below_shortintertext_sep=\dimen267
-\xmathstrut@box=\box60
-\xmathstrut@dim=\dimen268
+\l_MT_shortvdotswithinadjustabove_dim=\dimen266
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen267
+\l_MT_above_intertext_sep=\dimen268
+\l_MT_below_intertext_sep=\dimen269
+\l_MT_above_shortintertext_sep=\dimen270
+\l_MT_below_shortintertext_sep=\dimen271
+\xmathstrut@box=\box62
+\xmathstrut@dim=\dimen272
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-02-24 L3 programming layer (loader) 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count331
-\l__pdf_internal_box=\box61
+\l__color_backend_stack_int=\count339
+\l__pdf_internal_box=\box63
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/zref/zref-abspage.sty
@@ -477,7 +499,7 @@ Package zref Info: New property list: main on input line 764.
 Package zref Info: New property: default on input line 765.
 Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count332
+\c@abspage=\count340
 Package zref Info: New property: abspage on input line 66.
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
@@ -489,7 +511,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 )
 \mdf@templength=\skip64
-\c@mdf@globalstyle@cnt=\count333
+\c@mdf@globalstyle@cnt=\count341
 \mdf@skipabove@length=\skip65
 \mdf@skipbelow@length=\skip66
 \mdf@leftmargin@length=\skip67
@@ -532,11 +554,11 @@ Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box62
-\mdf@footnotebox=\box63
-\mdf@splitbox@one=\box64
-\mdf@splitbox@two=\box65
-\mdf@splitbox@save=\box66
+\mdf@frametitlebox=\box64
+\mdf@footnotebox=\box65
+\mdf@splitbox@one=\box66
+\mdf@splitbox@two=\box67
+\mdf@splitbox@save=\box68
 \mdfsplitboxwidth=\skip104
 \mdfsplitboxtotalwidth=\skip105
 \mdfsplitboxheight=\skip106
@@ -564,48 +586,46 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip128
 \mdfsubtitleheight=\skip129
 \mdfsubsubtitleheight=\skip130
-\c@mdfcountframes=\count334
+\c@mdfcountframes=\count342
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count335
-\c@mdf@env@i=\count336
-\c@mdf@env@ii=\count337
-\c@mdf@zref@counter=\count338
+\mdf@envdepth=\count343
+\c@mdf@env@i=\count344
+\c@mdf@env@ii=\count345
+\c@mdf@zref@counter=\count346
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip131
-\multirow@cntb=\count339
+\multirow@cntb=\count347
 \multirow@dima=\skip132
-\bigstrutjot=\dimen269
+\bigstrutjot=\dimen273
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
-\c@tracingmulticols=\count340
-\mult@box=\box67
-\multicol@leftmargin=\dimen270
-\c@unbalance=\count341
-\c@collectmore=\count342
-\doublecol@number=\count343
-\multicoltolerance=\count344
-\multicolpretolerance=\count345
-\full@width=\dimen271
-\page@free=\dimen272
-\premulticols=\dimen273
-\postmulticols=\dimen274
+\c@tracingmulticols=\count348
+\mult@box=\box69
+\multicol@leftmargin=\dimen274
+\c@unbalance=\count349
+\c@collectmore=\count350
+\doublecol@number=\count351
+\multicoltolerance=\count352
+\multicolpretolerance=\count353
+\full@width=\dimen275
+\page@free=\dimen276
+\premulticols=\dimen277
+\postmulticols=\dimen278
 \multicolsep=\skip133
 \multicolbaselineskip=\skip134
-\partial@page=\box68
-\last@line=\box69
-\maxbalancingoverflow=\dimen275
-\mult@rightbox=\box70
-\mult@grightbox=\box71
-\mult@firstbox=\box72
-\mult@gfirstbox=\box73
-\@tempa=\box74
-\@tempa=\box75
+\partial@page=\box70
+\last@line=\box71
+\maxbalancingoverflow=\dimen279
+\mult@rightbox=\box72
+\mult@grightbox=\box73
+\mult@firstbox=\box74
+\mult@gfirstbox=\box75
 \@tempa=\box76
 \@tempa=\box77
 \@tempa=\box78
@@ -640,53 +660,55 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \@tempa=\box107
 \@tempa=\box108
 \@tempa=\box109
-\c@minrows=\count346
-\c@columnbadness=\count347
-\c@finalcolumnbadness=\count348
-\last@try=\dimen276
-\multicolovershoot=\dimen277
-\multicolundershoot=\dimen278
-\mult@nat@firstbox=\box110
-\colbreak@box=\box111
-\mc@col@check@num=\count349
+\@tempa=\box110
+\@tempa=\box111
+\c@minrows=\count354
+\c@columnbadness=\count355
+\c@finalcolumnbadness=\count356
+\last@try=\dimen280
+\multicolovershoot=\dimen281
+\multicolundershoot=\dimen282
+\mult@nat@firstbox=\box112
+\colbreak@box=\box113
+\mc@col@check@num=\count357
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip135
 \bibsep=\skip136
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count350
+\c@NAT@ctr=\count358
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
-\c@subfigure=\count351
-\c@subtable=\count352
+\c@subfigure=\count359
+\c@subtable=\count360
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
-\ttl@box=\box112
+\ttl@box=\box114
 \beforetitleunit=\skip137
 \aftertitleunit=\skip138
-\ttl@plus=\dimen279
-\ttl@minus=\dimen280
-\ttl@toksa=\toks32
-\titlewidth=\dimen281
-\titlewidthlast=\dimen282
-\titlewidthfirst=\dimen283
+\ttl@plus=\dimen283
+\ttl@minus=\dimen284
+\ttl@toksa=\toks33
+\titlewidth=\dimen285
+\titlewidthlast=\dimen286
+\titlewidthfirst=\dimen287
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/tgpagella.sty
 Package: tgpagella 2009/09/27 v1.2 TeX Gyre Pagella as default roman family
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks33
-\verbatim@line=\toks34
+\every@verbatim=\toks34
+\verbatim@line=\toks35
 \verbatim@in@stream=\read3
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen284
-\WF@size=\dimen285
-\c@WF@wrappedlines=\count353
-\WF@box=\box113
-\WF@everypar=\toks35
+\wrapoverhang=\dimen288
+\WF@size=\dimen289
+\c@WF@wrappedlines=\count361
+\WF@box=\box115
+\WF@everypar=\toks36
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
@@ -710,13 +732,13 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 Package: xltabular 2020/11/04 v0.2e `xltabular' package (hv,RN)
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen286
-\TX@old@table=\dimen287
-\TX@old@col=\dimen288
-\TX@target=\dimen289
-\TX@delta=\dimen290
-\TX@cols=\count354
-\TX@ftn=\toks36
+\TX@col@width=\dimen290
+\TX@old@table=\dimen291
+\TX@old@col=\dimen292
+\TX@target=\dimen293
+\TX@delta=\dimen294
+\TX@cols=\count362
+\TX@ftn=\toks37
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/ltablex/ltablex.sty
 Package: ltablex 2014/08/13 v1.1 Modified tabularx
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/longtable.sty
@@ -725,25 +747,25 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip140
 \LTpre=\skip141
 \LTpost=\skip142
-\LTchunksize=\count355
-\LTcapwidth=\dimen291
-\LT@head=\box114
-\LT@firsthead=\box115
-\LT@foot=\box116
-\LT@lastfoot=\box117
-\LT@gbox=\box118
-\LT@cols=\count356
-\LT@rows=\count357
-\c@LT@tables=\count358
-\c@LT@chunks=\count359
-\LT@p@ftn=\toks37
+\LTchunksize=\count363
+\LTcapwidth=\dimen295
+\LT@head=\box116
+\LT@firsthead=\box117
+\LT@foot=\box118
+\LT@lastfoot=\box119
+\LT@gbox=\box120
+\LT@cols=\count364
+\LT@rows=\count365
+\c@LT@tables=\count366
+\c@LT@chunks=\count367
+\LT@p@ftn=\toks38
 )))
-Package hyperref Info: Option `colorlinks' set `true' on input line 57.
+Package hyperref Info: Option `colorlinks' set `true' on input line 58.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-LaTeX Font Info:    Trying to load font information for OT1+qpl on input line 83.
+LaTeX Font Info:    Trying to load font information for OT1+qpl on input line 112.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tex-gyre/ot1qpl.fd
 File: ot1qpl.fd 2009/09/25 v1.2 font definition file for OT1/qpl
 )
@@ -754,169 +776,36 @@ LaTeX Warning: Unused global option(s):
 (./FE.aux)
 \openout1 = `FE.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count360
-\scratchdimen=\dimen292
-\scratchbox=\box119
-\nofMPsegments=\count361
-\nofMParguments=\count362
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count363
-\MPscratchDim=\dimen293
-\MPnumerator=\count364
-\makeMPintoPDFobject=\count365
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count368
+\scratchdimen=\dimen296
+\scratchbox=\box121
+\nofMPsegments=\count369
+\nofMParguments=\count370
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count371
+\MPscratchDim=\dimen297
+\MPnumerator=\count372
+\makeMPintoPDFobject=\count373
+\everyMPtoPDFconversion=\toks40
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-Package hyperref Info: Link coloring ON on input line 83.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
- (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count366
-)
-LaTeX Info: Redefining \ref on input line 83.
-LaTeX Info: Redefining \pageref on input line 83.
-LaTeX Info: Redefining \nameref on input line 83.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
-Package caption Info: longtable package is loaded.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-)
-Package caption Info: wrapfig package is loaded.
-Package caption Info: End \AtBeginDocument code.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
-* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=484.20988pt
-* \textheight=664.88487pt
-* \oddsidemargin=-7.22743pt
-* \evensidemargin=-7.22743pt
-* \topmargin=-44.22743pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=10.0pt
-* \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./FE.toc)
-\tf@toc=\write3
-\openout3 = `FE.toc'.
-
- [1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<IMAGES/decomposition_i.png, id=45, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_i.png Graphic file (type png)
-<use IMAGES/decomposition_i.png>
-Package pdftex.def Info: IMAGES/decomposition_i.png  used on input line 112.
-(pdftex.def)             Requested size: 387.36938pt x 258.22728pt.
-<IMAGES/decomposition_ii.png, id=47, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_ii.png Graphic file (type png)
-<use IMAGES/decomposition_ii.png>
-Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 118.
-(pdftex.def)             Requested size: 387.36938pt x 258.22728pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./TABLES/seasons.tex
-Overfull \hbox (75.72025pt too wide) in paragraph at lines 7--20
- [][] 
- []
-
-) [2] [3 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] (./TABLES/adf_trend.tex
-Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
- [][] 
- []
-
-) (./TABLES/adf_tstats_trend.tex) [4] (./TABLES/adf_drift.tex
-Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--16
- [][] 
- []
-
-) (./TABLES/adf_tstats_drift.tex) (./TABLES/adf_none.tex) (./TABLES/adf_tstats_none.tex)
-<IMAGES/decomposition_iii_deltas.png, id=83, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_iii_deltas.png Graphic file (type png)
-<use IMAGES/decomposition_iii_deltas.png>
-Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 212.
-(pdftex.def)             Requested size: 363.15741pt x 242.09038pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./TABLES/varorder_level.tex [5]) (./TABLES/estim_var_level.tex) [6 <./IMAGES/decomposition_iii_deltas.png>] [7] [8] (./FE.aux) ) 
-Here is how much of TeX's memory you used:
- 19294 strings out of 478268
- 322104 string characters out of 5846347
- 678993 words of memory out of 5000000
- 37084 multiletter control sequences out of 15000+600000
- 518048 words of font info for 74 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 84i,10n,117p,1270b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (8 pages, 3221644 bytes).
-PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 152 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package: epstopdf-base 2020-01-24 v2
