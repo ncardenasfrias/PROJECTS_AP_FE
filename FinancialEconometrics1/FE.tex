@@ -150,18 +150,26 @@ We use the following series extracted for the most part from FRED with its Pytho
 
 \paragraph{Corporate Debt }
 
+All (monthly\footnote{One should adapt the number of indicators in the seasonal components according to the data frequency.}) time series de can be decomposed in the following elements: 
+    \begin{equation*}
+        X_t =  \underbrace{\alpha}_{\text{drift}} + \underbrace{\beta \times t}_{\text{deterministic trend}} + \underbrace{\gamma Tt}_{\text{stochastic trend}} + \underbrace{\Sigma_{i=1}^{11} \rho_i \1_{m_i}}_{\text{seasonality}} + \underbrace{c_i}_{\text{cyclical component}}
+    \end{equation*}
 
+Remark that according to definitions, the deterministic might as well include the drift/constants $\alpha$.
+Also, distinguish the presence of a deterministic and stochastic trend needs to be done jointly and with specific procedures (see Section \ref{sec:adf} for the implementation of the ADF unit root tests). 
 
+Using R's built in function \texttt{stl}\footnote{Seasonal Decomposition of Time Series by Loess}, we can decompose the time series. 
+The results are plotted in Figure \ref{fig:decomposition}.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.9\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_i.png}
         \caption*{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.9\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_ii.png}
         \caption*{}
@@ -177,8 +185,17 @@ We use the following series extracted for the most part from FRED with its Pytho
 
 
 
-    \subsection{Seasonality}
+    \subsection{Seasonality} \label{sec:adf}
+
+From the decompositions made in the previous section, in Figure \ref{fig:decomposition} we can see that R picks up small seasonal variations in each series (the values on the y-axis are rather very small). 
+The estimations of teh seasonal coefficients are reported in Table \ref{tab:seasons}, which indeed shows very small coefficients.
+We nonetehless decided to work with deseasonalized series even if the chages are minimal.
+
 \input{TABLES/seasons.tex}
+
+
+
+
 
     \subsection{Unit root and trends}
 
@@ -189,15 +206,14 @@ The inference with this test is non-standard and requires to use corrected criti
 
 
 
-
 \subsubsection{ADF - Test jointly for deterministic and stochastic trend (with drift)}
 
 We first run the following specification to the ADF test to \emph{jointly} investigate the presence of a stochastic and a determinist trend for each series $(X_t)_t$: 
     \begin{equation}
-        \Delta X_t = \alpha + \beta tt + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
+        \Delta X_t = \alpha + \beta t + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
 As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary.
-We use R's built-in function \emph{ur.df} with \emph{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
+We use R's built-in function \texttt{ur.df} with \texttt{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
         \item[-] tau3 refers to the t-statistic associated to $\gamma =0$ 
         \item[-] phi2 refers to the F-statistic associated to $\alpha = \beta = \gamma =0$
@@ -213,36 +229,44 @@ Let us examine each series' results, summarized in the following tables:
 
 
 \paragraph{Inflation expectation} 
-We find $t_\gamma = -4.490 < -3.43$  we can reject H0 ie we can't say that the series has a UR. 
-We then compare the t-statistics associated to $\alpha$ and $\beta$ to the standard interest threshold (the values below Table \ref{tab:tstat_trend} are conditional on having an UR). 
-Since $|t_\alpha|> 1.96$ and $|t_\beta| > 1.96$, we fail to reject the absence of a drift and of a determinsitic trend.
+We find $t_\gamma = -4.490 < -3.43$ we reject H0 ie we can't say that the series has a UR. 
+Note that the F-statistic corresponding to the nullity of all the coefficients of interes (phi2) leads us to reject H0: $\alpha=\beta=\gamma=0$ (same for phi3), leading us to believe that the series has either a drift and/or a deterministic trend. 
+We therefore compare the t-statistics associated to $\alpha$ and $\beta$ to the standard interest threshold (the critical values below Table \ref{tab:tstat_trend} are conditional on having an UR). Since $|t_\alpha|> 1.96$ and $|t_\beta| > 1.96$, we fail to reject the absence of a drift and of a determinsitic trend.
 %While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
+We conclude that the series is \emph{stationnary with a constant and a deterministic trend}.
     
 
 \paragraph{GDP deflator}
-With $t_\gamma = -5.166 < -3.43$, as before we can reject H0 and say that the series seems to be stationary in levels. 
+With $t_\gamma = -5.166 < -3.43$, as before we can reject H0 indicating that the series is stationary in levels. 
 Since $|t_\alpha| = 2.584 > 1.96$, we reject the nullity of the drift. 
 Finally, since $|t_\beta| = 1.154 < 1.96$ we cannot reject the absence of a deterministic trend.  
+We conclude that the series is \emph{stationary with a constant}
 
 
 \paragraph{Unemployment rate}
 Since $t_\gamma = -3.346 > -3.43$, we fail to reject H0. We then test the significance of $\beta$ with respect to the non-standard threshold $2.79$ (bilateral test).
-Since, $|t_\beta| = 0.488 < 2.79$, the ADF methodology leads us to use the second specification for this series. 
+Once again, the values of the F-statiss of the other two tests phi2 and phi3, lead us to believe that the series has a constant and/or a deterministic trend. 
+Since, $|t_\beta| = 0.488 < 2.79$, the ADF methodology leads us to use the second specification for this series and discard the existence of a deterministic trend. 
+
 
 
 \paragraph{Fed fund rate}  
 $t_\gamma = -1.672 > -3.43$, we are in the same situation as we the previous series where we cannot reject the existence of a UR. 
-Because $|t_\beta| = 0.127 < 2.79$ we also need to continue testing this series with the other specifications as we don't reject the existence of a deterministic trend. 
+Because $|t_\beta| = 0.127 < 2.79$ (not significant) and because we cannot reject phi2 nor phi3 ($F_{phi2} = 2.022 <4.71, \: F_{phi3} = 2.927 <6.3$) we need to continue testing this series with the other specifications as we don't reject the existence of a stochastic trend. 
 
 
 \paragraph{SP500}
 Without much surprise for price series, $t_\gamma = -1.949 > -3.43$ and we cannot reject the existence of a UR. 
-Given that $|t_\beta| = 1.696 < 2.79$ we do not reject the existence of a deterministic trend and we continue testing.
+Given that $t_\beta = 1.696 < 2.79$ we cannot reject the nullity of $\beta$.
+
+Moreover, $F_{phi2} = 3.926< 4.71$ and $F_{phi3} = 1.953 < 6.3$ (non-rejection of the null for both tests) lead to conclude that at leat one of these coefficients are non-null. 
+Given the shape of the series, we decided to keep testing the presence of a UR in the second step of the ADF test.
+%we do not reject the existence of a deterministic trend and we continue testing.
 
 
 \paragraph{Corporate debt}
 Finally, this series has $t_\gamma = -1.759 > -3.43$, and $|t_\beta| = 1.696 < 2.79$. 
-We cannot reject the presence of UR and a deterministic trend and we need to continue to test this series too with the second specification of the ADF test. 
+We cannot reject the presence of UR nor  a deterministic trend and we need to continue to test this series too with the second specification of the ADF test. 
 
 
 
@@ -256,7 +280,7 @@ The second specification of the test models $\forall (X_t)_t$:
         \Delta X_t = \alpha  + \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
 The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root. 
-We use now \emph{type='trend'} in the \emph{ur.df} function to get this estimation. 
+We use now \texttt{type='trend'} in the \texttt{ur.df} function to get this estimation. 
 The output to the test is similar to the previous specification and the same remarks on the critical values apply here. 
 Now the test statistics reported refer to: 
     \begin{itemize}
@@ -274,7 +298,8 @@ We thus test the t-statistic associated with $\alpha$ to its non standard critic
 Since $|t_\alpha| = 3.153 > 2.53$, we reject the nullity of the drift term. 
 Fianlly, as an extra check, we chek the F-statistic associated to $H0: \gamma= \alpha = 0$, i.e. the test \emph{phi1} in the default R test. 
 Given that $F_{phi1} = 5.57 > 4.61$, we reject the null and conclude that the \emph{series is I(0)} at $5\%$. 
-However, the null is not rejected at the one percent level, and by looking at the series it does not look very stationary. Also R's built in function order_integration concludes that the series is actually non-stationay which made us doubt our results. We decided to continue the test just in case and compare $t_\gamma$ to the standard $-1.64$ threshold: since our statistic is larger, we conclude once again that the series is stationary.
+
+However, the null is not rejected at the one percent level, and by looking at the series it does not look very stationary. Also R's built in function \texttt{order\_integration} concludes that the series is actually non-stationay which made us doubt our results. We decided to continue the test just in case and compare %$t_\gamma$ to the standard -1.64 threshold: since our statistic is larger, we conclude once again that the series is stationary.
 
 
 \paragraph{Fed fund rate}
@@ -299,7 +324,7 @@ The last specification of the test keeps only the stochastic trend, $\forall (X_
     \begin{equation}
         \Delta X_t = \gamma X_{t-1} +\sum_{i=1,2,..}\rho_i \Delta X_{t-i} + \varepsilon_t
     \end{equation}
-The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root and we use \emph{type='none'}.
+The null hypothesis still refers to H0: $\gamma =0$ the presence of a unit root and we use \texttt{type='none'}.
 The output of the test is similar to the previous ones but now there is only one test statistic reported referring to the null (tau1).
 
 \input{TABLES/adf_none.tex}
