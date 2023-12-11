@@ -66,13 +66,16 @@ fred.search("CPI").T #this function gives of the info on every series
 
 
 ### Resample into monthly data 
+sp500 = sp500.resample('1M').mean(numeric_only=True)
+infl_e = infl_e.resample('1M').mean(numeric_only=True)
 corp_debt = corp_debt.resample('1M').mean(numeric_only=True)
 rate = rate.resample('1M').mean(numeric_only=True)
-sp500 = sp500.resample('1M').mean(numeric_only=True)
+deflator = deflator.resample('1M').mean(numeric_only=True)
+unempl = unempl.resample('1M').mean(numeric_only=True)
 gdp = gdp.resample('1M').mean(numeric_only=True)
 rpi = rpi.resample('1M').mean(numeric_only=True)
 dpi = dpi.resample('1M').mean(numeric_only=True)
-
+manufacturing = manufacturing.resample('1M').mean(numeric_only=True)
 
 dta = [infl_e, rate, sp500, corp_debt, deflator, unempl, gdp, rpi, dpi, manufacturing]
 
@@ -91,7 +94,7 @@ import yfinance as yf
 splong = yf.download('^GSPC', start=start,end=end)['Adj Close'].resample('M').mean(numeric_only=True)
 splong = pd.DataFrame(splong)
 type(splong)
-
+splong.rename(columns={"Adj Close":'splong'}, inplace=True)
 
 ##Get a single DF
 dta.append(splong)
