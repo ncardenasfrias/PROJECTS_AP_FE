@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  10 DEC 2023 18:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  11 DEC 2023 08:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -884,59 +884,55 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 155.
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 156.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<IMAGES/decomposition_i.png, id=51, 3613.5pt x 2409.0pt>
+<IMAGES/decomposition_i.png, id=57, 3613.5pt x 2409.0pt>
 File: IMAGES/decomposition_i.png Graphic file (type png)
 <use IMAGES/decomposition_i.png>
-Package pdftex.def Info: IMAGES/decomposition_i.png  used on input line 168.
+Package pdftex.def Info: IMAGES/decomposition_i.png  used on input line 169.
 (pdftex.def)             Requested size: 435.78593pt x 290.5011pt.
-<IMAGES/decomposition_ii.png, id=53, 3613.5pt x 2409.0pt>
+<IMAGES/decomposition_ii.png, id=59, 3613.5pt x 2409.0pt>
 File: IMAGES/decomposition_ii.png Graphic file (type png)
 <use IMAGES/decomposition_ii.png>
-Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 174.
+Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 175.
 (pdftex.def)             Requested size: 435.78593pt x 290.5011pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2]
+[3]
 
-LaTeX Warning: Text page 3 contains only floats.
+LaTeX Warning: Text page 4 contains only floats.
 
-[3 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] (./TABLES/seasons.tex
+[4 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] (./TABLES/seasons.tex
 Overfull \hbox (75.72025pt too wide) in paragraph at lines 7--20
  [][] 
  []
 
-) [4] (./TABLES/adf_trend.tex
+) [5] (./TABLES/adf_trend.tex
 Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
  [][] 
  []
 
-) (./TABLES/adf_tstats_trend.tex) [5] (./TABLES/adf_drift.tex) (./TABLES/adf_tstats_drift.tex) [6] (./TABLES/adf_none.tex) (./TABLES/adf_tstats_none.tex)
-<IMAGES/decomposition_iii_deltas.png, id=102, 3613.5pt x 2409.0pt>
+) (./TABLES/adf_tstats_trend.tex) [6] (./TABLES/adf_drift.tex) (./TABLES/adf_tstats_drift.tex) [7] (./TABLES/adf_tstats_none.tex)
+<IMAGES/decomposition_iii_deltas.png, id=109, 3613.5pt x 2409.0pt>
 File: IMAGES/decomposition_iii_deltas.png Graphic file (type png)
 <use IMAGES/decomposition_iii_deltas.png>
-Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 338.
+Package pdftex.def Info: IMAGES/decomposition_iii_deltas.png  used on input line 356.
 (pdftex.def)             Requested size: 363.15741pt x 242.09038pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-(./TABLES/varorder_level.tex [7]) (./TABLES/estim_var_level.tex) [8 <./IMAGES/decomposition_iii_deltas.png>] [9] [10] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+ [8] (./TABLES/adf_deltas.tex) (./TABLES/varorder_level.tex) (./TABLES/estim_var_level.tex) [9 <./IMAGES/decomposition_iii_deltas.png>] [10] [11] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 391.
- (./DataCleaning.py [11]) [12] (./FE.aux) ) 
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 418.
+ (./DataCleaning.py [12]) [13] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 21256 strings out of 478268
- 348370 string characters out of 5846347
- 1158960 words of memory out of 5000000
- 38918 multiletter control sequences out of 15000+600000
+ 21259 strings out of 478268
+ 348409 string characters out of 5846347
+ 1159023 words of memory out of 5000000
+ 38919 multiletter control sequences out of 15000+600000
  522117 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,117p,1270b,2309s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -947,10 +943,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (12 pages, 3260505 bytes).
+Output written on FE.pdf (13 pages, 3264298 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 137 named destinations out of 1000 (max. 500000)
- 160 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

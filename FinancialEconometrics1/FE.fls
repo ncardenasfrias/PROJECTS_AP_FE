@@ -1307,10 +1307,6 @@ INPUT ./TABLES/adf_tstats_drift.tex
 INPUT TABLES/adf_tstats_drift.tex
 INPUT ./TABLES/adf_tstats_drift.tex
 INPUT TABLES/adf_tstats_drift.tex
-INPUT ./TABLES/adf_none.tex
-INPUT TABLES/adf_none.tex
-INPUT ./TABLES/adf_none.tex
-INPUT TABLES/adf_none.tex
 INPUT ./TABLES/adf_tstats_none.tex
 INPUT TABLES/adf_tstats_none.tex
 INPUT ./TABLES/adf_tstats_none.tex
@@ -1320,6 +1316,10 @@ INPUT ./IMAGES/decomposition_iii_deltas.png
 INPUT IMAGES/decomposition_iii_deltas.png
 INPUT ./IMAGES/decomposition_iii_deltas.png
 INPUT ./IMAGES/decomposition_iii_deltas.png
+INPUT ./TABLES/adf_deltas.tex
+INPUT TABLES/adf_deltas.tex
+INPUT ./TABLES/adf_deltas.tex
+INPUT TABLES/adf_deltas.tex
 INPUT ./TABLES/varorder_level.tex
 INPUT TABLES/varorder_level.tex
 INPUT ./TABLES/varorder_level.tex
