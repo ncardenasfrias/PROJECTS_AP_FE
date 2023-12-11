@@ -1,8 +1,15 @@
+"""
+Created on Mon Dec 11 14:11:01 2023
+
+@author: MiguelF
+"""
+
 import pandas as pd
 import os
 from fredapi import Fred
+import datetime
 
-os.chdir('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1')
+os.chdir(r'C:\Users\MiguelF\Downloads')
 
 ### Initialize FRED API
 fred = Fred(api_key='23edc2b1b61e17c07b83a97e7abfc02b')
@@ -25,5 +32,32 @@ dpi.columns = ['dpi']
 manufacturing = pd.DataFrame(fred.get_series('MPU9900063'))  # monthly, NSA
 manufacturing.columns = ['manufacturing']
 
-# Print the first few rows of the DataFrame to verify the import
-print(pd.concat([gdp, rpi, dpi, manufacturing], axis=1).head())
+# Resample into monthly data
+gdp = gdp.resample('1M').mean(numeric_only=True)
+rpi = rpi.resample('1M').mean(numeric_only=True)
+dpi = dpi.resample('1M').mean(numeric_only=True)
+manufacturing = manufacturing.resample('1M').mean(numeric_only=True)
+
+dta = [gdp, rpi, dpi, manufacturing]
+
+# Slice the df to the relevant period
+min_date = max([min(i.index) for i in dta])
+max_date = min([max(i.index) for i in dta])
+print(min_date, max_date)
+
+# Let us work on monthly data for the 1990-2022 period
+start = datetime.datetime(1990, 1, 1)
+end = datetime.datetime(2022, 12, 31)
+
+## Get a single DF
+for i in range(len(dta)):  # we had some indexes at end of month, others at 1st of month: harmonize to 1st each month
+    df = dta[i]
+    df.index = [pd.datetime(x.year, x.month, 1) for x in df.index.tolist()]
+    dta[i] = df.loc[start:end, :]
+
+# we're good now
+# merge into 1 df, 1 series per column
+monthly = pd.concat(dta, axis=1)
+
+monthly.to_csv("C:/Users/MiguelF/Downloads/data.csv")
+
