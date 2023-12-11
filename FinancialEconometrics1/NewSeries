@@ -1,0 +1,29 @@
+import pandas as pd
+import os
+from fredapi import Fred
+
+os.chdir('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1')
+
+### Initialize FRED API
+fred = Fred(api_key='23edc2b1b61e17c07b83a97e7abfc02b')
+
+### Import the new data
+
+# GDP
+gdp = pd.DataFrame(fred.get_series('GDP'))  # quarterly, SA Annual Rate
+gdp.columns = ['gdp']
+
+# RPI (Real Personal Income)
+rpi = pd.DataFrame(fred.get_series('RPI'))  # monthly, NSA
+rpi.columns = ['rpi']
+
+# Real Personal Disposable Income
+dpi = pd.DataFrame(fred.get_series('DSPIC96'))  # monthly, NSA
+dpi.columns = ['dpi']
+
+# Manufacturing Sector
+manufacturing = pd.DataFrame(fred.get_series('MPU9900063'))  # monthly, NSA
+manufacturing.columns = ['manufacturing']
+
+# Print the first few rows of the DataFrame to verify the import
+print(pd.concat([gdp, rpi, dpi, manufacturing], axis=1).head())
