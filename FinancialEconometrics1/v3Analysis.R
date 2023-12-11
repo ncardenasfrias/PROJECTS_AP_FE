@@ -15,12 +15,16 @@ df <- fread("DATA/data.csv")
 as.data.table(df)
 #change few names of columns to got something more clear 
 names(df)[1] = 'Date'
-names(df)[8] = 'splong'
 
-#Apply log to variables for which it makes sense
+
+#Apply log to variables for which it makes sense ie prices and quantities
 df$sp500 = log(df$sp500) #get the stock market return 
 df$splong = log(df$splong)
 df$corp_debt = log(df$corp_debt) #return corporate debt (see index definition)
+df$gdp = log(df$gdp)
+df$rpi  = log(df$rpi)
+df$dpi  = log(df$dpi)
+
 
 #convert into TS 
 allts = list()
@@ -31,11 +35,17 @@ for(col in names(numeric_cols)){
 
 allts[['sp500']] = NULL #remove short SP500, use YahooFinance series that has the 90's and 00's data
 allts[['Date']] = NULL # R was making regressions on the date column :/
+#remove columns we ended up not using in the final version 
+allts[['manufacturing']] = NULL # rather not have data that was initially yearly
+allts[['rpi']] = NULL # redundent with dpi 
+allts[['unempl']] = NULL # did not lead anywhere 
+
+
 
 #Reorganise the list 
-desired_order = c('infl_e', 'deflator', 'unempl', 'rate', 'splong', 'corp_debt')
+desired_order = c('gdp', 'dpi', 'infl_e', 'deflator', 'rate', 'splong', 'corp_debt')
 allts = allts[desired_order]
-names = c('Inflation expectation', 'PIB deflator', 'Unemployment rate', 'Fed rate', 'SP500', 'Corporate debt rate')
+names = c('GDP', "Disposable Income", 'Inflation expectation', 'PIB deflator', 'Fed rate', 'SP500', 'Corporate debt rate')
 rm(df, desired_order)
 
 #Remove outliers => IT DOES NOT CHANGE ANYTHING
@@ -56,7 +66,6 @@ rm(df, desired_order)
 #####
 #1. UR TEST - ADF, full procedure
 
-
 ### ADF 1st regression: deterministic trend + drift 
 results_adf_trend <- list()
 for (var_name in names(allts)) {
@@ -64,13 +73,14 @@ for (var_name in names(allts)) {
   results_adf_trend[[var_name]] <- summary(result)
 }
 #export summary adf
-trend_test =cbind(t(results_adf_trend$infl_e@teststat),t(results_adf_trend$deflator@teststat), 
-                  t(results_adf_trend$unempl@teststat),t(results_adf_trend$rate@teststat),
+trend_test =cbind(t(results_adf_trend$gdp@teststat), t(results_adf_trend$dpi@teststat),
+                  t(results_adf_trend$infl_e@teststat),t(results_adf_trend$deflator@teststat), 
+                  t(results_adf_trend$rate@teststat),
                   t(results_adf_trend$splong@teststat), t(results_adf_trend$corp_debt@teststat),
                   results_adf_trend$infl_e@cval)
 colnames(trend_test) = c(names(results_adf_trend), "CV 1pct", "CV 5pct", "CV 10pct")
 stargazer(trend_test, type='text')
-stargazer(trend_test, out='TABLES/adf_trend.tex', label= 'tab:adftrend_hyp',title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend")
+# stargazer(trend_test, out='TABLES/adf_trend.tex', label= 'tab:adftrend_hyp',title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend")
 
 #export all t-values on coefficients, harder because output format
 #create empty df with columns = rhs variable in ADF
@@ -86,13 +96,13 @@ for (i in names(results_adf_trend)){
 row.names(t_values_table) = names(results_adf_trend) # call the rows as the series
 t_values_table = t(t_values_table) #transpose the table, looks better
 stargazer(t_values_table,type='text') #all ok
-stargazer(t_values_table,out="TABLES/adf_tstats_trend.tex", title="ADF test - 1st regression t statistics",
-        notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 3.09 ; gamma= -3.43 ; beta = 2.79',
-       label='tab:tstat_trend')
+# stargazer(t_values_table,out="TABLES/adf_tstats_trend.tex", title="ADF test - 1st regression t statistics",
+#         notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 3.09 ; gamma= -3.43 ; beta = 2.79',
+#        label='tab:tstat_trend')
 
 #extract series that need to keep being tested
-adf_v2 = allts[4:6]
-names(adf_v2) = names(allts)[4:6]
+adf_v2 = allts[c(1:2, 5:7)]
+names(adf_v2) = names(allts)[c(1:2, 5:7)]
 
 
 
@@ -103,11 +113,12 @@ for (var_name in names(adf_v2)) {
   results_adf_drift[[var_name]] <- summary(result)
 }
 #export summary adf
-drift_test =cbind(t(results_adf_drift$rate@teststat), t(results_adf_drift$splong@teststat), 
+drift_test =cbind(t(results_adf_drift$gdp@teststat), t(results_adf_drift$dpi@teststat),
+                  t(results_adf_drift$rate@teststat), t(results_adf_drift$splong@teststat), 
                   t(results_adf_drift$corp_debt@teststat), results_adf_drift$corp_debt@cval)
 colnames(drift_test) = c(names(results_adf_drift), "CV 1pct", "CV 5pct", "CV 10pct")
 stargazer(drift_test, type='text')
-stargazer(drift_test, out='TABLES/adf_drift.tex', label= 'tab:adfdrift_hyp',title = "ADF test - 2nd regression with drift and stochastic trend")
+# stargazer(drift_test, out='TABLES/adf_drift.tex', label= 'tab:adfdrift_hyp',title = "ADF test - 2nd regression with drift and stochastic trend")
 
 #export all t-values on coefficients, harder because output format
 #create empty df with columns = rhs variable in ADF
@@ -123,12 +134,12 @@ for (i in names(results_adf_drift)){
 row.names(t_values_table2) = names(results_adf_drift) # call the rows as the series
 t_values_table2 = t(t_values_table2) #transpose the table, looks better
 stargazer(t_values_table2,type='text') #all ok
-stargazer(t_values_table2,out="TABLES/adf_tstats_drift.tex", title="ADF test - 2nd regression t statistics",
-          notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 2.53 ; gamma= -2.88',
-          label='tab:tstat_drift')
+# stargazer(t_values_table2,out="TABLES/adf_tstats_drift.tex", title="ADF test - 2nd regression t statistics",
+#           notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 2.53 ; gamma= -2.88',
+#           label='tab:tstat_drift')
 
-adf_v3 = adf_v2[1:2] #series to keep testing
-names(adf_v3) = names(adf_v2[1:2])
+adf_v3 = adf_v2[1:4] #series to keep testing
+names(adf_v3) = names(adf_v2[1:4])
 
 
 ### ADF 3rd regression: UR only
@@ -138,11 +149,12 @@ for (var_name in names(adf_v3)) {
   results_adf_none[[var_name]] <- summary(result)
 }
 #export summary adf
-none_test =cbind(t(results_adf_none$rate@teststat),t(results_adf_none$splong@teststat),
-                 results_adf_none$rate@cval)
+none_test =cbind(t(results_adf_none$gdp@teststat), 
+                t(results_adf_none$dpi@teststat), t(results_adf_none$rate@teststat),
+                 t(results_adf_none$splong@teststat), results_adf_none$rate@cval)
 colnames(none_test) = c(names(results_adf_none), "CV 1pct", "CV 5pct", "CV 10pct")
 stargazer(none_test, type='text')
-stargazer(none_test, out='TABLES/adf_none.tex', label= 'tab:adfnone_hyp',title = "ADF test - 3rd regression with stochastic trend")
+# stargazer(none_test, out='TABLES/adf_none.tex', label= 'tab:adfnone_hyp',title = "ADF test - 3rd regression with stochastic trend")
 
 
 #export all t-values on coefficients, harder because output format
@@ -159,15 +171,16 @@ for (i in names(results_adf_none)){
 row.names(t_values_table3) = names(results_adf_none) # call the rows as the series
 t_values_table3 = t(t_values_table3) #transpose the table, looks better
 stargazer(t_values_table3,type='text') #all ok
-stargazer(t_values_table3,out="TABLES/adf_tstats_none.tex", title="ADF test - 3rd regression t statistics",
-          notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: gamma= -1.95',
-          label='tab:tstat_none')
+# stargazer(t_values_table3,out="TABLES/adf_tstats_none.tex", title="ADF test - 3rd regression t statistics",
+#           notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: gamma= -1.95',
+#           label='tab:tstat_none')
 
 
 
 ## Get deltas 
-deltas = list (diff(allts$rate),diff(allts$splong))
-names(deltas) = list("d_rate", "d_splong")
+deltas = list (diff(allts$gdp), diff(allts$dpi),
+                diff(allts$rate),diff(allts$splong))
+names(deltas) = list("d_gdp","d_dpi","d_rate", "d_splong")
 
 ### CHECK THAT DELTAS ARE I(0), I am using same code as in levels 
 results_adf_trend <- list()
@@ -176,20 +189,24 @@ for (var_name in names(deltas)) {
   results_adf_trend[[var_name]] <- summary(result)
 }
 #export summary adf
-trend_deltas =cbind(t(results_adf_trend$d_rate@teststat), t(results_adf_trend$d_splong@teststat), 
-                    results_adf_trend$d_rate@cval)
+trend_deltas =cbind(t(results_adf_trend$d_gdp@teststat), #t(results_adf_trend$d_rpi@teststat),
+                    t(results_adf_trend$d_dpi@teststat), t(results_adf_trend$d_rate@teststat),
+                    t(results_adf_trend$d_splong@teststat), results_adf_trend$d_rate@cval)
 colnames(trend_deltas) = c(names(results_adf_trend), "CV 1pct", "CV 5pct", "CV 10pct")
 stargazer(trend_deltas, type='text')
-stargazer(trend_deltas, out='TABLES/adf_deltas.tex', label= 'tab:adfdeltas_hyp',title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend for series in deltas")
+#stargazer(trend_deltas, out='TABLES/adf_deltas.tex', label= 'tab:adfdeltas_hyp',title = "ADF test - 1st regression with drift, deterministic trend and stochastic trend for series in deltas")
 
 
 
-## CoINTEGRATION
+## COINTEGRATION
 levels_var = data.frame(
   splong = allts$splong,
-  rate = allts$rate)
+  rate = allts$rate,
+  gdp = allts$gdp,
+  dpi = allts$dpi) 
+  
 #levels_var$timestamp <- time(deseasonalized_ts$deflator) 
-names_level = c('splong', 'rate')
+names_level = c('splong', 'rate', 'gdp', 'dpi')
 
 
 johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=8)

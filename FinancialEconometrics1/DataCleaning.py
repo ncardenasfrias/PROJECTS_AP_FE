@@ -47,22 +47,22 @@ unempl = pd.DataFrame(fred.get_series('UNRATENSA')) #monthly, NSA, %
 unempl.columns=['unempl']
 
 # GDP
-gdp = pd.DataFrame(fred.get_series('GDP'))  # quarterly, SA Annual Rate
+gdp = pd.DataFrame(fred.get_series('GDP'))  # quarterly, Billions of Dollars, SA Annual Rate
 gdp.columns = ['gdp']
 
 # RPI (Real Personal Income)
-rpi = pd.DataFrame(fred.get_series('RPI'))  # monthly, NSA
+rpi = pd.DataFrame(fred.get_series('RPI'))  # monthly, SA rate, deflated
 rpi.columns = ['rpi']
 
 # Real Personal Disposable Income
-dpi = pd.DataFrame(fred.get_series('DSPIC96'))  # monthly, NSA
+dpi = pd.DataFrame(fred.get_series('DSPIC96'))  # monthly, SA annaul rate, chained 2017 USD
 dpi.columns = ['dpi']
 
 # Manufacturing Sector
-manufacturing = pd.DataFrame(fred.get_series('MPU9900063'))  # monthly, NSA
+manufacturing = pd.DataFrame(fred.get_series('MPU9900063'))  # annual, NSA => avoid this 
 manufacturing.columns = ['manufacturing']
 
-fred.search("CPI").T #this function gives of the info on every series
+fred.search("MPU9900063").T #this function gives of the info on every series
 
 
 ### Resample into monthly data 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  11 DEC 2023 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  11 DEC 2023 23:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -913,7 +913,7 @@ Overfull \hbox (75.72025pt too wide) in paragraph at lines 7--20
 LaTeX Warning: Text page 5 contains only floats.
 
 [5 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] (./TABLES/adf_trend.tex
-Overfull \hbox (1.9757pt too wide) in paragraph at lines 7--17
+Overfull \hbox (38.67145pt too wide) in paragraph at lines 7--17
  [][] 
  []
 
@@ -933,10 +933,10 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 445.
  (./DataCleaning.py [13] [14]) [15] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 21287 strings out of 478268
- 348793 string characters out of 5846347
- 1149024 words of memory out of 5000000
- 38923 multiletter control sequences out of 15000+600000
+ 21292 strings out of 478268
+ 348864 string characters out of 5846347
+ 1186024 words of memory out of 5000000
+ 38925 multiletter control sequences out of 15000+600000
  522117 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,117p,1270b,2309s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -956,10 +956,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (15 pages, 3269747 bytes).
+Output written on FE.pdf (15 pages, 3271236 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 385 compressed objects within 4 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 166 named destinations out of 1000 (max. 500000)
  168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
