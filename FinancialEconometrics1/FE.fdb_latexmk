@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1702280913 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702280926
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702280899 19120 626eb41399ddd5991884c0de7a8eacaf ""
+["pdflatex"] 1702287549 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702287561
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702287487 21796 27ccf68b42d4f994bb864acaecd78910 ""
   "/Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1684317458 6964 0913ddc31ddbb7d80f5e37a2187263c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc" 1529098226 2409 c64dab22331c83731e970f6020b4448b ""
@@ -185,10 +185,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "DataCleaning.py" 1701814477 2732 ce14c6a5ef2ee683d33c274f3ac1fbd7 ""
-  "FE.aux" 1702280925 16106 8b51852aa0a8e517e4199776f9a9f551 "pdflatex"
-  "FE.tex" 1702280899 19120 626eb41399ddd5991884c0de7a8eacaf ""
-  "FE.toc" 1702280925 2922 ead638609da18fa9d73ed955725662fb "pdflatex"
+  "DataCleaning.py" 1702287429 2720 9a7033e83908be779197f998afeb9897 ""
+  "FE.aux" 1702287560 16153 85ec875c84b40a7dc466c0a4895460e6 "pdflatex"
+  "FE.tex" 1702287487 21796 27ccf68b42d4f994bb864acaecd78910 ""
+  "FE.toc" 1702287560 2966 aca5b6e07452141b29649a530a821562 "pdflatex"
   "IMAGES/decomposition_i.png" 1701808539 921850 6a1d866bb7c575b71690c82d520bdd4d ""
   "IMAGES/decomposition_ii.png" 1701808544 852207 4d284bdd649cd75d8e23e443ded1bddd ""
   "IMAGES/decomposition_iii_deltas.png" 1701663932 1029182 5fcae340dab1aa838387de0de62c2c68 ""

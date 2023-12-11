@@ -136,20 +136,47 @@ Each section represents a specific application, but we tried to make them cohere
 
 
 In this work, we focus on the US market.
-We use the following series extracted for the most part from FRED with its Python API (FRED tickers are in square brakets) : 
+We use the following series retreived for the most part from FRED with its Python API (FRED tickers are in square brakets) : 
 
-\paragraph{Inflation Expectation}
+\paragraph{Inflation Expectation [MICH]}
+This data series is made public by the University of Michigan from their Survey of Consumers. 
+The series represent the median expected value of the percent change in prices over teh next year. 
+The series is not seasonally adjusted.
 
-\paragraph{GDP deflator [A191RI1Q225SBEA]} 
+
+\paragraph{GDP deflator [A191RI1Q225SBEA]}  
+As a measure of inflation, we decided to use the implicit price deflator of teh US GDP. 
+Unlike measures like the CPI deflators do not consider baskets of goods and therefore are broader measures of the price changes across all the economy that measure teh ratio of the GDP in value and in volume. 
+It is a measure produced by the US Bureau of Economic Analysis as a quaterly measure in percent change QoQ. 
+The raw series is already seasonally adjusted at an annual rate. 
 
 
-\paragraph{Unemployment rate}
+\paragraph{Unemployment rate [UNRATENSA]}
+It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. 
+The source is the 'Current Population Survey (Household Survey)' of the US Bureau of Labor Statistics
+
 
 \paragraph{FED func rate}
 
 \paragraph{S\&P 500 price}
 
-\paragraph{Corporate Debt }
+\paragraph{Corporate Debt Returns [BAMLCC0A0CMTRIV]}
+The series represents the total returns of the debt index ICE Bank of America US Corporate Index value. 
+This capitalization-weighted index tracks the performance if teh following debt instruments\footnote{Taken from the \href{https://fred.stlouisfed.org/series/BAMLCC0A0CMTRIV}{FRED's website} }: 
+    \begin{itemize}
+        \item[-] Of corporate debt issued in USD in the US domestic market with an investment grade rating\footnote{To be considered to have an investment grade ranking to enter the index, the company and the country must be considered investment grade by the average of the ratings of Fitch, S\&P and Moody's.}. It must have a remaining maturity of at least one year, a fixed-coupon and an outstanding amount of at least 250 million dollars.
+        \item[-] Of original zero-coupon bonds ussued simultaneously in the US and the Eurobond market. 
+        \item[-] Of 144a securities and pay-in-kind securities, including toggle notes, that can only be traded bu qualified institutional buyers with large portfolios. 
+        \item[-] Of callable perpetual securities if they are at least one year from the first call date. 
+        \item[-] Of fixed-to-floating rate securities if they are callable within the fixed rate period and are at least one year from the last call prior to the date the bond transitions from a fixed to a floating rate security. 
+    \end{itemize}
+
+The data's source is ICE Data Indices, and it is a daily series with close prices.
+It is not seasonally adjusted. 
+
+
+
+
 
 All (monthly\footnote{One should adapt the number of indicators in the seasonal components according to the data frequency.}) time series de can be decomposed in the following elements: 
     \begin{equation*}
