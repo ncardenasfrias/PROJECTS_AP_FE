@@ -46,6 +46,22 @@ deflator.columns = ['deflator']
 unempl = pd.DataFrame(fred.get_series('UNRATENSA')) #monthly, NSA, %
 unempl.columns=['unempl']
 
+# GDP
+gdp = pd.DataFrame(fred.get_series('GDP'))  # quarterly, SA Annual Rate
+gdp.columns = ['gdp']
+
+# RPI (Real Personal Income)
+rpi = pd.DataFrame(fred.get_series('RPI'))  # monthly, NSA
+rpi.columns = ['rpi']
+
+# Real Personal Disposable Income
+dpi = pd.DataFrame(fred.get_series('DSPIC96'))  # monthly, NSA
+dpi.columns = ['dpi']
+
+# Manufacturing Sector
+manufacturing = pd.DataFrame(fred.get_series('MPU9900063'))  # monthly, NSA
+manufacturing.columns = ['manufacturing']
+
 fred.search("CPI").T #this function gives of the info on every series
 
 
@@ -53,9 +69,12 @@ fred.search("CPI").T #this function gives of the info on every series
 corp_debt = corp_debt.resample('1M').mean(numeric_only=True)
 rate = rate.resample('1M').mean(numeric_only=True)
 sp500 = sp500.resample('1M').mean(numeric_only=True)
+gdp = gdp.resample('1M').mean(numeric_only=True)
+rpi = rpi.resample('1M').mean(numeric_only=True)
+dpi = dpi.resample('1M').mean(numeric_only=True)
 
 
-dta = [infl_e, rate, sp500, corp_debt, deflator, unempl]
+dta = [infl_e, rate, sp500, corp_debt, deflator, unempl, gdp, rpi, dpi, manufacturing]
 
 ### Slice the df to relevant period 
 #Find common time span
