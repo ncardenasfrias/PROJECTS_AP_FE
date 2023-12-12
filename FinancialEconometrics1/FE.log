@@ -811,4 +811,181 @@ LaTeX Font Info:    ... okay on input line 112.
 \MPnumerator=\count372
 \makeMPintoPDFobject=\count373
 \everyMPtoPDFconversion=\toks40
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-p
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring ON on input line 112.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count374
+)
+LaTeX Info: Redefining \ref on input line 112.
+LaTeX Info: Redefining \pageref on input line 112.
+LaTeX Info: Redefining \nameref on input line 112.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
+* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=484.20988pt
+* \textheight=664.88487pt
+* \oddsidemargin=-7.22743pt
+* \evensidemargin=-7.22743pt
+* \topmargin=-44.22743pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count375
+LaTeX Font Info:    Trying to load font information for U+msa on input line 118.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 118.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./FE.toc [1
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\tf@toc=\write3
+\openout3 = `FE.toc'.
+
+ [2] [3] (./TABLES/adf_trend.tex) (./TABLES/adf_tstats_trend.tex) [4] [5] (./TABLES/adf_drift.tex) (./TABLES/adf_tstats_drift.tex) [6] (./TABLES/adf_tstats_none.tex) (./TABLES/adf_deltas.tex) [7]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 384.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+<IMAGES/all_decompositions.png, id=107, 3613.5pt x 4818.0pt>
+File: IMAGES/all_decompositions.png Graphic file (type png)
+<use IMAGES/all_decompositions.png>
+Package pdftex.def Info: IMAGES/all_decompositions.png  used on input line 399.
+(pdftex.def)             Requested size: 459.99791pt x 613.27603pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./TABLES/ols_decomp_levels) (./TABLES/ols_decomp_deltas) [8] [9] [10]
+
+LaTeX Warning: Text page 11 contains only floats.
+
+[11 <./IMAGES/all_decompositions.png>]
+<IMAGES/pacf_infl.png, id=136, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_infl.png Graphic file (type png)
+<use IMAGES/pacf_infl.png>
+Package pdftex.def Info: IMAGES/pacf_infl.png  used on input line 466.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/pacf_defl.png, id=137, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_defl.png Graphic file (type png)
+<use IMAGES/pacf_defl.png>
+Package pdftex.def Info: IMAGES/pacf_defl.png  used on input line 472.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/pacf_gdp.png, id=138, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_gdp.png Graphic file (type png)
+<use IMAGES/pacf_gdp.png>
+Package pdftex.def Info: IMAGES/pacf_gdp.png  used on input line 479.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/pacf_dpi.png, id=139, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_dpi.png Graphic file (type png)
+<use IMAGES/pacf_dpi.png>
+Package pdftex.def Info: IMAGES/pacf_dpi.png  used on input line 485.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/pacf_rate.png, id=140, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_rate.png Graphic file (type png)
+<use IMAGES/pacf_rate.png>
+Package pdftex.def Info: IMAGES/pacf_rate.png  used on input line 492.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/pacf_sp.png, id=141, 3613.5pt x 2409.0pt>
+File: IMAGES/pacf_sp.png Graphic file (type png)
+<use IMAGES/pacf_sp.png>
+Package pdftex.def Info: IMAGES/pacf_sp.png  used on input line 498.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<IMAGES/acf_infl.png, id=142, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_infl.png Graphic file (type png)
+<use IMAGES/acf_infl.png>
+Package pdftex.def Info: IMAGES/acf_infl.png  used on input line 514.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/acf_defl.png, id=143, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_defl.png Graphic file (type png)
+<use IMAGES/acf_defl.png>
+Package pdftex.def Info: IMAGES/acf_defl.png  used on input line 520.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/acf_gdp.png, id=144, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_gdp.png Graphic file (type png)
+<use IMAGES/acf_gdp.png>
+Package pdftex.def Info: IMAGES/acf_gdp.png  used on input line 527.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/acf_dpi.png, id=145, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_dpi.png Graphic file (type png)
+<use IMAGES/acf_dpi.png>
+Package pdftex.def Info: IMAGES/acf_dpi.png  used on input line 533.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/acf_rate.png, id=146, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_rate.png Graphic file (type png)
+<use IMAGES/acf_rate.png>
+Package pdftex.def Info: IMAGES/acf_rate.png  used on input line 540.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+<IMAGES/acf_sp.png, id=147, 3613.5pt x 2409.0pt>
+File: IMAGES/acf_sp.png Graphic file (type png)
+<use IMAGES/acf_sp.png>
+Package pdftex.def Info: IMAGES/acf_sp.png  used on input line 546.
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(./TABLES/varorder_level.tex) (./TABLES/estim_var_level.tex) [12] [13]
+Overfull \vbox (88.14925pt too high) has occurred while \output is active []
+
+ [14 <./IMAGES/pacf_infl.png> <./IMAGES/pacf_defl.png> <./IMAGES/pacf_gdp.png> <./IMAGES/pacf_dpi.png> <./IMAGES/pacf_rate.png> <./IMAGES/pacf_sp.png>] (./TABLES/BIC_arma_infl.tex) (./TABLES/BIC_arma_infl.tex) (./TABLES/BIC_arma_gdp.tex) (./TABLES/BIC_arma_dpi.tex
+Overfull \hbox (358.5803pt too wide) in paragraph at lines 7--27
+ [][] 
+ []
+
+) (./TABLES/BIC_arma_rate.tex) (./TABLES/BIC_arma_sp.tex) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 633.
+ (./DataCleaning.py [15 <./IMAGES/acf_infl.png> <./IMAGES/acf_defl.png> <./IMAGES/acf_gdp.png> <./IMAGES/acf_dpi.png> <./IMAGES/acf_rate.png> <./IMAGES/acf_sp.png>] [16] [17] [18] [19]) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2022/texmf-dist/tex
