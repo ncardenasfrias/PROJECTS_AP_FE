@@ -244,7 +244,7 @@ We first run the following specification to the ADF test to \emph{jointly} inves
 As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary.
 We use R's built-in function \texttt{ur.df} with \texttt{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
-        \item[-] tau3 refers to the t-statistic associated to H0: $\gamma =0$ i.e the presence of a UR. H1 refers to the absence of said UR.
+        \item[-] tau3 refers to the t-statistic associated to H0: $\gamma =0$ i.e. the presence of a UR. H1 refers to the absence of said UR.
         \item[-] phi2 refers to the F-statistic associated to H0: $\alpha = \beta = \gamma =0$ \footnote{As with all F test, the alternative hypothesis is that at least one of these coefficients in non-null. Since this is general, we don't explicitly signal the H1 hereafter.}
         \item[-] phi3 is also an F-statistic, now associated to H0: $\beta =\gamma = 0$  
     \end{itemize}

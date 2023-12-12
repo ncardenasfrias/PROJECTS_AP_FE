@@ -58,13 +58,9 @@ rm(df, desired_order)
 
 
 
-###########################
-#1. Dynamics
-###########################
-
-
-#####
-#1. UR TEST - ADF, full procedure
+#################################
+#1.UR TEST - ADF, full procedure
+#################################
 
 ### ADF 1st regression: deterministic trend + drift 
 results_adf_trend <- list()
@@ -198,6 +194,165 @@ stargazer(trend_deltas, type='text')
 
 
 
+
+
+#################################
+#2. Decompositions in levels 
+#################################
+# use stl function to perform the decompositions and then OLS to estimate parameters
+
+#### Series in levels that are stationary. 
+i0_levels = list(allts$infl_e, allts$deflator, allts$corp_debt) #from adf!
+names(i0_levels) = c('infl_e', "deflator", "corp_debt")
+
+decompositions = list() #store the decompositions 
+dec_graphs= list() #store the decomposition graphs 
+deseasonalized_ts = list() #store the deseasonalized ts, if seasonality ends up being important 
+for (ts in 1:length(i0_levels)) {
+  #print(i0_levels[ts])}
+  decomp = stl(i0_levels[[ts]], s.window='periodic') #additive seasonality seems right from graphs
+  graph = autoplot(decomp) + labs(title = names(i0_levels)[ts])
+  deseason = i0_levels[[ts]] - decomp$time.series[,'seasonal']
+  decompositions[[length(decompositions)+1]] = decomp
+  dec_graphs[[length(dec_graphs)+1]] = graph
+  deseasonalized_ts[[length(deseasonalized_ts)+1]] = deseason
+}
+names(deseasonalized_ts) = names(i0_levels) #name the series in deseasonalized_ts
+names(decompositions) = names(i0_levels) #name the series in decompositions
+
+rm(graph, decomp, deseason)
+
+#Generate and export plots with the decomposition graphs 
+decom_i = grid.arrange(dec_graphs[[1]],dec_graphs[[2]], dec_graphs[[3]], ncol=3)
+# ggsave('IMAGES/decomposition_i.png', plot=decom_i, width = 12, height = 8)
+
+### Run OLS regression on each component of the TS
+#create a df with all the series and the monthly dummies
+start_date <- as.Date("1990-01-01")
+end_date <- as.Date("2022-12-01") # Assuming December 2022
+all_dates <- seq(start_date, end_date, by = "month")
+
+df_i0level <- data.frame(Date = all_dates)
+for (i in seq_along(i0_levels)) {
+  col_name <- paste0("Series_", i)
+  df_i0level[[col_name]] <- i0_levels[[i]]
+}
+colnames(df_i0level) = c('Date', names(i0_levels))
+rownames(df_i0level) = df_i0level$Date #date as index
+df_i0level$MONTH<-month(df_i0level$Date) #Get month dummies 
+df_i0level[paste0("M", 1:12)] <- as.data.frame(t(sapply(df_i0level$MONTH, tabulate, 12)))
+
+df_i0level$Date = NULL #no more need date column
+df_i0level$MONTH = NULL #no more need MONTH column
+
+df_i0level$trend = seq_along(df_i0level$infl_e) #deterministic trend
+
+# Run OLS regression
+infl_e_ols_dec = lm(infl_e ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
+deflator_ols_dec = lm(deflator ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
+corp_debt_ols_dec = lm(corp_debt ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
+
+stargazer(infl_e_ols_dec,deflator_ols_dec,corp_debt_ols_dec, type='text')
+# stargazer(infl_e_ols_dec,deflator_ols_dec,corp_debt_ols_dec,
+#           type='latex', out="TABLES/ols_decomp_levels", label='tab:ols_dec_levels',
+#           title='OLS decomposition of I(0) series' )
+                     
+## remove drifts and store in new list
+i0_levels_no_drift = list()
+
+ct_infl <- coef(infl_e_ols_dec)[1]  
+i0_levels_no_drift$infl_e <- i0_levels$infl_e - ct_infl
+ct_defl <- coef(deflator_ols_dec)[1]  
+i0_levels_no_drift$deflator <- i0_levels$deflator - ct_defl
+ct_corp <- coef(corp_debt_ols_dec)[1]  
+i0_levels_no_drift$corp_debt <- i0_levels$corp_debt - ct_corp
+
+
+### Find p and q with PACF and ACF                         
+
+
+
+#################################
+#3. Decompositions in deltas 
+#################################
+# Same idea for series in deltas 
+
+decompositions_d = list() #store the decompositions 
+dec_graphs_d= list() #store the decomposition graphs 
+deseasonalized_ts_d = list() #store the deseasonalized ts, if seasonality ends up being important 
+for (ts in 1:length(deltas)) {
+  #print(deltas[ts])}
+  decomp = stl(deltas[[ts]], s.window='periodic') #additive seasonality seems right from graphs
+  graph = autoplot(decomp) + labs(title = names(deltas)[ts])
+  deseason = deltas[[ts]] - decomp$time.series[,'seasonal']
+  decompositions_d[[length(decompositions_d)+1]] = decomp
+  dec_graphs_d[[length(dec_graphs_d)+1]] = graph
+  deseasonalized_ts_d[[length(deseasonalized_ts_d)+1]] = deseason
+}
+names(deseasonalized_ts_d) = names(deltas) #name the series in deseasonalized_ts
+names(decompositions_d) = names(deltas) #name the series in decompositions
+rm(graph, decomp, deseason)
+
+#Generate and export plots with the decomposition graphs 
+decom_ii = grid.arrange(dec_graphs_d[[1]],dec_graphs_d[[2]], dec_graphs_d[[3]],dec_graphs_d[[4]], ncol=4)
+# ggsave('IMAGES/decomposition_ii.png', plot=decom_ii, width = 12, height = 8)
+
+
+
+### Run OLS regression on each component of the TS
+#create a df with all the series and the monthly dummies
+start_date <- as.Date("1990-02-01")
+end_date <- as.Date("2022-12-01") 
+all_dates <- seq(start_date, end_date, by = "month")
+
+df_deltas <- data.frame(Date = all_dates)
+for (i in seq_along(deltas)) {
+  col_name <- paste0("Series_", i)
+  df_deltas[[col_name]] <- deltas[[i]]
+}
+colnames(df_deltas) = c('Date', names(deltas))
+rownames(df_deltas) = df_deltas$Date #date as index
+df_deltas$MONTH<-month(df_deltas$Date) #Get month dummies 
+df_deltas[paste0("M", 1:12)] <- as.data.frame(t(sapply(df_deltas$MONTH, tabulate, 12)))
+
+df_deltas$Date = NULL #no more need date column
+df_deltas$MONTH = NULL #no more need MONTH column
+
+df_deltas$trend = seq_along(df_deltas$d_gdp) #deterministic trend
+
+# Run OLS regression
+d_gdp_ols_dec = lm(d_gdp ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_deltas)
+d_dpi_ols_dec = lm(d_dpi ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_deltas)
+d_rate_ols_dec = lm(d_rate ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_deltas)
+d_splong_ols_dec = lm(d_splong ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_deltas)
+
+stargazer(d_gdp_ols_dec,d_dpi_ols_dec,d_rate_ols_dec, d_splong_ols_dec, type='text')
+# stargazer(d_gdp_ols_dec,d_dpi_ols_dec,d_rate_ols_dec, d_splong_ols_dec,
+#           type='latex', out="TABLES/ols_decomp_deltas", label='tab:ols_dec_deltas',
+#           title='OLS decomposition of the first difference of I(1) series' )
+
+## remove drifts and store in new list (remove trend for rate only)
+deltas_no_drift_trend = list()
+
+ct_gdp <- coef(d_gdp_ols_dec)[1]  
+deltas_no_drift_trend$d_gdp = deltas$d_gdp - ct_gdp
+ct_dpi <- coef(d_dpi_ols_dec)[1]  
+deltas_no_drift_trend$d_dpi = deltas$d_dpi - ct_dpi
+ct_rate <- coef(d_rate_ols_dec)[1]  
+trend_rate <- coef(d_rate_ols_dec)[2]
+deltas_no_drift_trend$d_rate = deltas$d_rate - ct_rate - (df_deltas$trend * trend_rate)
+ct_sp <- coef(d_splong_ols_dec)[1] 
+deltas_no_drift_trend$d_splong = deltas$d_splong - ct_sp
+
+
+
+
+
+
+
+
+
+
 ## COINTEGRATION
 levels_var = data.frame(
   splong = allts$splong,
@@ -208,9 +363,12 @@ levels_var = data.frame(
 #levels_var$timestamp <- time(deseasonalized_ts$deflator) 
 names_level = c('splong', 'rate', 'gdp', 'dpi')
 
+lag_order = VARselect(levels_var)
+res = lag_order$criteria
 
-johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=8)
-johansensum = summary(johansen_test)
+
+johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=10)
+summary(johansen_test)
 # r is rank of matrix == number of cointegration relationship.
 #no cointegration
 johansen_table = xtable(johansensum)
@@ -218,7 +376,13 @@ print(latex_table, file=file_path)
 
 
 
+test = data.frame(
+  i= allts$dpi, 
+  ii = allts$splong, 
+  iii = allts$gdp)
 
+VARselect(test)$selection
+summary(ca.jo(test, type='trace', ecdet='trend', K=20))
 
 
 
