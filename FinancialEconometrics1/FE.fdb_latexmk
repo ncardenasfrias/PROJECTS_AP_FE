@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1702421352 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702421370
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702421352 32169 d57d03dcb56f49e3f9729332b2968338 ""
+["pdflatex"] 1702422072 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702422091
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702422057 32169 d57d03dcb56f49e3f9729332b2968338 ""
   "/Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1684317458 6964 0913ddc31ddbb7d80f5e37a2187263c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
@@ -190,11 +190,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Backup.R" 1702396649 18072 b76b96dcf55263cc74fcd4217c8bc6a1 ""
+  "Backup.R" 1702422051 21249 3605611a723c5127342fa8616df410f9 ""
   "DataCleaning.py" 1702327980 3752 f7b395486053c926bb07b5bbf39bd607 ""
-  "FE.aux" 1702421370 20019 11b7fbbd3aeb4fae8090905e4a9493d0 "pdflatex"
-  "FE.tex" 1702421352 32169 d57d03dcb56f49e3f9729332b2968338 ""
-  "FE.toc" 1702421370 3198 7439c218dea5fcf48f8145c63bf17019 "pdflatex"
+  "FE.aux" 1702422091 20019 10a8f45f75e0f4145b5b09291a89b750 "pdflatex"
+  "FE.tex" 1702422057 32169 d57d03dcb56f49e3f9729332b2968338 ""
+  "FE.toc" 1702422091 3198 7439c218dea5fcf48f8145c63bf17019 "pdflatex"
   "IMAGES/acf_defl.png" 1702396031 206063 6ce1dc789e7b555a1c1702db9c7248fa ""
   "IMAGES/acf_dpi.png" 1702419102 196811 7c77650b459bbe80e0dff9ac2f6d2ee4 ""
   "IMAGES/acf_gdp.png" 1702419102 198077 ecb00e7acb7426e5b6b51856ed13aca6 ""
