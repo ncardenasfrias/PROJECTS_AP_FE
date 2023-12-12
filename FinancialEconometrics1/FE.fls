@@ -1286,11 +1286,6 @@ INPUT ./TABLES/adf_tstats_none.tex
 INPUT TABLES/adf_tstats_none.tex
 INPUT ./TABLES/adf_tstats_none.tex
 INPUT TABLES/adf_tstats_none.tex
-INPUT ./IMAGES/decomposition_iii_deltas.png
-INPUT ./IMAGES/decomposition_iii_deltas.png
-INPUT IMAGES/decomposition_iii_deltas.png
-INPUT ./IMAGES/decomposition_iii_deltas.png
-INPUT ./IMAGES/decomposition_iii_deltas.png
 INPUT ./TABLES/adf_deltas.tex
 INPUT TABLES/adf_deltas.tex
 INPUT ./TABLES/adf_deltas.tex

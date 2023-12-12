@@ -225,19 +225,20 @@ We also fail to reject the nullity of $\beta$ as $|t_\beta| = 2.577 < 2.79$ and 
 
 \paragraph{Inflation expectation} 
 We find $t_\gamma = -4.65 < -3.43$ we reject H0 ie we can't say that the series has a UR. 
-The F-statistics of phi2 and phi3 leads us to reject the their null hypothesis: $F_{phi2} = 7.88 > 4.71$
+The F-statistics of phi2 and phi3 leads us to reject the their null hypothesis: $F_{phi2} = 7.375 > 4.71$, $F_{phi3} = 11.061 > 6.3$, leading us to believe that the series has either a drift and/or a deterministic trend. 
+We therefore compare the t-statistics associated with $\alpha$ and $\beta$ to the standard interest threshold (the critical values below Table \ref{tab:tstat_trend} are conditional on having a UR). Since $|t_\alpha| = 4.004 > 1.96$ and $|t_\beta| = 1.265 < 1.96$, we fail to reject the presence of a deterministic trend while the drift term is significantlly different from zero. 
+We conclude that the series is \emph{stationnary with a constant and without a deterministic trend}.
 
-Note that the F-statistic corresponding to the nullity of all the coefficients of interest (phi2) leads us to reject H0: $\alpha=\beta=\gamma=0$ (same for phi3) , leading us to believe that the series has either a drift and/or a deterministic trend. 
-We therefore compare the t-statistics associated with $\alpha$ and $\beta$ to the standard interest threshold (the critical values below Table \ref{tab:tstat_trend} are conditional on having a UR). Since $|t_\alpha|> 1.96$ and $|t_\beta| > 1.96$, we fail to reject the absence of a drift and of a deterministic trend.
+
+%Note that the F-statistic corresponding to the nullity of all the coefficients of interest (phi2) leads us to reject H0: $\alpha=\beta=\gamma=0$ (same for phi3) , 
 %While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
-We conclude that the series is \emph{stationnary with a constant and a deterministic trend}.
     
 
 \paragraph{GDP deflator}
-With $t_\gamma = -5.166 < -3.43$, as before we can reject H0 indicating that the series is stationary in levels. 
-Since $|t_\alpha| = 2.584 > 1.96$, we reject the nullity of the drift. 
-Finally, since $|t_\beta| = 1.154 < 1.96$ we cannot reject the absence of a deterministic trend.  
-We conclude that the series is \emph{stationary with a constant}
+With $t_\gamma = -5.197 < -3.43$, as before we can reject H0 indicating that the series is stationary in levels. 
+Since $|t_\alpha| = 2.593 > 1.96$, we reject the nullity of the drift. 
+Finally, since $|t_\beta| = 1.166 < 1.96$ we cannot reject the absence of a deterministic trend.  
+We conclude that the series is \emph{stationary with a constant and without a deterministic trend}
 
 
 %\paragraph{Unemployment rate} Since $t_\gamma = -3.346 > -3.43$, we fail to reject H0. We then test the significance of $\beta$ with respect to the non-standard threshold $2.79$ (bilateral test). Once again, the values of the F-statiss of the other two tests phi2 and phi3, lead us to believe that the series has a constant and/or a deterministic trend (we fail to reject both phi2 and phi3). The ADF methodology leads us to use the second specification for this series and discard the existence of a deterministic trend. 
@@ -245,24 +246,23 @@ We conclude that the series is \emph{stationary with a constant}
 
 
 \paragraph{Fed fund rate}  
-$t_\gamma = -1.672 > -3.43$, we are in the same situation as the previous series where we cannot reject the existence of a UR. 
-Because we cannot reject phi2 nor phi3 ($F_{phi2} = 2.022 <4.71, \: F_{phi3} = 2.927 <6.3$) we need to continue testing this series with the other specifications as we don't reject the existence of a stochastic trend and we cannnot reject the nulity of the trend coefficient ($|t_\beta| = 0.127 < 2.79$).
+$t_\gamma = -1.709 > -3.43$, we are in the same situation as the previous series where we cannot reject the existence of a UR. 
+Because we cannot reject phi2 nor phi3 ($F_{phi2} = 2.015 <4.71, \: F_{phi3} = 2.917 <6.3$) we need to continue testing this series with the other specifications as we don't reject the existence of a stochastic trend and we cannnot reject the nulity of the trend coefficient ($|t_\beta| = 0.181 < 2.79$).
 
 
 \paragraph{S\&P500}
-Without many surprises for price series, $t_\gamma = -1.949 > -3.43$ and we cannot reject the existence of a UR. 
-Moreover, $F_{phi2} = 3.926< 4.71$ and $F_{phi3} = 1.953 < 6.3$ (non-rejection of the null for both tests) leads to conclude that at least one of these coefficients are non-null (note that $t_\beta = 1.696 < 2.79$ and thus we cannot reject the nullity of $\beta$). 
+Without many surprises for price series, $t_\gamma = -1.975 > -3.43$ and we cannot reject the existence of a UR. 
+Moreover, $F_{phi2} = 3.875< 4.71$ and $F_{phi3} = 1.997 < 6.3$ (non-rejection of the null for both tests) leads to conclude that at least one of these coefficients are non-null (note that $|t_\beta| = 1.726 < 2.79$ and thus we cannot reject the nullity of $\beta$). 
 We continue testing this series with the second specification of the test.
 %Given the shape of the series, we decided to keep testing the presence of a UR in the second step of the ADF test.
 %we do not reject the existence of a deterministic trend and we continue testing.
 
-
+\begin{comment}
 \paragraph{Corporate debt}
 Finally, this series has $t_\gamma = -2.588 > -3.43$, $F_{phi2} = 5.6> 4.71$ and $F_{phi3} = 3.351 < 6.3$. %and $|t_\beta| = 1.696 < 2.79$. 
 While we fail to reject the presence of a UR and that both $\gamma$ and $\beta$ are jointly null ($\beta$ is not significant as $|t_\beta| = 2.560 < 2.79$), we get that at least one coefficient is significantly different from zero, hinting to the constant. 
 We need to continue to test this series too with the second specification of the ADF test. 
-
-
+\end{comment}
 
 
 
@@ -285,33 +285,44 @@ Now the test statistics reported refer to:
 \input{TABLES/adf_drift.tex}
 \input{TABLES/adf_tstats_drift.tex}
 
-
+\begin{comment}
 \paragraph{Unemployment rate}
 With $t_\gamma = -3.334<-2.88$ we reject H0: the series has no unit root.
 We then chek the F-statistic associated to $H0: \gamma= \alpha = 0$, i.e. the test \emph{phi1} in the default R test. 
 Given that $F_{phi1} = 5.57 > 4.61$, we reject the null suggesting that the series has a constant which is also supported by the significance of $\alpha$, $|t_\alpha| = 3.153 > 1.96$.
 Since $\gamma$ is still significantly different from zero using the standard threshold $-1.64$, we finally conclude that the \emph{series is stationary with a constant (no deterministic trend)} at $5\%$. 
 %However, the null is not rejected at the one percent level, and by looking at the series it does not look very stationary. Also R's built in function \texttt{order\_integration} concludes that the series is actually non-stationay which made us doubt our results. We decided to continue the test just in case and compare %$t_\gamma$ to the standard -1.64 threshold: since our statistic is larger, we conclude once again that the series is stationary.
+\end{comment}
+
+\paragraph{GDP}
+We fail to reject the main null hypothesis (tau2) as $t_\gamma = -0.621 > -2.88$.
+Moreover, we do reject the joint nullity of $\alpha$ and $\gamma$ as $F_{phi1} = 19.382 > 6.470$. 
+Since we cannot reject the nullity of the drift term ($|t_\alpha| = 0.983< 2.53$), we shall use teh last specification of the test on this series. 
+
+
+\paragraph{Disposable personal income}
+We fall in exactly the same situation as with the previous series as tau2 is not rejected $t_\gamma = -1.02 > -2.88$ while phi1 is $F_{phi1} = 8.378 > 6.470$ and $\alpha$ is non-significant ($|t_\alpha| = 1.127< 2.53$). 
+We therefore also test this series with the last test specification.
 
 
 \paragraph{Fed fund rate}
-Given that $t_\gamma = -2.419 >-2.88$, we cannot reject the null hypothesis. 
-We then check the F-statistic of the joint test \emph{phi1}: $F_{phi1} = 3.032 < 4.61$: we cannot reject the null suggesting that the series has a UR and no drift.
-Supporting this, we also find that the drift term is not significantly different from zero as $|t_\alpha| = 1.513 < 2.53$.
+Given that $t_\gamma = -2.412 >-2.88$, we cannot reject the null hypothesis. 
+We then check the F-statistic of the joint test \emph{phi1}: $F_{phi1} = 3.014 < 4.61$: we cannot reject the null suggesting that the series has a UR and no drift.
+Supporting this, we also find that the drift term is not significantly different from zero as $|t_\alpha| = 1.508 < 2.53$.
 This leads us to use the third specification of the test.
 
 
 \paragraph{S\&P500}
-Since $t_\gamma = -1.013> -2.87$, we cannot reject H0.
-By checking $F_{phi1} = 4.431 <4.61$ and $|t_\alpha| = 1.270 <2.53$, we fall in the same case as before where we need to continue testing the series as it seems to have a UR and no drift
+Since $t_\gamma = -1.005> -2.87$, we cannot reject H0.
+By checking $F_{phi1} = 4.3 <4.61$ and $|t_\alpha| = 1.258 <2.53$, we fall in the same case as before where we need to continue testing the series as it seems to have a UR and no drift
 
-
+\begin{comment}
 \paragraph{Corporate debt}
 For the last series, we find $t_\gamma = -0.383 > -2.87$, leading to a non-rejection of the null hypothesis. 
 Once again we check the other two dtstistics: since $F_{phi1} = 5.051 > 4.61$ we reject the joint nullity of $\gamma$ and $\alpha$. 
 We then test the significance of the drift coefficient: $|t_\alpha| = 1.824 < 2.53$ and that $\gamma$ is not significantly different fom zero. 
 As with the previous series, this result requires us to keep testing the series in the simplest specification of the ADF test. 
-
+\end{comment}
 
 
 
@@ -328,26 +339,26 @@ For this step, we only report the table with the t-statistics as its value for t
 %\input{TABLES/adf_none.tex}
 \input{TABLES/adf_tstats_none.tex}
 
+\paragraph{GDP}
+We have $t_\gamma = 6.148> -1.95$. We clearly do not reject the presence of a UR (H0) and conclude that the \emph{series has a unit root with no constant nor time trend}.
+
+\paragraph{Disposable personal income}
+Since $t_\gamma = 3.934> -1.95$ we do not reject H0 and conclude that the \emph{series has a unit root with no constant nor time trend}.
+
 \paragraph{Fed fund rate}
-We find $t_\gamma = -1.94> -1.95$ thus we cannot reject the existence of a UR (this is a close call but seems adequate since we never rejected the UR and R's built-in \texttt{order\_integration} also indicates a UR). 
+We find $t_\gamma = -1.935> -1.95$ thus we cannot reject the existence of a UR (this is a close call but seems adequate since we never rejected the UR and R's built-in \texttt{order\_integration} also indicates a UR). 
 We conclude that the \emph{series has a unit root with no constant nor time trend}.
 
 
-
 \paragraph{S\&P500}
-Similarly, we find $t_\gamma = 2.690> -1.95$ and we cannot reject H0 and conclude that the \emph{series has a unit root with no constant nor time trend}.
+Similarly, we find $t_\gamma = 2.647> -1.95$ and we cannot reject H0 and conclude that the \emph{series has a unit root with no constant nor time trend}.
 
 
-\paragraph{Corporate debt}
-Finally, given that $t_\gamma = 2.592> -1.95$ do not reject H0 and conclude that the \emph{series has a unit root with no constant nor time trend}.
+%\paragraph{Corporate debt} Finally, given that $t_\gamma = 2.592> -1.95$ do not reject H0 and conclude that the \emph{series has a unit root with no constant nor time trend}.
 
 %DECOMPOSITION SERIES IN DELTAS 
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width = 0.75\textwidth]{IMAGES/decomposition_iii_deltas.png}
-    \caption{Decomposition of the series in deltas}
-\end{figure}
+
 
 \subsubsection{Check stationarity of the series in deltas if UR in levels}
 
