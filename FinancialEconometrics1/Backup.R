@@ -287,25 +287,28 @@ ggsave('IMAGES/pacf_infl.png', plot= pacf_infl, width = 12, height=8)
 ggsave('IMAGES/pacf_defl.png', plot= pacf_defl, width = 12, height=8)
 
 
-# minimize information criteria 
+### Minimize information criteria 
+#inflation expectation
 arma_bic_infl = critMatrix(i0_levels_no_drift$infl_e, p.max = 4, q.max = 15, criterion='bic')
 stargazer(arma_bic_infl, type='text', flip=T)
-stargazer(arma_bic_infl, type='latex', flip=T, 
-          out= 'TABLES/BIC_arma_infl.tex', label="tab:bic_infl",
-          title= "Information criteria on the parameters of ARMA for infl_e")
+# starg azer(arma_bic_infl, type='latex', flip=T, 
+#           out= 'TABLES/BIC_arma_infl.tex', label="tab:bic_infl",
+#           title= "Information criteria on the parameters of ARMA for infl-e")
 
-arma_bic_defl = critMatrix(i0_levels_no_drift$infl_e, p.max = 5, q.max = 18, criterion='bic')
+#deflator (too slow, I commented the line to avoid breaking everything)
+arma_bic_defl = critMatrix(i0_levels_no_drift$deflator, p.max = 5, q.max = 18, criterion='bic')
 stargazer(arma_bic_defl, type='text', flip=T)
-stargazer(arma_bic_defl, type='latex', flip=T, 
-          out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
-          title= "Information criteria on the parameters of ARMA for GDP deflator")
+# stargazer(arma_bic_defl, type='latex', flip=T, 
+#           out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
+#           title= "Information criteria on the parameters of ARMA for GDP deflator")
 
 
-# auto.arima(i0_levels_no_drift$infl_e, seasonal=F)
+## fit ARMA model 
+arma_infl = arima(i0_levels_no_drift$infl_e, order= c(1,0,0))
+stargazer(arma_infl, type='text')
 
-
-
-
+arma_defl = arima(i0_levels_no_drift$infl_e, order= c(1,0,0))
+stargazer(arma_defl, type='text')
 
 
 #################################
@@ -376,19 +379,75 @@ deltas_no_drift_trend = list()
 
 ct_gdp = coef(d_gdp_ols_dec)[1]  
 deltas_no_drift_trend$d_gdp = deltas$d_gdp - ct_gdp
+
 ct_dpi = coef(d_dpi_ols_dec)[1]  
 deltas_no_drift_trend$d_dpi = deltas$d_dpi - ct_dpi
+
 ct_rate = coef(d_rate_ols_dec)[1]  
 trend_rate = coef(d_rate_ols_dec)[2]
-deltas_no_drift_trend$d_rate = deltas$d_rate - ct_rate - (df_deltas$trend * trend_rate)
+m6_rate = coef(d_rate_ols_dec)[8]
+deltas_no_drift_trend$d_rate = deltas$d_rate - ct_rate - (df_deltas$trend * trend_rate) - (m6_rate*df_deltas$M6)
+
 ct_sp = coef(d_splong_ols_dec)[1] 
-deltas_no_drift_trend$d_splong = deltas$d_splong - ct_sp
+m9_sp = coef(d_splong_ols_dec)[11] 
+m10_sp = coef(d_splong_ols_dec)[12] 
+deltas_no_drift_trend$d_splong = deltas$d_splong - ct_sp - (m9_sp*df_deltas$M9) - (m10_sp*df_deltas$M10)
 
 
+### Find p and q with PACF and ACF                         
+
+acf_gdp = ggAcf(deltas_no_drift_trend$d_gdp, lag.max= 24) + labs(title = 'ACF - d_gdp')
+acf_dpi = ggAcf(deltas_no_drift_trend$d_dpi, lag.max= 24) + labs(title = 'ACF - d_dpi')
+acf_rate = ggAcf(deltas_no_drift_trend$d_rate, lag.max= 24) + labs(title = 'ACF - d_rate')
+acf_sp = ggAcf(deltas_no_drift_trend$d_splong, lag.max= 24) + labs(title = 'ACF - d_splong')
+
+ggsave('IMAGES/acf_gdp.png', plot=acf_gdp, width = 12, height = 8)
+ggsave('IMAGES/acf_dpi.png', plot=acf_dpi, width = 12, height = 8)
+ggsave('IMAGES/acf_rate.png', plot=acf_rate, width = 12, height = 8)
+ggsave('IMAGES/acf_sp.png', plot=acf_sp, width = 12, height = 8)
+
+pacf_gdp = ggPacf(deltas_no_drift_trend$d_gdp, lag.max= 24)+ labs(title = 'PACF - d_gdp')
+pacf_dpi = ggPacf(deltas_no_drift_trend$d_dpi, lag.max= 24)+ labs(title = 'PACF - d_dpi')
+pacf_rate = ggPacf(deltas_no_drift_trend$d_rate, lag.max= 24)+ labs(title = 'PACF - d_rate')
+pacf_sp = ggPacf(deltas_no_drift_trend$d_splong, lag.max= 24)+ labs(title = 'PACF - d_splong')
+
+ggsave('IMAGES/pacf_gdp.png', plot= pacf_gdp, width = 12, height=8)
+ggsave('IMAGES/pacf_dpi.png', plot= pacf_dpi, width = 12, height=8)
+ggsave('IMAGES/pacf_rate.png', plot= pacf_rate, width = 12, height=8)
+ggsave('IMAGES/pacf_sp.png', plot= pacf_sp, width = 12, height=8)
 
 
+# minimize information criteria 
+#gdp 
+arma_bic_gdp = critMatrix(deltas_no_drift_trend$d_gdp, p.max = 13, q.max = 2, criterion='bic')
+stargazer(arma_bic_gdp, type='text', flip=F)
+# stargazer(arma_bic_gdp, type='latex', flip=F,
+#           out= 'TABLES/BIC_arma_gdp.tex', label="tab:bic_gdp",
+#           title= "Information criteria on the parameters of ARMA for d-gdp")
 
 
+#dpi
+arma_bic_dpi = critMatrix(deltas_no_drift_trend$d_dpi, p.max = 12, q.max = 12, criterion='bic')
+stargazer(arma_bic_dpi, type='text', flip=F)
+# stargazer(arma_bic_dpi, type='latex', flip=F,
+#           out= 'TABLES/BIC_arma_dpi.tex', label="tab:bic_dpi",
+#           title= "Information criteria on the parameters of ARMA for d-dpi")
+
+
+#rate
+arma_bic_rate = critMatrix(deltas_no_drift_trend$d_rate, p.max = 6, q.max = 10, criterion='bic')
+stargazer(arma_bic_rate, type='text', flip=T)
+# stargazer(arma_bic_rate, type='latex', flip=T,
+#           out= 'TABLES/BIC_arma_rate.tex', label="tab:bic_rate",
+#           title= "Information criteria on the parameters of ARMA for d-rate")
+
+
+#dpi
+arma_bic_sp = critMatrix(deltas_no_drift_trend$d_splong, p.max =6, q.max = 1, criterion='bic')
+stargazer(arma_bic_sp, type='text', flip=F)
+# stargazer(arma_bic_sp, type='latex', flip=F,
+#           out= 'TABLES/BIC_arma_sp.tex', label="tab:bic_sp",
+#           title= "Information criteria on the parameters of ARMA for d-splong")
 
 
 

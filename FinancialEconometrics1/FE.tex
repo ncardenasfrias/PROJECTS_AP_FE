@@ -428,13 +428,12 @@ We perform we estimate the following regression to test the significance of the 
         X_t = \alpha + \beta \times t + \sum_{i=1}^{11} \rho_i \1_{\text{month}=i} +c_t
     \end{equation*}
 
-The results of this estimation are found in Table \ref{tab:ols_dec_levels} for the series that are I(0) in levels, and in Table \ref{tab:ols_dec_deltas} for the series of first differences of teh series that were not stationary 
+The results of this estimation are found in Table \ref{tab:ols_dec_levels} for the series that are I(0) in levels, and in Table \ref{tab:ols_dec_deltas} for the series of first differences of the series that were not stationary 
 
 The coefficients on trend correspond to $\hat{\beta}$, those on the variables starting with M are $\hat{\rho_i}$. 
 Since there is a monthly dummy less than the number of months, the coefficient on Contsnat encompasses both $\alpha$ and the coefficient on the last month. 
 We tried to change the dummy that is ommitted and it does not change the results in terms of significance. 
 
-To assess the behavior of teh cyclical component, we detrend the series, substract the coefficient of teh constant and remove the seasonal component when teh coefficients are significant at the 5\% level.
 
 \input{TABLES/ols_decomp_levels}
 \input{TABLES/ols_decomp_deltas}
@@ -451,9 +450,126 @@ We nonetheless decided to work with deseasonalized series even if the changes ar
 
 
 
-
-
     \subsection{Cyclical component}
+
+To assess the behavior of the cyclical component, we detrend the series, substract the coefficient of the constant and remove the seasonal component when the coefficients are significant. After extracting these components, we would like to model them with appropiate $ARMA(p,q)$ models.
+
+To do so, we first produce PACF (Figure \ref{fig:pacf_all}) and ACF graphs (Figure \ref{fig:acf_all}) to know respectively the maximum values that $p$ and $q$ could take, $\bar{p}, \bar{q}$.
+The blue dotted lines onthe figures are the 95\% confidence intervals.
+$\bar{p}, \bar{q}$ are given by the last period where the PACF or the ACF are significantly different from zero. 
+We were surprised by the rather long memory of some of the processes, notably of the inflation expectation, the GDP deflator, and the first difference of the Fed fund rate series but we double checked and the series are stationary. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_infl.png}
+        \caption*{Inflation expectation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_defl.png}
+        \caption*{GDP deflator}
+    \end{subfigure}
+    \hfill 
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_gdp.png}
+        \caption*{GDP growth rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_dpi.png}
+        \caption*{Real disponsable income growth rate }
+    \end{subfigure}
+    \hfill 
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_rate.png}
+        \caption*{Fed fund rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/pacf_sp.png}
+        \caption*{Returns of S\&P500}
+    \end{subfigure}
+    \hfill 
+    \caption{PACFs}
+    \label{fig:pacf_all}
+    \begin{minipage}{0.9\textwidth}
+        %\footnotesize
+        \small{\emph{Notes}: All the series plotted are stationary: inflation expectation and GDP deflator series are in levels while the rest are first differences.}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_infl.png}
+        \caption*{Inflation expectation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_defl.png}
+        \caption*{GDP deflator}
+    \end{subfigure}
+    \hfill 
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_gdp.png}
+        \caption*{GDP growth rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_dpi.png}
+        \caption*{Real disponsable income growth rate }
+    \end{subfigure}
+    \hfill 
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_rate.png}
+        \caption*{Fed fund rate}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMAGES/acf_sp.png}
+        \caption*{Returns of S\&P500}
+    \end{subfigure}
+    \hfill 
+    \caption{ACFs}
+    \label{fig:acf_all}
+    \begin{minipage}{0.9\textwidth}
+        %\footnotesize
+        \small{\emph{Notes}: All the series plotted are stationary: inflation expectation and GDP deflator series are in levels while the rest are first differences.}
+    \end{minipage}
+\end{figure}
+
+We then find the best parameters for each model by minimizing the BIC (an informational criteria) for each combination of $p \leq \bar{p}$ and $ \leq \bar{q}$. 
+This will allow us to find a combination of both types of models (AR and MA) such that we capture well the past with less parameters to estimate.
+To do so, we use R's \texttt{critMatrix} function with the option \texttt{criteria = 'bic'}. 
+Importantly, this operation is slow in particular when $\bar{p}, \bar{q}$ are both large. In the case of the inflation expectation and the first difference of the Fed fund rate, their values were so large that R does not give any answer and reports an error. 
+To solve this, we decided to take smaller values of $\bar{p}$. Indeed, by looking at the PACF graphs (Figure \ref{fig:pacf_all}), we see that in both cases there is a single lag down the line that is significantly different from zero after several ones falling in the CI (lag 13 for \emph{infl-e} and lag 15 for \emph{d-rate}). 
+We took the previous significant lag as $\bar{p}$ to be able to get the information criteria with the rationale that those "extreme" significant lags can be due to just luck, and that the combination of AR and MA models should allow to reduce the number of parameters. 
+
+We present the outputs of these comparitions tables per series in Appendix \ref{sec:BIC_tables} because they are a lot and they were making hard to read this section. 
+Remark that the palcement of the $p$s and $q$s can vary from one tabel to the next due to formatting issues. 
+
+
+
+
+
+
 
 
 
@@ -489,18 +605,35 @@ We nonetheless decided to work with deseasonalized series even if the changes ar
 
 
 
-\section{Difference-in-Difference}
-https://www.tidy-finance.org/r/difference-in-differences.html
+%\section{Difference-in-Difference}
+%https://www.tidy-finance.org/r/difference-in-differences.html
     
 
 
 
 \newpage
 \begin{appendices}
+
+    \section*{Section 1 - Additional tables} \label{sec:BIC_tables}
+    \input{TABLES/BIC_arma_infl.tex}
+
+    \input{TABLES/BIC_arma_infl.tex}
+
+    \input{TABLES/BIC_arma_gdp.tex}
+
+    \input{TABLES/BIC_arma_dpi.tex}
+
+    \input{TABLES/BIC_arma_rate.tex}
+
+    \input{TABLES/BIC_arma_sp.tex}
+
     
     \section{Code - Data Cleaning} \label{sec:dta_clean}
         %\lstinputlisting[language=python]{DataCleaning.py}
         \lstinputlisting[language=Python]{DataCleaning.py}
+
+    \section{Code - Analysis 1}
+        \lstinputlisting[language=R]{Backup.R}
 
 \end{appendices}
 
