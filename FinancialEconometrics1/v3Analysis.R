@@ -216,11 +216,69 @@ johansensum = summary(johansen_test)
 johansen_table = xtable(johansensum)
 print(latex_table, file=file_path)
 
+############ EMPIRICAL ANALYSIS 2
+if (!require(vars)) install.packages("vars")
+library(vars)
+
+# Selecting the three series for the VAR model
+var_data <- data.frame(splong = allts$splong, gdp = allts$gdp, rate = allts$rate)
+
+# (Assuming the series are non-stationary and need differencing based on ADF test results)
+diff_var_data <- diff(var_data, differences = 1)
+
+# Identify the order of the VAR model
+var_order <- VARselect(diff_var_data, lag.max = 10, type = "both")$selection
+
+# Estimate the VAR model
+var_model1 <- VAR(diff_var_data, p = var_order, type = "both")
+
+# Output 
+summary(var_model1)
+
+######## EMPIRICAL APPLICATION 3 (after johansen no coint) 
+
+# Selecting the same I(1) components that we have have tested for unit roots
+var_data2 <- data.frame(
+    gdp = allts$gdp, 
+    dpi = allts$dpi, 
+    rate = allts$rate
+)
+
+# Differencing the data to achieve stationarity
+diff_var_data2 <- diff(var_data2, differences = 1)
+
+# Identify the order of the VAR model
+var_order2 <- VARselect(diff_var_data2, lag.max = 10, type = "both")$selection
+
+# Estimate the VAR model
+var_model2 <- VAR(diff_var_data2, p = var_order2, type = "both")
+summary(var_model2)
+
+# Causality Tests
+
+# Causality test between GDP and Federal Reserve Rate
+causality_gdp_rate <- causality(var_model2, cause = "gdp", effect = "rate")
+print(causality_gdp_rate)
+
+# Causality test between GDP and Disposable Personal Income
+causality_gdp_dpi <- causality(var_model2, cause = "gdp", effect = "dpi")
+print(causality_gdp_dpi)
+
+# Causality test between Federal Reserve Rate and Disposable Personal Income
+causality_rate_dpi <- causality(var_model2, cause = "rate", effect = "dpi")
+print(causality_rate_dpi)
 
 
+###### EMPIRICAL APPLICATION 4
 
+# Impulse Response Analysis for var_model1 from Empirical Analysis 2 + its graph
+irf_var_model1 <- irf(var_model1, n.ahead = 10, boot = TRUE, ci = 0.95)
+plot(irf_var_model1)
 
-
+# Impulse Response Analysis for var_model2 from Empirical Application 3 + its graph
+irf_var_model2 <- irf(var_model2, n.ahead = 10, boot = TRUE, ci = 0.95)
+plot(irf_var_model2)
+####statistical analysis
 
 
 
