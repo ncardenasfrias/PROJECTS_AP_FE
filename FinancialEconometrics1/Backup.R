@@ -2,7 +2,7 @@
 ##%% @ncardenasfrias
 
 # Load necessary packages and set personal path to documents
-pacman::p_load(data.table, tseries, dplyr, bootUR, urca, gridExtra, tidyverse, gplots, xts, stargazer, forecast, ggplot2, vars)
+pacman::p_load(data.table, tseries, smoots, dplyr, bootUR, urca, gridExtra, tidyverse, gplots, xts, stargazer, forecast, ggplot2, vars)
 
 setwd('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1')
 
@@ -225,7 +225,7 @@ names(decompositions) = names(i0_levels) #name the series in decompositions
 rm(graph, decomp, deseason)
 
 #Generate and export plots with the decomposition graphs 
-decom_i = grid.arrange(dec_graphs[[1]],dec_graphs[[2]], dec_graphs[[3]], ncol=3)
+decom_i = grid.arrange(dec_graphs[[1]],dec_graphs[[2]], ncol=2)
 # ggsave('IMAGES/decomposition_i.png', plot=decom_i, width = 12, height = 8)
 
 ### Run OLS regression on each component of the TS
@@ -252,10 +252,9 @@ df_i0level$trend = seq_along(df_i0level$infl_e) #deterministic trend
 # Run OLS regression
 infl_e_ols_dec = lm(infl_e ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
 deflator_ols_dec = lm(deflator ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
-corp_debt_ols_dec = lm(corp_debt ~ trend + M1 + M2 + M3 + M4 + M5 + M6 + M7 + M8 + M9 + M10 + M11, data = df_i0level)
 
-stargazer(infl_e_ols_dec,deflator_ols_dec,corp_debt_ols_dec, type='text')
-# stargazer(infl_e_ols_dec,deflator_ols_dec,corp_debt_ols_dec,
+stargazer(infl_e_ols_dec,deflator_ols_dec, type='text')
+# stargazer(infl_e_ols_dec,deflator_ols_dec,
 #           type='latex', out="TABLES/ols_decomp_levels", label='tab:ols_dec_levels',
 #           title='OLS decomposition of I(0) series' )
 
@@ -272,79 +271,37 @@ ct_defl = coef(deflator_ols_dec)[1]
 trend_defl = coef(deflator_ols_dec)[2]  
 i0_levels_no_drift$deflator = i0_levels$deflator - ct_defl- (df_i0level$trend*trend_defl)
 
-ct_corp = coef(corp_debt_ols_dec)[1]  
-trend_corp = coef(corp_debt_ols_dec)[2]  
-i0_levels_no_drift$corp_debt = i0_levels$corp_debt - ct_corp - (df_i0level$trend*trend_corp)
-
-
-
 
 ### Find p and q with PACF and ACF                         
 
-Acf(i0_levels_no_drift$infl_e, lag.max = 20, type = "correlation", plot = TRUE, na.action = na.contiguous, demean = TRUE, title = "ACF Inflation Expectation")
-Pacf(i0_levels_no_drift$infl_e, lag.max = 20, plot = TRUE, na.action = na.contiguous, demean = TRUE)
-
-acf_infl = ggAcf(i0_levels_no_drift$infl_e, lag.max= 40) + labs(title = 'ACF - infl_e')
-acf_defl= ggAcf(i0_levels_no_drift$deflator, lag.max= 40) + labs(title = 'ACF - deflator')
-acf_corp = ggAcf(i0_levels_no_drift$corp_debt, lag.max= 70) + labs(title = 'ACF - corp_debt')
+acf_infl = ggAcf(i0_levels_no_drift$infl_e, lag.max= 24) + labs(title = 'ACF - infl_e')
+acf_defl= ggAcf(i0_levels_no_drift$deflator, lag.max= 24) + labs(title = 'ACF - deflator')
 
 ggsave('IMAGES/acf_infl.png', plot=acf_infl, width = 12, height = 8)
 ggsave('IMAGES/acf_defl.png', plot=acf_defl, width = 12, height = 8)
-ggsave('IMAGES/acf_corp.png', plot=acf_corp, width = 12, height = 8)
 
-pacf_infl = ggPacf(i0_levels_no_drift$infl_e)+ labs(title = 'PACF - infl_e')
-pacf_defl = ggPacf(i0_levels_no_drift$deflator) + labs(title = 'PACF - deflator')
-pacf_corp = ggPacf(i0_levels_no_drift$corp_debt) + labs(title = 'PACF - corp_debt')
+pacf_infl = ggPacf(i0_levels_no_drift$infl_e, lag.max= 24)+ labs(title = 'PACF - infl_e')
+pacf_defl = ggPacf(i0_levels_no_drift$deflator, lag.max= 24) + labs(title = 'PACF - deflator')
 
 ggsave('IMAGES/pacf_infl.png', plot= pacf_infl, width = 12, height=8)
 ggsave('IMAGES/pacf_defl.png', plot= pacf_defl, width = 12, height=8)
-ggsave('IMAGES/pacf_corp.png', plot= pacf_corp, width = 12, height=8)
 
 
+# minimize information criteria 
+arma_bic_infl = critMatrix(i0_levels_no_drift$infl_e, p.max = 4, q.max = 15, criterion='bic')
+stargazer(arma_bic_infl, type='text', flip=T)
+stargazer(arma_bic_infl, type='latex', flip=T, 
+          out= 'TABLES/BIC_arma_infl.tex', label="tab:bic_infl",
+          title= "Information criteria on the parameters of ARMA for infl_e")
 
-## create a function to get best combination of parameters 
-
-find_best_ARMA = function(ts_data, max_ar_order, max_ma_order) {
-  best_model_aic = NULL
-  best_model_bic = NULL
-  best_aic = Inf
-  best_bic = Inf
-  for (p in 0:max_ar_order) {
-    for (q in 0:max_ma_order) {
-      # Skip models where both AR and MA orders are 0
-      if (p == 0 & q == 0) next
-      # Fit ARMA model
-      arma_model = arima(ts_data, order = c(p, 0, q))
-      # Calculate AIC and BIC
-      aic = AIC(arma_model)
-      bic = BIC(arma_model)
-      # Update best model based on AIC
-      if (aic < best_aic) {
-        best_aic = aic
-        best_model_aic = arma_model
-      }
-      # # Update best model based on BIC
-      # if (bic < best_bic) {
-      #   best_bic = bic
-      #   best_model_bic = arma_model
-      # }
-    }
-  }
-  
-  # Return best models based on AIC and BIC
-  return(list(best_model_aic = best_model_aic))#, best_model_bic = best_model_bic))
-}
+arma_bic_defl = critMatrix(i0_levels_no_drift$infl_e, p.max = 5, q.max = 18, criterion='bic')
+stargazer(arma_bic_defl, type='text', flip=T)
+stargazer(arma_bic_defl, type='latex', flip=T, 
+          out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
+          title= "Information criteria on the parameters of ARMA for GDP deflator")
 
 
-#use it 
-best_infl = find_best_ARMA(i0_levels_no_drift$infl_e, 13, 15)
-print("Best model based on AIC:")
-print(best_infl$best_model_aic)
-
-print("Best model based on BIC:")
-print(best_infl$best_model_bic)
-
-
+# auto.arima(i0_levels_no_drift$infl_e, seasonal=F)
 
 
 
@@ -373,8 +330,12 @@ names(decompositions_d) = names(deltas) #name the series in decompositions
 rm(graph, decomp, deseason)
 
 #Generate and export plots with the decomposition graphs 
-decom_ii = grid.arrange(dec_graphs_d[[1]],dec_graphs_d[[2]], dec_graphs_d[[3]],dec_graphs_d[[4]], ncol=4)
-# ggsave('IMAGES/decomposition_ii.png', plot=decom_ii, width = 12, height = 8)
+decom_ii = grid.arrange(dec_graphs_d[[1]],dec_graphs_d[[2]], dec_graphs_d[[3]],dec_graphs_d[[4]], ncol=2)
+# ggsave('IMAGES/decomposition_ii.png', plot=decom_ii, width = 12, height = 16)
+
+##Create single image with all decompositions, looks better on latex 
+all_dec = grid.arrange(dec_graphs[[1]], dec_graphs[[2]], dec_graphs_d[[1]],dec_graphs_d[[2]], dec_graphs_d[[3]],dec_graphs_d[[4]], ncol=3)
+# ggsave('IMAGES/all_decompositions.png', plot=all_dec, width = 12, height = 16)
 
 
 
@@ -434,10 +395,10 @@ deltas_no_drift_trend$d_splong = deltas$d_splong - ct_sp
 
 ## COINTEGRATION
 levels_var = data.frame(
-  splong = allts$splong,
-  rate = allts$rate,
+  dpi = allts$dpi,
   gdp = allts$gdp,
-  dpi = allts$dpi) 
+  rate = allts$rate,
+  splong = allts$splong)
 
 #levels_var$timestamp = time(deseasonalized_ts$deflator) 
 names_level = c('splong', 'rate', 'gdp', 'dpi')

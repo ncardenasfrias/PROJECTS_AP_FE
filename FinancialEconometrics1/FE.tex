@@ -430,6 +430,12 @@ We perform we estimate the following regression to test the significance of the 
 
 The results of this estimation are found in Table \ref{tab:ols_dec_levels} for the series that are I(0) in levels, and in Table \ref{tab:ols_dec_deltas} for the series of first differences of teh series that were not stationary 
 
+The coefficients on trend correspond to $\hat{\beta}$, those on the variables starting with M are $\hat{\rho_i}$. 
+Since there is a monthly dummy less than the number of months, the coefficient on Contsnat encompasses both $\alpha$ and the coefficient on the last month. 
+We tried to change the dummy that is ommitted and it does not change the results in terms of significance. 
+
+To assess the behavior of teh cyclical component, we detrend the series, substract the coefficient of teh constant and remove the seasonal component when teh coefficients are significant at the 5\% level.
+
 \input{TABLES/ols_decomp_levels}
 \input{TABLES/ols_decomp_deltas}
 
