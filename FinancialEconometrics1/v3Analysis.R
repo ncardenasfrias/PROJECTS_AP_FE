@@ -235,12 +235,25 @@ var_model1 <- VAR(diff_var_data, p = var_order, type = "both")
 # Output 
 summary(var_model1)
 
+# Impulse Response Function (IRF)
+irf_var_model_diff <- irf(var_model_diff, n.ahead = 10, boot = TRUE, ci = 0.95)
+plot(irf_var_model_diff)
+
 ######## EMPIRICAL APPLICATION 3 (after johansen no coint) 
 
 # Selecting the same I(1) components that we have have tested for unit roots
 var_data2 <- data.frame(
     gdp = allts$gdp, 
     dpi = allts$dpi, 
+    rate = allts$rate
+)
+
+######## EMPIRICAL APPLICATION 3 (after Johansen no cointegration) 
+
+# Selecting the same I(1) components as in EA2
+var_data2 <- data.frame(
+    gdp = allts$gdp, 
+    splong = allts$splong,  # Replacing dpi with splong
     rate = allts$rate
 )
 
@@ -254,19 +267,23 @@ var_order2 <- VARselect(diff_var_data2, lag.max = 10, type = "both")$selection
 var_model2 <- VAR(diff_var_data2, p = var_order2, type = "both")
 summary(var_model2)
 
+# Impulse Response Function (IRF) Analysis
+irf_var_model2 <- irf(var_model2, n.ahead = 10, boot = TRUE, ci = 0.95)
+plot(irf_var_model2)
+
 # Causality Tests
 
 # Causality test between GDP and Federal Reserve Rate
 causality_gdp_rate <- causality(var_model2, cause = "gdp", effect = "rate")
 print(causality_gdp_rate)
 
-# Causality test between GDP and Disposable Personal Income
-causality_gdp_dpi <- causality(var_model2, cause = "gdp", effect = "dpi")
-print(causality_gdp_dpi)
+# Causality test between GDP and S&P 500 Long-Term
+causality_gdp_splong <- causality(var_model2, cause = "gdp", effect = "splong")
+print(causality_gdp_splong)
 
-# Causality test between Federal Reserve Rate and Disposable Personal Income
-causality_rate_dpi <- causality(var_model2, cause = "rate", effect = "dpi")
-print(causality_rate_dpi)
+# Causality test between Federal Reserve Rate and S&P 500 Long-Term
+causality_rate_splong <- causality(var_model2, cause = "rate", effect = "splong")
+print(causality_rate_splong)
 
 
 ###### EMPIRICAL APPLICATION 4
@@ -279,6 +296,20 @@ plot(irf_var_model1)
 irf_var_model2 <- irf(var_model2, n.ahead = 10, boot = TRUE, ci = 0.95)
 plot(irf_var_model2)
 ####statistical analysis
+
+####Comparsion
+# Setting up the plotting area for side-by-side comparison
+par(mfrow=c(2,1))
+
+# Plotting IRF for VAR Model 1
+plot(irf_var_model1, main = "Impulse Responses for VAR Model 1")
+
+# Plotting IRF for VAR Model 2
+plot(irf_var_model2, main = "Impulse Responses for VAR Model 2")
+
+# Resetting the plotting layout
+par(mfrow=c(1,1))
+
 
 
 
