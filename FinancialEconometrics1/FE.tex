@@ -230,6 +230,7 @@ We nonetheless decided to work with deseasonalized series even if the changes ar
 As for any time series analysis, the first analysis to perform is regarding the presence of unit roots in the series that would make them non-stationary. 
 To do so, we perform the Augmented Dickey-Fuller tests that evaluate the presence of a stochastic trend (a unit root), a deterministic trend, and an intercept or drift. 
 Importantly, this test requires estimating three equations/specifications because it requires investigating the joint presence of both types of trends and drift, for them to discard elements one by one. 
+For all specifications, the main null hypothesis H0 is that the series exhibits a UR. 
 The inference with this test is non-standard and requires to use of corrected critical values to assess significance with the t-statistics. 
 
 
@@ -243,9 +244,9 @@ We first run the following specification to the ADF test to \emph{jointly} inves
 As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and the series is non-stationary.
 We use R's built-in function \texttt{ur.df} with \texttt{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
-        \item[-] tau3 refers to the t-statistic associated to $\gamma =0$ 
-        \item[-] phi2 refers to the F-statistic associated to $\alpha = \beta = \gamma =0$
-        \item[-] phi3 is also an F-statistic, now associated to $\beta =\gamma = 0$  
+        \item[-] tau3 refers to the t-statistic associated to H0: $\gamma =0$ i.e the presence of a UR. H1 refers to the absence of said UR.
+        \item[-] phi2 refers to the F-statistic associated to H0: $\alpha = \beta = \gamma =0$ \footnote{As with all F test, the alternative hypothesis is that at least one of these coefficients in non-null. Since this is general, we don't explicitly signal the H1 hereafter.}
+        \item[-] phi3 is also an F-statistic, now associated to H0: $\beta =\gamma = 0$  
     \end{itemize}
 Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated with $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we prefer to refer to the higher critical values but it does not change the analysis done.
 

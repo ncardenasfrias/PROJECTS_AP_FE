@@ -10,16 +10,16 @@
 \contentsline {subsection}{\numberline {1.1}Seasonality}{4}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Unit root and trends}{4}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}ADF - Test jointly for deterministic and stochastic trend (with drift)}{6}{subsubsection.1.2.1}%
-\contentsline {paragraph}{Inflation expectation}{7}{table.caption.4}%
+\contentsline {paragraph}{Inflation expectation}{6}{table.caption.4}%
 \contentsline {paragraph}{GDP deflator}{7}{table.caption.4}%
 \contentsline {paragraph}{Unemployment rate}{7}{table.caption.4}%
 \contentsline {paragraph}{Fed fund rate}{7}{table.caption.4}%
 \contentsline {paragraph}{S\&P500}{7}{table.caption.4}%
-\contentsline {paragraph}{Corporate debt}{7}{table.caption.4}%
+\contentsline {paragraph}{Corporate debt}{8}{table.caption.4}%
 \contentsline {subsubsection}{\numberline {1.2.2}ADF - Test jointly for stochastic trend and drift}{8}{subsubsection.1.2.2}%
 \contentsline {paragraph}{Unemployment rate}{8}{table.caption.6}%
 \contentsline {paragraph}{Fed fund rate}{8}{table.caption.6}%
-\contentsline {paragraph}{S\&P500}{8}{table.caption.6}%
+\contentsline {paragraph}{S\&P500}{9}{table.caption.6}%
 \contentsline {paragraph}{Corporate debt}{9}{table.caption.6}%
 \contentsline {subsubsection}{\numberline {1.2.3}ADF - Test for stochastic trend only}{9}{subsubsection.1.2.3}%
 \contentsline {paragraph}{Fed fund rate}{9}{table.caption.7}%
