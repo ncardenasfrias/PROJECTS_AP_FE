@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  12 DEC 2023 13:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  12 DEC 2023 15:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -884,55 +884,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write3
 \openout3 = `FE.toc'.
 
- [2] [3] [4] (./TABLES/adf_trend.tex) (./TABLES/adf_tstats_trend.tex) [5] (./TABLES/adf_drift.tex) (./TABLES/adf_tstats_drift.tex) [6] (./TABLES/adf_tstats_none.tex) [7] (./TABLES/adf_deltas.tex)
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 383.
+ [2] [3] (./TABLES/adf_trend.tex) (./TABLES/adf_tstats_trend.tex) [4] [5] (./TABLES/adf_drift.tex) (./TABLES/adf_tstats_drift.tex) [6] (./TABLES/adf_tstats_none.tex) (./TABLES/adf_deltas.tex) [7]
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 384.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
+<IMAGES/all_decompositions.png, id=107, 3613.5pt x 4818.0pt>
+File: IMAGES/all_decompositions.png Graphic file (type png)
+<use IMAGES/all_decompositions.png>
+Package pdftex.def Info: IMAGES/all_decompositions.png  used on input line 399.
+(pdftex.def)             Requested size: 459.99791pt x 613.27603pt.
 
-LaTeX Warning: Reference `sec:adf' on page 8 undefined on input line 387.
-
-<IMAGES/decomposition_i.png, id=111, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_i.png Graphic file (type png)
-<use IMAGES/decomposition_i.png>
-Package pdftex.def Info: IMAGES/decomposition_i.png  used on input line 396.
-(pdftex.def)             Requested size: 435.78593pt x 290.5011pt.
-<IMAGES/decomposition_ii.png, id=113, 3613.5pt x 2409.0pt>
-File: IMAGES/decomposition_ii.png Graphic file (type png)
-<use IMAGES/decomposition_ii.png>
-Package pdftex.def Info: IMAGES/decomposition_ii.png  used on input line 402.
-(pdftex.def)             Requested size: 435.78593pt x 290.5011pt.
-[8]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./TABLES/varorder_level.tex) (./TABLES/estim_var_level.tex) [9] [10]
+
+LaTeX Warning: Reference `tab:tab:ols_tab:ols_dec_deltas' on page 8 undefined on input line 431.
+
+(./TABLES/ols_decomp_levels) (./TABLES/ols_decomp_deltas) (./TABLES/varorder_level.tex) (./TABLES/estim_var_level.tex) [8] [9] [10]
 
 LaTeX Warning: Text page 11 contains only floats.
 
-[11 <./IMAGES/decomposition_i.png> <./IMAGES/decomposition_ii.png>] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+[11 <./IMAGES/all_decompositions.png>] [12] [13] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 474.
- (./DataCleaning.py [12] [13]) [14] (./FE.aux)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 497.
+ (./DataCleaning.py [14] [15]) [16] (./FE.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
  21281 strings out of 478268
- 348510 string characters out of 5846347
- 1185894 words of memory out of 5000000
- 38918 multiletter control sequences out of 15000+600000
+ 348515 string characters out of 5846347
+ 1186061 words of memory out of 5000000
+ 38911 multiletter control sequences out of 15000+600000
  522117 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,117p,1270b,2309s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist, replaced by a fixed one
-
+ 84i,11n,117p,1270b,2309s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
 
@@ -945,11 +934,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
- </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on FE.pdf (14 pages, 2258384 bytes).
+ </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on FE.pdf (16 pages, 2305184 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 392 compressed objects within 4 object streams
- 166 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 393 compressed objects within 4 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 174 words of extra memory for PDF output out of 10000 (max. 10000000)
 

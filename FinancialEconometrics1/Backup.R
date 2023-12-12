@@ -96,10 +96,9 @@ stargazer(t_values_table,type='text') #all ok
 #        label='tab:tstat_trend')
 
 
-###################### stopped here
-#extract series that need to keep being tested
-adf_v2 = allts[c(1:2, 5:7)]
-names(adf_v2) = names(allts)[c(1:2, 5:7)]
+#extract series that need to keep being tested ie all but deflator and inflation expectation
+adf_v2 = allts[c(1:2, 5:6)]
+names(adf_v2) = names(allts)[c(1:2, 5:6)]
 
 
 
@@ -112,7 +111,7 @@ for (var_name in names(adf_v2)) {
 #export summary adf
 drift_test =cbind(t(results_adf_drift$gdp@teststat), t(results_adf_drift$dpi@teststat),
                   t(results_adf_drift$rate@teststat), t(results_adf_drift$splong@teststat), 
-                  t(results_adf_drift$corp_debt@teststat), results_adf_drift$corp_debt@cval)
+                  results_adf_drift$splong@cval)
 colnames(drift_test) = c(names(results_adf_drift), "CV 1pct", "CV 5pct", "CV 10pct")
 stargazer(drift_test, type='text')
 # stargazer(drift_test, out='TABLES/adf_drift.tex', label= 'tab:adfdrift_hyp',title = "ADF test - 2nd regression with drift and stochastic trend")
@@ -135,8 +134,10 @@ stargazer(t_values_table2,type='text') #all ok
 #           notes = '\\footnotesize Notes: With N=396, critical values at 5\\%: alpha = 2.53 ; gamma= -2.88',
 #           label='tab:tstat_drift')
 
-adf_v3 = adf_v2[1:4] #series to keep testing
-names(adf_v3) = names(adf_v2[1:4])
+
+
+adf_v3 = adf_v2 #series to keep testing (They are the same but oh well, I had a different pipeline with the other series)
+names(adf_v3) = names(adf_v2)
 
 
 ### ADF 3rd regression: UR only
@@ -203,8 +204,8 @@ stargazer(trend_deltas, type='text')
 # use stl function to perform the decompositions and then OLS to estimate parameters
 
 #### Series in levels that are stationary. 
-i0_levels = list(allts$infl_e, allts$deflator, allts$corp_debt) #from adf!
-names(i0_levels) = c('infl_e', "deflator", "corp_debt")
+i0_levels = list(allts$infl_e, allts$deflator) #from adf!
+names(i0_levels) = c('infl_e', "deflator")
 
 decompositions = list() #store the decompositions 
 dec_graphs= list() #store the decomposition graphs 

@@ -121,7 +121,7 @@
 
 
 \section*{Introduction} \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
-\textcolor{blue}{something, probably describe how all applications make sense one after the other and what is the research question we could have made ourselves when doing the applications, try to give a coherent look to the whole thing.}
+\textcolor{blue}{something, probably describe how all applications make sense one after the other and what the research question we could have made ourselves when doing the applications, try to give a coherent look to the whole thing.}
 
 This document compiles all our applications for the Financial Econometrics course. 
 Each section represents a specific application, but we tried to make them coherent across them around a broad question: 
@@ -140,19 +140,19 @@ We use the following series retreived for the most part from FRED with its Pytho
 
 \paragraph{Inflation Expectation [MICH]}
 This data series is made public by the University of Michigan from their Survey of Consumers. 
-The series represent the median expected value of the percent change in prices over teh next year. 
+The series represents the median expected value of the percent change in prices over the next year. 
 The series is not seasonally adjusted.
 
 
 \paragraph{GDP deflator [A191RI1Q225SBEA]}  
-As a measure of inflation, we decided to use the implicit price deflator of teh US GDP. 
-Unlike measures like the CPI deflators do not consider baskets of goods and therefore are broader measures of the price changes across all the economy that measure teh ratio of the GDP in value and in volume. 
-It is a measure produced by the US Bureau of Economic Analysis as a quaterly measure in percent change QoQ. 
+As a measure of inflation, we decided to use the implicit price deflator of the US GDP. 
+Unlike measures like the CPI deflators do not consider baskets of goods and therefore are broader measures of the price changes across the entire economy that measure the ratio of the GDP in value and volume. 
+It is a measure produced by the US Bureau of Economic Analysis as a quarterly measure of percent change QoQ. 
 The raw series is already seasonally adjusted at an annual rate. 
 
 
 \paragraph{Unemployment rate [UNRATENSA]}
-It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. 
+It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in the continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. 
 The source is the 'Current Population Survey (Household Survey)' of the US Bureau of Labor Statistics
 
 
@@ -160,11 +160,12 @@ The source is the 'Current Population Survey (Household Survey)' of the US Burea
 
 \paragraph{S\&P 500 price}
 
+\begin{comment}
 \paragraph{Corporate Debt Returns [BAMLCC0A0CMTRIV]}
 The series represents the total returns of the debt index ICE Bank of America US Corporate Index value. 
-This capitalization-weighted index tracks the performance if teh following debt instruments\footnote{Taken from the \href{https://fred.stlouisfed.org/series/BAMLCC0A0CMTRIV}{FRED's website} }: 
+This capitalization-weighted index tracks the performance if the following debt instruments\footnote{Taken from the \href{https://fred.stlouisfed.org/series/BAMLCC0A0CMTRIV}{FRED's website} }: 
     \begin{itemize}
-        \item[-] Of corporate debt issued in USD in the US domestic market with an investment grade rating\footnote{To be considered to have an investment grade ranking to enter the index, the company and the country must be considered investment grade by the average of the ratings of Fitch, S\&P and Moody's.}. It must have a remaining maturity of at least one year, a fixed-coupon and an outstanding amount of at least 250 million dollars.
+        \item[-] Of corporate debt issued in USD in the US domestic market with an investment grade rating\footnote{To be considered to have an investment grade ranking to enter the index, the company and the country must be considered investment grade by the average of the ratings of Fitch, S\&P and Moody's.}. It must have a remaining maturity of at least one year, a fixed coupon and an outstanding amount of at least 250 million dollars.
         \item[-] Of original zero-coupon bonds ussued simultaneously in the US and the Eurobond market. 
         \item[-] Of 144a securities and pay-in-kind securities, including toggle notes, that can only be traded bu qualified institutional buyers with large portfolios. 
         \item[-] Of callable perpetual securities if they are at least one year from the first call date. 
@@ -173,7 +174,7 @@ This capitalization-weighted index tracks the performance if teh following debt 
 
 The data's source is ICE Data Indices, and it is a daily series with close prices.
 It is not seasonally adjusted. 
-
+\end{comment}
 
 
 
@@ -183,7 +184,7 @@ It is not seasonally adjusted.
 As for any time series analysis, the first analysis to perform is regarding the presence of unit roots in the series that would make them non-stationary. 
 To do so, we perform the Augmented Dickey-Fuller tests that evaluate the presence of a stochastic trend (a unit root), a deterministic trend, and an intercept or drift. 
 Importantly, this test requires estimating three equations/specifications because it requires investigating the joint presence of both types of trends and drift, for them to discard elements one by one.
-Each specification test a different data generating process of the series. 
+Each specification tests a different data-generating process of the series. 
 For all specifications, the main null hypothesis H0 is that the series exhibits a UR. 
 The inference with this test is non-standard and requires to use of corrected critical values to assess significance with the t-statistics. 
 
@@ -199,7 +200,7 @@ As per usual, the ADF test assumes H0: $\gamma =0$ i.e. a unit root exists and t
 We use R's built-in function \texttt{ur.df} with \texttt{type='trend'} to get this estimation. This function gives us (i) a regression table per series and (ii) a summary table with the following test statistics: 
     \begin{itemize}
         \item[-] tau3 refers to the t-statistic associated to H0: $\gamma =0$ i.e. the presence of a UR. H1 refers to the absence of said UR.
-        \item[-] phi2 refers to the F-statistic associated to H0: $\alpha = \beta = \gamma =0$ \footnote{As with all F test, the alternative hypothesis is that at least one of these coefficients in non-null. Since this is general, we don't explicitly signal the H1 hereafter.}
+        \item[-] phi2 refers to the F-statistic associated with H0: $\alpha = \beta = \gamma =0$ \footnote{As with all F-tests, the alternative hypothesis is that at least one of these coefficients is non-null. Since this is general, we don't explicitly signal the H1 hereafter.}
         \item[-] phi3 is also an F-statistic, now associated to H0: $\beta =\gamma = 0$  
     \end{itemize}
 Remark that the critical value in both tables can be a little different. This is because they are sensitive to the number of observations in each series. In Table \ref{tab:adftrend_hyp}, the critical values correspond to those provided directly by R and are associated with $N=500$, while in Table \ref{tab:tstat_trend} we give the values for $N=250$. Since we have 396 data points per series we preferred to refer to the higher critical values but it does not change the analysis done.
@@ -213,24 +214,24 @@ Let us examine each series' results, summarized in the following tables:
 \paragraph{GDP}
 We have $t_\gamma = -2.15 > -3.42$ we cannot reject the presence of a UR (H0). 
 We shall note that phi2 ie that all coefficients are null is rejected since $F_{phi2} = 14.496 > 4.71$ while phi3 ($\gamma = \beta =0$) is not ($F_{phi3} = 2.388 < 6.3$). 
-This suggest the absence of a deterministic trend which is confirmed when assessing the significance of $\beta$ using the its non-standard critical value $|t_\beta| = 2.094 < 2.79$ (nullity, ie H0 cannot be rejected). 
+This suggests the absence of a deterministic trend which is confirmed when assessing the significance of $\beta$ using its non-standard critical value $|t_\beta| = 2.094 < 2.79$ (nullity, ie H0 cannot be rejected). 
 These results require us to keep testing the series with the next specification of the test. 
 
 
 \paragraph{Disposable personal income}
-Simiarly as before we find $t_\gamma = -2.694 > -3.42$ and we fail to reject H0. 
+Similarly as before we find $t_\gamma = -2.694 > -3.42$ and we fail to reject H0. 
 Regarding the joint nullity tests as before we reject phi2 ($F_{phi2} = 7.88 > 4.71$) and cannot reject phi3 ($F_{phi3} = 3.849 < 6.3$). 
 We also fail to reject the nullity of $\beta$ as $|t_\beta| = 2.577 < 2.79$ and we shall test this series moving forward. 
 
 
 \paragraph{Inflation expectation} 
 We find $t_\gamma = -4.65 < -3.43$ we reject H0 ie we can't say that the series has a UR. 
-The F-statistics of phi2 and phi3 leads us to reject the their null hypothesis: $F_{phi2} = 7.375 > 4.71$, $F_{phi3} = 11.061 > 6.3$, leading us to believe that the series has either a drift and/or a deterministic trend. 
-We therefore compare the t-statistics associated with $\alpha$ and $\beta$ to the standard interest threshold (the critical values below Table \ref{tab:tstat_trend} are conditional on having a UR). Since $|t_\alpha| = 4.004 > 1.96$ and $|t_\beta| = 1.265 < 1.96$, we fail to reject the presence of a deterministic trend while the drift term is significantlly different from zero. 
+The F-statistics of phi2 and phi3 lead us to reject their null hypothesis: $F_{phi2} = 7.375 > 4.71$, $F_{phi3} = 11.061 > 6.3$, leading us to believe that the series has either a drift and/or a deterministic trend. 
+We, therefore, compare the t-statistics associated with $\alpha$ and $\beta$ to the standard interest threshold (the critical values below Table \ref{tab:tstat_trend} are conditional on having a UR). Since $|t_\alpha| = 4.004 > 1.96$ and $|t_\beta| = 1.265 < 1.96$, we fail to reject the presence of a deterministic trend while the drift term is significantly different from zero. 
 We conclude that the series is \emph{stationnary with a constant and without a deterministic trend}.
 
 
-%Note that the F-statistic corresponding to the nullity of all the coefficients of interest (phi2) leads us to reject H0: $\alpha=\beta=\gamma=0$ (same for phi3) , 
+%Note that the F-statistic corresponding to the nullity of all the coefficients of interest (phi2) leads us to reject H0: $\alpha=\beta=\gamma=0$ (same for phi3), 
 %While we fail to reject that $\beta=0$ ($|t_\beta| = 1.35 < 1.95$ i.e. we don't have evidence of the existence of a deterministic trend), we can reject the nullity of $\alpha$ suggesting that we have a drift. 
     
 
@@ -247,15 +248,15 @@ We conclude that the series is \emph{stationary with a constant and without a de
 
 \paragraph{Fed fund rate}  
 $t_\gamma = -1.709 > -3.43$, we are in the same situation as the previous series where we cannot reject the existence of a UR. 
-Because we cannot reject phi2 nor phi3 ($F_{phi2} = 2.015 <4.71, \: F_{phi3} = 2.917 <6.3$) we need to continue testing this series with the other specifications as we don't reject the existence of a stochastic trend and we cannnot reject the nulity of the trend coefficient ($|t_\beta| = 0.181 < 2.79$).
+Because we cannot reject phi2 nor phi3 ($F_{phi2} = 2.015 <4.71, \: F_{phi3} = 2.917 <6.3$) we need to continue testing this series with the other specifications as we don't reject the existence of a stochastic trend and we cannnot reject the nullity of the trend coefficient ($|t_\beta| = 0.181 < 2.79$).
 
 
 \paragraph{S\&P500}
 Without many surprises for price series, $t_\gamma = -1.975 > -3.43$ and we cannot reject the existence of a UR. 
-Moreover, $F_{phi2} = 3.875< 4.71$ and $F_{phi3} = 1.997 < 6.3$ (non-rejection of the null for both tests) leads to conclude that at least one of these coefficients are non-null (note that $|t_\beta| = 1.726 < 2.79$ and thus we cannot reject the nullity of $\beta$). 
+Moreover, $F_{phi2} = 3.875< 4.71$ and $F_{phi3} = 1.997 < 6.3$ (non-rejection of the null for both tests) leads to conclude that at least one of these coefficients is non-null (note that $|t_\beta| = 1.726 < 2.79$ and thus we cannot reject the nullity of $\beta$). 
 We continue testing this series with the second specification of the test.
 %Given the shape of the series, we decided to keep testing the presence of a UR in the second step of the ADF test.
-%we do not reject the existence of a deterministic trend and we continue testing.
+% We do not reject the existence of a deterministic trend and we continue testing.
 
 \begin{comment}
 \paragraph{Corporate debt}
@@ -297,11 +298,11 @@ Since $\gamma$ is still significantly different from zero using the standard thr
 \paragraph{GDP}
 We fail to reject the main null hypothesis (tau2) as $t_\gamma = -0.621 > -2.88$.
 Moreover, we do reject the joint nullity of $\alpha$ and $\gamma$ as $F_{phi1} = 19.382 > 6.470$. 
-Since we cannot reject the nullity of the drift term ($|t_\alpha| = 0.983< 2.53$), we shall use teh last specification of the test on this series. 
+Since we cannot reject the nullity of the drift term ($|t_\alpha| = 0.983< 2.53$), we shall use the last specification of the test on this series. 
 
 
 \paragraph{Disposable personal income}
-We fall in exactly the same situation as with the previous series as tau2 is not rejected $t_\gamma = -1.02 > -2.88$ while phi1 is $F_{phi1} = 8.378 > 6.470$ and $\alpha$ is non-significant ($|t_\alpha| = 1.127< 2.53$). 
+We fall in the same situation as with the previous series as tau2 is not rejected $t_\gamma = -1.02 > -2.88$ while phi1 is $F_{phi1} = 8.378 > 6.470$ and $\alpha$ is non-significant ($|t_\alpha| = 1.127< 2.53$). 
 We therefore also test this series with the last test specification.
 
 
@@ -362,14 +363,14 @@ Similarly, we find $t_\gamma = 2.647> -1.95$ and we cannot reject H0 and conclud
 
 \subsubsection{Check stationarity of the series in deltas if UR in levels}
 
-To conclude that the previous three series are indeed I(1), we need to check that the series of their first differences are stationary (i.e. the series in deltas). 
+Finally, to properly conclude that the previous series with UR are indeed I(1), we need to check that the series of their first differences are stationary (i.e. the series in deltas is I(0)). 
 We perform the same ADF procedure to test these transformed series. 
 
 \input{TABLES/adf_deltas.tex}
 
 Table \ref{tab:adfdeltas_hyp} reports the test results in the first specification of the ADF test. 
 We easily see that all the $t_\gamma$ (the statistic on tau3) are sufficiently negative to reject H0 and conclude that none of the differentiated series has a UR. 
-This is sufficient to conclude that the series on the Fed fund rate, on the returns of the S\&P500, and on the return of corporate debt are indeed \emph{integrated of order one}. 
+This is sufficient to conclude that the series of GDP, of real disposable individual income, of the Fed fund rate, and of the returns of the S\&P500 are indeed \emph{integrated of order one}. 
 
 
 
@@ -378,26 +379,38 @@ This is sufficient to conclude that the series on the Fed fund rate, on the retu
 
 \subsection{Decomposition of the series}
 
-All (monthly\footnote{One should adapt the number of indicators in the seasonal components according to the data frequency.}) time series de can be decomposed in the following elements: 
+All (monthly\footnote{One should adapt the number of indicators in the seasonal components according to the data frequency. To avoid multicollinearity issues, the number of dummies must be one less than the frequency of the series: here we have only 11 indicators.}) time series de can be decomposed into the following elements: 
     \begin{equation*}
-        X_t =  \underbrace{\alpha}_{\text{drift}} + \underbrace{\beta \times t}_{\text{deterministic trend}} + \underbrace{\gamma Tt}_{\text{stochastic trend}} + \underbrace{\Sigma_{i=1}^{11} \rho_i \1_{m_i}}_{\text{seasonality}} + \underbrace{c_i}_{\text{cyclical component}}
+        X_t =  \underbrace{\alpha}_{\text{drift}} + \underbrace{\beta \times t}_{\text{deterministic trend}} + \underbrace{\gamma Tt}_{\text{stochastic trend}} + \underbrace{\Sigma_{i=1}^{11} \rho_i \1_{\text{month = }i}}_{\text{seasonality}} + \underbrace{c_t}_{\text{cyclical component}}
     \end{equation*}
 
-Remark that according to definitions, the deterministic might as well include the drift/constants $\alpha$.
-Also, distinguishing the presence of a deterministic and stochastic trend needs to be done jointly and with specific procedures (see Section \ref{sec:adf} for the implementation of the ADF unit root tests). 
+Remark that the coefficients in the previous equation need not be the same as in the ADF test (the variable on the left-hand side is now in levels while AD tests the series in deltas). 
+
+We will apply this decomposition to stationary series. Therefore, the stochastic term $\gamma Tt = 0 $ for all series.
+
+%Remark that according to definitions, the deterministic might as well include the drift/constants $\alpha$.
+%Also, distinguishing the presence of a deterministic and stochastic trend needs to be done jointly and with specific procedures (see Section \ref{sec:adf} for the implementation of the ADF unit root tests). 
 
 Using R's built-in function \texttt{stl}\footnote{Seasonal Decomposition of Time Series by Loess}, we can decompose the time series. 
-The results are plotted in Figure \ref{fig:decomposition}.
+The results are plotted in Figure \ref{fig:all_decompvf}.
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.9\textwidth}
+    \includegraphics[width=0.95\textwidth]{IMAGES/all_decompositions.png}
+    \caption{Time series decomposition of stationary series (levels and deltas)}
+    \label{fig:all_decompvf}
+\end{figure}
+
+\begin{comment} #subfigures with decompositions
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_i.png}
         \caption*{}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.9\textwidth}
+    \begin{subfigure}[b]{0.7\textwidth}
         \centering
         \includegraphics[width=\textwidth]{IMAGES/decomposition_ii.png}
         \caption*{}
@@ -406,12 +419,22 @@ The results are plotted in Figure \ref{fig:decomposition}.
     \caption{Time series decomposition}
     \label{fig:decomposition}
 \end{figure}
+\end{comment}
 
+    \subsubsection{Estimation of the parameters in the stationary series}
 
-    \subsubsection{Estimationof the parameters in the stationary series}
+We perform we estimate the following regression to test the significance of the deterministic trend, drift and seasonal components:
+    \begin{equation*}
+        X_t = \alpha + \beta \times t + \sum_{i=1}^{11} \rho_i \1_{\text{month}=i} +c_t
+    \end{equation*}
+
+The results of this estimation are found in Table \ref{tab:ols_dec_levels} for the series that are I(0) in levels, and in Table \ref{tab:tab:ols_tab:ols_dec_deltas}
+
+\input{TABLES/ols_decomp_levels}
+\input{TABLES/ols_decomp_deltas}
 
 \begin{comment}
-    \subsubsection{Seasonality} \label{sec:adf}
+{Seasonality} \label{sec:adf}
 
 From the decompositions made in the previous section, in Figure \ref{fig:decomposition} we can see that R picks up small seasonal variations in each series (the values on the y-axis are rather very small). 
 The estimations of the seasonal coefficients are reported in Table \ref{tab:seasons}, which indeed shows very small coefficients.
