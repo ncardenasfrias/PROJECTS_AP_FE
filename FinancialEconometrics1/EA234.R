@@ -237,37 +237,36 @@ summary(var_model1)
 
 ######## EMPIRICAL APPLICATION 3 (after johansen no coint) 
 
-# Selecting the same I(1) components that we have have tested for unit roots
+# Selecting the same I(1) components as in Empirical Analysis 2
 var_data2 <- data.frame(
+    splong = allts$splong, 
     gdp = allts$gdp, 
-    dpi = allts$dpi, 
     rate = allts$rate
 )
 
 # Differencing the data to achieve stationarity
-diff_var_data2 <- diff(var_data2, differences = 1)
+diff_var_data3 <- diff(var_data2, differences = 1)
 
 # Identify the order of the VAR model
 var_order2 <- VARselect(diff_var_data2, lag.max = 10, type = "both")$selection
 
 # Estimate the VAR model
 var_model2 <- VAR(diff_var_data2, p = var_order2, type = "both")
-summary(var_model2)
+summary(var_model3)
 
-# Causality Tests
+# Causality Tests for the modified model
 
 # Causality test between GDP and Federal Reserve Rate
-causality_gdp_rate <- causality(var_model2, cause = "gdp", effect = "rate")
-print(causality_gdp_rate)
+causality_gdp_rate2 <- causality(var_model2, cause = "gdp", effect = "rate")
+print(causality_gdp_rate2)
 
-# Causality test between GDP and Disposable Personal Income
-causality_gdp_dpi <- causality(var_model2, cause = "gdp", effect = "dpi")
-print(causality_gdp_dpi)
+# Causality test between SPLong and GDP
+causality_splong_gdp <- causality(var_model2, cause = "splong", effect = "gdp")
+print(causality_splong_gdp)
 
-# Causality test between Federal Reserve Rate and Disposable Personal Income
-causality_rate_dpi <- causality(var_model2, cause = "rate", effect = "dpi")
-print(causality_rate_dpi)
-
+# Causality test between SPLong and Federal Reserve Rate
+causality_splong_rate <- causality(var_model2, cause = "splong", effect = "rate")
+print(causality_splong_rate)
 
 ###### EMPIRICAL APPLICATION 4
 
