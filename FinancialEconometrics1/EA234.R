@@ -245,14 +245,14 @@ var_data2 <- data.frame(
 )
 
 # Differencing the data to achieve stationarity
-diff_var_data3 <- diff(var_data2, differences = 1)
+diff_var_data2 <- diff(var_data2, differences = 1)
 
 # Identify the order of the VAR model
 var_order2 <- VARselect(diff_var_data2, lag.max = 10, type = "both")$selection
 
 # Estimate the VAR model
 var_model2 <- VAR(diff_var_data2, p = var_order2, type = "both")
-summary(var_model3)
+summary(var_model2)
 
 # Causality Tests for the modified model
 
