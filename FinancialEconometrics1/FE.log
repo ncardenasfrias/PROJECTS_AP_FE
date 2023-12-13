@@ -1005,4 +1005,69 @@ Package pdftex.def Info: IMAGES/acf_rate.png  used on input line 559.
 File: IMAGES/acf_sp.png Graphic file (type png)
 <use IMAGES/acf_sp.png>
 Package pdftex.def Info: IMAGES/acf_sp.png  used on input line 565.
-(pdftex.def)             Request
+(pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:pacf_all' on page 9 undefined on input line 581.
+
+
+LaTeX Warning: Reference `sec:BIC_tables' on page 9 undefined on input line 584.
+
+[9] [10] [11] [12 <./IMAGES/pacf_infl.png> <./IMAGES/pacf_defl.png> <./IMAGES/pacf_gdp.png> <./IMAGES/pacf_dpi.png> <./IMAGES/pacf_rate.png> <./IMAGES/pacf_sp.png>] (./TABLES/all_arma.tex)
+
+LaTeX Warning: Reference `tab:ljungbox' on page 13 undefined on input line 603.
+
+(./TABLES/ljuung_box.tex [13 <./IMAGES/acf_infl.png> <./IMAGES/acf_defl.png> <./IMAGES/acf_gdp.png> <./IMAGES/acf_dpi.png> <./IMAGES/acf_rate.png> <./IMAGES/acf_sp.png>]) [14] [15] [16] [17] (./TABLES/BIC_arma_infl.tex) (./TABLES/BIC_arma_deflator.tex) (./TABLES/BIC_arma_gdp.tex) (./TABLES/BIC_arma_dpi.tex
+Overfull \hbox (358.5803pt too wide) in paragraph at lines 7--27
+ [][] 
+ []
+
+) (./TABLES/BIC_arma_rate.tex) (./TABLES/BIC_arma_sp.tex) [18] [19] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 674.
+ (./DataCleaning.py [20] [21]) [22] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+) (./Backup.R
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 21.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]) [34] (./FE.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 22758 strings out of 478268
+ 368953 string characters out of 5846347
+ 1375159 words of memory out of 5000000
+ 39801 multiletter control sequences out of 15000+600000
+ 520736 words of font info for 77 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 84i,11n,117p,1270b,2865s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
+
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
+Output written on FE.pdf (34 pages, 3666586 bytes).
+PDF statistics:
+ 1159 PDF objects out of 1200 (max. 8388607)
+ 1058 compressed objects within 11 object streams
+ 716 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
+
