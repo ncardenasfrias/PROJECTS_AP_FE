@@ -290,3 +290,12 @@ plot(irf_var_model2, main = "Impulse Responses for VAR Model 2")
 
 # Resetting the plotting layout
 par(mfrow=c(1,1))
+
+#####EMPIRICAL 4BIS 
+
+# Perform the Cholesky decomposition for impulse response analysis, structural Blanchard & Quan not needed as there's no cointegration
+# Set n.ahead to the number of periods for forecasting
+impulse_responses <- irf(var_model2, n.ahead = 20, boot = TRUE, ci = 0.95, runs = 100, impulse = "cholesky")
+
+# Plot the impulse responses
+plot(impulse_responses)
