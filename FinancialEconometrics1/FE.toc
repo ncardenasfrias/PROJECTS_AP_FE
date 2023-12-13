@@ -4,12 +4,11 @@
 \contentsline {subsection}{\numberline {1.1}Data}{3}{subsection.1.1}%
 \contentsline {paragraph}{Inflation Expectation [MICH]}{3}{subsection.1.1}%
 \contentsline {paragraph}{GDP deflator [A191RI1Q225SBEA]}{3}{subsection.1.1}%
-\contentsline {paragraph}{Unemployment rate [UNRATENSA]}{3}{subsection.1.1}%
-\contentsline {paragraph}{FED fund rate}{3}{subsection.1.1}%
+\contentsline {paragraph}{FED fund rate [DFF]}{3}{subsection.1.1}%
 \contentsline {paragraph}{S\&P 500 price}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Unit root and trends}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Unit root and trends}{3}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}ADF - Test jointly for deterministic and stochastic trend (with drift)}{4}{subsubsection.1.2.1}%
-\contentsline {paragraph}{GDP}{5}{table.caption.2}%
+\contentsline {paragraph}{GDP}{4}{table.caption.2}%
 \contentsline {paragraph}{Disposable personal income}{5}{table.caption.2}%
 \contentsline {paragraph}{Inflation expectation}{5}{table.caption.2}%
 \contentsline {paragraph}{GDP deflator}{5}{table.caption.2}%
@@ -19,7 +18,7 @@
 \contentsline {paragraph}{GDP}{6}{table.caption.4}%
 \contentsline {paragraph}{Disposable personal income}{6}{table.caption.4}%
 \contentsline {paragraph}{Fed fund rate}{6}{table.caption.4}%
-\contentsline {paragraph}{S\&P500}{7}{table.caption.4}%
+\contentsline {paragraph}{S\&P500}{6}{table.caption.4}%
 \contentsline {subsubsection}{\numberline {1.2.3}ADF - Test for stochastic trend only}{7}{subsubsection.1.2.3}%
 \contentsline {paragraph}{GDP}{7}{table.caption.5}%
 \contentsline {paragraph}{Disposable personal income}{7}{table.caption.5}%
@@ -29,13 +28,14 @@
 \contentsline {subsection}{\numberline {1.3}Decomposition of the series}{8}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Estimation of the parameters in the stationary series}{8}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Cyclical component}{12}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Canonical VAR model application}{13}{section.2}%
-\contentsline {section}{\numberline {3}Cointegration theory}{13}{section.3}%
-\contentsline {section}{\numberline {4}Impulse Response Analysis}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Canonical IRF}{14}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Structural IRF}{14}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Introduce non-linearities}{15}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Markov-switching model}{15}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}STR model}{15}{subsection.5.2}%
-\contentsline {section}{Appendix \numberline {A}Code - Data Cleaning}{17}{appendix.a.A}%
-\contentsline {section}{Appendix \numberline {B}Code - Analysis 1}{21}{appendix.a.B}%
+\contentsline {section}{\numberline {2}Canonical VAR model application}{15}{section.2}%
+\contentsline {section}{\numberline {3}Cointegration theory}{15}{section.3}%
+\contentsline {section}{\numberline {4}Impulse Response Analysis}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Canonical IRF}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Structural IRF}{16}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Introduce non-linearities}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Markov-switching model}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}STR model}{17}{subsection.5.2}%
+\contentsline {section}{Appendix \numberline {A}Section 1 - Additional tables}{18}{appendix.a.A}%
+\contentsline {section}{Appendix \numberline {B}Code - Data Cleaning}{20}{appendix.a.B}%
+\contentsline {section}{Appendix \numberline {C}Code - Analysis 1}{23}{appendix.a.C}%

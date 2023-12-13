@@ -295,19 +295,19 @@ stargazer(arma_bic_infl, type='text', flip=T)
 #           out= 'TABLES/BIC_arma_infl.tex', label="tab:bic_infl",
 #           title= "Information criteria on the parameters of ARMA for infl-e")
 
-#deflator (too slow, I commented the line to avoid breaking everything)
-arma_bic_defl = critMatrix(i0_levels_no_drift$deflator, p.max = 2, q.max = 18, criterion='bic')
+#deflator 
+arma_bic_defl = critMatrix(i0_levels_no_drift$deflator, p.max = 5, q.max = 18, criterion='bic')
 stargazer(arma_bic_defl, type='text', flip=T)
-stargazer(arma_bic_infl, type='latex', flip=T,
-          out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
-          title= "Information criteria on the parameters of ARMA for GDP deflator")
+# stargazer(arma_bic_infl, type='latex', flip=T,
+#           out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
+#           title= "Information criteria on the parameters of ARMA for GDP deflator")
 
 
 ## fit ARMA model 
 arma_infl = arima(i0_levels_no_drift$infl_e, order= c(1,0,0))
 stargazer(arma_infl, type='text')
 
-arma_defl = arima(i0_levels_no_drift$infl_e, order= c(1,0,0))
+arma_defl = arima(i0_levels_no_drift$infl_e, order= c(2,0,1))
 stargazer(arma_defl, type='text')
 
 
@@ -463,44 +463,62 @@ stargazer(arma_rate, type='text')
 arma_sp = arima(deltas_no_drift_trend$d_splong, order= c(0,0,1))
 stargazer(arma_sp, type='text')
 
-stargazer(arma_infl, arma_gdp, arma_dpi, arma_rate, arma_sp, type='text')
+
+#Export all to latex
+arma_all = list(arma_infl, arma_defl,  arma_gdp, arma_dpi, arma_rate, arma_sp)
+names(arma_all) = c('infl_e', 'deflator', 'd_gdp', 'd_dpi', 'd_rate', 'd_splong')
+
+stargazer(arma_all, type='text')
+# stargazer(arma_all, type='latex', out='TABLES/all_arma.tex', 
+#           title = 'ARMA model for the cyclical components', 
+#           label = 'tab:all_arma')
 
 
+## Residuals serially correlated? 
+model_names = c()
+p_values = c()
+# Loop through each ARMA model, perform Ljung-Box test, and store results
+for (i in seq_along(arma_all)) {
+  residuals = residuals(arma_all[[i]])
+  df = sum(arma_all[[i]]$arma)-12
+  ljung_box_test = Box.test(residuals, lag = 10, type = "Ljung-Box")
+  model_names = c(model_names, names(arma_all)[[i]])
+  p_values = c(p_values, ljung_box_test$p.value)
+}
+results_df = data.frame(Model = model_names, P_Value = p_values)
 
-## COINTEGRATION
+latex_table = xtable::xtable(results_df)
+print(latex_table, file="TABLES/ljuung_box.tex")
+
+
+###############
+#COINTEGRATION
+###############
+
+#Get df with all the I(1) series in levels
 levels_var = data.frame(
-  dpi = allts$dpi,
   gdp = allts$gdp,
+  dpi = allts$dpi,
   rate = allts$rate,
   splong = allts$splong)
 
-#levels_var$timestamp = time(deseasonalized_ts$deflator) 
-names_level = c('splong', 'rate', 'gdp', 'dpi')
+start_date = as.Date("1990-01-01")
+end_date = as.Date("2022-12-01") # Assuming December 2022
+all_dates = seq(start_date, end_date, by = "month")
+levels_var$date = all_dates
+rownames(levels_var) = levels_var$date #date as index
+levels_var$date = NULL
 
 lag_order = VARselect(levels_var)
 res = lag_order$criteria
 
 
 johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=10)
-summary(johansen_test)
+jo_sum = summary(johansen_test)
 # r is rank of matrix == number of cointegration relationship.
 #no cointegration
-johansen_table = xtable(johansensum)
-print(latex_table, file=file_path)
-
-
-
-test = data.frame(
-  i= allts$dpi, 
-  ii = allts$splong, 
-  iii = allts$gdp)
-
-VARselect(test)$selection
-summary(ca.jo(test, type='trace', ecdet='trend', K=20))
-
-
-
-
+johansen_table = xtable::xtable(summary(johansen_test))
+print(johansen_table, file="TABLES/cointegration.tex")
 
 
 

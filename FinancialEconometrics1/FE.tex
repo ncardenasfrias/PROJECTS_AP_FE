@@ -133,7 +133,7 @@ Each section represents a specific application, but we tried to make them cohere
 \section{Series Dynamics}\label{sec:dynamics}
 
 \subsection{Data}
-\textcolor{gray}{\emph{Note:} Depending on each exercise along these applications we might use different series. In this first section, we performed the stationarity and component analysis of all of them to be able to use them rapidly without having to worry about seasonality or the presence of UR. Therefore, this section encompasses more than the 3 series that were asked in the exercise.}
+\textcolor{gray}{\emph{Note:} Depending on each exercise along these applications we tried to use different series. We ended up testing more series than those taht we used therefore, this section encompasses more than the 3 series that were asked in the exercise.}
 
 In this work, we focus on the US market.
 We use the following series retreived for the most part from FRED with its Python API (FRED tickers are in square brakets) : 
@@ -151,12 +151,14 @@ It is a measure produced by the US Bureau of Economic Analysis as a quarterly me
 The raw series is already seasonally adjusted at an annual rate. 
 
 
-\paragraph{Unemployment rate [UNRATENSA]}
-It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in the continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. 
-The source is the 'Current Population Survey (Household Survey)' of the US Bureau of Labor Statistics
+%\paragraph{Unemployment rate [UNRATENSA]} It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in the continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. The source is the 'Current Population Survey (Household Survey)' of the US Bureau of Labor Statistics
 
 
-\paragraph{FED fund rate}
+\paragraph{FED fund rate [DFF]}
+Its source is the Board of Governors of the Federal Reserve System and it is a mayor tools in conducting monetary policy as it is interest rate at which banks and other depository institutions trade federal funds with each other overnight.
+It is the main interest rate in the financial market and influences other interest rates.
+The series is daily and expressed in percent. 
+
 
 \paragraph{S\&P 500 price}
 
@@ -372,6 +374,12 @@ Table \ref{tab:adfdeltas_hyp} reports the test results in the first specificatio
 We easily see that all the $t_\gamma$ (the statistic on tau3) are sufficiently negative to reject H0 and conclude that none of the differentiated series has a UR. 
 This is sufficient to conclude that the series of GDP, of real disposable individual income, of the Fed fund rate, and of the returns of the S\&P500 are indeed \emph{integrated of order one}. 
 
+Moving forward, we will have to use these series in first-differences for models requiring statioanry series.
+Note that for most of the series, these first-differences have the advantage of being easily interpretable. 
+Namely for the (log) GDP and (log) disposable personal income, their series in delatas is teh series of their growth rate. 
+For the S\&P500, the differenciated series are their rate of return. 
+However, the interpretation of differenciated series of the Fed fund rate (in levels it was already a rate in percent) is not trivial as it does not have any intrisic meaning.
+
 
 
 
@@ -579,7 +587,15 @@ Since all the series are stationary, we just set $d=0$ and the ARIMA models beco
 We get the following resuts: 
 \input{TABLES/all_arma.tex}
 
+Finally, we check that the residuals of the models aren't serially correlated using the Ljung–Box test that is available with R's \texttt{Box.test} function.
+This test poses as a null hypothesis H0 that the data tested is independently distributed i.e. in this case, since we test the residuals, that there is no serial correlation between them.
+The test results are found in Table \ref{tab:ljungbox}
 
+\input{TABLES/ljuung_box.tex}
+
+We cannot reject the null hypothesis in most of the models (p-values $< 0.05$) leading us to support the idea that for the inflation expectation, GDP growth, Fed fund rate and the return rate of the S\&P500, the ARMA models that we proposed before correctly captures the auto-correlation structure of their cyclical components.
+However, we do reject H0 for the GDP deflator and the growth rate of disposable personal income suggesting that our models are not adequate. 
+We couldn't find where the error might lie. 
 
 
 
@@ -592,11 +608,10 @@ We get the following resuts:
 
 
 \newpage
+\newpage
 \section{Canonical VAR model application}\label{sec:var}
 
-\input{TABLES/varorder_level.tex}
 
-\input{TABLES/estim_var_level.tex}
 
 \section{Cointegration theory}\label{sec:cointegration}
 
@@ -629,7 +644,7 @@ We get the following resuts:
 \newpage
 \begin{appendices}
 
-    \section*{Section 1 - Additional tables} \label{sec:BIC_tables}
+    \section{Section 1 - Additional tables} \label{sec:BIC_tables}
     \input{TABLES/BIC_arma_infl.tex}
 
     \input{TABLES/BIC_arma_deflator.tex}
@@ -642,11 +657,11 @@ We get the following resuts:
 
     \input{TABLES/BIC_arma_sp.tex}
 
-    
+    \newpage
     \section{Code - Data Cleaning} \label{sec:dta_clean}
         %\lstinputlisting[language=python]{DataCleaning.py}
         \lstinputlisting[language=Python]{DataCleaning.py}
-
+    \newpage
     \section{Code - Analysis 1}
         \lstinputlisting[language=R]{Backup.R}
 
