@@ -520,7 +520,7 @@ print(latex_table, file="TABLES/ljuung_box.tex")
 #Get df with all the I(1) series in levels
 levels_var = data.frame(
   gdp = allts$gdp,
-  dpi = allts$dpi,
+  #dpi = allts$dpi,
   rate = allts$rate,
   splong = allts$splong)
 
@@ -535,12 +535,12 @@ lag_order = VARselect(levels_var)
 res = lag_order$criteria
 
 
-johansen_test = ca.jo(levels_var, type='trace', ecdet='trend', K=10)
+johansen_test = ca.jo(levels_var, type='eigen', ecdet='trend', K=10)
 jo_sum = summary(johansen_test)
 # r is rank of matrix == number of cointegration relationship.
 #no cointegration
 johansen_table = xtable::xtable(summary(johansen_test))
-print(johansen_table, file="TABLES/cointegration.tex")
+# print(johansen_table, file="TABLES/cointegration.tex")
 
 
 
