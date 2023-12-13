@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1702501911 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702501935
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702501886 42240 6c733eed87be5319a1563d29cdbd434d ""
+["pdflatex"] 1702502082 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702502104
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702502056 42036 2be67417f5e934b9d1cd49bad2159c12 ""
   "/Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1684317458 6964 0913ddc31ddbb7d80f5e37a2187263c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
@@ -192,9 +192,9 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Backup.R" 1702490576 23303 5a124e14b3a5d5d994308b8420722f54 ""
   "DataCleaning.py" 1702327980 3752 f7b395486053c926bb07b5bbf39bd607 ""
-  "FE.aux" 1702501934 23875 aa24606741f5151e557388ac2124a058 "pdflatex"
-  "FE.tex" 1702501886 42240 6c733eed87be5319a1563d29cdbd434d ""
-  "FE.toc" 1702501934 3744 f781339776789f2eff2aed18da623f13 "pdflatex"
+  "FE.aux" 1702502104 23571 555e3778a10b939e77554d1b36902450 "pdflatex"
+  "FE.tex" 1702502056 42036 2be67417f5e934b9d1cd49bad2159c12 ""
+  "FE.toc" 1702502104 3677 d6ab43cc9638ab9f1a513e453cf94751 "pdflatex"
   "IMAGES/acf_defl.png" 1702396031 206063 6ce1dc789e7b555a1c1702db9c7248fa ""
   "IMAGES/acf_dpi.png" 1702419102 196811 7c77650b459bbe80e0dff9ac2f6d2ee4 ""
   "IMAGES/acf_gdp.png" 1702419102 198077 ecb00e7acb7426e5b6b51856ed13aca6 ""
