@@ -296,11 +296,11 @@ stargazer(arma_bic_infl, type='text', flip=T)
 #           title= "Information criteria on the parameters of ARMA for infl-e")
 
 #deflator (too slow, I commented the line to avoid breaking everything)
-arma_bic_defl = critMatrix(i0_levels_no_drift$deflator, p.max = 5, q.max = 18, criterion='bic')
+arma_bic_defl = critMatrix(i0_levels_no_drift$deflator, p.max = 2, q.max = 18, criterion='bic')
 stargazer(arma_bic_defl, type='text', flip=T)
-# stargazer(arma_bic_defl, type='latex', flip=T, 
-#           out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
-#           title= "Information criteria on the parameters of ARMA for GDP deflator")
+stargazer(arma_bic_infl, type='latex', flip=T,
+          out= 'TABLES/BIC_arma_deflator.tex', label="tab:bic_deflator",
+          title= "Information criteria on the parameters of ARMA for GDP deflator")
 
 
 ## fit ARMA model 
@@ -449,6 +449,21 @@ stargazer(arma_bic_sp, type='text', flip=F)
 #           out= 'TABLES/BIC_arma_sp.tex', label="tab:bic_sp",
 #           title= "Information criteria on the parameters of ARMA for d-splong")
 
+
+## fit ARMA model 
+arma_gdp = arima(deltas_no_drift_trend$d_gdp, order= c(0,0,2))
+stargazer(arma_gdp, type='text')
+
+arma_dpi = arima(deltas_no_drift_trend$d_dpi, order= c(2,0,1))
+stargazer(arma_dpi, type='text')
+
+arma_rate = arima(deltas_no_drift_trend$d_rate, order= c(1,0,1))
+stargazer(arma_rate, type='text')
+
+arma_sp = arima(deltas_no_drift_trend$d_splong, order= c(0,0,1))
+stargazer(arma_sp, type='text')
+
+stargazer(arma_infl, arma_gdp, arma_dpi, arma_rate, arma_sp, type='text')
 
 
 

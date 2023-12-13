@@ -29,13 +29,13 @@
 \contentsline {subsection}{\numberline {1.3}Decomposition of the series}{8}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Estimation of the parameters in the stationary series}{8}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Cyclical component}{12}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Canonical VAR model application}{12}{section.2}%
-\contentsline {section}{\numberline {3}Cointegration theory}{14}{section.3}%
+\contentsline {section}{\numberline {2}Canonical VAR model application}{13}{section.2}%
+\contentsline {section}{\numberline {3}Cointegration theory}{13}{section.3}%
 \contentsline {section}{\numberline {4}Impulse Response Analysis}{14}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Canonical IRF}{14}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Structural IRF}{14}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Introduce non-linearities}{14}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Markov-switching model}{14}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}STR model}{14}{subsection.5.2}%
-\contentsline {section}{Appendix \numberline {A}Code - Data Cleaning}{15}{appendix.a.A}%
-\contentsline {section}{Appendix \numberline {B}Code - Analysis 1}{20}{appendix.a.B}%
+\contentsline {section}{\numberline {5}Introduce non-linearities}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Markov-switching model}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}STR model}{15}{subsection.5.2}%
+\contentsline {section}{Appendix \numberline {A}Code - Data Cleaning}{17}{appendix.a.A}%
+\contentsline {section}{Appendix \numberline {B}Code - Analysis 1}{21}{appendix.a.B}%

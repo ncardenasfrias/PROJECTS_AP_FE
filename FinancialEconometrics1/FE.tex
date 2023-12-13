@@ -564,6 +564,20 @@ We took the previous significant lag as $\bar{p}$ to be able to get the informat
 
 We present the outputs of these comparitions tables per series in Appendix \ref{sec:BIC_tables} because they are a lot and they were making hard to read this section. 
 Remark that the palcement of the $p$s and $q$s can vary from one tabel to the next due to formatting issues. 
+We find that the orders $p$ and $q$ that minimize the nformation criteria are: 
+    \begin{itemize}
+        \item[-] Inflation expectation: $ARMA(1,0)$ (BIC = $236.04$)
+        \item[-] GDP Deflator: $ARMA(2,1)$ (BIC = 164.23)  
+        \item[-] GDP growth rate (\emph{d-gdp}): $ARMA(0,2)$ (BIC = -3556.28)
+        \item[-] Real disposable income growth rate (\emph{d-dpi}): $ARMA(2,1)$ (BIC=-2161.22)
+        \item[-] Fed Fund rate (\emph{d-rate}): $ARMA(1,1)$ (BIC = -413.58)
+        \item[-] S\&P500 rate (\emph{d-splong}): $ARMA(0,1)$ (BIC = -1509.36)
+    \end{itemize}
+
+With this information we can finally estimate these ARMA models using R's \texttt{arima} function. 
+Since all the series are stationary, we just set $d=0$ and the ARIMA models become ARMA. 
+We get the following resuts: 
+\input{TABLES/all_arma.tex}
 
 
 
@@ -577,7 +591,7 @@ Remark that the palcement of the $p$s and $q$s can vary from one tabel to the ne
 
 
 
-
+\newpage
 \section{Canonical VAR model application}\label{sec:var}
 
 \input{TABLES/varorder_level.tex}
@@ -588,7 +602,7 @@ Remark that the palcement of the $p$s and $q$s can vary from one tabel to the ne
 
 
 
-
+\newpage
 \section{Impulse Response Analysis}\label{sec:irf}
     \subsection{Canonical IRF}\label{sec:canonical_irf}
 
@@ -596,7 +610,7 @@ Remark that the palcement of the $p$s and $q$s can vary from one tabel to the ne
     \subsection{Structural IRF}\label{sec:structural_irf}
 
 
-
+\newpage
 \section{Introduce non-linearities}\label{sec:nonlinearities}
     \subsection{Markov-switching model}\label{sec:markov}
 
@@ -612,12 +626,13 @@ Remark that the palcement of the $p$s and $q$s can vary from one tabel to the ne
 
 
 \newpage
+\newpage
 \begin{appendices}
 
     \section*{Section 1 - Additional tables} \label{sec:BIC_tables}
     \input{TABLES/BIC_arma_infl.tex}
 
-    \input{TABLES/BIC_arma_infl.tex}
+    \input{TABLES/BIC_arma_deflator.tex}
 
     \input{TABLES/BIC_arma_gdp.tex}
 
