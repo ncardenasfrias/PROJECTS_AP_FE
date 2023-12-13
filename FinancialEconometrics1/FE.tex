@@ -644,20 +644,61 @@ We couldn't find where the error might lie.
 
 \newpage
 \newpage
-\section{Canonical VAR model application}\label{sec:var}
+\section{VARs}
+
+\textcolor{gray}{In this section we introduce several Vector Autoregressive models (VAR) corresponding to applications 2,3 and 4.}
+
+When it comes to economic fluctuations and financial market volatility, understanding the complex dynamics between financial indices and macroeconomic indicators is becoming increasingly crucial. This report aims to do an empirical analysis in the field of financial econometrics.Precisely, it employs a Vector Autoregression (VAR) model to examine the interactions among three key economic variables: the long-term S\&P 500 index (splong), a key index of the US Stock Market that represents the 500 largest companies by market cap, the Gross Domestic Product (gdp), and the Federal Reserve interest rate (rate), both of course of the United States. These three were chosen for their pronounced non-stationary characteristics and significant impact on economic analysis, and in the world itself, given that they all come from the largest economy in the world.
+
+%Utilizing the Augmented Dickey-Fuller (ADF) test, we analyzed these series for unit roots to determine their integration order. This step is essential in developing an accurate and reliable VAR model. The modeling of these series in levels or first differences depends on the ADF test outcomes, ensuring the model accurately reflects the data's time-dependent structure.
+
+This part of the empirical application, aims to uncover the complex relationships among these financial and macroeconomic variables. The main goal, is to have a better understanding of their collective behavior.
+
+
+\subsection{Stationarity of the series}
+
+We used series some of the series that  we introduced and analyzed in the previous section.
+We let teh reader go back to see the full procedure regarding the test of UR fir the series in question. 
+We shall recall that all three series of interest in this section i.e. \texttt{splong, rate \text{and} gdp} are I(1) series meaning that we would not be able to implement a Canonical VAR in levels. 
+We shall test for cointegration among the series to know if we can implement an error correcting version of the VAR models (VECM) that manages to handle and correct the errors induced by the presence of UR in the series with linear combinations of their stochastic trends. 
+If we do not find a cointegration relationship between the series, we need to move to a VAR using the series of first differences that are stationary. 
+
+\subsection{Cointegration test}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics*[width=0.75\textwidth]{IMAGES/coint_test.png}
+    \caption{Cointegration: Johansen test}
+\end{figure}
 
 
 
-\section{Cointegration theory}\label{sec:cointegration}
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Granger Causality Test Results}
+    \begin{tabular}{|l|c|c|}
+    \toprule
+    \textbf{Causality Test} & \textbf{F-Test} & \textbf{p-value} \\
+    \midrule
+    gdp $\rightarrow$ splong rate & $5.8032$ & $4.724 \times 10^{-11}$ \\
+    splong $\rightarrow$ gdp rate & $2.844$ & $0.0003251$ \\
+    rate $\rightarrow$ splong gdp & $3.7709$ & $2.993 \times 10^{-06}$ \\
+    \bottomrule
+    \end{tabular}
+    \label{tab:granger_results}
+\end{table}
 
 
 
-\newpage
-\section{Impulse Response Analysis}\label{sec:irf}
-    \subsection{Canonical IRF}\label{sec:canonical_irf}
 
 
-    \subsection{Structural IRF}\label{sec:structural_irf}
+
+
+
+
+
 
 
 \newpage

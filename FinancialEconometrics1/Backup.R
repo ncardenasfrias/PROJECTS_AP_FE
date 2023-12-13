@@ -2,7 +2,7 @@
 ##%% @ncardenasfrias
 
 # Load necessary packages and set personal path to documents
-pacman::p_load(data.table, tseries, smoots, dplyr, bootUR, urca, gridExtra, tidyverse, gplots, xts, stargazer, forecast, ggplot2, vars)
+pacman::p_load(data.table, tseries, reshape2, smoots, dplyr, bootUR, urca, gridExtra, tidyverse, gplots, xts, stargazer, forecast, ggplot2, vars)
 
 setwd('/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1')
 
@@ -46,7 +46,7 @@ allts[['corp_debt']] = NULL # we end up not using it and the UR test are weird
 desired_order = c('gdp', 'dpi', 'infl_e', 'deflator', 'rate', 'splong')
 allts = allts[desired_order]
 names = c('GDP', "Disposable Income", 'Inflation expectation', 'PIB deflator', 'Fed rate', 'SP500')
-rm(df, desired_order)
+
 
 #Remove outliers => IT DOES NOT CHANGE ANYTHING
 # tsclean(allts$infl_e, iterate = 2, lambda =NULL)
@@ -57,6 +57,28 @@ rm(df, desired_order)
 # tsclean(allts$corp_debt, iterate = 2, lambda =NULL)
 
 
+## Plot the series 
+df$sp500 = NULL
+df$corp_debt = NULL
+df$unempl = NULL
+df$rpi = NULL
+df$manufacturing = NULL
+
+desired_order = c("Date", desired_order)
+df <- df[, ..desired_order]
+
+df_long <- melt(df, id.vars = "Date")
+
+# Plotting the time series using ggplot with facet_wrap
+series_plot = ggplot(data = df_long, aes(x = Date, y = value, color = variable)) +
+  geom_line() +
+  facet_wrap(~variable, scales = "free_y", ncol = 2) +  # Adjust ncol as per your preference
+  labs(title = "Our Time Series", x = "Date", y = "Value") +
+  theme_minimal()  
+
+ggsave('IMAGES/plot_series.png', plot=series_plot, width = 12, height = 8)
+
+rm(df, df_long, desired_order)
 
 #################################
 #1.UR TEST - ADF, full procedure

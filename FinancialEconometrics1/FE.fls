@@ -1258,8 +1258,8 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT FE.toc
+INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplb.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplri.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/tex-gyre/rm-qplr.tfm
@@ -1390,6 +1390,11 @@ INPUT ./TABLES/ljuung_box.tex
 INPUT TABLES/ljuung_box.tex
 INPUT ./TABLES/ljuung_box.tex
 INPUT TABLES/ljuung_box.tex
+INPUT ./IMAGES/coint_test.png
+INPUT ./IMAGES/coint_test.png
+INPUT IMAGES/coint_test.png
+INPUT ./IMAGES/coint_test.png
+INPUT ./IMAGES/coint_test.png
 INPUT ./TABLES/BIC_arma_infl.tex
 INPUT TABLES/BIC_arma_infl.tex
 INPUT ./TABLES/BIC_arma_infl.tex

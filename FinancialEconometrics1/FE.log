@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  13 DEC 2023 18:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.6)  13 DEC 2023 21:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -878,14 +878,14 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 118.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./FE.toc [1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+) (./FE.toc)
 \tf@toc=\write3
 \openout3 = `FE.toc'.
 
- [2] [3]
-<IMAGES/plot_series.png, id=68, 3613.5pt x 2409.0pt>
+ [1
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+<IMAGES/plot_series.png, id=64, 3613.5pt x 2409.0pt>
 File: IMAGES/plot_series.png Graphic file (type png)
 <use IMAGES/plot_series.png>
 Package pdftex.def Info: IMAGES/plot_series.png  used on input line 208.
@@ -895,7 +895,7 @@ LaTeX Font Info:    Trying to load font information for U+bbm on input line 427.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<IMAGES/all_decompositions.png, id=120, 3613.5pt x 4818.0pt>
+<IMAGES/all_decompositions.png, id=116, 3613.5pt x 4818.0pt>
 File: IMAGES/all_decompositions.png Graphic file (type png)
 <use IMAGES/all_decompositions.png>
 Package pdftex.def Info: IMAGES/all_decompositions.png  used on input line 442.
@@ -909,32 +909,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Text page 10 contains only floats.
 
 [10 <./IMAGES/all_decompositions.png>]) (./TABLES/ols_decomp_deltas) [11] [12]
-<IMAGES/pacf_infl.png, id=148, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_infl.png, id=144, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_infl.png Graphic file (type png)
 <use IMAGES/pacf_infl.png>
 Package pdftex.def Info: IMAGES/pacf_infl.png  used on input line 509.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/pacf_defl.png, id=149, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_defl.png, id=145, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_defl.png Graphic file (type png)
 <use IMAGES/pacf_defl.png>
 Package pdftex.def Info: IMAGES/pacf_defl.png  used on input line 515.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/pacf_gdp.png, id=150, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_gdp.png, id=146, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_gdp.png Graphic file (type png)
 <use IMAGES/pacf_gdp.png>
 Package pdftex.def Info: IMAGES/pacf_gdp.png  used on input line 522.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/pacf_dpi.png, id=151, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_dpi.png, id=147, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_dpi.png Graphic file (type png)
 <use IMAGES/pacf_dpi.png>
 Package pdftex.def Info: IMAGES/pacf_dpi.png  used on input line 528.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/pacf_rate.png, id=152, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_rate.png, id=148, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_rate.png Graphic file (type png)
 <use IMAGES/pacf_rate.png>
 Package pdftex.def Info: IMAGES/pacf_rate.png  used on input line 535.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/pacf_sp.png, id=153, 3613.5pt x 2409.0pt>
+<IMAGES/pacf_sp.png, id=149, 3613.5pt x 2409.0pt>
 File: IMAGES/pacf_sp.png Graphic file (type png)
 <use IMAGES/pacf_sp.png>
 Package pdftex.def Info: IMAGES/pacf_sp.png  used on input line 541.
@@ -943,32 +943,32 @@ Package pdftex.def Info: IMAGES/pacf_sp.png  used on input line 541.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<IMAGES/acf_infl.png, id=154, 3613.5pt x 2409.0pt>
+<IMAGES/acf_infl.png, id=150, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_infl.png Graphic file (type png)
 <use IMAGES/acf_infl.png>
 Package pdftex.def Info: IMAGES/acf_infl.png  used on input line 557.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/acf_defl.png, id=155, 3613.5pt x 2409.0pt>
+<IMAGES/acf_defl.png, id=151, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_defl.png Graphic file (type png)
 <use IMAGES/acf_defl.png>
 Package pdftex.def Info: IMAGES/acf_defl.png  used on input line 563.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/acf_gdp.png, id=156, 3613.5pt x 2409.0pt>
+<IMAGES/acf_gdp.png, id=152, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_gdp.png Graphic file (type png)
 <use IMAGES/acf_gdp.png>
 Package pdftex.def Info: IMAGES/acf_gdp.png  used on input line 570.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/acf_dpi.png, id=157, 3613.5pt x 2409.0pt>
+<IMAGES/acf_dpi.png, id=153, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_dpi.png Graphic file (type png)
 <use IMAGES/acf_dpi.png>
 Package pdftex.def Info: IMAGES/acf_dpi.png  used on input line 576.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/acf_rate.png, id=158, 3613.5pt x 2409.0pt>
+<IMAGES/acf_rate.png, id=154, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_rate.png Graphic file (type png)
 <use IMAGES/acf_rate.png>
 Package pdftex.def Info: IMAGES/acf_rate.png  used on input line 583.
 (pdftex.def)             Requested size: 217.89296pt x 145.23216pt.
-<IMAGES/acf_sp.png, id=159, 3613.5pt x 2409.0pt>
+<IMAGES/acf_sp.png, id=155, 3613.5pt x 2409.0pt>
 File: IMAGES/acf_sp.png Graphic file (type png)
 <use IMAGES/acf_sp.png>
 Package pdftex.def Info: IMAGES/acf_sp.png  used on input line 589.
@@ -976,7 +976,13 @@ Package pdftex.def Info: IMAGES/acf_sp.png  used on input line 589.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(./TABLES/all_arma.tex) (./TABLES/ljuung_box.tex [13]) [14 <./IMAGES/pacf_infl.png> <./IMAGES/pacf_defl.png> <./IMAGES/pacf_gdp.png> <./IMAGES/pacf_dpi.png> <./IMAGES/pacf_rate.png> <./IMAGES/pacf_sp.png>] [15 <./IMAGES/acf_infl.png> <./IMAGES/acf_defl.png> <./IMAGES/acf_gdp.png> <./IMAGES/acf_dpi.png> <./IMAGES/acf_rate.png> <./IMAGES/acf_sp.png>] [16] [17] [18] (./TABLES/BIC_arma_infl.tex) (./TABLES/BIC_arma_deflator.tex) (./TABLES/BIC_arma_gdp.tex) (./TABLES/BIC_arma_dpi.tex
+(./TABLES/all_arma.tex) (./TABLES/ljuung_box.tex [13]) [14 <./IMAGES/pacf_infl.png> <./IMAGES/pacf_defl.png> <./IMAGES/pacf_gdp.png> <./IMAGES/pacf_dpi.png> <./IMAGES/pacf_rate.png> <./IMAGES/pacf_sp.png>] [15 <./IMAGES/acf_infl.png> <./IMAGES/acf_defl.png> <./IMAGES/acf_gdp.png> <./IMAGES/acf_dpi.png> <./IMAGES/acf_rate.png> <./IMAGES/acf_sp.png>] [16]
+<IMAGES/coint_test.png, id=193, 578.16pt x 467.7475pt>
+File: IMAGES/coint_test.png Graphic file (type png)
+<use IMAGES/coint_test.png>
+Package pdftex.def Info: IMAGES/coint_test.png  used on input line 670.
+(pdftex.def)             Requested size: 363.15741pt x 293.80458pt.
+ [17 <./IMAGES/coint_test.png>] [18] (./TABLES/BIC_arma_infl.tex) (./TABLES/BIC_arma_deflator.tex) (./TABLES/BIC_arma_gdp.tex) (./TABLES/BIC_arma_dpi.tex
 Overfull \hbox (358.5803pt too wide) in paragraph at lines 7--27
  [][] 
  []
@@ -984,7 +990,7 @@ Overfull \hbox (358.5803pt too wide) in paragraph at lines 7--27
 ) (./TABLES/BIC_arma_rate.tex) (./TABLES/BIC_arma_sp.tex) [19] [20] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 698.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 739.
  (./DataCleaning.py [21] [22]) [23] (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -995,15 +1001,15 @@ File: lstlang3.sty 2020/03/24 1.8d listings language file
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 21.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]) [35] (./FE.aux) ) 
+) [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]) [36] (./FE.aux) ) 
 Here is how much of TeX's memory you used:
- 22771 strings out of 478268
- 369197 string characters out of 5846347
- 1377272 words of memory out of 5000000
- 39808 multiletter control sequences out of 15000+600000
+ 22809 strings out of 478268
+ 369809 string characters out of 5846347
+ 1347137 words of memory out of 5000000
+ 39822 multiletter control sequences out of 15000+600000
  520736 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,117p,1270b,2865s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,117p,1270b,2873s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
 
@@ -1017,10 +1023,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} </Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk>{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qplri.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb>
-Output written on FE.pdf (35 pages, 4155561 bytes).
+Output written on FE.pdf (36 pages, 4266682 bytes).
 PDF statistics:
- 1205 PDF objects out of 1440 (max. 8388607)
- 1100 compressed objects within 11 object streams
- 719 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1233 PDF objects out of 1440 (max. 8388607)
+ 1123 compressed objects within 12 object streams
+ 742 named destinations out of 1000 (max. 500000)
+ 248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1702490126 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702490146
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702490126 37373 803682d6e9559a414973326f3d1b0f49 ""
+["pdflatex"] 1702498576 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702498597
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702498555 40234 328f8a37c086f8f07f4f9c23d07b7f9a ""
   "/Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1684317458 6964 0913ddc31ddbb7d80f5e37a2187263c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
@@ -181,11 +181,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665045549 2826434 0c249a829594b4994ee5844e3e8fa18d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Backup.R" 1702445071 22656 6cd020bfeb2fc7a6209e74c4d0bfa3f0 ""
+  "Backup.R" 1702490576 23303 5a124e14b3a5d5d994308b8420722f54 ""
   "DataCleaning.py" 1702327980 3752 f7b395486053c926bb07b5bbf39bd607 ""
-  "FE.aux" 1702490145 21146 690794258dd23cabf468f5f1f710e654 "pdflatex"
-  "FE.tex" 1702490126 37373 803682d6e9559a414973326f3d1b0f49 ""
-  "FE.toc" 1702490145 3379 9ea771155bbc74eb6514dfdd0332f181 "pdflatex"
+  "FE.aux" 1702498596 20219 8d5f6dcc147d639f8597c424873f6c64 "pdflatex"
+  "FE.tex" 1702498555 40234 328f8a37c086f8f07f4f9c23d07b7f9a ""
+  "FE.toc" 1702498596 3210 3199eba8444b016838e01db0469a60bb "pdflatex"
   "IMAGES/acf_defl.png" 1702396031 206063 6ce1dc789e7b555a1c1702db9c7248fa ""
   "IMAGES/acf_dpi.png" 1702419102 196811 7c77650b459bbe80e0dff9ac2f6d2ee4 ""
   "IMAGES/acf_gdp.png" 1702419102 198077 ecb00e7acb7426e5b6b51856ed13aca6 ""
@@ -193,6 +193,7 @@
   "IMAGES/acf_rate.png" 1702419103 199245 6c2b0544b49a70b7693305a95aa83db5 ""
   "IMAGES/acf_sp.png" 1702419104 199073 aadaa69413b3ce3a95b207ab9fedf475 ""
   "IMAGES/all_decompositions.png" 1702390350 1857918 8a874ae144c37492d715f6e1803cff45 ""
+  "IMAGES/coint_test.png" 1702445060 164228 228a15f98e8e454c4a8ce9f81e3c093e ""
   "IMAGES/pacf_defl.png" 1702396101 198787 56f0b5f8e9357154a6197962420ac283 ""
   "IMAGES/pacf_dpi.png" 1702419124 196929 c69efef30d20de4173550fa29c9e79e3 ""
   "IMAGES/pacf_gdp.png" 1702419123 200943 49620cd658d7da8785abc2e4b31e9b02 ""
