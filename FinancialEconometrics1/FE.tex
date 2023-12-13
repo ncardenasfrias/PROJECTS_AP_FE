@@ -667,7 +667,17 @@ If we do not find a cointegration relationship between the series, we need to mo
 
 \subsection{Cointegration test}
 
-We implement a Johansen Test to infer if our series are co-integrated, results are exhibit in Figure \ref{fig:coint} (we are reqlly sorry, but we did not manage to export the summary table of this test in latex from R). 
+We implement a Johansen Test to infer if our series are co-integrated. 
+
+This test is done sequentially by testing fist if there is $r=0$ cointegration relationships in the system ($H0^{(0)}$), then if there is $r=1$ cointegration relationships in the system ($H0^{(1)}$)... until we test all $r=k$ cointegration relationships where $k$ is the number of series in the sytem, here 3. 
+The implications of the test is that if we find $r=0$, the VAR model needs to be written in deltas and that there is no long-run in the model. 
+If $0<r<k$, we need to use a VECM model as there are cointegrated vectors.
+Finally if $r=k$ the VAR is stationary in levels (we already know it won't be the case from the ADF test). 
+
+Results are exhibit in Figure \ref{fig:coint} (we are really sorry, but we did not manage to export the summary table of this test in latex from R). 
+The easiest way to interpret it is by looking at the first matrix which tests each hypothesis. 
+We easily see that the test statistic 
+for $H0^{(0)}$ is smaller than the critical value at 5\%. We cannot t=reject the null and decide to move forward with a VAR in deltas. 
 
 
 \begin{figure}[h!]
@@ -683,11 +693,11 @@ We implement a Johansen Test to infer if our series are co-integrated, results a
     \subsubsection{Model selection}
 
     \input{TABLES/varorder_level.tex}
-
     \input{TABLES/estim_var_level.tex}
 
-    \subsubsection{Granger causality}
 
+
+    \subsubsection{Granger causality}
 
 \begin{table}[htbp]
     \centering
@@ -704,7 +714,30 @@ We implement a Johansen Test to infer if our series are co-integrated, results a
     \label{tab:granger_results}
 \end{table}
 
+
+
     \subsubsection{Cumulative IRF}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics*[width=0.75\textwidth]{IMAGES/irf_gdp.png}
+    \caption{Cumulative IRF for a shock in GDP}
+    \label{fig:irf_gdp}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics*[width=0.75\textwidth]{IMAGES/irf_rate.png}
+    \caption{Cumulative IRF for a shock in Rate}
+    \label{fig:irf_rate}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics*[width=0.75\textwidth]{IMAGES/irf_sp.png}
+    \caption{Cumulative IRF for a shock in SP500}
+    \label{fig:irf_sp}
+\end{figure}
 
 
 
