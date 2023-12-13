@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1702448585 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702448585
-  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702448565 35611 debf20e1654ade31a1291f3ed69d4c81 ""
+["pdflatex"] 1702490126 "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" "FE.pdf" "FE" 1702490146
+  "/Users/nataliacardenasf/Documents/GitHub/PROJECTS_AP_FE/FinancialEconometrics1/FE.tex" 1702490126 37373 803682d6e9559a414973326f3d1b0f49 ""
   "/Users/nataliacardenasf/Library/texlive/2022/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1684317458 6964 0913ddc31ddbb7d80f5e37a2187263c7 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-rm-sc.enc" 1529098226 2833 c031851b7f0e2c4e3e69543f4fed374f ""
@@ -183,8 +183,9 @@
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "Backup.R" 1702445071 22656 6cd020bfeb2fc7a6209e74c4d0bfa3f0 ""
   "DataCleaning.py" 1702327980 3752 f7b395486053c926bb07b5bbf39bd607 ""
-  "FE.aux" 1702448585 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "FE.tex" 1702448565 35611 debf20e1654ade31a1291f3ed69d4c81 ""
+  "FE.aux" 1702490145 21146 690794258dd23cabf468f5f1f710e654 "pdflatex"
+  "FE.tex" 1702490126 37373 803682d6e9559a414973326f3d1b0f49 ""
+  "FE.toc" 1702490145 3379 9ea771155bbc74eb6514dfdd0332f181 "pdflatex"
   "IMAGES/acf_defl.png" 1702396031 206063 6ce1dc789e7b555a1c1702db9c7248fa ""
   "IMAGES/acf_dpi.png" 1702419102 196811 7c77650b459bbe80e0dff9ac2f6d2ee4 ""
   "IMAGES/acf_gdp.png" 1702419102 198077 ecb00e7acb7426e5b6b51856ed13aca6 ""
@@ -198,6 +199,7 @@
   "IMAGES/pacf_infl.png" 1702396100 197840 5ce3e977aec269b9b82a903728ea85fe ""
   "IMAGES/pacf_rate.png" 1702419125 198320 582f30e73bf006fbdb2e0a239595ee2e ""
   "IMAGES/pacf_sp.png" 1702419125 199387 e7387b9b1c5ea73fa6b047d1d07740eb ""
+  "IMAGES/plot_series.png" 1702488601 608783 247b5d350270084ceb56bb860463c5d9 ""
   "TABLES/BIC_arma_deflator.tex" 1702438478 1576 e54487683f705c280e90ca1ba43608fd ""
   "TABLES/BIC_arma_dpi.tex" 1702420936 3509 36d9dcfb29a6188ef592c7eebe4318d5 ""
   "TABLES/BIC_arma_gdp.tex" 1702420926 1286 e31386b8507835f1f480be79b2af1ea7 ""

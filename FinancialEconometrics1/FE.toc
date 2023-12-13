@@ -1,43 +1,43 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {}Introduction}{2}{Doc-Start}%
-\contentsline {section}{\numberline {1}Series Dynamics}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Data}{2}{subsection.1.1}%
-\contentsline {paragraph}{GDP [GDP]}{2}{subsection.1.1}%
-\contentsline {paragraph}{Real Personal Disposable Income [DSPIC96]}{2}{subsection.1.1}%
-\contentsline {paragraph}{Inflation Expectation [MICH]}{2}{subsection.1.1}%
-\contentsline {paragraph}{GDP deflator [A191RI1Q225SBEA]}{2}{subsection.1.1}%
-\contentsline {paragraph}{FED fund rate [DFF]}{2}{subsection.1.1}%
-\contentsline {paragraph}{S\&P 500 price [SP500]}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Unit root and trends}{3}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}ADF - Test jointly for deterministic and stochastic trend (with drift)}{3}{subsubsection.1.2.1}%
-\contentsline {paragraph}{GDP}{4}{table.caption.2}%
-\contentsline {paragraph}{Disposable personal income}{4}{table.caption.2}%
-\contentsline {paragraph}{Inflation expectation}{4}{table.caption.2}%
-\contentsline {paragraph}{GDP deflator}{4}{table.caption.2}%
-\contentsline {paragraph}{Fed fund rate}{4}{table.caption.2}%
-\contentsline {paragraph}{S\&P500}{5}{table.caption.2}%
-\contentsline {subsubsection}{\numberline {1.2.2}ADF - Test jointly for stochastic trend and drift}{5}{subsubsection.1.2.2}%
-\contentsline {paragraph}{GDP}{5}{table.caption.4}%
-\contentsline {paragraph}{Disposable personal income}{5}{table.caption.4}%
-\contentsline {paragraph}{Fed fund rate}{6}{table.caption.4}%
-\contentsline {paragraph}{S\&P500}{6}{table.caption.4}%
-\contentsline {subsubsection}{\numberline {1.2.3}ADF - Test for stochastic trend only}{6}{subsubsection.1.2.3}%
-\contentsline {paragraph}{GDP}{6}{table.caption.5}%
-\contentsline {paragraph}{Disposable personal income}{6}{table.caption.5}%
-\contentsline {paragraph}{Fed fund rate}{6}{table.caption.5}%
-\contentsline {paragraph}{S\&P500}{6}{table.caption.5}%
-\contentsline {subsubsection}{\numberline {1.2.4}Check stationarity of the series in deltas if UR in levels}{7}{subsubsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.3}Decomposition of the series}{7}{subsection.1.3}%
+\contentsline {section}{\numberline {}Introduction}{3}{Doc-Start}%
+\contentsline {section}{\numberline {1}Series Dynamics}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Data}{3}{subsection.1.1}%
+\contentsline {paragraph}{GDP [GDP]}{3}{subsection.1.1}%
+\contentsline {paragraph}{Real Disposable Personal Income [DSPIC96]}{3}{subsection.1.1}%
+\contentsline {paragraph}{Inflation Expectation [MICH]}{3}{subsection.1.1}%
+\contentsline {paragraph}{GDP deflator [A191RI1Q225SBEA]}{3}{subsection.1.1}%
+\contentsline {paragraph}{FED fund rate [DFF]}{4}{subsection.1.1}%
+\contentsline {paragraph}{S\&P 500 price [SP500]}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Unit root and trends}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}ADF - Test jointly for deterministic and stochastic trend (with drift)}{5}{subsubsection.1.2.1}%
+\contentsline {paragraph}{GDP}{5}{table.caption.3}%
+\contentsline {paragraph}{Disposable personal income}{6}{table.caption.3}%
+\contentsline {paragraph}{Inflation expectation}{6}{table.caption.3}%
+\contentsline {paragraph}{GDP deflator}{6}{table.caption.3}%
+\contentsline {paragraph}{Fed fund rate}{6}{table.caption.3}%
+\contentsline {paragraph}{S\&P500}{6}{table.caption.3}%
+\contentsline {subsubsection}{\numberline {1.2.2}ADF - Test jointly for stochastic trend and drift}{7}{subsubsection.1.2.2}%
+\contentsline {paragraph}{GDP}{7}{table.caption.5}%
+\contentsline {paragraph}{Disposable personal income}{7}{table.caption.5}%
+\contentsline {paragraph}{Fed fund rate}{7}{table.caption.5}%
+\contentsline {paragraph}{S\&P500}{7}{table.caption.5}%
+\contentsline {subsubsection}{\numberline {1.2.3}ADF - Test for stochastic trend only}{8}{subsubsection.1.2.3}%
+\contentsline {paragraph}{GDP}{8}{table.caption.6}%
+\contentsline {paragraph}{Disposable personal income}{8}{table.caption.6}%
+\contentsline {paragraph}{Fed fund rate}{8}{table.caption.6}%
+\contentsline {paragraph}{S\&P500}{8}{table.caption.6}%
+\contentsline {subsubsection}{\numberline {1.2.4}Check stationarity of the series in deltas if UR in levels}{8}{subsubsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.3}Decomposition of the series}{9}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Estimation of the parameters in the stationary series}{9}{subsubsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.4}Cyclical component}{9}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Canonical VAR model application}{15}{section.2}%
-\contentsline {section}{\numberline {3}Cointegration theory}{15}{section.3}%
-\contentsline {section}{\numberline {4}Impulse Response Analysis}{16}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Canonical IRF}{16}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Structural IRF}{16}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Introduce non-linearities}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Markov-switching model}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}STR model}{17}{subsection.5.2}%
-\contentsline {section}{Appendix \numberline {A}Section 1 - Additional tables}{18}{appendix.a.A}%
-\contentsline {section}{Appendix \numberline {B}Code - Data Cleaning}{20}{appendix.a.B}%
-\contentsline {section}{Appendix \numberline {C}Code - Analysis 1}{23}{appendix.a.C}%
+\contentsline {subsection}{\numberline {1.4}Cyclical component}{13}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Canonical VAR model application}{16}{section.2}%
+\contentsline {section}{\numberline {3}Cointegration theory}{16}{section.3}%
+\contentsline {section}{\numberline {4}Impulse Response Analysis}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Canonical IRF}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Structural IRF}{17}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Introduce non-linearities}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Markov-switching model}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}STR model}{18}{subsection.5.2}%
+\contentsline {section}{Appendix \numberline {A}Section 1 - Additional tables}{19}{appendix.a.A}%
+\contentsline {section}{Appendix \numberline {B}Code - Data Cleaning}{21}{appendix.a.B}%
+\contentsline {section}{Appendix \numberline {C}Code - Analysis 1}{24}{appendix.a.C}%

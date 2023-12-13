@@ -121,7 +121,7 @@
 
 
 \section*{Introduction} \addcontentsline{toc}{section}{\protect\numberline{}Introduction}
-\textcolor{blue}{something, probably describe how all applications make sense one after the other and what the research question we could have made ourselves when doing the applications, try to give a coherent look to the whole thing.}
+%\textcolor{blue}{something, probably describe how all applications make sense one after the other and what the research question we could have made ourselves when doing the applications, try to give a coherent look to the whole thing.}
 
 This document compiles all our applications for the Financial Econometrics course. 
 Each section represents a specific application, but we tried to make them coherent across them around a broad question: 
@@ -135,18 +135,28 @@ Each section represents a specific application, but we tried to make them cohere
 \subsection{Data}
 \textcolor{gray}{\emph{Note:} Depending on each exercise along these applications we tried to use different series. We ended up testing more series than those taht we used therefore, this section encompasses more than the 3 series that were asked in the exercise.}
 
-In this work, we focus on the US market.
+In this work, we focus on the US market for the period 1990-2022 using monthly data. 
+This time span allows us to encompass part of the Great Moderation and the last three crisis in the US economy: the dot com bubble, the Great Recession and the COVID crisis. 
+We used monthly data in a hope to catch seasonal dynamics and a richer structure due to the rather high frequency.
 We use the following series retreived for the most part from FRED with its Python API (FRED tickers are in square brakets) : 
 
 \paragraph{GDP [GDP]} %log
+This quaterly series is given by the US Bureau of Economic Analysis measures the US output at market value (nominal series). 
+We apply the log transformation of this series from the get-go so one should consider the unit of the series to be in logs of billions of dollars (seasonally adjusted annual rate). 
+Since the series has originally a quaterly frequency, we interpolate the missing months as midpoints. 
+This implies that we assume that the changes in the series QoQ is equally distributed across all the months. 
 
-\paragraph{Real Personal Disposable Income [DSPIC96]} %log
+
+\paragraph{Real Disposable Personal Income [DSPIC96]} %log
+This monthly series is made public by the US Bureau of Economic Analysis. As for the previous series, we applied the log transformation form the beggining so we consider it to be expressed in logs of billion of chained 2017 dollars\footnote{Unlike teh previous series that was nominal, this is a real measure due to the chained prices.}.
+The series is seasonally adjusted at an annual rate and we called it \texttt{dpi}.
+
 
 
 \paragraph{Inflation Expectation [MICH]}
 This data series is made public by the University of Michigan from their Survey of Consumers. 
 The series represents the median expected value of the percent change in prices over the next year. 
-The series is not seasonally adjusted.
+The series is not seasonally adjusted. We called the series \texttt{infl\_e}
 
 
 \paragraph{GDP deflator [A191RI1Q225SBEA]}  
@@ -154,7 +164,7 @@ As a measure of inflation, we decided to use the implicit price deflator of the 
 Unlike measures like the CPI deflators do not consider baskets of goods and therefore are broader measures of the price changes across the entire economy that measure the ratio of the GDP in value and volume. 
 It is a measure produced by the US Bureau of Economic Analysis as a quarterly measure of percent change QoQ. 
 The raw series is already seasonally adjusted at an annual rate. 
-To get a monthly series, we interpolated the values within the same quarter using midpoints which implies that we assume that each month in a quarter contributes in the same way to the Q0Q change. 
+To get a monthly series, we interpolated the values within the same quarter using midpoints which implies that we assume that each month in a quarter contributes in the same way to the QoQ change. 
 
 %\paragraph{Unemployment rate [UNRATENSA]} It represents the share (in percent) of unemployed people over the labor force \footnote{The labor force data in this context encompasses people older than 16, living in the continental US, who don't reside in institutions like prisons or homes for the aged, and who are not in active duty in the military.}. The source is the 'Current Population Survey (Household Survey)' of the US Bureau of Labor Statistics
 
@@ -164,11 +174,12 @@ Its source is the Board of Governors of the Federal Reserve System and it is a m
 It is the main interest rate in the financial market and influences other interest rates.
 The series is daily and expressed in percent. 
 To have monthly frequency, we took the average of the rate at every month.
+We called this series \texttt{rate} in our analysis.
 
 
 \paragraph{S\&P 500 price [SP500]} %log
-It is the main index in the US stock market and teh series retresents its value at market close.
-Its source is S&P Dow Jones Indices LLC and teh series is daily but the FRED series only has data from 2013. 
+It is the main index in the US stock market and the series retresents its value at market close.
+Its source is S\&P Dow Jones Indices LLC and teh series is daily but the FRED series only has data from 2013. 
 Since our analysis starts in the 1990s we complemented this series with Yahoo Finance's using its API. 
 From the beggining of the analysis, we applied logs to this variable so all the information on its level is actually on the level of its log.
 
@@ -189,6 +200,19 @@ The data's source is ICE Data Indices, and it is a daily series with close price
 It is not seasonally adjusted. 
 \end{comment}
 
+
+The series are plotted in Figure \ref{fig:plot_series}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics*[width =0.9\textwidth]{IMAGES/plot_series.png}
+    \caption{Plots of time series}
+    \label{fig:plot_series}
+    \begin{minipage}{0.9\textwidth}
+        %\footnotesize
+        \small{\emph{Notes}: The GDP, DPI and S\&P500 series are in logs. }
+    \end{minipage}
+\end{figure}
 
 
 
