@@ -663,16 +663,30 @@ We shall recall that all three series of interest in this section i.e. \texttt{s
 We shall test for cointegration among the series to know if we can implement an error correcting version of the VAR models (VECM) that manages to handle and correct the errors induced by the presence of UR in the series with linear combinations of their stochastic trends. 
 If we do not find a cointegration relationship between the series, we need to move to a VAR using the series of first differences that are stationary. 
 
+
+
 \subsection{Cointegration test}
+
+We implement a Johansen Test to infer if our series are co-integrated, results are exhibit in Figure \ref{fig:coint} (we are reqlly sorry, but we did not manage to export the summary table of this test in latex from R). 
+
 
 \begin{figure}[h!]
     \centering
     \includegraphics*[width=0.75\textwidth]{IMAGES/coint_test.png}
     \caption{Cointegration: Johansen test}
+    \label{fig:coint}
 \end{figure}
 
 
+\subsection{VAR of first differences}
 
+    \subsubsection{Model selection}
+
+    \input{TABLES/varorder_level.tex}
+
+    \input{TABLES/estim_var_level.tex}
+
+    \subsubsection{Granger causality}
 
 
 \begin{table}[htbp]
@@ -690,8 +704,14 @@ If we do not find a cointegration relationship between the series, we need to mo
     \label{tab:granger_results}
 \end{table}
 
+    \subsubsection{Cumulative IRF}
 
 
+
+\subsection{Choleski decomposition}
+
+
+\subsection{Conclusion}
 
 
 

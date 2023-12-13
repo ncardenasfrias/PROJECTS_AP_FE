@@ -33,9 +33,15 @@
 \contentsline {section}{\numberline {2}VARs}{16}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Stationarity of the series}{17}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Cointegration test}{17}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Introduce non-linearities}{18}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Markov-switching model}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}STR model}{18}{subsection.3.2}%
-\contentsline {section}{Appendix \numberline {A}Section 1 - Additional tables}{19}{appendix.a.A}%
-\contentsline {section}{Appendix \numberline {B}Code - Data Cleaning}{21}{appendix.a.B}%
-\contentsline {section}{Appendix \numberline {C}Code - Analysis 1}{24}{appendix.a.C}%
+\contentsline {subsection}{\numberline {2.3}VAR of first differences}{18}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Model selection}{18}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Granger causality}{18}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Cumulative IRF}{18}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Choleski decomposition}{18}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Conclusion}{18}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Introduce non-linearities}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Markov-switching model}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}STR model}{20}{subsection.3.2}%
+\contentsline {section}{Appendix \numberline {A}Section 1 - Additional tables}{21}{appendix.a.A}%
+\contentsline {section}{Appendix \numberline {B}Code - Data Cleaning}{23}{appendix.a.B}%
+\contentsline {section}{Appendix \numberline {C}Code - Analysis 1}{26}{appendix.a.C}%
